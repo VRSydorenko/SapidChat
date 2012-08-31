@@ -1,0 +1,685 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F11FEAD159E63DE002F5982 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FEAC159E63DD002F5982 /* Dialog.m */; };
+		7F11FEB3159E658E002F5982 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F11FEB2159E658E002F5982 /* Security.framework */; };
+		7F11FECD159E6865002F5982 /* AmazonKeyChainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FEB6159E6864002F5982 /* AmazonKeyChainWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F11FECE159E6865002F5982 /* AmazonTVMClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FEB8159E6864002F5982 /* AmazonTVMClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F11FECF159E6865002F5982 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FEBA159E6864002F5982 /* Crypto.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F11FED0159E6865002F5982 /* GetTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FEBC159E6864002F5982 /* GetTokenRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F11FED1159E6865002F5982 /* GetTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FEBE159E6864002F5982 /* GetTokenResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F11FED2159E6865002F5982 /* GetTokenResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FEC0159E6864002F5982 /* GetTokenResponseHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F11FED3159E6865002F5982 /* JSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FEC2159E6865002F5982 /* JSONUtilities.m */; };
+		7F11FED4159E6865002F5982 /* RegisterDeviceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FEC4159E6865002F5982 /* RegisterDeviceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F11FED5159E6865002F5982 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FEC6159E6865002F5982 /* Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F11FED6159E6865002F5982 /* RequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FEC8159E6865002F5982 /* RequestDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F11FED7159E6865002F5982 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FECA159E6865002F5982 /* Response.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F11FED8159E6865002F5982 /* ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FECC159E6865002F5982 /* ResponseHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F1A5B9715E56393002BC781 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A5B9615E56393002BC781 /* User.m */; };
+		7F5883E0159E544B00331BB5 /* RegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5883DF159E544B00331BB5 /* RegistrationVC.m */; };
+		7F76ED9315E7FD37007463D7 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */; };
+		7F99594415BF409500A0DE84 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F99594315BF409500A0DE84 /* MainNavController.m */; };
+		7F99594715BF443100A0DE84 /* DialogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F99594615BF443100A0DE84 /* DialogCell.m */; };
+		7FA5F72915D2C04A009F5A96 /* DialogsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5F72815D2C04A009F5A96 /* DialogsVC.m */; };
+		7FAAC65615D035D9009AC87C /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAAC65515D035D9009AC87C /* MessageCell.m */; };
+		7FAF7606159E4FE400D37D7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAF7605159E4FE400D37D7D /* UIKit.framework */; };
+		7FAF7608159E4FE400D37D7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAF7607159E4FE400D37D7D /* Foundation.framework */; };
+		7FAF760A159E4FE400D37D7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAF7609159E4FE400D37D7D /* CoreGraphics.framework */; };
+		7FAF7610159E4FE400D37D7D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF760E159E4FE400D37D7D /* InfoPlist.strings */; };
+		7FAF7612159E4FE400D37D7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAF7611159E4FE400D37D7D /* main.m */; };
+		7FAF7616159E4FE400D37D7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAF7615159E4FE400D37D7D /* AppDelegate.m */; };
+		7FAF7618159E4FE400D37D7D /* SapidChat.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF7617159E4FE400D37D7D /* SapidChat.entitlements */; };
+		7FAF761B159E4FE400D37D7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF7619159E4FE400D37D7D /* Main.storyboard */; };
+		7FAF761E159E4FE400D37D7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAF761D159E4FE400D37D7D /* ViewController.m */; };
+		7FAF7626159E4FE400D37D7D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAF7625159E4FE400D37D7D /* SenTestingKit.framework */; };
+		7FAF7627159E4FE400D37D7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAF7605159E4FE400D37D7D /* UIKit.framework */; };
+		7FAF7628159E4FE400D37D7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAF7607159E4FE400D37D7D /* Foundation.framework */; };
+		7FAF7630159E4FE400D37D7D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF762E159E4FE400D37D7D /* InfoPlist.strings */; };
+		7FAF7633159E4FE500D37D7D /* SapidChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAF7632159E4FE500D37D7D /* SapidChatTests.m */; };
+		7FB3FB9315D9786F00EE91F1 /* SettingsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3FB9215D9786F00EE91F1 /* SettingsTableVC.m */; };
+		7FB3FB9B15D97CF000EE91F1 /* SettingsValuesListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3FB9A15D97CF000EE91F1 /* SettingsValuesListTableVC.m */; };
+		7FBF28B115D2DBAC00F04B99 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF28B015D2DBAC00F04B99 /* MainVC.m */; };
+		7FBF28B515D2DCCA00F04B99 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF28B415D2DCCA00F04B99 /* MainCell.m */; };
+		7FBF622C15D69E9200A34CDB /* MessagesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF622B15D69E9100A34CDB /* MessagesVC.m */; };
+		7FDD2833159E5BA9008E1080 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2830159E5BA9008E1080 /* DataManager.m */; };
+		7FDD2834159E5BA9008E1080 /* DbModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2832159E5BA9008E1080 /* DbModel.m */; };
+		7FDD283A159E5C01008E1080 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2839159E5C01008E1080 /* Message.m */; };
+		7FDD283D159E5CA0008E1080 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD283C159E5CA0008E1080 /* AmazonClientManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7FDD284A159E5F72008E1080 /* DbItemHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2845159E5F72008E1080 /* DbItemHelper.m */; };
+		7FDD284B159E5F72008E1080 /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2847159E5F72008E1080 /* UserSettings.m */; };
+		7FDD284C159E5F72008E1080 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2849159E5F72008E1080 /* Utils.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7FAF7629159E4FE400D37D7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FAF75F8159E4FE300D37D7D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FAF7600159E4FE300D37D7D;
+			remoteInfo = SapidChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7F11FEAB159E63DD002F5982 /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
+		7F11FEAC159E63DD002F5982 /* Dialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
+		7F11FEB2159E658E002F5982 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7F11FEB5159E6864002F5982 /* AmazonKeyChainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonKeyChainWrapper.h; path = TVMClient/AmazonKeyChainWrapper.h; sourceTree = "<group>"; };
+		7F11FEB6159E6864002F5982 /* AmazonKeyChainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmazonKeyChainWrapper.m; path = TVMClient/AmazonKeyChainWrapper.m; sourceTree = "<group>"; };
+		7F11FEB7159E6864002F5982 /* AmazonTVMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonTVMClient.h; path = TVMClient/AmazonTVMClient.h; sourceTree = "<group>"; };
+		7F11FEB8159E6864002F5982 /* AmazonTVMClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmazonTVMClient.m; path = TVMClient/AmazonTVMClient.m; sourceTree = "<group>"; };
+		7F11FEB9159E6864002F5982 /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Crypto.h; path = TVMClient/Crypto.h; sourceTree = "<group>"; };
+		7F11FEBA159E6864002F5982 /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Crypto.m; path = TVMClient/Crypto.m; sourceTree = "<group>"; };
+		7F11FEBB159E6864002F5982 /* GetTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetTokenRequest.h; path = TVMClient/GetTokenRequest.h; sourceTree = "<group>"; };
+		7F11FEBC159E6864002F5982 /* GetTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetTokenRequest.m; path = TVMClient/GetTokenRequest.m; sourceTree = "<group>"; };
+		7F11FEBD159E6864002F5982 /* GetTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetTokenResponse.h; path = TVMClient/GetTokenResponse.h; sourceTree = "<group>"; };
+		7F11FEBE159E6864002F5982 /* GetTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetTokenResponse.m; path = TVMClient/GetTokenResponse.m; sourceTree = "<group>"; };
+		7F11FEBF159E6864002F5982 /* GetTokenResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetTokenResponseHandler.h; path = TVMClient/GetTokenResponseHandler.h; sourceTree = "<group>"; };
+		7F11FEC0159E6864002F5982 /* GetTokenResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetTokenResponseHandler.m; path = TVMClient/GetTokenResponseHandler.m; sourceTree = "<group>"; };
+		7F11FEC1159E6865002F5982 /* JSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONUtilities.h; path = TVMClient/JSONUtilities.h; sourceTree = "<group>"; };
+		7F11FEC2159E6865002F5982 /* JSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONUtilities.m; path = TVMClient/JSONUtilities.m; sourceTree = "<group>"; };
+		7F11FEC3159E6865002F5982 /* RegisterDeviceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterDeviceRequest.h; path = TVMClient/RegisterDeviceRequest.h; sourceTree = "<group>"; };
+		7F11FEC4159E6865002F5982 /* RegisterDeviceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterDeviceRequest.m; path = TVMClient/RegisterDeviceRequest.m; sourceTree = "<group>"; };
+		7F11FEC5159E6865002F5982 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Request.h; path = TVMClient/Request.h; sourceTree = "<group>"; };
+		7F11FEC6159E6865002F5982 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Request.m; path = TVMClient/Request.m; sourceTree = "<group>"; };
+		7F11FEC7159E6865002F5982 /* RequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestDelegate.h; path = TVMClient/RequestDelegate.h; sourceTree = "<group>"; };
+		7F11FEC8159E6865002F5982 /* RequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestDelegate.m; path = TVMClient/RequestDelegate.m; sourceTree = "<group>"; };
+		7F11FEC9159E6865002F5982 /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Response.h; path = TVMClient/Response.h; sourceTree = "<group>"; };
+		7F11FECA159E6865002F5982 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Response.m; path = TVMClient/Response.m; sourceTree = "<group>"; };
+		7F11FECB159E6865002F5982 /* ResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResponseHandler.h; path = TVMClient/ResponseHandler.h; sourceTree = "<group>"; };
+		7F11FECC159E6865002F5982 /* ResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResponseHandler.m; path = TVMClient/ResponseHandler.m; sourceTree = "<group>"; };
+		7F1A5B9515E56393002BC781 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Data/User.h; sourceTree = "<group>"; };
+		7F1A5B9615E56393002BC781 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Data/User.m; sourceTree = "<group>"; };
+		7F5883DE159E544B00331BB5 /* RegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationVC.h; sourceTree = "<group>"; };
+		7F5883DF159E544B00331BB5 /* RegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationVC.m; sourceTree = "<group>"; };
+		7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSiOSSDK.framework; sourceTree = "<group>"; };
+		7F99594215BF409500A0DE84 /* MainNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavController.h; sourceTree = "<group>"; };
+		7F99594315BF409500A0DE84 /* MainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavController.m; sourceTree = "<group>"; };
+		7F99594515BF443100A0DE84 /* DialogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogCell.h; sourceTree = "<group>"; };
+		7F99594615BF443100A0DE84 /* DialogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogCell.m; sourceTree = "<group>"; };
+		7FA5F72715D2C04A009F5A96 /* DialogsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogsVC.h; sourceTree = "<group>"; };
+		7FA5F72815D2C04A009F5A96 /* DialogsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogsVC.m; sourceTree = "<group>"; };
+		7FAAC65415D035D9009AC87C /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		7FAAC65515D035D9009AC87C /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		7FAF7601159E4FE300D37D7D /* SapidChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SapidChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FAF7605159E4FE400D37D7D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7FAF7607159E4FE400D37D7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7FAF7609159E4FE400D37D7D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7FAF760D159E4FE400D37D7D /* SapidChat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SapidChat-Info.plist"; sourceTree = "<group>"; };
+		7FAF760F159E4FE400D37D7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7FAF7611159E4FE400D37D7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7FAF7613159E4FE400D37D7D /* SapidChat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SapidChat-Prefix.pch"; sourceTree = "<group>"; };
+		7FAF7614159E4FE400D37D7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7FAF7615159E4FE400D37D7D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7FAF7617159E4FE400D37D7D /* SapidChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SapidChat.entitlements; sourceTree = "<group>"; };
+		7FAF761A159E4FE400D37D7D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7FAF761C159E4FE400D37D7D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7FAF761D159E4FE400D37D7D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7FAF7624159E4FE400D37D7D /* SapidChatTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SapidChatTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FAF7625159E4FE400D37D7D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		7FAF762D159E4FE400D37D7D /* SapidChatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SapidChatTests-Info.plist"; sourceTree = "<group>"; };
+		7FAF762F159E4FE400D37D7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7FAF7631159E4FE500D37D7D /* SapidChatTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SapidChatTests.h; sourceTree = "<group>"; };
+		7FAF7632159E4FE500D37D7D /* SapidChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SapidChatTests.m; sourceTree = "<group>"; };
+		7FB3FB9115D9786F00EE91F1 /* SettingsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableVC.h; sourceTree = "<group>"; };
+		7FB3FB9215D9786F00EE91F1 /* SettingsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableVC.m; sourceTree = "<group>"; };
+		7FB3FB9915D97CF000EE91F1 /* SettingsValuesListTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsValuesListTableVC.h; sourceTree = "<group>"; };
+		7FB3FB9A15D97CF000EE91F1 /* SettingsValuesListTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsValuesListTableVC.m; sourceTree = "<group>"; };
+		7FBF28AF15D2DBAC00F04B99 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		7FBF28B015D2DBAC00F04B99 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		7FBF28B315D2DCCA00F04B99 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
+		7FBF28B415D2DCCA00F04B99 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
+		7FBF622A15D69E9100A34CDB /* MessagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesVC.h; sourceTree = "<group>"; };
+		7FBF622B15D69E9100A34CDB /* MessagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesVC.m; sourceTree = "<group>"; };
+		7FDD282F159E5BA9008E1080 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = Data/DataManager.h; sourceTree = "<group>"; };
+		7FDD2830159E5BA9008E1080 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = Data/DataManager.m; sourceTree = "<group>"; };
+		7FDD2831159E5BA9008E1080 /* DbModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbModel.h; path = Data/DbModel.h; sourceTree = "<group>"; };
+		7FDD2832159E5BA9008E1080 /* DbModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbModel.m; path = Data/DbModel.m; sourceTree = "<group>"; };
+		7FDD2838159E5C01008E1080 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		7FDD2839159E5C01008E1080 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		7FDD283B159E5CA0008E1080 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
+		7FDD283C159E5CA0008E1080 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
+		7FDD2844159E5F72008E1080 /* DbItemHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DbItemHelper.h; sourceTree = "<group>"; };
+		7FDD2845159E5F72008E1080 /* DbItemHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbItemHelper.m; sourceTree = "<group>"; };
+		7FDD2846159E5F72008E1080 /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
+		7FDD2847159E5F72008E1080 /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
+		7FDD2848159E5F72008E1080 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		7FDD2849159E5F72008E1080 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7FAF75FE159E4FE300D37D7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F11FEB3159E658E002F5982 /* Security.framework in Frameworks */,
+				7FAF7606159E4FE400D37D7D /* UIKit.framework in Frameworks */,
+				7FAF7608159E4FE400D37D7D /* Foundation.framework in Frameworks */,
+				7FAF760A159E4FE400D37D7D /* CoreGraphics.framework in Frameworks */,
+				7F76ED9315E7FD37007463D7 /* AWSiOSSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FAF7620159E4FE400D37D7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAF7626159E4FE400D37D7D /* SenTestingKit.framework in Frameworks */,
+				7FAF7627159E4FE400D37D7D /* UIKit.framework in Frameworks */,
+				7FAF7628159E4FE400D37D7D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7F11FED9159E686E002F5982 /* TVMClient */ = {
+			isa = PBXGroup;
+			children = (
+				7F11FEB5159E6864002F5982 /* AmazonKeyChainWrapper.h */,
+				7F11FEB6159E6864002F5982 /* AmazonKeyChainWrapper.m */,
+				7F11FEB7159E6864002F5982 /* AmazonTVMClient.h */,
+				7F11FEB8159E6864002F5982 /* AmazonTVMClient.m */,
+				7F11FEB9159E6864002F5982 /* Crypto.h */,
+				7F11FEBA159E6864002F5982 /* Crypto.m */,
+				7F11FEBB159E6864002F5982 /* GetTokenRequest.h */,
+				7F11FEBC159E6864002F5982 /* GetTokenRequest.m */,
+				7F11FEBD159E6864002F5982 /* GetTokenResponse.h */,
+				7F11FEBE159E6864002F5982 /* GetTokenResponse.m */,
+				7F11FEBF159E6864002F5982 /* GetTokenResponseHandler.h */,
+				7F11FEC0159E6864002F5982 /* GetTokenResponseHandler.m */,
+				7F11FEC1159E6865002F5982 /* JSONUtilities.h */,
+				7F11FEC2159E6865002F5982 /* JSONUtilities.m */,
+				7F11FEC3159E6865002F5982 /* RegisterDeviceRequest.h */,
+				7F11FEC4159E6865002F5982 /* RegisterDeviceRequest.m */,
+				7F11FEC5159E6865002F5982 /* Request.h */,
+				7F11FEC6159E6865002F5982 /* Request.m */,
+				7F11FEC7159E6865002F5982 /* RequestDelegate.h */,
+				7F11FEC8159E6865002F5982 /* RequestDelegate.m */,
+				7F11FEC9159E6865002F5982 /* Response.h */,
+				7F11FECA159E6865002F5982 /* Response.m */,
+				7F11FECB159E6865002F5982 /* ResponseHandler.h */,
+				7F11FECC159E6865002F5982 /* ResponseHandler.m */,
+			);
+			name = TVMClient;
+			sourceTree = "<group>";
+		};
+		7FAF75F6159E4FE300D37D7D = {
+			isa = PBXGroup;
+			children = (
+				7F11FED9159E686E002F5982 /* TVMClient */,
+				7FDD282B159E58E8008E1080 /* Data */,
+				7FAF760B159E4FE400D37D7D /* SapidChat */,
+				7FAF762B159E4FE400D37D7D /* SapidChatTests */,
+				7FAF7604159E4FE300D37D7D /* Frameworks */,
+				7FAF7602159E4FE300D37D7D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7FAF7602159E4FE300D37D7D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7FAF7601159E4FE300D37D7D /* SapidChat.app */,
+				7FAF7624159E4FE400D37D7D /* SapidChatTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7FAF7604159E4FE300D37D7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */,
+				7F11FEB2159E658E002F5982 /* Security.framework */,
+				7FAF7605159E4FE400D37D7D /* UIKit.framework */,
+				7FAF7607159E4FE400D37D7D /* Foundation.framework */,
+				7FAF7609159E4FE400D37D7D /* CoreGraphics.framework */,
+				7FAF7625159E4FE400D37D7D /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FAF760B159E4FE400D37D7D /* SapidChat */ = {
+			isa = PBXGroup;
+			children = (
+				7FBF622515D69D8800A34CDB /* TableCells */,
+				7FAF761C159E4FE400D37D7D /* ViewController.h */,
+				7FAF761D159E4FE400D37D7D /* ViewController.m */,
+				7FAF7619159E4FE400D37D7D /* Main.storyboard */,
+				7FBF28AF15D2DBAC00F04B99 /* MainVC.h */,
+				7FBF28B015D2DBAC00F04B99 /* MainVC.m */,
+				7F5883DE159E544B00331BB5 /* RegistrationVC.h */,
+				7F5883DF159E544B00331BB5 /* RegistrationVC.m */,
+				7FA5F72715D2C04A009F5A96 /* DialogsVC.h */,
+				7FA5F72815D2C04A009F5A96 /* DialogsVC.m */,
+				7FBF622A15D69E9100A34CDB /* MessagesVC.h */,
+				7FBF622B15D69E9100A34CDB /* MessagesVC.m */,
+				7F99594215BF409500A0DE84 /* MainNavController.h */,
+				7F99594315BF409500A0DE84 /* MainNavController.m */,
+				7FB3FB9115D9786F00EE91F1 /* SettingsTableVC.h */,
+				7FB3FB9215D9786F00EE91F1 /* SettingsTableVC.m */,
+				7FB3FB9915D97CF000EE91F1 /* SettingsValuesListTableVC.h */,
+				7FB3FB9A15D97CF000EE91F1 /* SettingsValuesListTableVC.m */,
+				7FAF760C159E4FE400D37D7D /* Supporting Files */,
+			);
+			path = SapidChat;
+			sourceTree = "<group>";
+		};
+		7FAF760C159E4FE400D37D7D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FAF7614159E4FE400D37D7D /* AppDelegate.h */,
+				7FAF7615159E4FE400D37D7D /* AppDelegate.m */,
+				7FAF760D159E4FE400D37D7D /* SapidChat-Info.plist */,
+				7FAF760E159E4FE400D37D7D /* InfoPlist.strings */,
+				7FAF7611159E4FE400D37D7D /* main.m */,
+				7FAF7613159E4FE400D37D7D /* SapidChat-Prefix.pch */,
+				7FAF7617159E4FE400D37D7D /* SapidChat.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FAF762B159E4FE400D37D7D /* SapidChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				7FAF7631159E4FE500D37D7D /* SapidChatTests.h */,
+				7FAF7632159E4FE500D37D7D /* SapidChatTests.m */,
+				7FAF762C159E4FE400D37D7D /* Supporting Files */,
+			);
+			path = SapidChatTests;
+			sourceTree = "<group>";
+		};
+		7FAF762C159E4FE400D37D7D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FAF762D159E4FE400D37D7D /* SapidChatTests-Info.plist */,
+				7FAF762E159E4FE400D37D7D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FBF622515D69D8800A34CDB /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				7FBF28B315D2DCCA00F04B99 /* MainCell.h */,
+				7FBF28B415D2DCCA00F04B99 /* MainCell.m */,
+				7F99594515BF443100A0DE84 /* DialogCell.h */,
+				7F99594615BF443100A0DE84 /* DialogCell.m */,
+				7FAAC65415D035D9009AC87C /* MessageCell.h */,
+				7FAAC65515D035D9009AC87C /* MessageCell.m */,
+			);
+			name = TableCells;
+			sourceTree = "<group>";
+		};
+		7FDD282B159E58E8008E1080 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7F11FEAB159E63DD002F5982 /* Dialog.h */,
+				7F11FEAC159E63DD002F5982 /* Dialog.m */,
+				7FDD2844159E5F72008E1080 /* DbItemHelper.h */,
+				7FDD2845159E5F72008E1080 /* DbItemHelper.m */,
+				7FDD282F159E5BA9008E1080 /* DataManager.h */,
+				7FDD2830159E5BA9008E1080 /* DataManager.m */,
+				7FDD2846159E5F72008E1080 /* UserSettings.h */,
+				7FDD2847159E5F72008E1080 /* UserSettings.m */,
+				7FDD2848159E5F72008E1080 /* Utils.h */,
+				7FDD2849159E5F72008E1080 /* Utils.m */,
+				7FDD283B159E5CA0008E1080 /* AmazonClientManager.h */,
+				7FDD283C159E5CA0008E1080 /* AmazonClientManager.m */,
+				7FDD2838159E5C01008E1080 /* Message.h */,
+				7FDD2839159E5C01008E1080 /* Message.m */,
+				7FDD2831159E5BA9008E1080 /* DbModel.h */,
+				7FDD2832159E5BA9008E1080 /* DbModel.m */,
+				7F1A5B9515E56393002BC781 /* User.h */,
+				7F1A5B9615E56393002BC781 /* User.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7FAF7600159E4FE300D37D7D /* SapidChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FAF7636159E4FE500D37D7D /* Build configuration list for PBXNativeTarget "SapidChat" */;
+			buildPhases = (
+				7FAF75FD159E4FE300D37D7D /* Sources */,
+				7FAF75FE159E4FE300D37D7D /* Frameworks */,
+				7FAF75FF159E4FE300D37D7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SapidChat;
+			productName = SapidChat;
+			productReference = 7FAF7601159E4FE300D37D7D /* SapidChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7FAF7623159E4FE400D37D7D /* SapidChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FAF7639159E4FE500D37D7D /* Build configuration list for PBXNativeTarget "SapidChatTests" */;
+			buildPhases = (
+				7FAF761F159E4FE400D37D7D /* Sources */,
+				7FAF7620159E4FE400D37D7D /* Frameworks */,
+				7FAF7621159E4FE400D37D7D /* Resources */,
+				7FAF7622159E4FE400D37D7D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7FAF762A159E4FE400D37D7D /* PBXTargetDependency */,
+			);
+			name = SapidChatTests;
+			productName = SapidChatTests;
+			productReference = 7FAF7624159E4FE400D37D7D /* SapidChatTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7FAF75F8159E4FE300D37D7D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Viktor Sydorenko";
+			};
+			buildConfigurationList = 7FAF75FB159E4FE300D37D7D /* Build configuration list for PBXProject "SapidChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7FAF75F6159E4FE300D37D7D;
+			productRefGroup = 7FAF7602159E4FE300D37D7D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7FAF7600159E4FE300D37D7D /* SapidChat */,
+				7FAF7623159E4FE400D37D7D /* SapidChatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7FAF75FF159E4FE300D37D7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAF7610159E4FE400D37D7D /* InfoPlist.strings in Resources */,
+				7FAF7618159E4FE400D37D7D /* SapidChat.entitlements in Resources */,
+				7FAF761B159E4FE400D37D7D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FAF7621159E4FE400D37D7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAF7630159E4FE400D37D7D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7FAF7622159E4FE400D37D7D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7FAF75FD159E4FE300D37D7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAF7612159E4FE400D37D7D /* main.m in Sources */,
+				7FAF7616159E4FE400D37D7D /* AppDelegate.m in Sources */,
+				7FAF761E159E4FE400D37D7D /* ViewController.m in Sources */,
+				7F5883E0159E544B00331BB5 /* RegistrationVC.m in Sources */,
+				7FDD2833159E5BA9008E1080 /* DataManager.m in Sources */,
+				7FDD2834159E5BA9008E1080 /* DbModel.m in Sources */,
+				7FDD283A159E5C01008E1080 /* Message.m in Sources */,
+				7FDD283D159E5CA0008E1080 /* AmazonClientManager.m in Sources */,
+				7FDD284A159E5F72008E1080 /* DbItemHelper.m in Sources */,
+				7FDD284B159E5F72008E1080 /* UserSettings.m in Sources */,
+				7FDD284C159E5F72008E1080 /* Utils.m in Sources */,
+				7F11FEAD159E63DE002F5982 /* Dialog.m in Sources */,
+				7F11FECD159E6865002F5982 /* AmazonKeyChainWrapper.m in Sources */,
+				7F11FECE159E6865002F5982 /* AmazonTVMClient.m in Sources */,
+				7F11FECF159E6865002F5982 /* Crypto.m in Sources */,
+				7F11FED0159E6865002F5982 /* GetTokenRequest.m in Sources */,
+				7F11FED1159E6865002F5982 /* GetTokenResponse.m in Sources */,
+				7F11FED2159E6865002F5982 /* GetTokenResponseHandler.m in Sources */,
+				7F11FED3159E6865002F5982 /* JSONUtilities.m in Sources */,
+				7F11FED4159E6865002F5982 /* RegisterDeviceRequest.m in Sources */,
+				7F11FED5159E6865002F5982 /* Request.m in Sources */,
+				7F11FED6159E6865002F5982 /* RequestDelegate.m in Sources */,
+				7F11FED7159E6865002F5982 /* Response.m in Sources */,
+				7F11FED8159E6865002F5982 /* ResponseHandler.m in Sources */,
+				7F99594415BF409500A0DE84 /* MainNavController.m in Sources */,
+				7F99594715BF443100A0DE84 /* DialogCell.m in Sources */,
+				7FAAC65615D035D9009AC87C /* MessageCell.m in Sources */,
+				7FA5F72915D2C04A009F5A96 /* DialogsVC.m in Sources */,
+				7FBF28B115D2DBAC00F04B99 /* MainVC.m in Sources */,
+				7FBF28B515D2DCCA00F04B99 /* MainCell.m in Sources */,
+				7FBF622C15D69E9200A34CDB /* MessagesVC.m in Sources */,
+				7FB3FB9315D9786F00EE91F1 /* SettingsTableVC.m in Sources */,
+				7FB3FB9B15D97CF000EE91F1 /* SettingsValuesListTableVC.m in Sources */,
+				7F1A5B9715E56393002BC781 /* User.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FAF761F159E4FE400D37D7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAF7633159E4FE500D37D7D /* SapidChatTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7FAF762A159E4FE400D37D7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FAF7600159E4FE300D37D7D /* SapidChat */;
+			targetProxy = 7FAF7629159E4FE400D37D7D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7FAF760E159E4FE400D37D7D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FAF760F159E4FE400D37D7D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7FAF7619159E4FE400D37D7D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FAF761A159E4FE400D37D7D /* en */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7FAF762E159E4FE400D37D7D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FAF762F159E4FE400D37D7D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7FAF7634159E4FE500D37D7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7FAF7635159E4FE500D37D7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7FAF7637159E4FE500D37D7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SapidChat/SapidChat.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SapidChat/SapidChat-Prefix.pch";
+				INFOPLIST_FILE = "SapidChat/SapidChat-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7FAF7638159E4FE500D37D7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SapidChat/SapidChat.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SapidChat/SapidChat-Prefix.pch";
+				INFOPLIST_FILE = "SapidChat/SapidChat-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7FAF763A159E4FE500D37D7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SapidChat.app/SapidChat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SapidChat/SapidChat-Prefix.pch";
+				INFOPLIST_FILE = "SapidChatTests/SapidChatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		7FAF763B159E4FE500D37D7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SapidChat.app/SapidChat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SapidChat/SapidChat-Prefix.pch";
+				INFOPLIST_FILE = "SapidChatTests/SapidChatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7FAF75FB159E4FE300D37D7D /* Build configuration list for PBXProject "SapidChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FAF7634159E4FE500D37D7D /* Debug */,
+				7FAF7635159E4FE500D37D7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FAF7636159E4FE500D37D7D /* Build configuration list for PBXNativeTarget "SapidChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FAF7637159E4FE500D37D7D /* Debug */,
+				7FAF7638159E4FE500D37D7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FAF7639159E4FE500D37D7D /* Build configuration list for PBXNativeTarget "SapidChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FAF763A159E4FE500D37D7D /* Debug */,
+				7FAF763B159E4FE500D37D7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7FAF75F8159E4FE300D37D7D /* Project object */;
+}

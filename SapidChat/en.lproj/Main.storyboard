@@ -245,7 +245,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VRK-XD-yky"/>
-                                    <barButtonItem title="Pick new" id="H7w-ss-68t"/>
+                                    <barButtonItem title="Pick new" id="H7w-ss-68t">
+                                        <connections>
+                                            <action selector="pickPressed:" destination="sb8-cz-GpM" id="ITO-tz-sdO"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -260,6 +264,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="pickButton" destination="H7w-ss-68t" id="ot2-ph-JSq"/>
                         <outlet property="tableDialogs" destination="hDL-sG-y0O" id="6W3-Tc-2MX"/>
                         <segue destination="dDO-1s-p1P" identifier="SegueDialogsToDialog" kind="push" id="4gH-r1-YbD"/>
                     </connections>

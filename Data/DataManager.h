@@ -22,5 +22,6 @@
 +(void) deleteDialog:(Dialog*)dialog;
 +(ErrorCodes) sendMessage:(NSString*) message;
 +(ErrorCodes) sendMessage:(NSString*) message to:(NSString*)collocutor;
++(ErrorCodes) pickNewMessage:(NSString*) me;
 
 @end

@@ -208,10 +208,168 @@
     
     return OK;
 }
+
 +(ErrorCodes) sendMessage:(NSString*) message to:(NSString*)collocutor{
     ErrorCodes result = OK;
     
     return result;
+}
+
++(ErrorCodes) pickNewMessage:(NSString*) me{
+    ErrorCodes result = OK;
+    Message* msg = nil;
+    
+    do {
+        // load new message from bank
+        result = [self getOneMessageFromBank:me message:&msg];
+        if (result != OK){
+            return result;
+        }
+        
+        result = [self deleteOneMessageFromBank:me rangeKey:msg.when/*carefully*/ deletedMessage:&msg];
+        if (result != OK){
+            if (result == SYSTEM_NO_SUCH_MESSAGE){
+                msg = nil; // continue
+            } else {
+                return result;
+            }
+        } else { // deleted OK
+            result = [self updateNewMessageInSenderTable:msg];
+            if (result != OK){
+                return result;
+            }
+            result = [self placeNewMessageToReceived:msg];
+        }
+    } while (!msg);
+    
+    
+    return result;
+}
+
++(ErrorCodes) getOneMessageFromBank:(NSString*)me message:(Message**)pickedUpMsg{
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", ENGLISH]];
+    DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:@"0"];
+    
+    DynamoDBQueryRequest* queryRequest = nil;
+    DynamoDBQueryResponse* queryResponse = nil;
+    
+    DynamoDBCondition* condition = nil;
+    
+    // query one entry from the bank table
+    queryRequest = [[DynamoDBQueryRequest alloc] initWithTableName:DBTABLE_MSGS_BANK andHashKeyValue:hashKeyAttr];
+    queryRequest.limit = [NSNumber numberWithInt:1];
+    
+    do {
+        condition = [[DynamoDBCondition alloc] init];
+        condition.comparisonOperator = @"GT";
+        [condition addAttributeValueList:rangeKeyAttr];
+        queryRequest.rangeKeyCondition = condition;
+        
+        @try {
+            queryResponse = [[AmazonClientManager ddb] query:queryRequest];
+        }
+        @catch (NSException *exception) {
+            return AMAZON_SERVICE_ERROR;
+        }
+        
+        if (!queryResponse){
+            return ERROR;
+        }
+        if (queryResponse.items.count == 0){
+            return NO_MESSAGES_TO_PICKUP;
+        }
+        
+        *pickedUpMsg = [DbItemHelper prepareMessage:[queryResponse.items objectAtIndex:0]];
+        if (![(*pickedUpMsg).from isEqualToString:me]){ // not interested in own messages
+            return OK;
+        } else { // if own message loaded then re-run query with new start point and condition
+            rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", (int)[(*pickedUpMsg).when timeIntervalSinceReferenceDate]]];
+            condition = nil;
+        }
+    } while (!condition); // can be just while(YES)
+}
+
++(ErrorCodes) deleteOneMessageFromBank:(NSString*)me rangeKey:(NSDate*)when deletedMessage:(Message**)deletedMsg{
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", ENGLISH]];
+    DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", (int)[when timeIntervalSinceReferenceDate]]];
+    DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr andRangeKeyElement:rangeKeyAttr];
+    
+    DynamoDBDeleteItemResponse *response = nil;
+    
+    DynamoDBDeleteItemRequest *delRequest = [[DynamoDBDeleteItemRequest alloc] initWithTableName:DBTABLE_MSGS_BANK andKey:key];
+    [delRequest setReturnValues:@"ALL_OLD"];
+    @try{
+        response = [[AmazonClientManager ddb] deleteItem:delRequest];
+    }
+    @catch(NSException *exception){
+        return AMAZON_SERVICE_ERROR;
+    }
+    if (!response){
+        return ERROR;
+    }
+    if (response.attributes.count == 0){
+        return SYSTEM_NO_SUCH_MESSAGE;
+    }
+    *deletedMsg = [DbItemHelper prepareMessage:response.attributes];
+    (*deletedMsg).to = me;
+    
+    return OK;
+}
+
+// me = msg.to
++(ErrorCodes) placeNewMessageToReceived:(Message*)msg{
+    int timestamp = (int)[msg.when timeIntervalSinceReferenceDate];
+    
+    NSMutableDictionary* msgDic = [[NSMutableDictionary alloc] init];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.text] forKey:DBFIELD_MSGS_TEXT];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.from] forKey:DBFIELD_MSGS_FROM];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.to] forKey:DBFIELD_MSGS_TO];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
+    
+    @try {
+        DynamoDBPutItemRequest *request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_MSGS_RECEIVED andItem:msgDic];
+        DynamoDBPutItemResponse *response = [[AmazonClientManager ddb] putItem:request];;
+        if (!response){
+            return ERROR;
+        }
+    }
+    @catch (NSException *exception) {
+        return AMAZON_SERVICE_ERROR;
+    }
+    
+    return OK;
+}
+
+// sender = msg.from
++(ErrorCodes) updateNewMessageInSenderTable:(Message*)msg{
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:msg.from];
+    DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", (int)[msg.when timeIntervalSinceReferenceDate]]];
+    DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr andRangeKeyElement:rangeKeyAttr];
+    
+    DynamoDBAttributeValue *attrValue = [[DynamoDBAttributeValue alloc] initWithS:msg.to];
+    DynamoDBAttributeValueUpdate *attrUpdate = [[DynamoDBAttributeValueUpdate alloc] initWithValue:attrValue andAction:@"PUT"];
+    NSMutableDictionary* updatesDict = [NSMutableDictionary dictionaryWithObject:attrUpdate forKey:DBFIELD_MSGS_TO];
+    
+    DynamoDBUpdateItemRequest *updateRequest = [[DynamoDBUpdateItemRequest alloc] initWithTableName:DBTABLE_MSGS_SENT andKey:key andAttributeUpdates:updatesDict];
+    [updateRequest setReturnValues:@"UPDATED_NEW"];
+    
+    DynamoDBUpdateItemResponse *response = nil;
+    @try {
+        response = [[AmazonClientManager ddb] updateItem:updateRequest];
+    }
+    @catch (NSException *exception) {
+        return AMAZON_SERVICE_ERROR;
+    }
+    if (!response){
+        return ERROR;
+    }
+    if (response.attributes.count == 0){
+        return SYSTEM_NO_SUCH_MESSAGE;
+    }
+    /*if ([response attributesValueForKey:DBFIELD_MSGS_TO].s != msg.to){
+        return ERROR;
+    }*/    
+    return OK;
 }
 
 @end

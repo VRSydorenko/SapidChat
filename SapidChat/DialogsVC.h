@@ -12,7 +12,9 @@
 
 @interface DialogsVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate>
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *pickButton;
 @property (strong, nonatomic) IBOutlet UITableView *tableDialogs;
 - (IBAction)refreshPressed:(id)sender;
+- (IBAction)pickPressed:(id)sender;
 
 @end

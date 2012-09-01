@@ -75,6 +75,7 @@
         case PASSWORD_TOO_SHORT:    return @"Password too short";
         case LOGIN_NOT_SPECIFIED:   return @"Login not specified";
         case TEXT_NOT_SPECIFIED:    return @"The text should not be empty";
+        case NO_MESSAGES_TO_PICKUP: return @"There is no messages to pick up";
         default:
             return @"Unknown error!";
     }

@@ -11,7 +11,8 @@
 
 #define SYS_SAVED_MESSAGES_COUNT @"sys_saved_msgs_count"
 #define SYS_UNREAD_MSGS_COUNT @"sys_unread_msgs_cout"
-#define SYS_LAST_MSG_TIMESTAMP @"sys_last_msg_timestamp"
+#define SYS_LAST_INMSG_TIMESTAMP @"sys_last_inmsg_timestamp"
+#define SYS_LAST_OUTMSG_TIMESTAMP @"sys_last_outmsg_timestamp"
 
 #define DEF_DATEFORMAT @"YYYY.MM.dd"
 #define DEF_TIMEFORMAT @"HH:mm"
@@ -26,8 +27,6 @@
 #define SETTINGS_SAVED_CRED_PASS @"defs_savedPass"
 
 @interface UserSettings : NSObject
-+(NSArray*) getFakeMessagess;
-
 +(NSString*) getDateFormat;
 +(void) setDateFormat:(NSString*)format;
 
@@ -37,7 +36,10 @@
 +(NSString*) getTimeZone;
 +(void) setTimeZone:(NSString*)timezone;
 
-+(int) getLastMsgTimestamp;
++(int) getLastInMsgTimestamp;
++(void) setLastInMsgTimestamp:(int)timestamp;
++(int) getLastOutMsgTimestamp;
++(void) setLastOutMsgTimestamp:(int)timestamp;
 
 +(NSString*) getNickname;
 +(void) setNickname:(NSString*)nick;

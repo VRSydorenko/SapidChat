@@ -22,6 +22,7 @@
 		7F11FED7159E6865002F5982 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FECA159E6865002F5982 /* Response.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F11FED8159E6865002F5982 /* ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FECC159E6865002F5982 /* ResponseHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F1A5B9715E56393002BC781 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A5B9615E56393002BC781 /* User.m */; };
+		7F44FC3715F2267E007C0387 /* ComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F44FC3615F2267E007C0387 /* ComposeVC.m */; };
 		7F5883E0159E544B00331BB5 /* RegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5883DF159E544B00331BB5 /* RegistrationVC.m */; };
 		7F76ED9315E7FD37007463D7 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */; };
 		7F99594415BF409500A0DE84 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F99594315BF409500A0DE84 /* MainNavController.m */; };
@@ -96,6 +97,8 @@
 		7F11FECC159E6865002F5982 /* ResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResponseHandler.m; path = TVMClient/ResponseHandler.m; sourceTree = "<group>"; };
 		7F1A5B9515E56393002BC781 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Data/User.h; sourceTree = "<group>"; };
 		7F1A5B9615E56393002BC781 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Data/User.m; sourceTree = "<group>"; };
+		7F44FC3515F2267E007C0387 /* ComposeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeVC.h; sourceTree = "<group>"; };
+		7F44FC3615F2267E007C0387 /* ComposeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeVC.m; sourceTree = "<group>"; };
 		7F5883DE159E544B00331BB5 /* RegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationVC.h; sourceTree = "<group>"; };
 		7F5883DF159E544B00331BB5 /* RegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationVC.m; sourceTree = "<group>"; };
 		7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSiOSSDK.framework; sourceTree = "<group>"; };
@@ -261,6 +264,8 @@
 				7FBF622B15D69E9100A34CDB /* MessagesVC.m */,
 				7F99594215BF409500A0DE84 /* MainNavController.h */,
 				7F99594315BF409500A0DE84 /* MainNavController.m */,
+				7F44FC3515F2267E007C0387 /* ComposeVC.h */,
+				7F44FC3615F2267E007C0387 /* ComposeVC.m */,
 				7FB3FB9115D9786F00EE91F1 /* SettingsTableVC.h */,
 				7FB3FB9215D9786F00EE91F1 /* SettingsTableVC.m */,
 				7FB3FB9915D97CF000EE91F1 /* SettingsValuesListTableVC.h */,
@@ -483,6 +488,7 @@
 				7FB3FB9315D9786F00EE91F1 /* SettingsTableVC.m in Sources */,
 				7FB3FB9B15D97CF000EE91F1 /* SettingsValuesListTableVC.m in Sources */,
 				7F1A5B9715E56393002BC781 /* User.m in Sources */,
+				7F44FC3715F2267E007C0387 /* ComposeVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

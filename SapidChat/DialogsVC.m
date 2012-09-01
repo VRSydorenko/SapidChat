@@ -12,6 +12,7 @@
 #import "DataManager.h"
 #import "MainNavController.h"
 #import "MessagesVC.h"
+#import "ComposeVC.h"
 
 @interface DialogsVC (){
     MainNavController* navController;
@@ -100,6 +101,10 @@
         MessagesVC* messagesVC = (MessagesVC*)segue.destinationViewController;
         messagesVC.dialog = selectedDialog;
     }
+    if ([segue.identifier isEqualToString:@"SegueDialogsToCompose"]){
+        ComposeVC *composeVC = (ComposeVC*) segue.destinationViewController;
+        composeVC.composeHandler = self;
+    }
 }
 
 
@@ -110,11 +115,16 @@
     
     dispatch_queue_t refreshQueue = dispatch_queue_create("refresh Queue", NULL);
     dispatch_async(refreshQueue, ^{
-        [DataManager getDialogs:navController.me];
+        navController.dialogs = [DataManager getDialogs:navController.me];
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableDialogs reloadData];
             self.navigationItem.rightBarButtonItem = sender;
         });
     });
     dispatch_release(refreshQueue);
+}
+
+-(void) composeCompleted{
+    [self refreshPressed:self.navigationItem.rightBarButtonItem];
 }
 @end

@@ -42,7 +42,7 @@
         }
        
         if ([key isEqualToString: DBFIELD_USERS_BIRTHDAY]){
-            result.birthday = [NSDate dateWithTimeIntervalSince1970:[attrVal.n intValue]];
+            result.birthday = [NSDate dateWithTimeIntervalSince   1970:[attrVal.n intValue]];
         }
         if ([key isEqualToString: DBFIELD_USERS_SEX]){
             result.sex = [attrVal.n intValue];
@@ -70,7 +70,7 @@
             result.to = attrVal.s;
         }
         if ([key isEqualToString: DBFIELD_MSGS_WHEN]){
-            result.when = [NSDate dateWithTimeIntervalSince1970:[attrVal.n intValue]];
+            result.when = [NSDate dateWithTimeIntervalSinceReferenceDate:[attrVal.n intValue]];
         }
         if ([key isEqualToString: DBFIELD_MSGS_FROM]){
             result.from = attrVal.s;

@@ -20,5 +20,7 @@
 +(ErrorCodes)login:(NSString*)email password:(NSString*)password;
 +(NSArray*) getDialogs:(NSString*)user;
 +(void) deleteDialog:(Dialog*)dialog;
++(ErrorCodes) sendMessage:(NSString*) message;
++(ErrorCodes) sendMessage:(NSString*) message to:(NSString*)collocutor;
 
 @end

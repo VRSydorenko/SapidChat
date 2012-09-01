@@ -19,7 +19,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *textEmail;
 @property (strong, nonatomic) IBOutlet UITextField *textPassword;
 @property (strong, nonatomic) IBOutlet UILabel *labelServiceMessage;
-@property (strong, nonatomic) IBOutlet UISwitch *switchSave;
 - (IBAction)registerPressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;

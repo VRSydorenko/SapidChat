@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ComposeVC.h"
 
-@interface DialogsVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+@interface DialogsVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableDialogs;
 - (IBAction)refreshPressed:(id)sender;
+
 @end

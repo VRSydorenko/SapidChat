@@ -46,15 +46,26 @@
     [[NSUserDefaults standardUserDefaults] setValue:timezone forKey:SETTINGS_TIMEZONE];
 }
 
-+(int) getLastMsgTimestamp{
-    NSString* stringTimestamp =  (NSString*)[[NSUserDefaults standardUserDefaults] objectForKey:SYS_LAST_MSG_TIMESTAMP];
++(int) getLastInMsgTimestamp{
+    NSString* stringTimestamp =  (NSString*)[[NSUserDefaults standardUserDefaults] objectForKey:SYS_LAST_INMSG_TIMESTAMP];
     if (!stringTimestamp){
         return 0;
     }
     return [stringTimestamp intValue];
 }
-+(void) setLastMsgTimestamp:(int)count{
-    [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%d", count] forKey:SYS_LAST_MSG_TIMESTAMP];
++(void) setLastInMsgTimestamp:(int)timestamp{
+    [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%d", timestamp] forKey:SYS_LAST_INMSG_TIMESTAMP];
+}
+
++(int) getLastOutMsgTimestamp{
+    NSString* stringTimestamp =  (NSString*)[[NSUserDefaults standardUserDefaults] objectForKey:SYS_LAST_OUTMSG_TIMESTAMP];
+    if (!stringTimestamp){
+        return 0;
+    }
+    return [stringTimestamp intValue];
+}
++(void) setLastOutMsgTimestamp:(int)timestamp{
+    [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%d", timestamp] forKey:SYS_LAST_OUTMSG_TIMESTAMP];
 }
 
 +(NSString*) getNickname{
@@ -70,7 +81,7 @@
 }
 
 + (BOOL) getSaveCredentials{
-    return (BOOL)[[NSUserDefaults standardUserDefaults] objectForKey:SETTINGS_SAVECREDENTIALS];
+    return (BOOL)[[NSUserDefaults standardUserDefaults] boolForKey:SETTINGS_SAVECREDENTIALS];
 }
 + (void) setSaveCredentials:(BOOL)save{
     [[NSUserDefaults standardUserDefaults] setBool:save forKey:SETTINGS_SAVECREDENTIALS];
@@ -141,15 +152,17 @@
     [self setSavedMessagesCount:newMessageNumber]; // update messages count
     
     if (yes){
-        [self setLastMsgTimestamp:[message.when timeIntervalSince1970]]; // save last mesage time
+        [self setLastInMsgTimestamp:[message.when timeIntervalSinceReferenceDate]]; // save last IN mesage time
         [self setUnreadMessagesCount:[self getUnreadMessagesCount] + 1]; // update unread messages count
         [self incrementUnreadMessagesCountForCollocutor:message.from];
+    } else {
+        [self setLastOutMsgTimestamp:[message.when timeIntervalSinceReferenceDate]]; // save last OUT mesage time
     }
 }
 
 +(void)saveMessage:(Message*)message inSlot:(int)slot{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setDouble:[message.when timeIntervalSince1970] forKey:[NSString stringWithFormat:@"MSG_WHEN%d", slot]];
+    [defaults setDouble:[message.when timeIntervalSinceReferenceDate] forKey:[NSString stringWithFormat:@"MSG_WHEN%d", slot]];
     [defaults setValue:message.from forKey:[NSString stringWithFormat:@"MSG_FROM%d", slot]];
     [defaults setValue:message.to forKey:[NSString stringWithFormat:@"MSG_TO%d", slot]];
     [defaults setValue:message.text forKey:[NSString stringWithFormat:@"MSG_TEXT%d", slot]];
@@ -162,7 +175,7 @@
     NSString* whenString = (NSString*)[defaults objectForKey:whenKey];
     if (whenString){
         message = [[Message alloc] init];
-        message.when = [NSDate dateWithTimeIntervalSince1970:[whenString intValue]];
+        message.when = [NSDate dateWithTimeIntervalSinceReferenceDate:[whenString intValue]];
         NSString* fromKey = (NSString*)[NSString stringWithFormat:@"MSG_FROM%d", slot];
         message.from = [defaults objectForKey:fromKey];
         NSString* toKey = (NSString*)[NSString stringWithFormat:@"MSG_TO%d", slot];
@@ -179,7 +192,7 @@
     for (int msgIndex=1; msgIndex<=[self getSavedMessagesCount]; msgIndex++) {
         NSString* whenKey = [NSString stringWithFormat:@"MSG_WHEN%d", msgIndex];
         NSTimeInterval whenInterval = (NSTimeInterval)[defaults doubleForKey:whenKey];
-        if (whenInterval == [message.when timeIntervalSince1970]){
+        if (whenInterval == [message.when timeIntervalSinceReferenceDate]){
             [self deleteMessageInSlot:msgIndex];
             [self setSavedMessagesCount:[self getSavedMessagesCount] - 1]; // update messages count
             [self moveLastMessageToSlot:msgIndex]; // fill the gap with the last message
@@ -215,82 +228,6 @@
 }
 +(void) setSavedMessagesCount:(int)count{
     [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%d", count] forKey:SYS_SAVED_MESSAGES_COUNT];
-}
-
-BOOL f = NO;
-+(NSArray*) getFakeMessagess{
-    
-    NSMutableArray* messages = [[NSMutableArray alloc] init];
-    
-    if (f) {
-        return messages;
-    }
-    f = YES;
-    // creating fake dialogs
-    Message *m = [[Message alloc] init];
-    m.from = @"me@mail.ru";
-    m.when = [NSDate dateWithTimeIntervalSince1970:3000];
-    m.to = @"collocutor@mail.ru";
-    m.text = @"Yes! i am! :)";
-    [messages addObject:m];
-    
-    m = [[Message alloc] init];
-    m.from = @"me@mail.ru";
-    m.when = [NSDate dateWithTimeIntervalSince1970:3500];
-    m.to = @"collocutor@mail.ru";
-    m.text = @"How do you do?\nTell me something!\nThis is the third string in that message and I am trying to achieev automatic alignment of the text within one text field!\nYeah!";
-    [messages addObject:m];
-    
-    m = [[Message alloc] init];
-    m.from = @"collocutor@mail.ru";
-    m.when = [NSDate dateWithTimeIntervalSince1970:1515500];
-    m.to = @"me@mail.ru";
-    m.text = @"Two";
-    [messages addObject:m];
-    
-    m = [[Message alloc] init];
-    m.from = @"collocutor@mail.ru";
-    m.when = [NSDate dateWithTimeIntervalSince1970:1000];
-    m.to = @"me@mail.ru";
-    m.text = @"One";
-    [messages addObject:m];
-    
-    m = [[Message alloc] init];
-    m.from = @"collocutor@mail.ru";
-    m.when = [NSDate dateWithTimeIntervalSince1970:11000];
-    m.to = @"me@mail.ru";
-    m.text = @"two two";
-    [messages addObject:m];
-    
-    m = [[Message alloc] init];
-    m.from = @"second@mail.ru";
-    m.when = [NSDate dateWithTimeIntervalSince1970:1415500];
-    m.to = @"me@mail.ru";
-    m.text = @"Four";
-    [messages addObject:m];
-    
-    m = [[Message alloc] init];
-    m.from = @"second@mail.ru";
-    m.when = [NSDate dateWithTimeIntervalSince1970:1500];
-    m.to = @"me@mail.ru";
-    m.text = @"Three";
-    [messages addObject:m];
-    
-    m = [[Message alloc] init];
-    m.from = @"me@mail.ru";
-    m.when = [NSDate dateWithTimeIntervalSince1970:4000];
-    m.to = @"Waiting for reply...";
-    m.text = @"Hi one more time!";
-    [messages addObject:m];
-    
-    m = [[Message alloc] init];
-    m.from = @"me@mail.ru";
-    m.when = [NSDate dateWithTimeIntervalSince1970:2000];
-    m.to = @"Waiting for reply...";
-    m.text = @"Hi from Viktor";
-    [messages addObject:m];
-    //-------------------------------
-    return messages;
 }
 
 @end

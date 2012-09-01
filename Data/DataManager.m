@@ -89,6 +89,8 @@
     } else {
         return emailvalidation;
     }
+    [UserSettings setEmail:email];
+    [UserSettings setPassword:password];
     return OK;
 }
 
@@ -108,7 +110,7 @@
     // load and save new messages
     NSMutableArray* messages = [[NSMutableArray alloc] initWithArray:[self loadNewMessages:user]];
     for (Message* newMsg in messages) {
-        [UserSettings saveMessage:newMsg isNewIncome:YES];
+        [UserSettings saveMessage:newMsg isNewIncome:[user isEqualToString:newMsg.to]];
     }
     
     // return messages from the local store
@@ -119,19 +121,24 @@
     NSMutableArray* messages = [[NSMutableArray alloc] init];
     
     DynamoDBAttributeValue* hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:user];
-    DynamoDBAttributeValue* rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", [UserSettings getLastMsgTimestamp]]];
+    DynamoDBAttributeValue* rangeKeyAttrIncome = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", [UserSettings getLastInMsgTimestamp]]];
+    DynamoDBAttributeValue* rangeKeyAttrOutgoing = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", [UserSettings getLastOutMsgTimestamp]]];
     
     DynamoDBQueryRequest* request;
     DynamoDBQueryResponse* response = nil;
         
-    DynamoDBCondition* condition = [[DynamoDBCondition alloc] init];
-    condition.comparisonOperator = @"GT";
-    [condition addAttributeValueList:rangeKeyAttr];
+    DynamoDBCondition* conditionIn = [[DynamoDBCondition alloc] init];
+    conditionIn.comparisonOperator = @"GT";
+    [conditionIn addAttributeValueList:rangeKeyAttrIncome];
+    
+    DynamoDBCondition* conditionOut = [[DynamoDBCondition alloc] init];
+    conditionOut.comparisonOperator = @"GT";
+    [conditionOut addAttributeValueList:rangeKeyAttrOutgoing];
     
     @try {
         // sent messages
         request  = [[DynamoDBQueryRequest alloc] initWithTableName:DBTABLE_MSGS_SENT andHashKeyValue:hashKeyAttr];
-        request.rangeKeyCondition = condition;
+        request.rangeKeyCondition = conditionOut;
         response = [[AmazonClientManager ddb] query:request];
         if (response){
             for (NSDictionary* item in response.items) {
@@ -142,7 +149,7 @@
      
         // received messages
         request  = [[DynamoDBQueryRequest alloc] initWithTableName:DBTABLE_MSGS_RECEIVED andHashKeyValue:hashKeyAttr];
-        request.rangeKeyCondition = condition;
+        request.rangeKeyCondition = conditionIn;
         response = [[AmazonClientManager ddb] query:request];
         if (response){
             for (NSDictionary* item in response.items) {
@@ -153,12 +160,58 @@
     @catch (NSException *exception) {
         NSLog(@"SapidChat :: Exception getting dialogs: %@", exception);
     }
-    //return [UserSettings getFakeMessages];
     return messages;
 }
 
 +(NSArray*)loadSavedMessages{
     return [UserSettings getMessages];
+}
+
++(ErrorCodes) sendMessage:(NSString*) msgText{
+    if (msgText.length == 0){
+        return TEXT_NOT_SPECIFIED;
+    }
+    
+    int timestamp = (int)[NSDate timeIntervalSinceReferenceDate];
+    
+    NSMutableDictionary* msgDic = [[NSMutableDictionary alloc] init];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msgText] forKey:DBFIELD_MSGS_TEXT];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[UserSettings getEmail]] forKey:DBFIELD_MSGS_FROM];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
+    
+    // TODO: do it in a batch!
+    @try {
+        // add to sent messages table
+        DynamoDBPutItemRequest *request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_MSGS_SENT andItem:msgDic];
+        DynamoDBPutItemResponse *response = nil;
+        
+        response = [[AmazonClientManager ddb] putItem:request];
+        if (!response){
+            return AMAZON_SERVICE_ERROR;
+        }
+        response = nil;
+        
+        // add to the bank table
+        [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", ENGLISH]] forKey:DBFIELD_MSGS_BANK_LANG];
+        
+        request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_MSGS_BANK andItem:msgDic];
+        
+        response = [[AmazonClientManager ddb] putItem:request];
+        if (!response){
+            return AMAZON_SERVICE_ERROR;
+        }
+    }
+    @catch (NSException *exception) {
+        return AMAZON_SERVICE_ERROR;
+    }
+
+    
+    return OK;
+}
++(ErrorCodes) sendMessage:(NSString*) message to:(NSString*)collocutor{
+    ErrorCodes result = OK;
+    
+    return result;
 }
 
 @end

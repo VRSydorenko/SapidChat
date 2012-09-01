@@ -21,10 +21,25 @@ typedef enum ErrorCodes{
     AMAZON_SERVICE_ERROR = 7,
     PASSWORD_TOO_SHORT = 8,
     LOGIN_NOT_SPECIFIED = 9,
+    TEXT_NOT_SPECIFIED = 10,
 } ErrorCodes;
 
-// database
+typedef enum Languages{ // !!! Don't chane the numbers !!!
+    ARABIC      = 0,
+    CHINESE     = 1,
+    ENGLISH     = 2,
+    FRENCH      = 3,
+    GERMAN      = 4,
+    HINDI       = 5,
+    ITALIAN     = 6,
+    JAPANESE    = 7,
+    KOREAN      = 8,
+    PORTUGESE   = 9,
+    RUSSIAN     = 10,
+    SPANISH     = 11,
+} Languages;
 
+// database
 
 #define DBTABLE_USERS @"t_users"
 #define DBFIELD_USERS_EMAIL @"email"
@@ -33,6 +48,8 @@ typedef enum ErrorCodes{
 
 #define DBTABLE_MSGS_SENT @"t_msgs_sent"
 #define DBTABLE_MSGS_RECEIVED @"t_msgs_received"
+
+// common message related fields
 #define DBFIELD_MSGS_FROM @"from"
 #define DBFIELD_MSGS_TO @"to"
 #define DBFIELD_MSGS_WHEN @"when"
@@ -40,9 +57,9 @@ typedef enum ErrorCodes{
 
 #define DBTABLE_MSGS_BANK @"t_msgs_bank"
 #define DBFIELD_MSGS_BANK_LANG @"lang"
-#define DBFIELD_MSGS_BANK_WHEN @"when"
-#define DBFIELD_MSGS_BANK_FROM @"from"
-#define DBFIELD_MSGS_BANK_TEXT @"text"
+// to
+// from
+// when
 
 @interface DbModel : NSObject
 

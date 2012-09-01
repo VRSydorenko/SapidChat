@@ -74,6 +74,7 @@
         case AMAZON_SERVICE_ERROR:  return @"Database service error";
         case PASSWORD_TOO_SHORT:    return @"Password too short";
         case LOGIN_NOT_SPECIFIED:   return @"Login not specified";
+        case TEXT_NOT_SPECIFIED:    return @"The text should not be empty";
         default:
             return @"Unknown error!";
     }

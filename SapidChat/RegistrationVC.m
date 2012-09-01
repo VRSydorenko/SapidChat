@@ -22,7 +22,6 @@
 @synthesize textEmail;
 @synthesize textPassword;
 @synthesize labelServiceMessage;
-@synthesize switchSave;
 
 -(void) viewDidLoad{
     [super viewDidLoad];
@@ -33,7 +32,6 @@
 {
     [self setTextEmail:nil];
     [self setTextPassword:nil];
-    [self setSwitchSave:nil];
     [self setLabelServiceMessage:nil];
     [self setActivityIndicator:nil];
     [super viewDidUnload];
@@ -61,9 +59,6 @@
         ErrorCodes registered = [self registerUser];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (registered == OK){
-                [UserSettings setEmail:self.textEmail.text];
-                [UserSettings setPassword:self.textPassword.text];
-                [UserSettings setSaveCredentials:self.switchSave.on];
                 [registrationHandler registrationCompleted:self.textEmail.text pass:self.textPassword.text];
                 [self dismissModalViewControllerAnimated:YES];
             } else {

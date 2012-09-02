@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     
-    boundingSize = CGSizeMake(265, CGFLOAT_MAX); // 265 is the width of the message's UILabel
+    boundingSize = CGSizeMake(240, CGFLOAT_MAX); // 240 is the width of the message's UILabel
     messageFont = [UIFont fontWithName:@"Helvetica" size:FONT_MSG_SIZE];
     
     [self updateMessages];

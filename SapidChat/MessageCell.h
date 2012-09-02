@@ -10,6 +10,7 @@
 
 @interface MessageCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UIView *viewBackground;
 @property (strong, nonatomic) IBOutlet UILabel *labelMessage;
 @property (strong, nonatomic) IBOutlet UILabel *labelTime;
 

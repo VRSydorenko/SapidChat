@@ -17,4 +17,9 @@
 +(NSString*) dateToString:(NSDate*)dateTime;
 +(NSString*) timeToString:(NSDate*)dateTime;
 
++(NSString*) getSettingsKeyWHEN:(int)slot;
++(NSString*) getSettingsKeyTO:(int)slot;
++(NSString*) getSettingsKeyFROM:(int)slot;
++(NSString*) getSettingsKeyTEXT:(int)slot;
+
 @end

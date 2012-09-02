@@ -361,20 +361,27 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="my message text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="vW4-dS-fqG">
-                                                    <rect key="frame" x="52" y="3" width="265" height="54"/>
+                                                <view contentMode="scaleToFill" id="P5y-Yb-abV">
+                                                    <rect key="frame" x="50" y="3" width="262" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="my message text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="vW4-dS-fqG">
+                                                            <rect key="frame" x="11" y="5" width="240" height="46"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </label>
+                                                    </subviews>
                                                     <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
                                             <outlet property="labelMessage" destination="vW4-dS-fqG" id="Bxg-Ky-tvC"/>
                                             <outlet property="labelTime" destination="o3v-dx-JoT" id="DHw-Ke-X9b"/>
+                                            <outlet property="viewBackground" destination="P5y-Yb-abV" id="h0S-Xc-AyI"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MessageCellCollocutor" rowHeight="60" id="Lem-a8-Vr0" customClass="MessageCell">
@@ -391,20 +398,27 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="collocutor message text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="LRu-3O-xR0">
-                                                    <rect key="frame" x="3" y="3" width="265" height="54"/>
+                                                <view contentMode="scaleToFill" id="f17-j9-mpE">
+                                                    <rect key="frame" x="7" y="2" width="262" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" red="0.99215692280000001" green="1" blue="0.7019608021" alpha="1" colorSpace="deviceRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="collocutor message text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="LRu-3O-xR0">
+                                                            <rect key="frame" x="11" y="3" width="240" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.99215692280000001" green="1" blue="0.7019608021" alpha="0.5" colorSpace="deviceRGB"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
                                             <outlet property="labelMessage" destination="LRu-3O-xR0" id="YXB-sn-zlq"/>
                                             <outlet property="labelTime" destination="IvP-Kt-7jO" id="h22-zf-N5j"/>
+                                            <outlet property="viewBackground" destination="f17-j9-mpE" id="vwG-5x-MxN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -767,6 +781,99 @@
             <point key="canvasLocation" x="-21" y="84"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ComposeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ComposeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelPressed:"/>
+                <relationship kind="action" name="sendPressed:"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="textMessage" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="DialogCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DialogCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="infoMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelCollocutor" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DialogsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DialogsVC.h"/>
+            <relationships>
+                <relationship kind="action" name="pickPressed:"/>
+                <relationship kind="action" name="refreshPressed:"/>
+                <relationship kind="outlet" name="pickButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="tableDialogs" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MainCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="labelMessagesInfoMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MainNavController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavController.h"/>
+        </class>
+        <class className="MainVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainVC.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="tableMain" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MessageCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="labelMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTime" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="viewBackground" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="MessagesVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessagesVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tabelMessages" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="RegistrationVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationVC.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelPressed:"/>
+                <relationship kind="action" name="registerPressed:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="labelServiceMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textPassword" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SettingsTableVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsTableVC.h"/>
+            <relationships>
+                <relationship kind="action" name="switchSaveCreds:" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="labelDateFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelNickname" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTimeFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTimeZone" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="switchSaveCreds" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="SettingsValuesListTableVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsValuesListTableVC.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goPressed:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="labelServiceMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textPassword" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

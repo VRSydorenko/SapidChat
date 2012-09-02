@@ -91,4 +91,17 @@
     return [formatter stringFromDate:dateTime];
 }
 
++(NSString*) getSettingsKeyWHEN:(int)slot{
+    return [NSString stringWithFormat:@"%@_MSG_WHEN%d", [UserSettings getEmail], slot];
+}
++(NSString*) getSettingsKeyFROM:(int)slot{
+    return [NSString stringWithFormat:@"%@_MSG_FROM%d", [UserSettings getEmail], slot];
+}
++(NSString*) getSettingsKeyTO:(int)slot{
+    return [NSString stringWithFormat:@"%@_MSG_TO%d", [UserSettings getEmail], slot];
+}
++(NSString*) getSettingsKeyTEXT:(int)slot{
+    return [NSString stringWithFormat:@"%@_MSG_TEXT%d", [UserSettings getEmail], slot];
+}
+
 @end

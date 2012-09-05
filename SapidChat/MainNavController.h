@@ -10,7 +10,6 @@
 
 @interface MainNavController : UINavigationController
 
-@property NSString* me;
 @property NSArray* dialogs;
 @property NSDate* lastUpdate;
 

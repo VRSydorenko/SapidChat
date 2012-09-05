@@ -138,7 +138,7 @@
 
 // data operations
 
-+(NSArray*) getMessages{
++(NSArray*) getSavedMessages{
     NSMutableArray* messages = [[NSMutableArray alloc] init];
     for (int msgIndex = 1; YES; msgIndex++) { // starts from 1!
         Message* msg = [self getMessageFromSlot:msgIndex];
@@ -160,8 +160,28 @@
         [self setLastInMsgTimestamp:[message.when timeIntervalSinceReferenceDate]]; // save last IN mesage time
         [self setUnreadMessagesCount:[self getUnreadMessagesCount] + 1]; // update unread messages count
         [self incrementUnreadMessagesCountForCollocutor:message.from];
+        if (message.initial_message_global_timestamp > 0){
+            [self updateCollocutor:message.from ofExistingMessage:message.initial_message_global_timestamp];
+        }
     } else {
         [self setLastOutMsgTimestamp:[message.when timeIntervalSinceReferenceDate]]; // save last OUT mesage time
+    }
+}
+
++(void)updateCollocutor:(NSString*)collocutor ofExistingMessage:(int)globalInitialMessagesTimestamp{
+    for (int ndx = 1; YES; ndx++) {
+        Message* msg = [self getMessageFromSlot:ndx];
+        if (!msg){
+            break;
+        }
+        if (![msg.to isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR]){
+            continue;
+        }
+        if ([msg.when timeIntervalSinceReferenceDate] == globalInitialMessagesTimestamp){
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue:collocutor forKey:[Utils getSettingsKeyTO:ndx]];
+            break;
+        }
     }
 }
 

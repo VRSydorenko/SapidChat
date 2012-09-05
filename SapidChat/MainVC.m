@@ -34,7 +34,7 @@
 {
     [super viewDidLoad];
     navController = (MainNavController*)self.navigationController;
-    [DataManager getDialogs:navController.me];
+    [DataManager getDialogs];
     self.tableMain.dataSource = self;
     self.tableMain.delegate = self;
 }
@@ -111,12 +111,9 @@
     
     dispatch_queue_t refreshQueue = dispatch_queue_create("refresh Queue", NULL);
     dispatch_async(refreshQueue, ^{
-        int oldCount = navController.dialogs.count;
-        navController.dialogs = [DataManager getDialogs:navController.me];
+        navController.dialogs = [DataManager getDialogs];
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (navController.dialogs.count != oldCount){
-                [self.tableMain reloadData];
-            }
+            [self.tableMain reloadData];
             self.navigationItem.rightBarButtonItem = sender;
         });
     });

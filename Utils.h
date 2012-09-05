@@ -12,10 +12,12 @@
 @interface Utils : NSObject
 
 +(ErrorCodes) validateEmail:(NSString*)email;
-+(NSArray*) buildDialogsOfUser:(NSString*)user msgs:(NSArray*)messages;
++(NSArray*) buildDialogsOfMsgs:(NSArray*)messages;
 +(NSString*) getErrorDescription:(ErrorCodes)error;
 +(NSString*) dateToString:(NSDate*)dateTime;
 +(NSString*) timeToString:(NSDate*)dateTime;
++(NSDate*)toLocalTime:(NSDate*)date;
++(NSDate*)toGlobalTime:(NSDate*)date;
 
 +(NSString*) getSettingsKeyWHEN:(int)slot;
 +(NSString*) getSettingsKeyTO:(int)slot;

@@ -12,6 +12,7 @@
 #import "Message.h"
 #import "DataManager.h"
 #import "Data/User.h"
+#import "Utils.h"
 
 @implementation DbItemHelper
 
@@ -78,11 +79,14 @@
         if ([key isEqualToString: DBFIELD_MSGS_TEXT]){
             result.text = attrVal.s;
         }
+        if ([key isEqualToString: DBFIELD_MSGS_INITIAL_MSG]){
+            result.initial_message_global_timestamp = [attrVal.n intValue];
+        }
     }
     
     // if message has been waiting for reply so collocutor will be: "Waits for reply..."
     if (result.to.length == 0){
-        result.to = @"Waits for reply...";
+        result.to = SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR;
     }
     
     return result;

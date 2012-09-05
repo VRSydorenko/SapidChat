@@ -18,10 +18,11 @@
 +(BOOL) existsUserWithEmail:(NSString*)email;
 +(ErrorCodes) registerNewUser:(NSString*)user password:(NSString*)password;
 +(ErrorCodes)login:(NSString*)email password:(NSString*)password;
-+(NSArray*) getDialogs:(NSString*)user;
+
++(NSArray*) getDialogs;
 +(void) deleteDialog:(Dialog*)dialog;
-+(ErrorCodes) sendMessage:(NSString*) message;
-+(ErrorCodes) sendMessage:(NSString*) message to:(NSString*)collocutor;
+
++(ErrorCodes)sendMessage:(Message*)message;
 +(ErrorCodes) pickNewMessage:(NSString*) me;
 
 @end

@@ -15,7 +15,6 @@
 
 @implementation MainNavController
 
-@synthesize me = _me;
 @synthesize dialogs = _dialogs;
 @synthesize lastUpdate = _lastUpdate;
 

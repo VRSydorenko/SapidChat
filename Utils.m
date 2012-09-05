@@ -24,7 +24,8 @@
     return [emailTest evaluateWithObject:email] ? OK : INVALID_EMAIL;
 }
 
-+(NSArray*) buildDialogsOfUser:(NSString*)user msgs:(NSArray*)messages{
++(NSArray*) buildDialogsOfMsgs:(NSArray*)messages{
+    NSString* user = [UserSettings getEmail];
     NSMutableArray* result = [[NSMutableArray alloc] init];
     if (messages.count > 0){
         // collocutor - key
@@ -89,6 +90,20 @@
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:[UserSettings getTimeFormat]];
     return [formatter stringFromDate:dateTime];
+}
+
++(NSDate*)toLocalTime:(NSDate*)date
+{
+    NSTimeZone *tz = [NSTimeZone defaultTimeZone];
+    NSInteger seconds = [tz secondsFromGMTForDate: date];
+    return [NSDate dateWithTimeInterval: seconds sinceDate: date];
+}
+
++(NSDate*)toGlobalTime:(NSDate*)date
+{
+    NSTimeZone *tz = [NSTimeZone defaultTimeZone];
+    NSInteger seconds = -[tz secondsFromGMTForDate: date];
+    return [NSDate dateWithTimeInterval: seconds sinceDate: date];
 }
 
 +(NSString*) getSettingsKeyWHEN:(int)slot{

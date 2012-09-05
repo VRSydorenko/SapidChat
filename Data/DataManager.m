@@ -94,8 +94,8 @@
     return OK;
 }
 
-+(NSArray*) getDialogs:(NSString*)user{
-    return [Utils buildDialogsOfUser:user msgs:[self loadAllMessages:user]];
++(NSArray*) getDialogs{
+    return [Utils buildDialogsOfMsgs:[self loadAllMessages]];
 }
 
 +(void) deleteDialog:(Dialog*)dialog{
@@ -104,23 +104,67 @@
     }
 }
 
++(ErrorCodes)sendMessage:(Message*)message{
+    if (message.text.length == 0){
+        return TEXT_NOT_SPECIFIED;
+    }
+    if (!message.to){
+        return [self sendMessageToBank:message];
+    } else {
+        return [self sendMessageToCollocutor:message];
+    }
+}
+
++(ErrorCodes) pickNewMessage:(NSString*) me{
+    ErrorCodes result = OK;
+    Message* msg = nil;
+    
+    do {
+        // load new message from bank
+        result = [self getOneMessageFromBank:me message:&msg];
+        if (result != OK){
+            return result;
+        }
+        
+        // delete it from the bank
+        result = [self deleteOneMessageFromBank:me rangeKey:msg.when/*carefully*/ deletedMessage:&msg];
+        if (result != OK){
+            if (result == SYSTEM_NO_SUCH_MESSAGE){
+                msg = nil; // continue
+            } else {
+                return result;
+            }
+        } else { // deleted OK
+            result = [self updateNewMessageInSenderTable:msg];
+            if (result != OK){
+                return result;
+            }
+            result = [self placeNewMessageToReceived:msg];
+        }
+    } while (!msg);
+    
+    
+    return result;
+}
+
 // internal methods
 
-+(NSArray*)loadAllMessages:(NSString*)user{
++(NSArray*)loadAllMessages{
     // load and save new messages
-    NSMutableArray* messages = [[NSMutableArray alloc] initWithArray:[self loadNewMessages:user]];
+    NSMutableArray* messages = [[NSMutableArray alloc] initWithArray:[self loadNewMessages]];
     for (Message* newMsg in messages) {
-        [UserSettings saveMessage:newMsg isNewIncome:[user isEqualToString:newMsg.to]];
+        BOOL isNewIncome = [[UserSettings getEmail] isEqualToString:newMsg.to];
+        [UserSettings saveMessage:newMsg isNewIncome:isNewIncome];
     }
     
     // return messages from the local store
-    return [self loadSavedMessages];
+    return [UserSettings getSavedMessages];
 }
 
-+(NSArray*) loadNewMessages:(NSString*)user{
++(NSArray*) loadNewMessages{
     NSMutableArray* messages = [[NSMutableArray alloc] init];
     
-    DynamoDBAttributeValue* hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:user];
+    DynamoDBAttributeValue* hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[UserSettings getEmail]];
     DynamoDBAttributeValue* rangeKeyAttrIncome = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", [UserSettings getLastInMsgTimestamp]]];
     DynamoDBAttributeValue* rangeKeyAttrOutgoing = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", [UserSettings getLastOutMsgTimestamp]]];
     
@@ -140,6 +184,7 @@
         request  = [[DynamoDBQueryRequest alloc] initWithTableName:DBTABLE_MSGS_SENT andHashKeyValue:hashKeyAttr];
         request.rangeKeyCondition = conditionOut;
         response = [[AmazonClientManager ddb] query:request];
+        int consumedUnits = response.consumedCapacityUnits.intValue;
         if (response){
             for (NSDictionary* item in response.items) {
                 [messages addObject:[DbItemHelper prepareMessage:item]];
@@ -163,20 +208,17 @@
     return messages;
 }
 
-+(NSArray*)loadSavedMessages{
-    return [UserSettings getMessages];
-}
-
-+(ErrorCodes) sendMessage:(NSString*) msgText{
-    if (msgText.length == 0){
-        return TEXT_NOT_SPECIFIED;
++(ErrorCodes) sendMessageToBank:(Message*) msg{
+    if (![msg.from isEqualToString:[UserSettings getEmail]]){
+        return ERROR;
     }
     
-    int timestamp = (int)[NSDate timeIntervalSinceReferenceDate];
+    //int timestamp = (int)[NSDate timeIntervalSinceReferenceDate];
+    int timestamp = (int)[[Utils toGlobalTime:msg.when] timeIntervalSinceReferenceDate];
     
     NSMutableDictionary* msgDic = [[NSMutableDictionary alloc] init];
-    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msgText] forKey:DBFIELD_MSGS_TEXT];
-    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[UserSettings getEmail]] forKey:DBFIELD_MSGS_FROM];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.text] forKey:DBFIELD_MSGS_TEXT];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.from] forKey:DBFIELD_MSGS_FROM];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
     
     // TODO: do it in a batch!
@@ -205,45 +247,59 @@
         return AMAZON_SERVICE_ERROR;
     }
 
+    msg.to = SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR;
+    [UserSettings saveMessage:msg isNewIncome:NO];
     
     return OK;
 }
 
-+(ErrorCodes) sendMessage:(NSString*) message to:(NSString*)collocutor{
-    ErrorCodes result = OK;
++(ErrorCodes) sendMessageToCollocutor:(Message*)message{
+    if (![message.from isEqualToString:[UserSettings getEmail]]){
+        return ERROR;
+    }
     
-    return result;
-}
-
-+(ErrorCodes) pickNewMessage:(NSString*) me{
-    ErrorCodes result = OK;
-    Message* msg = nil;
+    //int timestamp = (int)[NSDate timeIntervalSinceReferenceDate];
+    int timestamp = (int)[[Utils toGlobalTime:message.when] timeIntervalSinceReferenceDate];
     
-    do {
-        // load new message from bank
-        result = [self getOneMessageFromBank:me message:&msg];
-        if (result != OK){
-            return result;
+    NSMutableDictionary* msgDic = [[NSMutableDictionary alloc] init];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.text] forKey:DBFIELD_MSGS_TEXT];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.from] forKey:DBFIELD_MSGS_FROM];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.to] forKey:DBFIELD_MSGS_TO];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
+    
+    
+    // TODO: do it in a batch!
+    @try {
+        // add to sent messages table
+        DynamoDBPutItemRequest *request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_MSGS_SENT andItem:msgDic];
+        DynamoDBPutItemResponse *response = nil;
+        
+        response = [[AmazonClientManager ddb] putItem:request];
+        if (!response){
+            return AMAZON_SERVICE_ERROR;
+        }
+        response = nil;
+        
+        // add to the collocutor's received table
+        if (message.initial_message_global_timestamp > 0){
+            DynamoDBAttributeValue *n = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", message.initial_message_global_timestamp]];
+            [msgDic setObject:n forKey:DBFIELD_MSGS_INITIAL_MSG];
         }
         
-        result = [self deleteOneMessageFromBank:me rangeKey:msg.when/*carefully*/ deletedMessage:&msg];
-        if (result != OK){
-            if (result == SYSTEM_NO_SUCH_MESSAGE){
-                msg = nil; // continue
-            } else {
-                return result;
-            }
-        } else { // deleted OK
-            result = [self updateNewMessageInSenderTable:msg];
-            if (result != OK){
-                return result;
-            }
-            result = [self placeNewMessageToReceived:msg];
+        request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_MSGS_RECEIVED andItem:msgDic];
+        
+        response = [[AmazonClientManager ddb] putItem:request];
+        if (!response){
+            return AMAZON_SERVICE_ERROR;
         }
-    } while (!msg);
+    }
+    @catch (NSException *exception) {
+        return AMAZON_SERVICE_ERROR;
+    }
     
+    [UserSettings saveMessage:message isNewIncome:NO];
     
-    return result;
+    return OK;
 }
 
 +(ErrorCodes) getOneMessageFromBank:(NSString*)me message:(Message**)pickedUpMsg{
@@ -311,14 +367,18 @@
         return SYSTEM_NO_SUCH_MESSAGE;
     }
     *deletedMsg = [DbItemHelper prepareMessage:response.attributes];
+    // results customizations:
     (*deletedMsg).to = me;
+    // update date of new message in order to avoid lastInMessageTime restriction
+    // when loading new messages
+    //(*deletedMsg).when = [Utils toGlobalTime:[NSDate date]];
     
     return OK;
 }
 
 // me = msg.to
 +(ErrorCodes) placeNewMessageToReceived:(Message*)msg{
-    int timestamp = (int)[msg.when timeIntervalSinceReferenceDate];
+    int timestamp = (int)[msg.when timeIntervalSinceReferenceDate];//(int)[[Utils toGlobalTime:[NSDate date]] timeIntervalSinceReferenceDate];
     
     NSMutableDictionary* msgDic = [[NSMutableDictionary alloc] init];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.text] forKey:DBFIELD_MSGS_TEXT];
@@ -348,6 +408,7 @@
     
     DynamoDBAttributeValue *attrValue = [[DynamoDBAttributeValue alloc] initWithS:msg.to];
     DynamoDBAttributeValueUpdate *attrUpdate = [[DynamoDBAttributeValueUpdate alloc] initWithValue:attrValue andAction:@"PUT"];
+    
     NSMutableDictionary* updatesDict = [NSMutableDictionary dictionaryWithObject:attrUpdate forKey:DBFIELD_MSGS_TO];
     
     DynamoDBUpdateItemRequest *updateRequest = [[DynamoDBUpdateItemRequest alloc] initWithTableName:DBTABLE_MSGS_SENT andKey:key andAttributeUpdates:updatesDict];
@@ -371,5 +432,9 @@
     }*/    
     return OK;
 }
+
+/*+(int)getGlobalTimestamp{
+    return (int)[[Utils toGlobalTime:[NSDate date]] timeIntervalSinceReferenceDate];
+}*/
 
 @end

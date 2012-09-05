@@ -14,16 +14,6 @@
 @synthesize from = _from;
 @synthesize to = _to;
 @synthesize when = _when;
-
-/*-(id) initWithData:(User*)from to:(User*)to at:(NSDate*)when text:(NSString*)text{
-    self = [super init];
-    if (self){
-        self.text = text;
-        self.from = from;
-        self.to = to;
-        self.when = when;
-    }
-    return self;
-}*/
+@synthesize initial_message_global_timestamp;
 
 @end

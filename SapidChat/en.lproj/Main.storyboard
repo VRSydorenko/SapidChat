@@ -270,7 +270,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-474" y="-675"/>
+            <point key="canvasLocation" x="-474" y="-629"/>
         </scene>
         <!--ComposeVC-->
         <scene sceneID="9ys-1q-GpW">
@@ -282,14 +282,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="gXr-3h-cpt">
-                                <rect key="frame" x="20" y="20" width="280" height="117"/>
+                                <rect key="frame" x="20" y="59" width="280" height="117"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JMH-fo-Cg5">
-                                <rect key="frame" x="54" y="158" width="103" height="37"/>
+                                <rect key="frame" x="20" y="193" width="100" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Send">
@@ -304,7 +304,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="atZ-99-EOb">
-                                <rect key="frame" x="176" y="158" width="72" height="37"/>
+                                <rect key="frame" x="220" y="193" width="80" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Cancel">
@@ -319,19 +319,29 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="GV1-3R-cDX">
-                                <rect key="frame" x="66" y="167" width="20" height="20"/>
+                                <rect key="frame" x="30" y="202" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="QJi-e2-jUu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="yyS-xE-MGQ"/>
+                                    <barButtonItem title="New message" style="plain" id="owf-gI-W4e"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Jwf-M9-eOU"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="spinner" destination="GV1-3R-cDX" id="SA5-fI-gFk"/>
                         <outlet property="textMessage" destination="gXr-3h-cpt" id="554-r1-gpC"/>
+                        <outlet property="textTitle" destination="owf-gI-W4e" id="ILS-CU-o7A"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-875" y="-1022"/>
+            <point key="canvasLocation" x="349" y="-192"/>
         </scene>
         <!--MessagesVC-->
         <scene sceneID="TVC-zA-4wb">
@@ -339,7 +349,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIL-0Q-Rpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dDO-1s-p1P" customClass="MessagesVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sdD-sn-IzU">
-                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" id="heG-4m-64o">
@@ -423,18 +433,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Og5-9x-Jaw">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Reply" id="DaY-iS-6w2">
+                                        <connections>
+                                            <segue destination="qhx-2y-1AZ" identifier="SegueDialogToCompose" kind="modal" modalTransitionStyle="coverVertical" id="icq-L5-pNk"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="qn9-19-Q60"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tabelMessages" destination="heG-4m-64o" id="3Hg-a6-tVg"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-13" y="-554"/>
+            <point key="canvasLocation" x="19" y="-847"/>
         </scene>
         <!--Main Nav Controller-->
         <scene sceneID="Jbb-el-Xot">
@@ -789,6 +810,7 @@
                 <relationship kind="action" name="sendPressed:"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="textMessage" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="textTitle" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="DialogCell" superclassName="UITableViewCell">
@@ -879,4 +901,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="icq-L5-pNk"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -13,6 +13,7 @@
 #import "MainNavController.h"
 #import "MessagesVC.h"
 #import "ComposeVC.h"
+#import "UserSettings.h"
 
 @interface DialogsVC (){
     MainNavController* navController;
@@ -27,15 +28,6 @@
 @synthesize pickButton;
 @synthesize tableDialogs;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,7 +35,7 @@
     self.tableDialogs.dataSource = self;
     self.tableDialogs.delegate = self;
     selectedDialog = nil;
-    [self refreshPressed:self.navigationItem.rightBarButtonItem];
+    //[self refreshPressed:self.navigationItem.rightBarButtonItem];
 }
 
 - (void)viewDidUnload
@@ -52,6 +44,10 @@
     [self setPickButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    [self refreshPressed:self.navigationItem.rightBarButtonItem];// TODO: remove this extra update!!! load only saved messages
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -81,7 +77,7 @@
     
     if (cell){
         Dialog *dialog = [navController.dialogs objectAtIndex:indexPath.row];
-        NSString* stringCollocutor = dialog.collocutor ? dialog.collocutor : navController.me;
+        NSString* stringCollocutor = dialog.collocutor ? dialog.collocutor : [UserSettings getEmail];
         cell.labelCollocutor.text = stringCollocutor;
         Message *msg = (Message*)[[dialog getSortedMessages] lastObject];
         cell.infoMessage.text = msg.text;
@@ -117,7 +113,7 @@
     
     dispatch_queue_t refreshQueue = dispatch_queue_create("refresh Queue", NULL);
     dispatch_async(refreshQueue, ^{
-        navController.dialogs = [DataManager getDialogs:navController.me];
+        navController.dialogs = [DataManager getDialogs];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableDialogs reloadData];
             self.navigationItem.rightBarButtonItem = sender;
@@ -133,9 +129,9 @@
     
     dispatch_queue_t refreshQueue = dispatch_queue_create("pick Queue", NULL);
     dispatch_async(refreshQueue, ^{
-        ErrorCodes pickResult = [DataManager pickNewMessage:navController.me];
+        ErrorCodes pickResult = [DataManager pickNewMessage:[UserSettings getEmail]];
         if (pickResult == OK){
-            navController.dialogs = [DataManager getDialogs:navController.me];
+            navController.dialogs = [DataManager getDialogs];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             if (pickResult == OK){
@@ -147,7 +143,7 @@
     dispatch_release(refreshQueue);
 }
 
--(void) composeCompleted{
+-(void) composeCompleted:(Message*)composedMsg{
     [self refreshPressed:self.navigationItem.rightBarButtonItem];
 }
 @end

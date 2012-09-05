@@ -50,6 +50,7 @@ typedef enum Languages{ // !!! Don't chane the numbers !!!
 
 #define DBTABLE_MSGS_SENT @"t_msgs_sent"
 #define DBTABLE_MSGS_RECEIVED @"t_msgs_received"
+#define DBFIELD_MSGS_INITIAL_MSG @"initial_msg"
 
 // common message related fields
 #define DBFIELD_MSGS_FROM @"from"
@@ -62,6 +63,9 @@ typedef enum Languages{ // !!! Don't chane the numbers !!!
 // to
 // from
 // when
+
+// system definitions
+#define SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR @"Wait for reply..."
 
 @interface DbModel : NSObject
 

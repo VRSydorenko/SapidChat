@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Dialog.h"
+#import "ComposeVC.h"
 
 #define FONT_MSG_SIZE 14.0f
 #define CELL_MESSAGE_WIDTH 263.0f
 #define CELL_MESSAGE_TOPBOTTOM_PADDING 5.0f
 
-@interface MessagesVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface MessagesVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate>
 
 @property Dialog *dialog;
 @property (strong, nonatomic) IBOutlet UITableView *tabelMessages;

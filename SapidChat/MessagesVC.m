@@ -12,6 +12,7 @@
 #import "MainNavController.h"
 #import "Utils.h"
 #import "UserSettings.h"
+#import "ComposeVC.h"
 
 @interface MessagesVC (){
     NSArray *messages;
@@ -38,9 +39,10 @@
     
     [self updateMessages];
     
-    me = ((MainNavController*)self.navigationController).me;
+    me = [UserSettings getEmail];
     self.tabelMessages.dataSource = self;
     self.tabelMessages.delegate = self;
+    self.title = [self getCollocutor];
     
     [UserSettings resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
 	// Do any additional setup after loading the view.
@@ -114,7 +116,7 @@
     if (cell){
         cell.labelMessage.font = messageFont;
         cell.labelMessage.text = msg.text;
-        cell.labelTime.text = [Utils timeToString:msg.when];
+        cell.labelTime.text = [Utils timeToString:[Utils toLocalTime:msg.when]];
     }
     
     return cell;
@@ -123,6 +125,38 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Message* msg = (Message*)[messages objectAtIndex:indexPath.row];
     return [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height+10;
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"SegueDialogToCompose"]){
+        ComposeVC* compoceVC = (ComposeVC*)segue.destinationViewController;
+        compoceVC.composeHandler = self;
+        compoceVC.collocutor = [self getCollocutor];
+        compoceVC.initialMsgGlobalTimstamp = [self getInitialMessageGlobalTimestamp];
+    }
+}
+
+-(void) composeCompleted:(Message*)composedMsg{
+    [self.dialog addMessage:composedMsg];
+    [self updateMessages];
+    [self.tabelMessages reloadData];
+}
+
+-(NSString*) getCollocutor{
+    Message* anyMsg = (Message*)[messages objectAtIndex:0];
+    NSString* col = [anyMsg.to isEqualToString:me] ? anyMsg.from : anyMsg.to;
+    return [col isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR] ? nil : col;
+}
+
+-(int) getInitialMessageGlobalTimestamp{// dates
+    for (Message* msg in messages) {
+        if ([msg.from isEqualToString:me]){ // it's not the first respond, return nil
+            return 0;
+        } else {
+            return (int)[msg.when timeIntervalSinceReferenceDate];
+        }
+    }
+    return 0;
 }
 
 @end

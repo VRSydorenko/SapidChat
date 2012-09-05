@@ -14,6 +14,8 @@
 @property (nonatomic) NSString* from;
 @property (nonatomic) NSString* to;
 @property (nonatomic) NSDate* when;
+// initial messages are timestamps of first messages in the current dialog
+@property (nonatomic) int initial_message_global_timestamp;
 
 
 @end

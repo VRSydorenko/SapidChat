@@ -85,10 +85,6 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"SegueLoginToMain"]){
-        MainNavController *navCon = (MainNavController*)segue.destinationViewController;
-        navCon.me = self.textEmail.text;
-    }
     if ([segue.identifier isEqualToString:@"SegueLoginToRegister"]){
         RegistrationVC* regVC = (RegistrationVC*)segue.destinationViewController;
         regVC.registrationHandler = self;

@@ -58,7 +58,7 @@
 +(void) resetUnreadMessagesCountForCollocutor:(NSString*)collocutor;
 
 // data operations
-+(NSArray*) getMessages;
++(NSArray*) getSavedMessages;
 +(void) saveMessage:(Message*)message isNewIncome:(BOOL)yes;
 +(void) deleteMessage:(Message*)message;
 

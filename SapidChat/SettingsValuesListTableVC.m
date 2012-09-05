@@ -34,7 +34,7 @@
     
     switch (self.valuesMode) {
         case 0: // time zones
-            values = [[NSArray alloc] initWithObjects:@"GMT-3", @"GMT-2", @"GMT-1", @"GMT", @"GMT+1", nil];
+            values = [NSTimeZone knownTimeZoneNames];//[[NSArray alloc] initWithObjects:@"GMT-3", @"GMT-2", @"GMT-1", @"GMT", @"GMT+1", nil];
             break;
         case 1: // time formats
             values = [[NSArray alloc] initWithObjects:@"HH:mm", @"hh:mm", @"hh:mm a", nil];

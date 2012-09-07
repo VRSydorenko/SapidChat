@@ -245,13 +245,17 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VRK-XD-yky"/>
-                                    <barButtonItem title="Pick new" id="H7w-ss-68t">
+                                    <barButtonItem title="Pick new" width="97" id="H7w-ss-68t">
                                         <connections>
                                             <action selector="pickPressed:" destination="sb8-cz-GpM" id="ITO-tz-sdO"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="oo7-h9-9JD">
+                                <rect key="frame" x="219" y="384" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -264,7 +268,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="pickButton" destination="H7w-ss-68t" id="ot2-ph-JSq"/>
+                        <outlet property="spinnerPick" destination="oo7-h9-9JD" id="hEL-vV-ejN"/>
                         <outlet property="tableDialogs" destination="hDL-sG-y0O" id="6W3-Tc-2MX"/>
                         <segue destination="dDO-1s-p1P" identifier="SegueDialogsToDialog" kind="push" id="4gH-r1-YbD"/>
                     </connections>
@@ -451,6 +455,7 @@
                     <navigationItem key="navigationItem" id="qn9-19-Q60"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonReply" destination="DaY-iS-6w2" id="u75-qa-BFZ"/>
                         <outlet property="tabelMessages" destination="heG-4m-64o" id="3Hg-a6-tVg"/>
                     </connections>
                 </viewController>
@@ -802,106 +807,12 @@
             <point key="canvasLocation" x="-21" y="84"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ComposeVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ComposeVC.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:"/>
-                <relationship kind="action" name="sendPressed:"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="textMessage" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="textTitle" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="DialogCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DialogCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="infoMessage" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelCollocutor" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DialogsVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DialogsVC.h"/>
-            <relationships>
-                <relationship kind="action" name="pickPressed:"/>
-                <relationship kind="action" name="refreshPressed:"/>
-                <relationship kind="outlet" name="pickButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="tableDialogs" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MainCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="labelMessagesInfoMessage" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MainNavController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavController.h"/>
-        </class>
-        <class className="MainVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainVC.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="tableMain" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MessageCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessageCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="labelMessage" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="viewBackground" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="MessagesVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessagesVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tabelMessages" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="RegistrationVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationVC.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:"/>
-                <relationship kind="action" name="registerPressed:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="labelServiceMessage" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textPassword" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SettingsTableVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsTableVC.h"/>
-            <relationships>
-                <relationship kind="action" name="switchSaveCreds:" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="labelDateFormat" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelNickname" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelTimeFormat" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelTimeZone" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="switchSaveCreds" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="SettingsValuesListTableVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsValuesListTableVC.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="goPressed:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="labelServiceMessage" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textPassword" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="icq-L5-pNk"/>
+        <segue reference="Iae-es-Teg"/>
     </inferredMetricsTieBreakers>
 </document>

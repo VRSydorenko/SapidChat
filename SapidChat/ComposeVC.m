@@ -14,6 +14,7 @@
 
 @interface ComposeVC (){
     MainNavController* navController;
+    bool isSending;
 }
 
 @end
@@ -29,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+	isSending = NO;
     navController = (MainNavController*)self.navigationController;
     if (collocutor.length > 0){
         self.textTitle.title = [@"Reply to " stringByAppendingString:collocutor];
@@ -53,25 +54,29 @@
 }
 
 - (IBAction)sendPressed:(id)sender {
-    [self.spinner startAnimating];
+    if (!isSending){
+        isSending = YES;
+        
+        [self.spinner startAnimating];
     
-    Message* msg = [self prepareMessage];
+        Message* msg = [self prepareMessage];
     
-    dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
-    dispatch_async(refreshQueue, ^{
-        ErrorCodes msgSent = [DataManager sendMessage:msg];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.spinner stopAnimating];
-            if (msgSent == OK){
-                [self.composeHandler composeCompleted:msg];
-                [self dismissModalViewControllerAnimated:YES];
-            } else{
-                
-            }
+        dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
+        dispatch_async(refreshQueue, ^{
+            ErrorCodes msgSent = [DataManager sendMessage:msg];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.spinner stopAnimating];
+                    if (msgSent == OK){
+                        [self.composeHandler composeCompleted:msg];
+                        [self dismissModalViewControllerAnimated:YES];
+                    } else{
+                        
+                    }
+                isSending = NO;
+            });
         });
-    });
-    
-    dispatch_release(refreshQueue);
+        dispatch_release(refreshQueue);
+    }
 }
 
 - (IBAction)cancelPressed:(id)sender {

@@ -28,6 +28,7 @@
 
 @implementation MessagesVC
 @synthesize tabelMessages;
+@synthesize buttonReply;
 @synthesize dialog = _dialog;
 
 - (void)viewDidLoad
@@ -43,6 +44,9 @@
     self.tabelMessages.dataSource = self;
     self.tabelMessages.delegate = self;
     self.title = [self getCollocutor];
+    if ([[self getCollocutor] isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR]){
+        self.buttonReply.enabled = NO;
+    }
     
     [UserSettings resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
 	// Do any additional setup after loading the view.
@@ -51,6 +55,7 @@
 - (void)viewDidUnload
 {
     [self setTabelMessages:nil];
+    [self setButtonReply:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -144,8 +149,7 @@
 
 -(NSString*) getCollocutor{
     Message* anyMsg = (Message*)[messages objectAtIndex:0];
-    NSString* col = [anyMsg.to isEqualToString:me] ? anyMsg.from : anyMsg.to;
-    return [col isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR] ? nil : col;
+    return [anyMsg.to isEqualToString:me] ? anyMsg.from : anyMsg.to;
 }
 
 -(int) getInitialMessageGlobalTimestamp{// dates

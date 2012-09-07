@@ -16,7 +16,6 @@
 
 #define DEF_DATEFORMAT @"YYYY.MM.dd"
 #define DEF_TIMEFORMAT @"HH:mm"
-#define DEF_TIMEZONE @"GMT"
 
 #define SETTINGS_DATEFORMAT @"defs_dateFormat"
 #define SETTINGS_TIMEFORMAT @"defs_timeFormat"

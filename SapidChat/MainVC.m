@@ -33,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithName:[UserSettings getTimeZone]]];
     navController = (MainNavController*)self.navigationController;
     [DataManager getDialogs];
     self.tableMain.dataSource = self;

@@ -43,7 +43,7 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* result = [defaults objectForKey:[self userSpecKey:SETTINGS_TIMEZONE]];
     if (!result){
-        return DEF_TIMEZONE;
+        return [NSTimeZone defaultTimeZone].name;
     }
     return result;
 }

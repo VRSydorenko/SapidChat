@@ -19,18 +19,20 @@
     MainNavController* navController;
     
     BOOL noEntries;
+    bool isPicking;
     Dialog *selectedDialog;
 }
 
 @end
 
 @implementation DialogsVC
-@synthesize pickButton;
 @synthesize tableDialogs;
+@synthesize spinnerPick;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    isPicking = NO;
     navController = (MainNavController*)self.navigationController;
     self.tableDialogs.dataSource = self;
     self.tableDialogs.delegate = self;
@@ -41,7 +43,7 @@
 - (void)viewDidUnload
 {
     [self setTableDialogs:nil];
-    [self setPickButton:nil];
+    [self setSpinnerPick:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -123,24 +125,26 @@
 }
 
 - (IBAction)pickPressed:(id)sender {
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [spinner startAnimating];
-    self.pickButton = [[UIBarButtonItem alloc] initWithCustomView:spinner];
-    
-    dispatch_queue_t refreshQueue = dispatch_queue_create("pick Queue", NULL);
-    dispatch_async(refreshQueue, ^{
-        ErrorCodes pickResult = [DataManager pickNewMessage:[UserSettings getEmail]];
-        if (pickResult == OK){
-            navController.dialogs = [DataManager getDialogs];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
+    if (!isPicking){
+        isPicking = YES;
+        [self.spinnerPick startAnimating];
+        
+        dispatch_queue_t refreshQueue = dispatch_queue_create("pick Queue", NULL);
+        dispatch_async(refreshQueue, ^{
+            ErrorCodes pickResult = [DataManager pickNewMessage:[UserSettings getEmail]];
             if (pickResult == OK){
-                [self.tableDialogs reloadData];
+                navController.dialogs = [DataManager getDialogs];
             }
-            self.pickButton = sender;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (pickResult == OK){
+                    [self.tableDialogs reloadData];
+                }
+                [self.spinnerPick stopAnimating];
+                isPicking = NO;
+            });
         });
-    });
-    dispatch_release(refreshQueue);
+        dispatch_release(refreshQueue);
+    }
 }
 
 -(void) composeCompleted:(Message*)composedMsg{

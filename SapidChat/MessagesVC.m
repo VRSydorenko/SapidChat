@@ -70,7 +70,9 @@
     
     datesRowCount = [[NSMutableDictionary alloc] init];
     for (int i=0; i<messages.count; i++) {
-        NSString* date = [Utils dateToString:((Message*)[messages objectAtIndex:i]).when];
+        Message* msg = (Message*)[messages objectAtIndex:i];
+        NSDate* localDate = [Utils toLocalDate:msg.when];
+        NSString* date = [Utils dateToString:localDate];
         id objForKey = [datesRowCount objectForKey:date];
         if (!objForKey){
             [datesRowCount setValue:[NSNumber numberWithInt:1] forKey:date];
@@ -121,7 +123,8 @@
     if (cell){
         cell.labelMessage.font = messageFont;
         cell.labelMessage.text = msg.text;
-        cell.labelTime.text = [Utils timeToString:[Utils toLocalTime:msg.when]];
+        NSDate* localTime = [Utils toLocalDate:msg.when];// !!!
+        cell.labelTime.text = [Utils timeToString:localTime];
     }
     
     return cell;
@@ -157,7 +160,7 @@
         if ([msg.from isEqualToString:me]){ // it's not the first respond, return nil
             return 0;
         } else {
-            return (int)[msg.when timeIntervalSinceReferenceDate];
+            return msg.when;
         }
     }
     return 0;

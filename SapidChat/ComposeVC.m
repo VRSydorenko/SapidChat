@@ -88,7 +88,7 @@
     msg.from = [UserSettings getEmail];
     msg.to = collocutor;
     msg.text = self.textMessage.text;
-    msg.when = [NSDate date];
+    msg.when = [[NSDate date] timeIntervalSinceReferenceDate];
     msg.initial_message_global_timestamp = initialMsgGlobalTimstamp;
     return msg;
 }

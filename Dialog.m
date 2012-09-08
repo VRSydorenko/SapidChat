@@ -36,7 +36,7 @@
 
 -(NSArray*) getSortedMessages{
     [messages sortUsingComparator:^(Message* msg1, Message* msg2){
-        return [msg1.when compare:msg2.when];
+        return [[NSNumber numberWithInt:msg1.when] compare:[NSNumber numberWithInt:msg2.when]];
     }];
     return [[NSArray alloc] initWithArray:messages];
 }

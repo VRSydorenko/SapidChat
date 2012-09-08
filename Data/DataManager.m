@@ -184,7 +184,7 @@
         request  = [[DynamoDBQueryRequest alloc] initWithTableName:DBTABLE_MSGS_SENT andHashKeyValue:hashKeyAttr];
         request.rangeKeyCondition = conditionOut;
         response = [[AmazonClientManager ddb] query:request];
-        int consumedUnits = response.consumedCapacityUnits.intValue;
+        //int consumedUnits = response.consumedCapacityUnits.intValue;
         if (response){
             for (NSDictionary* item in response.items) {
                 [messages addObject:[DbItemHelper prepareMessage:item]];
@@ -213,8 +213,8 @@
         return ERROR;
     }
     
-    //int timestamp = (int)[NSDate timeIntervalSinceReferenceDate];
-    int timestamp = (int)[[Utils toGlobalTime:msg.when] timeIntervalSinceReferenceDate];
+    int timestamp =  [Utils toGlobalTimestamp:msg.when];
+    msg.when = timestamp;
     
     NSMutableDictionary* msgDic = [[NSMutableDictionary alloc] init];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.text] forKey:DBFIELD_MSGS_TEXT];
@@ -258,8 +258,7 @@
         return ERROR;
     }
     
-    //int timestamp = (int)[NSDate timeIntervalSinceReferenceDate];
-    int timestamp = (int)[[Utils toGlobalTime:message.when] timeIntervalSinceReferenceDate];
+    int timestamp =  [Utils toGlobalTimestamp:message.when];
     
     NSMutableDictionary* msgDic = [[NSMutableDictionary alloc] init];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.text] forKey:DBFIELD_MSGS_TEXT];
@@ -339,15 +338,15 @@
         if (![(*pickedUpMsg).from isEqualToString:me]){ // not interested in own messages
             return OK;
         } else { // if own message loaded then re-run query with new start point and condition
-            rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", (int)[(*pickedUpMsg).when timeIntervalSinceReferenceDate]]];
+            rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", (*pickedUpMsg).when]];
             condition = nil;
         }
     } while (!condition); // can be just while(YES)
 }
 
-+(ErrorCodes) deleteOneMessageFromBank:(NSString*)me rangeKey:(NSDate*)when deletedMessage:(Message**)deletedMsg{
++(ErrorCodes) deleteOneMessageFromBank:(NSString*)me rangeKey:(int)when deletedMessage:(Message**)deletedMsg{
     DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", ENGLISH]];
-    DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", (int)[when timeIntervalSinceReferenceDate]]];
+    DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", when]];
     DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr andRangeKeyElement:rangeKeyAttr];
     
     DynamoDBDeleteItemResponse *response = nil;
@@ -378,7 +377,7 @@
 
 // me = msg.to
 +(ErrorCodes) placeNewMessageToReceived:(Message*)msg{
-    int timestamp = (int)[msg.when timeIntervalSinceReferenceDate];//(int)[[Utils toGlobalTime:[NSDate date]] timeIntervalSinceReferenceDate];
+    int timestamp = msg.when;
     
     NSMutableDictionary* msgDic = [[NSMutableDictionary alloc] init];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.text] forKey:DBFIELD_MSGS_TEXT];
@@ -403,7 +402,7 @@
 // sender = msg.from
 +(ErrorCodes) updateNewMessageInSenderTable:(Message*)msg{
     DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:msg.from];
-    DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", (int)[msg.when timeIntervalSinceReferenceDate]]];
+    DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", msg.when]];
     DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr andRangeKeyElement:rangeKeyAttr];
     
     DynamoDBAttributeValue *attrValue = [[DynamoDBAttributeValue alloc] initWithS:msg.to];

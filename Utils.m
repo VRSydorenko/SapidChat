@@ -92,18 +92,16 @@
     return [formatter stringFromDate:dateTime];
 }
 
-+(NSDate*)toLocalTime:(NSDate*)date
-{
-    NSTimeZone *tz = [NSTimeZone defaultTimeZone];
-    NSInteger seconds = [tz secondsFromGMTForDate: date];
-    return [NSDate dateWithTimeInterval: seconds sinceDate: date];
++(NSDate*)toLocalDate:(int)globalTimestamp{
+    NSTimeZone *localTz = [NSTimeZone timeZoneWithName:[UserSettings getTimeZone]];
+    NSInteger seconds = localTz.secondsFromGMT;
+    return [NSDate dateWithTimeIntervalSinceReferenceDate:globalTimestamp + seconds];
 }
 
-+(NSDate*)toGlobalTime:(NSDate*)date
++(int)toGlobalTimestamp:(int)localTimestamp
 {
-    NSTimeZone *tz = [NSTimeZone defaultTimeZone];
-    NSInteger seconds = -[tz secondsFromGMTForDate: date];
-    return [NSDate dateWithTimeInterval: seconds sinceDate: date];
+    NSTimeZone *localTz = [NSTimeZone timeZoneWithName:[UserSettings getTimeZone]];
+    return localTimestamp - localTz.secondsFromGMT;
 }
 
 +(NSString*) getSettingsKeyWHEN:(int)slot{

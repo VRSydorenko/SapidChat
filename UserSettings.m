@@ -157,14 +157,14 @@
     [self setSavedMessagesCount:newMessageNumber]; // update messages count
     
     if (yes){
-        [self setLastInMsgTimestamp:[message.when timeIntervalSinceReferenceDate]]; // save last IN mesage time
+        [self setLastInMsgTimestamp:message.when]; // save last IN mesage time
         [self setUnreadMessagesCount:[self getUnreadMessagesCount] + 1]; // update unread messages count
         [self incrementUnreadMessagesCountForCollocutor:message.from];
         if (message.initial_message_global_timestamp > 0){
             [self updateCollocutor:message.from ofExistingMessage:message.initial_message_global_timestamp];
         }
     } else {
-        [self setLastOutMsgTimestamp:[message.when timeIntervalSinceReferenceDate]]; // save last OUT mesage time
+        [self setLastOutMsgTimestamp:message.when]; // save last OUT mesage time
     }
 }
 
@@ -177,7 +177,7 @@
         if (![msg.to isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR]){
             continue;
         }
-        if ([msg.when timeIntervalSinceReferenceDate] == globalInitialMessagesTimestamp){
+        if (msg.when == globalInitialMessagesTimestamp){
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setValue:collocutor forKey:[Utils getSettingsKeyTO:ndx]];
             break;
@@ -187,7 +187,7 @@
 
 +(void)saveMessage:(Message*)message inSlot:(int)slot{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setDouble:[message.when timeIntervalSinceReferenceDate] forKey:[Utils getSettingsKeyWHEN:slot]];
+    [defaults setDouble:message.when forKey:[Utils getSettingsKeyWHEN:slot]];
     [defaults setValue:message.from forKey:[Utils getSettingsKeyFROM:slot]];
     [defaults setValue:message.to forKey:[Utils getSettingsKeyTO:slot]];
     [defaults setValue:message.text forKey:[Utils getSettingsKeyTEXT:slot]];
@@ -200,7 +200,7 @@
     NSString* whenString = (NSString*)[defaults objectForKey:whenKey];
     if (whenString){
         message = [[Message alloc] init];
-        message.when = [NSDate dateWithTimeIntervalSinceReferenceDate:[whenString intValue]];
+        message.when = [whenString intValue];
         message.from = [defaults objectForKey:[Utils getSettingsKeyFROM:slot]];
         message.to = [defaults objectForKey:[Utils getSettingsKeyTO:slot]];
         message.text = [defaults objectForKey:[Utils getSettingsKeyTEXT: slot]];
@@ -214,7 +214,7 @@
     for (int msgIndex=1; msgIndex<=[self getSavedMessagesCount]; msgIndex++) {
         NSString* whenKey = [Utils getSettingsKeyWHEN:msgIndex];
         NSTimeInterval whenInterval = (NSTimeInterval)[defaults doubleForKey:whenKey];
-        if (whenInterval == [message.when timeIntervalSinceReferenceDate]){
+        if (whenInterval == message.when){
             [self deleteMessageInSlot:msgIndex];
             [self setSavedMessagesCount:[self getSavedMessagesCount] - 1]; // update messages count
             [self moveLastMessageToSlot:msgIndex]; // fill the gap with the last message

@@ -16,8 +16,8 @@
 +(NSString*) getErrorDescription:(ErrorCodes)error;
 +(NSString*) dateToString:(NSDate*)dateTime;
 +(NSString*) timeToString:(NSDate*)dateTime;
-+(NSDate*)toLocalTime:(NSDate*)date;
-+(NSDate*)toGlobalTime:(NSDate*)date;
++(NSDate*)toLocalDate:(int)globalTimestamp;
++(int)toGlobalTimestamp:(int)localTimestamp;
 
 +(NSString*) getSettingsKeyWHEN:(int)slot;
 +(NSString*) getSettingsKeyTO:(int)slot;

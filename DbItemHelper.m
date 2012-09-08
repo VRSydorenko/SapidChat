@@ -71,7 +71,7 @@
             result.to = attrVal.s;
         }
         if ([key isEqualToString: DBFIELD_MSGS_WHEN]){
-            result.when = [NSDate dateWithTimeIntervalSinceReferenceDate:[attrVal.n intValue]];
+            result.when = [attrVal.n intValue];
         }
         if ([key isEqualToString: DBFIELD_MSGS_FROM]){
             result.from = attrVal.s;

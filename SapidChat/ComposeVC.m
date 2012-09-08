@@ -13,7 +13,6 @@
 #import "Utils.h"
 
 @interface ComposeVC (){
-    MainNavController* navController;
     bool isSending;
 }
 
@@ -31,7 +30,6 @@
 {
     [super viewDidLoad];
 	isSending = NO;
-    navController = (MainNavController*)self.navigationController;
     if (collocutor.length > 0){
         self.textTitle.title = [@"Reply to " stringByAppendingString:collocutor];
     } else {

@@ -12,29 +12,16 @@
 #import "UserSettings.h"
 #import "MainNavController.h"
 
-@interface MainVC (){
-    MainNavController* navController;
-}
-
+@interface MainVC ()
 @end
 
 @implementation MainVC
 @synthesize tableMain;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithName:[UserSettings getTimeZone]]];
-    navController = (MainNavController*)self.navigationController;
     [DataManager getDialogs];
     self.tableMain.dataSource = self;
     self.tableMain.delegate = self;
@@ -112,7 +99,7 @@
     
     dispatch_queue_t refreshQueue = dispatch_queue_create("refresh Queue", NULL);
     dispatch_async(refreshQueue, ^{
-        navController.dialogs = [DataManager getDialogs];
+        ((MainNavController*)self.navigationController).dialogs = [DataManager getDialogs];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableMain reloadData];
             self.navigationItem.rightBarButtonItem = sender;
@@ -120,6 +107,5 @@
     });
     dispatch_release(refreshQueue);
 }
-
 
 @end

@@ -368,9 +368,6 @@
     *deletedMsg = [DbItemHelper prepareMessage:response.attributes];
     // results customizations:
     (*deletedMsg).to = me;
-    // update date of new message in order to avoid lastInMessageTime restriction
-    // when loading new messages
-    //(*deletedMsg).when = [Utils toGlobalTime:[NSDate date]];
     
     return OK;
 }

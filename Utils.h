@@ -14,6 +14,7 @@
 +(ErrorCodes) validateEmail:(NSString*)email;
 +(NSArray*) buildDialogsOfMsgs:(NSArray*)messages;
 +(NSString*) getErrorDescription:(ErrorCodes)error;
++(NSString*) getLanguageName:(int)langCode needSelfName:(bool)selfName;
 +(NSString*) dateToString:(NSDate*)dateTime;
 +(NSString*) timeToString:(NSDate*)dateTime;
 +(NSDate*)toLocalDate:(int)globalTimestamp;

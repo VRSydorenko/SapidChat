@@ -8,6 +8,7 @@
 
 #import "SettingsValuesListTableVC.h"
 #import "UserSettings.h"
+#import "Utils.h"
 
 @interface SettingsValuesListTableVC (){
     NSArray* values;
@@ -33,6 +34,12 @@
         case 2: // date formats
             values = [[NSArray alloc] initWithObjects:@"YYYY-MM-dd E", @"YYYY.MM.dd", @"YYYY-MM-dd", @"MM.dd E", @"dd.MM.YYYY", @"E dd.MM.YYYY", @"E dd.MM", @"dd.MM", nil];
             break;
+        case 3: // languages
+            // languages are loaded directly to the table
+            break;
+        case 4: // app languages
+            values = [[NSArray alloc] initWithObjects:@"2"/*English*/, @"10"/*Russian*/, nil];
+            break;
     }
 }
 
@@ -44,18 +51,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.valuesMode == VALUES_MSG_LANGUAGES){
+        return LANG_COUNT;
+    }
     return values.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellValue"];
+    bool languageMode = self.valuesMode == VALUES_MSG_LANGUAGES || self.valuesMode == VALUES_APP_LANGUAGES;
+    NSString* cellId = languageMode ? @"CellLanguage" : @"CellValue";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell){
-        NSString* value = (NSString*)[values objectAtIndex:indexPath.row];
-        
         cell.accessoryType = UITableViewCellAccessoryNone;
+        
         switch (self.valuesMode) {
             case VALUES_TIME_FORMAT:{
+                NSString* value = (NSString*)[values objectAtIndex:indexPath.row];
                 NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
                 [formatter setDateFormat:value];
                 cell.textLabel.text = [formatter stringFromDate:[NSDate date]];
@@ -65,6 +78,7 @@
                 break;
             }
             case VALUES_DATE_FORMAT:{
+                NSString* value = (NSString*)[values objectAtIndex:indexPath.row];
                 NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
                 [formatter setDateFormat:value];
                 cell.textLabel.text = [formatter stringFromDate:[NSDate date]];
@@ -74,11 +88,29 @@
                 break;
             }
             case VALUES_TIME_ZONE:{
+                NSString* value = (NSString*)[values objectAtIndex:indexPath.row];
                 if ([[UserSettings getTimeZone] isEqualToString:value]){
                     cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 }
                 cell.textLabel.text = value;
                 break;
+            }
+            case VALUES_MSG_LANGUAGES:{
+                int row = indexPath.row;
+                cell.textLabel.text = [Utils getLanguageName:row needSelfName:NO];
+                cell.detailTextLabel.text = [Utils getLanguageName:row needSelfName:YES];
+                if ([UserSettings knowLanguage:indexPath.row]){
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                }
+                break;
+            }
+            case VALUES_APP_LANGUAGES:{
+                int lang = ((NSString*)[values objectAtIndex:indexPath.row]).intValue;
+                cell.textLabel.text = [Utils getLanguageName:lang needSelfName:NO];
+                cell.detailTextLabel.text = [Utils getLanguageName:lang needSelfName:YES];
+                if ([UserSettings getAppLanguage] == lang){
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                }
             }
         }
     }
@@ -99,6 +131,22 @@
         case VALUES_DATE_FORMAT:
             [UserSettings setDateFormat:selectedValue];
             break;
+        case VALUES_MSG_LANGUAGES:{
+            UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            bool currentNo = cell.accessoryType == UITableViewCellAccessoryNone;
+            [UserSettings setKnowlege:currentNo forLanguage:indexPath.row];
+            cell.accessoryType = currentNo ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+        }
+        break;
+        case VALUES_APP_LANGUAGES:{
+            UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            if( cell.accessoryType == UITableViewCellAccessoryNone){
+                int lang = ((NSString*)[values objectAtIndex:indexPath.row]).intValue;
+                [UserSettings setAppLanguage:lang];
+                [self.tableView reloadData];
+            }
+        break;
+        }
     }
     
     [self.tableView reloadData];

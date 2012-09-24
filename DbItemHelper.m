@@ -35,14 +35,14 @@
         if ([key isEqualToString: DBFIELD_USERS_NICKNAME]){
             result.nickname = attrVal.s;
         }
-     /* if ([key isEqualToString: DBFIELD_USERS_NAME]){
-            result.name = attrVal.s;
+        if ([key isEqualToString: DBFIELD_USERS_LANGS]){
+            NSMutableArray* langs = [[NSMutableArray alloc] init];
+            for (NSString* lang in attrVal.nS) {
+                [langs addObject:[NSNumber numberWithInt:lang.intValue]];
+            }
+            result.languages = [[NSArray alloc] initWithArray:langs copyItems:YES];
         }
-        if ([key isEqualToString: DBFIELD_USERS_SURNAME]){
-            result.name = attrVal.s;
-        }
-       
-        if ([key isEqualToString: DBFIELD_USERS_BIRTHDAY]){
+     /* if ([key isEqualToString: DBFIELD_USERS_BIRTHDAY]){
             result.birthday = [NSDate dateWithTimeIntervalSince   1970:[attrVal.n intValue]];
         }
         if ([key isEqualToString: DBFIELD_USERS_SEX]){

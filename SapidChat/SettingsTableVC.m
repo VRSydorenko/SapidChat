@@ -23,6 +23,8 @@
 @synthesize labelTimeFormat;
 @synthesize labelDateFormat;
 @synthesize labelNickname;
+@synthesize labelMsgLanguages;
+@synthesize labelAppLanguage;
 
 - (void)viewDidLoad
 {
@@ -39,8 +41,18 @@
     self.labelTimeZone.text = [UserSettings getTimeZone];
     self.labelTimeFormat.text = [Utils timeToString:[NSDate date]];
     self.labelDateFormat.text = [Utils dateToString:[NSDate date]];
-    
     self.labelNickname.text = [UserSettings getNickname];
+
+    NSMutableString* msgLangs = [[NSMutableString alloc] init];
+    for (NSNumber* num in [UserSettings getLanguages]) {
+        if (msgLangs.length > 0){
+            [msgLangs appendString:@", "];
+        }
+        [msgLangs appendString:[Utils getLanguageName:num.intValue needSelfName:NO]];
+    }
+    self.labelMsgLanguages.text = msgLangs;
+    
+    self.labelAppLanguage.text = [Utils getLanguageName:[UserSettings getAppLanguage] needSelfName:NO];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -50,21 +62,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
-        case 0:
+        case 0: // time and data section
             switch (indexPath.row) {
                 case 0: // hardcoded!!!
                     valuesMode = VALUES_TIME_ZONE;
-                    [self performSegueWithIdentifier:@"SegueSettingsToValuesList" sender:self];
                     break;
                 case 1:
-                    valuesMode = 1;//VALUES_TIME_FORMAT;
-                    [self performSegueWithIdentifier:@"SegueSettingsToValuesList" sender:self];
+                    valuesMode = VALUES_TIME_FORMAT;
                     break;
                 case 2:
                     valuesMode = VALUES_DATE_FORMAT;
-                    [self performSegueWithIdentifier:@"SegueSettingsToValuesList" sender:self];
                     break;
             }
+            [self performSegueWithIdentifier:@"SegueSettingsToValuesList" sender:self];
+            break;
+        case 2: // languages section
+            switch (indexPath.row) {
+                case 0: // messages language
+                    valuesMode = VALUES_MSG_LANGUAGES;
+                    break;
+                case 1: // application language
+                    valuesMode = VALUES_APP_LANGUAGES;
+                    break;
+            }
+            [self performSegueWithIdentifier:@"SegueSettingsToValuesList" sender:self];
             break;
     }
 }
@@ -84,6 +105,8 @@
     [self setLabelTimeFormat:nil];
     [self setLabelDateFormat:nil];
     [self setLabelNickname:nil];
+    [self setLabelMsgLanguages:nil];
+    [self setLabelAppLanguage:nil];
     [super viewDidUnload];
 }
 @end

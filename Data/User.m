@@ -13,5 +13,6 @@
 @synthesize email = _email;
 @synthesize password = _password;
 @synthesize nickname = _nickname;
+@synthesize languages = _languages;
 
 @end

@@ -23,7 +23,6 @@
 		7F11FED8159E6865002F5982 /* ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FECC159E6865002F5982 /* ResponseHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F1A5B9715E56393002BC781 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A5B9615E56393002BC781 /* User.m */; };
 		7F44FC3715F2267E007C0387 /* ComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F44FC3615F2267E007C0387 /* ComposeVC.m */; };
-		7F5883E0159E544B00331BB5 /* RegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5883DF159E544B00331BB5 /* RegistrationVC.m */; };
 		7F76ED9315E7FD37007463D7 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */; };
 		7F99594415BF409500A0DE84 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F99594315BF409500A0DE84 /* MainNavController.m */; };
 		7F99594715BF443100A0DE84 /* DialogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F99594615BF443100A0DE84 /* DialogCell.m */; };
@@ -48,6 +47,10 @@
 		7FBF28B115D2DBAC00F04B99 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF28B015D2DBAC00F04B99 /* MainVC.m */; };
 		7FBF28B515D2DCCA00F04B99 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF28B415D2DCCA00F04B99 /* MainCell.m */; };
 		7FBF622C15D69E9200A34CDB /* MessagesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF622B15D69E9100A34CDB /* MessagesVC.m */; };
+		7FCBF689160F291300A2A2E2 /* RegistrationNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */; };
+		7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */; };
+		7FCBF68C160F291300A2A2E2 /* UserRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */; };
+		7FCBF68D160F291300A2A2E2 /* UserRegistrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF688160F291300A2A2E2 /* UserRegistrator.m */; };
 		7FDD2833159E5BA9008E1080 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2830159E5BA9008E1080 /* DataManager.m */; };
 		7FDD2834159E5BA9008E1080 /* DbModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2832159E5BA9008E1080 /* DbModel.m */; };
 		7FDD283A159E5C01008E1080 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2839159E5C01008E1080 /* Message.m */; };
@@ -99,8 +102,6 @@
 		7F1A5B9615E56393002BC781 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Data/User.m; sourceTree = "<group>"; };
 		7F44FC3515F2267E007C0387 /* ComposeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeVC.h; sourceTree = "<group>"; };
 		7F44FC3615F2267E007C0387 /* ComposeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeVC.m; sourceTree = "<group>"; };
-		7F5883DE159E544B00331BB5 /* RegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationVC.h; sourceTree = "<group>"; };
-		7F5883DF159E544B00331BB5 /* RegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationVC.m; sourceTree = "<group>"; };
 		7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSiOSSDK.framework; sourceTree = "<group>"; };
 		7F99594215BF409500A0DE84 /* MainNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavController.h; sourceTree = "<group>"; };
 		7F99594315BF409500A0DE84 /* MainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavController.m; sourceTree = "<group>"; };
@@ -140,6 +141,13 @@
 		7FBF28B415D2DCCA00F04B99 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
 		7FBF622A15D69E9100A34CDB /* MessagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesVC.h; sourceTree = "<group>"; };
 		7FBF622B15D69E9100A34CDB /* MessagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesVC.m; sourceTree = "<group>"; };
+		7FCBF680160F291300A2A2E2 /* RegistrationNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationNavController.h; path = User/RegistrationNavController.h; sourceTree = "<group>"; };
+		7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationNavController.m; path = User/RegistrationNavController.m; sourceTree = "<group>"; };
+		7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserRegistration.storyboard; path = User/UserRegistration.storyboard; sourceTree = "<group>"; };
+		7FCBF685160F291300A2A2E2 /* UserRegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRegistrationVC.h; path = User/UserRegistrationVC.h; sourceTree = "<group>"; };
+		7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegistrationVC.m; path = User/UserRegistrationVC.m; sourceTree = "<group>"; };
+		7FCBF687160F291300A2A2E2 /* UserRegistrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRegistrator.h; path = User/UserRegistrator.h; sourceTree = "<group>"; };
+		7FCBF688160F291300A2A2E2 /* UserRegistrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegistrator.m; path = User/UserRegistrator.m; sourceTree = "<group>"; };
 		7FDD282F159E5BA9008E1080 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = Data/DataManager.h; sourceTree = "<group>"; };
 		7FDD2830159E5BA9008E1080 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = Data/DataManager.m; sourceTree = "<group>"; };
 		7FDD2831159E5BA9008E1080 /* DbModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbModel.h; path = Data/DbModel.h; sourceTree = "<group>"; };
@@ -216,6 +224,7 @@
 		7FAF75F6159E4FE300D37D7D = {
 			isa = PBXGroup;
 			children = (
+				7FCBF67D160F28A300A2A2E2 /* UserRegistrator */,
 				7F11FED9159E686E002F5982 /* TVMClient */,
 				7FDD282B159E58E8008E1080 /* Data */,
 				7FAF760B159E4FE400D37D7D /* SapidChat */,
@@ -256,8 +265,6 @@
 				7FAF7619159E4FE400D37D7D /* Main.storyboard */,
 				7FBF28AF15D2DBAC00F04B99 /* MainVC.h */,
 				7FBF28B015D2DBAC00F04B99 /* MainVC.m */,
-				7F5883DE159E544B00331BB5 /* RegistrationVC.h */,
-				7F5883DF159E544B00331BB5 /* RegistrationVC.m */,
 				7FA5F72715D2C04A009F5A96 /* DialogsVC.h */,
 				7FA5F72815D2C04A009F5A96 /* DialogsVC.m */,
 				7FBF622A15D69E9100A34CDB /* MessagesVC.h */,
@@ -319,6 +326,20 @@
 				7FAAC65515D035D9009AC87C /* MessageCell.m */,
 			);
 			name = TableCells;
+			sourceTree = "<group>";
+		};
+		7FCBF67D160F28A300A2A2E2 /* UserRegistrator */ = {
+			isa = PBXGroup;
+			children = (
+				7FCBF680160F291300A2A2E2 /* RegistrationNavController.h */,
+				7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */,
+				7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */,
+				7FCBF685160F291300A2A2E2 /* UserRegistrationVC.h */,
+				7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */,
+				7FCBF687160F291300A2A2E2 /* UserRegistrator.h */,
+				7FCBF688160F291300A2A2E2 /* UserRegistrator.m */,
+			);
+			name = UserRegistrator;
 			sourceTree = "<group>";
 		};
 		7FDD282B159E58E8008E1080 /* Data */ = {
@@ -420,6 +441,7 @@
 				7FAF7610159E4FE400D37D7D /* InfoPlist.strings in Resources */,
 				7FAF7618159E4FE400D37D7D /* SapidChat.entitlements in Resources */,
 				7FAF761B159E4FE400D37D7D /* Main.storyboard in Resources */,
+				7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +479,6 @@
 				7FAF7612159E4FE400D37D7D /* main.m in Sources */,
 				7FAF7616159E4FE400D37D7D /* AppDelegate.m in Sources */,
 				7FAF761E159E4FE400D37D7D /* ViewController.m in Sources */,
-				7F5883E0159E544B00331BB5 /* RegistrationVC.m in Sources */,
 				7FDD2833159E5BA9008E1080 /* DataManager.m in Sources */,
 				7FDD2834159E5BA9008E1080 /* DbModel.m in Sources */,
 				7FDD283A159E5C01008E1080 /* Message.m in Sources */,
@@ -489,6 +510,9 @@
 				7FB3FB9B15D97CF000EE91F1 /* SettingsValuesListTableVC.m in Sources */,
 				7F1A5B9715E56393002BC781 /* User.m in Sources */,
 				7F44FC3715F2267E007C0387 /* ComposeVC.m in Sources */,
+				7FCBF689160F291300A2A2E2 /* RegistrationNavController.m in Sources */,
+				7FCBF68C160F291300A2A2E2 /* UserRegistrationVC.m in Sources */,
+				7FCBF68D160F291300A2A2E2 /* UserRegistrator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

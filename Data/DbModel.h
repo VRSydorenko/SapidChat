@@ -26,7 +26,7 @@ typedef enum ErrorCodes{
     SYSTEM_NO_SUCH_MESSAGE = 12,
 } ErrorCodes;
 
-typedef enum Languages{ // !!! Don't chane the numbers !!!
+typedef enum Languages{ // !!! Don't change the numbers !!!
     ARABIC      = 0,
     CHINESE     = 1,
     ENGLISH     = 2,
@@ -39,6 +39,8 @@ typedef enum Languages{ // !!! Don't chane the numbers !!!
     PORTUGESE   = 9,
     RUSSIAN     = 10,
     SPANISH     = 11,
+    //---------------
+    LANG_COUNT  = 12,
 } Languages;
 
 // database
@@ -47,6 +49,7 @@ typedef enum Languages{ // !!! Don't chane the numbers !!!
 #define DBFIELD_USERS_EMAIL @"email"
 #define DBFIELD_USERS_PASSWORD @"pass"
 #define DBFIELD_USERS_NICKNAME @"nick"
+#define DBFIELD_USERS_LANGS @"langs"
 
 #define DBTABLE_MSGS_SENT @"t_msgs_sent"
 #define DBTABLE_MSGS_RECEIVED @"t_msgs_received"

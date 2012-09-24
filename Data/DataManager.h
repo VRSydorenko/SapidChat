@@ -11,12 +11,13 @@
 #import "DbModel.h"
 #import "Message.h"
 #import "Dialog.h"
+#import "User.h"
 
 @interface DataManager : NSObject{
 }
 
 +(BOOL) existsUserWithEmail:(NSString*)email;
-+(ErrorCodes) registerNewUser:(NSString*)user password:(NSString*)password;
++(ErrorCodes) registerNewUser:(User*)user;
 +(ErrorCodes)login:(NSString*)email password:(NSString*)password;
 
 +(NSArray*) getDialogs;

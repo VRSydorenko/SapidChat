@@ -13,5 +13,6 @@
 @property (nonatomic) NSString* email;
 @property (nonatomic) NSString* password;
 @property (nonatomic) NSString* nickname;
+@property (nonatomic) NSArray* languages; // numbers according to the Model
 
 @end

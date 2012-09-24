@@ -136,6 +136,29 @@
     }
 }
 
++(BOOL) knowLanguage:(int) lang{
+    NSString* key = [NSString stringWithFormat:@"%@%d", SETTINGS_MSG_LANGS_, lang];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
+}
+
++(void) setKnowlege:(BOOL)know forLanguage:(int)lang{
+    NSString* key = [NSString stringWithFormat:@"%@%d", SETTINGS_MSG_LANGS_, lang];
+    [[NSUserDefaults standardUserDefaults] setBool:know forKey:key];
+}
+
++(int) getAppLanguage{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    int result = (int)[defaults integerForKey:SETTINGS_SAVED_APP_LANG];
+    if (!result){
+        return 2; // 2 is English
+    }
+    return result;
+}
+
++(void) setAppLanguage:(int) language{
+    [[NSUserDefaults standardUserDefaults] setInteger:language forKey:SETTINGS_SAVED_APP_LANG];
+}
+
 // data operations
 
 +(NSArray*) getSavedMessages{
@@ -167,6 +190,42 @@
         [self setLastOutMsgTimestamp:message.when]; // save last OUT mesage time
     }
 }
+
++(void) deleteMessage:(Message*)message{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    for (int msgIndex=1; msgIndex<=[self getSavedMessagesCount]; msgIndex++) {
+        NSString* whenKey = [Utils getSettingsKeyWHEN:msgIndex];
+        NSTimeInterval whenInterval = (NSTimeInterval)[defaults doubleForKey:whenKey];
+        if (whenInterval == message.when){
+            [self deleteMessageInSlot:msgIndex];
+            [self setSavedMessagesCount:[self getSavedMessagesCount] - 1]; // update messages count
+            [self moveLastMessageToSlot:msgIndex]; // fill the gap with the last message
+            break;
+        }
+    }
+}
+
++(void) saveLanguages:(NSArray*) languages{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    for (int i = 0; i < LANG_COUNT; i++){
+        NSString* key = [NSString stringWithFormat:@"%@%d", SETTINGS_MSG_LANGS_, i];
+        [defaults setBool:[languages containsObject:[NSNumber numberWithInt:i]] forKey:key];
+    }
+}
+
++(NSArray*) getLanguages{
+    NSMutableArray* langs = [[NSMutableArray alloc] init];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    for (int i = 0; i < LANG_COUNT; i++){
+        NSString* key = [NSString stringWithFormat:@"%@%d", SETTINGS_MSG_LANGS_, i];
+        if ([defaults boolForKey:key]){
+            [langs addObject:[NSNumber numberWithInt:i]];
+        }
+    }
+    return langs;
+}
+
+// internal methods
 
 +(void)updateCollocutor:(NSString*)collocutor ofExistingMessage:(int)globalInitialMessagesTimestamp{
     for (int ndx = 1; YES; ndx++) {
@@ -209,19 +268,6 @@
     return message;
 }
 
-+(void) deleteMessage:(Message*)message{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    for (int msgIndex=1; msgIndex<=[self getSavedMessagesCount]; msgIndex++) {
-        NSString* whenKey = [Utils getSettingsKeyWHEN:msgIndex];
-        NSTimeInterval whenInterval = (NSTimeInterval)[defaults doubleForKey:whenKey];
-        if (whenInterval == message.when){
-            [self deleteMessageInSlot:msgIndex];
-            [self setSavedMessagesCount:[self getSavedMessagesCount] - 1]; // update messages count
-            [self moveLastMessageToSlot:msgIndex]; // fill the gap with the last message
-            break;
-        }
-    }
-}
 +(void) deleteMessageInSlot:(int)slot{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:[Utils getSettingsKeyWHEN:slot]];

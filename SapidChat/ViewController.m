@@ -57,6 +57,10 @@
     }
 }
 
+- (IBAction)registerPressed:(id)sender {
+    [UserRegistrator registerUserOverCurrentViewController:self andHandler:self];
+}
+
 -(void) loginAsync{
     isLoggingIn = YES;
     self.labelServiceMessage.text = @"";
@@ -79,16 +83,13 @@
     dispatch_release(logginQueue);
 }
 
-- (void) registrationCompleted:(NSString *)email pass:(NSString *)password{
-    self.textEmail.text = email;
-    self.textPassword.text = password;
-}
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"SegueLoginToRegister"]){
-        RegistrationVC* regVC = (RegistrationVC*)segue.destinationViewController;
-        regVC.registrationHandler = self;
+-(void) controllerToDismiss:(RegistrationNavController *)regController whichRegisteredTheUser:(User *)user{
+    if (user){
+        self.textEmail.text = user.email;
+        self.textPassword.text = user.password;
     }
+    [regController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

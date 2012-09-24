@@ -24,6 +24,11 @@
 #define SETTINGS_SAVECREDENTIALS @"defs_saveCredentials"
 #define SETTINGS_SAVED_CRED_EMAIL @"defs_savedEmail"
 #define SETTINGS_SAVED_CRED_PASS @"defs_savedPass"
+// prefix for saved msg languages (defs_msg_lang_1,2,3)
+#define SETTINGS_MSG_LANGS_ @"defs_msg_lang_"
+// prefix for saved app languages (defs_app_lang_1,2,3)
+#define SETTINGS_APP_LANGS_ @"defs_app_lang_"
+#define SETTINGS_SAVED_APP_LANG @"defs_savedAppLang"
 
 @interface UserSettings : NSObject
 +(NSString*) getDateFormat;
@@ -56,9 +61,17 @@
 +(int) getUnreadMessagesCountForCollocutor:(NSString*)collocutor;
 +(void) resetUnreadMessagesCountForCollocutor:(NSString*)collocutor;
 
++(BOOL) knowLanguage:(int) lang;
++(void) setKnowlege:(BOOL)know forLanguage:(int)lang;
+
++(int) getAppLanguage;
++(void) setAppLanguage:(int) language;
+
 // data operations
 +(NSArray*) getSavedMessages;
 +(void) saveMessage:(Message*)message isNewIncome:(BOOL)yes;
 +(void) deleteMessage:(Message*)message;
++(void) saveLanguages:(NSArray*) languages;
++(NSArray*) getLanguages;
 
 @end

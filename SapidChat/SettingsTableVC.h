@@ -17,4 +17,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelTimeFormat;
 @property (strong, nonatomic) IBOutlet UILabel *labelDateFormat;
 @property (strong, nonatomic) IBOutlet UILabel *labelNickname;
+@property (strong, nonatomic) IBOutlet UILabel *labelMsgLanguages;
+@property (strong, nonatomic) IBOutlet UILabel *labelAppLanguage;
 @end

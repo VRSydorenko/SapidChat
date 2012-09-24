@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RegistrationVC.h"
+#import "UserRegistrator.h"
 
-@interface ViewController : UIViewController <RegistrationResponseDelegate>
+@interface ViewController : UIViewController <UserRegistrationDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *textEmail;
 @property (strong, nonatomic) IBOutlet UITextField *textPassword;
 @property (strong, nonatomic) IBOutlet UILabel *labelServiceMessage;
 - (IBAction)goPressed:(id)sender;
+- (IBAction)registerPressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end

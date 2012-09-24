@@ -31,17 +31,23 @@
     return response.item.count != 0;
 }
 
-+(ErrorCodes) registerNewUser:(NSString*)user password:(NSString*)password{
-    if ([DataManager existsUserWithEmail:user]){
++(ErrorCodes) registerNewUser:(User*)user{
+    if ([DataManager existsUserWithEmail:user.email]){
         return USER_EXISTS;
     }
     @try
     {
         NSMutableDictionary* userDic = [[NSMutableDictionary alloc] init];
         
-        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:user] forKey:DBFIELD_USERS_EMAIL];
-        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:password] forKey:DBFIELD_USERS_PASSWORD];// TODO: crypt pass
-                    
+        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:user.email] forKey:DBFIELD_USERS_EMAIL];
+        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:user.password] forKey:DBFIELD_USERS_PASSWORD];// TODO: crypt pass
+        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:user.nickname] forKey:DBFIELD_USERS_NICKNAME];
+        NSMutableArray* langs = [[NSMutableArray alloc] init];
+        for (NSNumber* lang in user.languages) {
+            [langs addObject:lang.stringValue];
+        }
+        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithNS:langs] forKey:DBFIELD_USERS_LANGS];
+
         DynamoDBPutItemRequest *request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_USERS andItem:userDic];
         DynamoDBPutItemResponse *response = nil;
         response = [[AmazonClientManager ddb] putItem:request];

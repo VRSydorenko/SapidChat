@@ -81,6 +81,40 @@
             return @"Unknown error!";
     }
 }
+
+/*
+ ARABIC      = 0,
+ CHINESE     = 1,
+ ENGLISH     = 2,
+ FRENCH      = 3,
+ GERMAN      = 4,
+ HINDI       = 5,
+ ITALIAN     = 6,
+ JAPANESE    = 7,
+ KOREAN      = 8,
+ PORTUGESE   = 9,
+ RUSSIAN     = 10,
+ SPANISH     = 11,
+ */
++(NSString*) getLanguageName:(int)langCode needSelfName:(bool)selfName;{
+    switch (langCode) {
+        case ARABIC:    return selfName ? @"العربية" : @"Arabic";
+        case CHINESE:   return selfName ? @"中文, 汉语" : @"Chinese";
+        case ENGLISH:   return selfName ? @"English" : @"English";
+        case FRENCH:    return selfName ? @"Français" : @"French";
+        case GERMAN:    return selfName ? @"Deutsch" : @"German";
+        case HINDI:     return selfName ? @"हिन्दी" : @"Hindi";
+        case ITALIAN:   return selfName ? @"Italiano" : @"Inlian";
+        case JAPANESE:  return selfName ? @"日本語" : @"Japanese";
+        case KOREAN:    return selfName ? @"한국어, 조선말" : @"Korean";
+        case PORTUGESE: return selfName ? @"Português" : @"Portuguese";
+        case RUSSIAN:   return selfName ? @"Русский" : @"Russian";
+        case SPANISH:   return selfName ? @"Español" : @"Spanish";
+        default:
+            return @"Unknown language";
+    }
+}
+
 +(NSString*) dateToString:(NSDate*)dateTime{
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:[UserSettings getDateFormat]];

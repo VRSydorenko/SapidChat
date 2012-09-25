@@ -14,6 +14,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *textEmail;
 @property (strong, nonatomic) IBOutlet UITextField *textPassword;
 @property (strong, nonatomic) IBOutlet UILabel *labelServiceMessage;
+@property (strong, nonatomic) IBOutlet UIButton *btnGo;
+@property (strong, nonatomic) IBOutlet UIButton *btnRegister;
 - (IBAction)goPressed:(id)sender;
 - (IBAction)registerPressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;

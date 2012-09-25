@@ -12,6 +12,8 @@
 #import "Utils.h"
 #import "MainNavController.h"
 #import "UserSettings.h"
+#import "Lang.h"
+#import "LocalizationUtils.h"
 
 @interface ViewController (){
     bool isLoggingIn;
@@ -24,10 +26,18 @@
 @synthesize textEmail;
 @synthesize textPassword;
 @synthesize labelServiceMessage;
+@synthesize btnGo;
+@synthesize btnRegister;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (![UserSettings hasLaunched]){
+        [UserSettings setHasLaunched:YES];
+    }
+    
+    [self localize];
+    
     isLoggingIn = NO;
 	
     if ([UserSettings getSaveCredentials]){
@@ -36,12 +46,19 @@
     }
 }
 
+-(void)localize{
+    [LocalizationUtils setTitle:[Lang LOC_LOGIN_BTN_LOGIN] forButton:self.btnGo];
+    [LocalizationUtils setTitle:[Lang LOC_LOGIN_BTN_REGISTRATION] forButton:self.btnRegister];
+}
+
 - (void)viewDidUnload
 {
     [self setTextEmail:nil];
     [self setTextPassword:nil];
     [self setLabelServiceMessage:nil];
     [self setActivityIndicator:nil];
+    [self setBtnGo:nil];
+    [self setBtnRegister:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

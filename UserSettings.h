@@ -13,6 +13,7 @@
 #define SYS_UNREAD_MSGS_COUNT @"sys_unread_msgs_cout"
 #define SYS_LAST_INMSG_TIMESTAMP @"sys_last_inmsg_timestamp"
 #define SYS_LAST_OUTMSG_TIMESTAMP @"sys_last_outmsg_timestamp"
+#define SYS_HAS_LAUNCHED @"sys_has_launched"
 
 #define DEF_DATEFORMAT @"YYYY.MM.dd"
 #define DEF_TIMEFORMAT @"HH:mm"
@@ -64,8 +65,12 @@
 +(BOOL) knowLanguage:(int) lang;
 +(void) setKnowlege:(BOOL)know forLanguage:(int)lang;
 
++(NSArray*)getAppLanguages;
 +(int) getAppLanguage;
 +(void) setAppLanguage:(int) language;
+
++(bool) hasLaunched;
++(void) setHasLaunched:(bool)launched;
 
 // data operations
 +(NSArray*) getSavedMessages;

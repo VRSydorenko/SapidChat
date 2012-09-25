@@ -7,12 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import "UserSettings.h"
+#import "ViewController.h"
+#import "FirstLaunchNavController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    if (![UserSettings hasLaunched]){
+        FirstLaunchNavController* navcon = [[UIStoryboard storyboardWithName:@"FirstLaunch" bundle:nil] instantiateViewControllerWithIdentifier:@"SceneFirstLaunch"];
+        navcon.rootViewController = self.window.rootViewController;
+        self.window.rootViewController = navcon;
+    }
     return YES;
 }
 							

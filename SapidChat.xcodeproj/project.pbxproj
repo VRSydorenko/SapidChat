@@ -24,6 +24,9 @@
 		7F1A5B9715E56393002BC781 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A5B9615E56393002BC781 /* User.m */; };
 		7F44FC3715F2267E007C0387 /* ComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F44FC3615F2267E007C0387 /* ComposeVC.m */; };
 		7F76ED9315E7FD37007463D7 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */; };
+		7F78801B1610DABE00BDD517 /* FirstLaunchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F78801A1610DABE00BDD517 /* FirstLaunchNavController.m */; };
+		7F7880221610DC5F00BDD517 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7880211610DC5F00BDD517 /* FirstLaunch.storyboard */; };
+		7F7880251610DE5500BDD517 /* AppLanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7880241610DE5500BDD517 /* AppLanguageVC.m */; };
 		7F99594415BF409500A0DE84 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F99594315BF409500A0DE84 /* MainNavController.m */; };
 		7F99594715BF443100A0DE84 /* DialogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F99594615BF443100A0DE84 /* DialogCell.m */; };
 		7FA5F72915D2C04A009F5A96 /* DialogsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5F72815D2C04A009F5A96 /* DialogsVC.m */; };
@@ -47,10 +50,15 @@
 		7FBF28B115D2DBAC00F04B99 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF28B015D2DBAC00F04B99 /* MainVC.m */; };
 		7FBF28B515D2DCCA00F04B99 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF28B415D2DCCA00F04B99 /* MainCell.m */; };
 		7FBF622C15D69E9200A34CDB /* MessagesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF622B15D69E9100A34CDB /* MessagesVC.m */; };
+		7FC9881B1610BEC200AB04D5 /* Lang.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881A1610BEC200AB04D5 /* Lang.m */; };
+		7FC9881E1610C31600AB04D5 /* LangEnglish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881D1610C31600AB04D5 /* LangEnglish.m */; };
+		7FC988211610C32600AB04D5 /* LangRussian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988201610C32600AB04D5 /* LangRussian.m */; };
 		7FCBF689160F291300A2A2E2 /* RegistrationNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */; };
 		7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */; };
 		7FCBF68C160F291300A2A2E2 /* UserRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */; };
 		7FCBF68D160F291300A2A2E2 /* UserRegistrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF688160F291300A2A2E2 /* UserRegistrator.m */; };
+		7FDCBE90161223A800DBDDFB /* FirstScreensVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCBE8F161223A800DBDDFB /* FirstScreensVC.m */; };
+		7FDCBE93161224FF00DBDDFB /* LocalizationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCBE92161224FF00DBDDFB /* LocalizationUtils.m */; };
 		7FDD2833159E5BA9008E1080 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2830159E5BA9008E1080 /* DataManager.m */; };
 		7FDD2834159E5BA9008E1080 /* DbModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2832159E5BA9008E1080 /* DbModel.m */; };
 		7FDD283A159E5C01008E1080 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2839159E5C01008E1080 /* Message.m */; };
@@ -103,6 +111,11 @@
 		7F44FC3515F2267E007C0387 /* ComposeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeVC.h; sourceTree = "<group>"; };
 		7F44FC3615F2267E007C0387 /* ComposeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeVC.m; sourceTree = "<group>"; };
 		7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSiOSSDK.framework; sourceTree = "<group>"; };
+		7F7880191610DABE00BDD517 /* FirstLaunchNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstLaunchNavController.h; path = FirstLaunch/FirstLaunchNavController.h; sourceTree = "<group>"; };
+		7F78801A1610DABE00BDD517 /* FirstLaunchNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstLaunchNavController.m; path = FirstLaunch/FirstLaunchNavController.m; sourceTree = "<group>"; };
+		7F7880211610DC5F00BDD517 /* FirstLaunch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FirstLaunch.storyboard; path = FirstLaunch/FirstLaunch.storyboard; sourceTree = "<group>"; };
+		7F7880231610DE5500BDD517 /* AppLanguageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppLanguageVC.h; path = FirstLaunch/AppLanguageVC.h; sourceTree = "<group>"; };
+		7F7880241610DE5500BDD517 /* AppLanguageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppLanguageVC.m; path = FirstLaunch/AppLanguageVC.m; sourceTree = "<group>"; };
 		7F99594215BF409500A0DE84 /* MainNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavController.h; sourceTree = "<group>"; };
 		7F99594315BF409500A0DE84 /* MainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavController.m; sourceTree = "<group>"; };
 		7F99594515BF443100A0DE84 /* DialogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogCell.h; sourceTree = "<group>"; };
@@ -141,6 +154,12 @@
 		7FBF28B415D2DCCA00F04B99 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
 		7FBF622A15D69E9100A34CDB /* MessagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesVC.h; sourceTree = "<group>"; };
 		7FBF622B15D69E9100A34CDB /* MessagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesVC.m; sourceTree = "<group>"; };
+		7FC988191610BEC200AB04D5 /* Lang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lang.h; path = Localization/Lang.h; sourceTree = "<group>"; };
+		7FC9881A1610BEC200AB04D5 /* Lang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Lang.m; path = Localization/Lang.m; sourceTree = "<group>"; };
+		7FC9881C1610C31600AB04D5 /* LangEnglish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangEnglish.h; path = Localization/LangEnglish.h; sourceTree = "<group>"; };
+		7FC9881D1610C31600AB04D5 /* LangEnglish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangEnglish.m; path = Localization/LangEnglish.m; sourceTree = "<group>"; };
+		7FC9881F1610C32600AB04D5 /* LangRussian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangRussian.h; path = Localization/LangRussian.h; sourceTree = "<group>"; };
+		7FC988201610C32600AB04D5 /* LangRussian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangRussian.m; path = Localization/LangRussian.m; sourceTree = "<group>"; };
 		7FCBF680160F291300A2A2E2 /* RegistrationNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationNavController.h; path = User/RegistrationNavController.h; sourceTree = "<group>"; };
 		7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationNavController.m; path = User/RegistrationNavController.m; sourceTree = "<group>"; };
 		7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserRegistration.storyboard; path = User/UserRegistration.storyboard; sourceTree = "<group>"; };
@@ -148,6 +167,10 @@
 		7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegistrationVC.m; path = User/UserRegistrationVC.m; sourceTree = "<group>"; };
 		7FCBF687160F291300A2A2E2 /* UserRegistrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRegistrator.h; path = User/UserRegistrator.h; sourceTree = "<group>"; };
 		7FCBF688160F291300A2A2E2 /* UserRegistrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegistrator.m; path = User/UserRegistrator.m; sourceTree = "<group>"; };
+		7FDCBE8E161223A800DBDDFB /* FirstScreensVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstScreensVC.h; path = FirstLaunch/FirstScreensVC.h; sourceTree = "<group>"; };
+		7FDCBE8F161223A800DBDDFB /* FirstScreensVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstScreensVC.m; path = FirstLaunch/FirstScreensVC.m; sourceTree = "<group>"; };
+		7FDCBE91161224FF00DBDDFB /* LocalizationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalizationUtils.h; path = Localization/LocalizationUtils.h; sourceTree = "<group>"; };
+		7FDCBE92161224FF00DBDDFB /* LocalizationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalizationUtils.m; path = Localization/LocalizationUtils.m; sourceTree = "<group>"; };
 		7FDD282F159E5BA9008E1080 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = Data/DataManager.h; sourceTree = "<group>"; };
 		7FDD2830159E5BA9008E1080 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = Data/DataManager.m; sourceTree = "<group>"; };
 		7FDD2831159E5BA9008E1080 /* DbModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbModel.h; path = Data/DbModel.h; sourceTree = "<group>"; };
@@ -221,9 +244,25 @@
 			name = TVMClient;
 			sourceTree = "<group>";
 		};
+		7F7880101610D88600BDD517 /* FirstLaunch */ = {
+			isa = PBXGroup;
+			children = (
+				7F7880211610DC5F00BDD517 /* FirstLaunch.storyboard */,
+				7F7880191610DABE00BDD517 /* FirstLaunchNavController.h */,
+				7F78801A1610DABE00BDD517 /* FirstLaunchNavController.m */,
+				7F7880231610DE5500BDD517 /* AppLanguageVC.h */,
+				7F7880241610DE5500BDD517 /* AppLanguageVC.m */,
+				7FDCBE8E161223A800DBDDFB /* FirstScreensVC.h */,
+				7FDCBE8F161223A800DBDDFB /* FirstScreensVC.m */,
+			);
+			name = FirstLaunch;
+			sourceTree = "<group>";
+		};
 		7FAF75F6159E4FE300D37D7D = {
 			isa = PBXGroup;
 			children = (
+				7F7880101610D88600BDD517 /* FirstLaunch */,
+				7FC988171610BE4200AB04D5 /* Localization */,
 				7FCBF67D160F28A300A2A2E2 /* UserRegistrator */,
 				7F11FED9159E686E002F5982 /* TVMClient */,
 				7FDD282B159E58E8008E1080 /* Data */,
@@ -326,6 +365,21 @@
 				7FAAC65515D035D9009AC87C /* MessageCell.m */,
 			);
 			name = TableCells;
+			sourceTree = "<group>";
+		};
+		7FC988171610BE4200AB04D5 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				7FC988191610BEC200AB04D5 /* Lang.h */,
+				7FC9881A1610BEC200AB04D5 /* Lang.m */,
+				7FC9881C1610C31600AB04D5 /* LangEnglish.h */,
+				7FC9881D1610C31600AB04D5 /* LangEnglish.m */,
+				7FC9881F1610C32600AB04D5 /* LangRussian.h */,
+				7FC988201610C32600AB04D5 /* LangRussian.m */,
+				7FDCBE91161224FF00DBDDFB /* LocalizationUtils.h */,
+				7FDCBE92161224FF00DBDDFB /* LocalizationUtils.m */,
+			);
+			name = Localization;
 			sourceTree = "<group>";
 		};
 		7FCBF67D160F28A300A2A2E2 /* UserRegistrator */ = {
@@ -442,6 +496,7 @@
 				7FAF7618159E4FE400D37D7D /* SapidChat.entitlements in Resources */,
 				7FAF761B159E4FE400D37D7D /* Main.storyboard in Resources */,
 				7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */,
+				7F7880221610DC5F00BDD517 /* FirstLaunch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +568,13 @@
 				7FCBF689160F291300A2A2E2 /* RegistrationNavController.m in Sources */,
 				7FCBF68C160F291300A2A2E2 /* UserRegistrationVC.m in Sources */,
 				7FCBF68D160F291300A2A2E2 /* UserRegistrator.m in Sources */,
+				7FC9881B1610BEC200AB04D5 /* Lang.m in Sources */,
+				7FC9881E1610C31600AB04D5 /* LangEnglish.m in Sources */,
+				7FC988211610C32600AB04D5 /* LangRussian.m in Sources */,
+				7F78801B1610DABE00BDD517 /* FirstLaunchNavController.m in Sources */,
+				7F7880251610DE5500BDD517 /* AppLanguageVC.m in Sources */,
+				7FDCBE90161223A800DBDDFB /* FirstScreensVC.m in Sources */,
+				7FDCBE93161224FF00DBDDFB /* LocalizationUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

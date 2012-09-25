@@ -150,13 +150,26 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     int result = (int)[defaults integerForKey:SETTINGS_SAVED_APP_LANG];
     if (!result){
-        return 2; // 2 is English
+        return 2; // actually it is the first launch
     }
     return result;
 }
 
 +(void) setAppLanguage:(int) language{
     [[NSUserDefaults standardUserDefaults] setInteger:language forKey:SETTINGS_SAVED_APP_LANG];
+}
+
+// languages which can be chosen as application language
++(NSArray*)getAppLanguages{
+    return [[NSMutableArray alloc] initWithObjects:@"2", @"10", nil]; // localization!!!
+}
+
++(bool) hasLaunched{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:SYS_HAS_LAUNCHED];
+}
+
++(void) setHasLaunched:(bool)launched{
+    [[NSUserDefaults standardUserDefaults] setBool:launched forKey:SYS_HAS_LAUNCHED];
 }
 
 // data operations

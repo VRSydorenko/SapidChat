@@ -23,6 +23,7 @@
 		7F11FED8159E6865002F5982 /* ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FECC159E6865002F5982 /* ResponseHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F1A5B9715E56393002BC781 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A5B9615E56393002BC781 /* User.m */; };
 		7F44FC3715F2267E007C0387 /* ComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F44FC3615F2267E007C0387 /* ComposeVC.m */; };
+		7F5079501613728900067338 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F50794F1613728800067338 /* libsqlite3.0.dylib */; };
 		7F76ED9315E7FD37007463D7 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */; };
 		7F78801B1610DABE00BDD517 /* FirstLaunchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F78801A1610DABE00BDD517 /* FirstLaunchNavController.m */; };
 		7F7880221610DC5F00BDD517 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7880211610DC5F00BDD517 /* FirstLaunch.storyboard */; };
@@ -57,6 +58,11 @@
 		7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */; };
 		7FCBF68C160F291300A2A2E2 /* UserRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */; };
 		7FCBF68D160F291300A2A2E2 /* UserRegistrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF688160F291300A2A2E2 /* UserRegistrator.m */; };
+		7FD64D2F1613511D00BE8551 /* DbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D2E1613511D00BE8551 /* DbManager.m */; };
+		7FD64D321613522B00BE8551 /* DBDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D311613522B00BE8551 /* DBDefinition.m */; };
+		7FD64D3516135AEC00BE8551 /* DbTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D3416135AEC00BE8551 /* DbTable.m */; };
+		7FD64D3816135F1200BE8551 /* DbField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D3716135F1200BE8551 /* DbField.m */; };
+		7FD64D3B16135F2700BE8551 /* DbForeignKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D3A16135F2700BE8551 /* DbForeignKey.m */; };
 		7FDCBE90161223A800DBDDFB /* FirstScreensVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCBE8F161223A800DBDDFB /* FirstScreensVC.m */; };
 		7FDCBE93161224FF00DBDDFB /* LocalizationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCBE92161224FF00DBDDFB /* LocalizationUtils.m */; };
 		7FDD2833159E5BA9008E1080 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2830159E5BA9008E1080 /* DataManager.m */; };
@@ -110,6 +116,7 @@
 		7F1A5B9615E56393002BC781 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Data/User.m; sourceTree = "<group>"; };
 		7F44FC3515F2267E007C0387 /* ComposeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeVC.h; sourceTree = "<group>"; };
 		7F44FC3615F2267E007C0387 /* ComposeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeVC.m; sourceTree = "<group>"; };
+		7F50794F1613728800067338 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSiOSSDK.framework; sourceTree = "<group>"; };
 		7F7880191610DABE00BDD517 /* FirstLaunchNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstLaunchNavController.h; path = FirstLaunch/FirstLaunchNavController.h; sourceTree = "<group>"; };
 		7F78801A1610DABE00BDD517 /* FirstLaunchNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstLaunchNavController.m; path = FirstLaunch/FirstLaunchNavController.m; sourceTree = "<group>"; };
@@ -167,6 +174,16 @@
 		7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegistrationVC.m; path = User/UserRegistrationVC.m; sourceTree = "<group>"; };
 		7FCBF687160F291300A2A2E2 /* UserRegistrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRegistrator.h; path = User/UserRegistrator.h; sourceTree = "<group>"; };
 		7FCBF688160F291300A2A2E2 /* UserRegistrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegistrator.m; path = User/UserRegistrator.m; sourceTree = "<group>"; };
+		7FD64D2D1613511D00BE8551 /* DbManager.h */ = {isa = PBXFileReference; fileEncoding = 4; name = DbManager.h; path = Database/DbManager.h; sourceTree = "<group>"; };
+		7FD64D2E1613511D00BE8551 /* DbManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbManager.m; path = Database/DbManager.m; sourceTree = "<group>"; };
+		7FD64D301613522B00BE8551 /* DBDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBDefinition.h; path = Database/DBDefinition.h; sourceTree = "<group>"; };
+		7FD64D311613522B00BE8551 /* DBDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBDefinition.m; path = Database/DBDefinition.m; sourceTree = "<group>"; };
+		7FD64D3316135AEC00BE8551 /* DbTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbTable.h; path = Database/DbTable.h; sourceTree = "<group>"; };
+		7FD64D3416135AEC00BE8551 /* DbTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbTable.m; path = Database/DbTable.m; sourceTree = "<group>"; };
+		7FD64D3616135F1200BE8551 /* DbField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbField.h; path = Database/DbField.h; sourceTree = "<group>"; };
+		7FD64D3716135F1200BE8551 /* DbField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbField.m; path = Database/DbField.m; sourceTree = "<group>"; };
+		7FD64D3916135F2700BE8551 /* DbForeignKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbForeignKey.h; path = Database/DbForeignKey.h; sourceTree = "<group>"; };
+		7FD64D3A16135F2700BE8551 /* DbForeignKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbForeignKey.m; path = Database/DbForeignKey.m; sourceTree = "<group>"; };
 		7FDCBE8E161223A800DBDDFB /* FirstScreensVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstScreensVC.h; path = FirstLaunch/FirstScreensVC.h; sourceTree = "<group>"; };
 		7FDCBE8F161223A800DBDDFB /* FirstScreensVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstScreensVC.m; path = FirstLaunch/FirstScreensVC.m; sourceTree = "<group>"; };
 		7FDCBE91161224FF00DBDDFB /* LocalizationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalizationUtils.h; path = Localization/LocalizationUtils.h; sourceTree = "<group>"; };
@@ -192,6 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F5079501613728900067338 /* libsqlite3.0.dylib in Frameworks */,
 				7F11FEB3159E658E002F5982 /* Security.framework in Frameworks */,
 				7FAF7606159E4FE400D37D7D /* UIKit.framework in Frameworks */,
 				7FAF7608159E4FE400D37D7D /* Foundation.framework in Frameworks */,
@@ -261,6 +279,7 @@
 		7FAF75F6159E4FE300D37D7D = {
 			isa = PBXGroup;
 			children = (
+				7FD64D2B16134DB100BE8551 /* Database */,
 				7F7880101610D88600BDD517 /* FirstLaunch */,
 				7FC988171610BE4200AB04D5 /* Localization */,
 				7FCBF67D160F28A300A2A2E2 /* UserRegistrator */,
@@ -285,6 +304,7 @@
 		7FAF7604159E4FE300D37D7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F50794F1613728800067338 /* libsqlite3.0.dylib */,
 				7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */,
 				7F11FEB2159E658E002F5982 /* Security.framework */,
 				7FAF7605159E4FE400D37D7D /* UIKit.framework */,
@@ -394,6 +414,23 @@
 				7FCBF688160F291300A2A2E2 /* UserRegistrator.m */,
 			);
 			name = UserRegistrator;
+			sourceTree = "<group>";
+		};
+		7FD64D2B16134DB100BE8551 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				7FD64D2D1613511D00BE8551 /* DbManager.h */,
+				7FD64D2E1613511D00BE8551 /* DbManager.m */,
+				7FD64D301613522B00BE8551 /* DBDefinition.h */,
+				7FD64D311613522B00BE8551 /* DBDefinition.m */,
+				7FD64D3316135AEC00BE8551 /* DbTable.h */,
+				7FD64D3416135AEC00BE8551 /* DbTable.m */,
+				7FD64D3616135F1200BE8551 /* DbField.h */,
+				7FD64D3716135F1200BE8551 /* DbField.m */,
+				7FD64D3916135F2700BE8551 /* DbForeignKey.h */,
+				7FD64D3A16135F2700BE8551 /* DbForeignKey.m */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 		7FDD282B159E58E8008E1080 /* Data */ = {
@@ -575,6 +612,11 @@
 				7F7880251610DE5500BDD517 /* AppLanguageVC.m in Sources */,
 				7FDCBE90161223A800DBDDFB /* FirstScreensVC.m in Sources */,
 				7FDCBE93161224FF00DBDDFB /* LocalizationUtils.m in Sources */,
+				7FD64D2F1613511D00BE8551 /* DbManager.m in Sources */,
+				7FD64D321613522B00BE8551 /* DBDefinition.m in Sources */,
+				7FD64D3516135AEC00BE8551 /* DbTable.m in Sources */,
+				7FD64D3816135F1200BE8551 /* DbField.m in Sources */,
+				7FD64D3B16135F2700BE8551 /* DbForeignKey.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

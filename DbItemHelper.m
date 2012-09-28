@@ -13,6 +13,7 @@
 #import "DataManager.h"
 #import "Data/User.h"
 #import "Utils.h"
+#import "AmazonKeyChainWrapper.h"
 
 @implementation DbItemHelper
 
@@ -30,7 +31,7 @@
         attrVal = (DynamoDBAttributeValue*)[item valueForKey:key];
         
         if ([key isEqualToString: DBFIELD_USERS_PASSWORD]){
-            result.password = attrVal.s;
+            [AmazonKeyChainWrapper storeValueInKeyChain:attrVal.s forKey:result.email];
         }
         if ([key isEqualToString: DBFIELD_USERS_NICKNAME]){
             result.nickname = attrVal.s;

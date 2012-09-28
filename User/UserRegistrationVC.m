@@ -11,6 +11,7 @@
 #import "DataManager.h"
 #import "Utils.h"
 #import "DbModel.h"
+#import "AmazonKeyChainWrapper.h"
 
 @interface UserRegistrationVC (){
     RegistrationNavController* navController;
@@ -179,10 +180,11 @@
     
     dispatch_queue_t regQueue = dispatch_queue_create("registration queue", NULL);
     dispatch_async(regQueue, ^{
-        ErrorCodes errCode = [DataManager registerNewUser:user];
+        ErrorCodes errCode = [DataManager registerNewUser:user password:navController.password];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (errCode == OK){
                 registered = YES;
+                [AmazonKeyChainWrapper storeValueInKeyChain:navController.password forKey:user.email];
             } else {
                 self.labelServiseMessage.text = [Utils getErrorDescription:registered];
             }

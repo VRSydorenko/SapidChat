@@ -10,6 +10,7 @@
 #import "UserSettings.h"
 #import "SettingsValuesListTableVC.h"
 #import "Utils.h"
+#import "DataManager.h"
 
 @interface SettingsTableVC (){
     int valuesMode;
@@ -38,13 +39,14 @@
 }
 
 -(void) updateLabelValues{
+    User* user = [DataManager getCurrentUser];
     self.labelTimeZone.text = [UserSettings getTimeZone];
     self.labelTimeFormat.text = [Utils timeToString:[NSDate date]];
     self.labelDateFormat.text = [Utils dateToString:[NSDate date]];
-    self.labelNickname.text = [UserSettings getNickname];
+    self.labelNickname.text = user.nickname;
 
     NSMutableString* msgLangs = [[NSMutableString alloc] init];
-    for (NSNumber* num in [UserSettings getLanguages]) {
+    for (NSNumber* num in user.languages) {
         if (msgLangs.length > 0){
             [msgLangs appendString:@", "];
         }

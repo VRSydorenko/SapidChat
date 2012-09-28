@@ -8,14 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "Message.h"
 
 #define USER_LANGS_SEPARATOR @","
 
 @interface DbManager : NSObject
 
 -(id) init;
+
+-(void) open;
 -(void) close;
 
 -(void) saveUser:(User*)user;
+-(User*) loadUser:(NSString*)email;
+-(void) saveMessage:(Message*)msg;
+-(NSArray*) loadMessagesWithCondition:(NSString*)condition;
+-(void)setCollocutor:(NSString*)collocutor forExistingMessage:(int)globalInitialMessagesTimestamp;
+-(int) getLastInMessageTimestamp;
+-(int) getLastOutMessageTimestamp;
+-(int) getUnreadMessagesCount;
+-(void) resetUnreadMessagesCountForCollocutor:(NSString*)email;
 
 @end

@@ -14,6 +14,7 @@
 #import "UserSettings.h"
 #import "Lang.h"
 #import "LocalizationUtils.h"
+#import "AmazonKeyChainWrapper.h"
 
 @interface ViewController (){
     bool isLoggingIn;
@@ -104,7 +105,7 @@
 -(void) controllerToDismiss:(RegistrationNavController *)regController whichRegisteredTheUser:(User *)user{
     if (user){
         self.textEmail.text = user.email;
-        self.textPassword.text = user.password;
+        self.textPassword.text = [AmazonKeyChainWrapper getValueFromKeyChain:user.email];
     }
     [regController dismissViewControllerAnimated:YES completion:nil];
 }

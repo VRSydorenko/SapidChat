@@ -48,7 +48,7 @@
         self.buttonReply.enabled = NO;
     }
     
-    [UserSettings resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
+    [DataManager resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
 	// Do any additional setup after loading the view.
 }
 

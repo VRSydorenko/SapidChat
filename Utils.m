@@ -151,4 +151,10 @@
     return [NSString stringWithFormat:@"%@_MSG_TEXT%d", [UserSettings getEmail], slot];
 }
 
++(BOOL) user:(User*)one isEqualTo:(User*)two{
+    return [one.email isEqualToString:two.email] &&
+    [one.nickname isEqualToString:two.nickname] &&
+    [one.languages isEqualToArray:two.languages];
+}
+
 @end

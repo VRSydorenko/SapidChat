@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DbModel.h"
+#import "User.h"
 
 @interface Utils : NSObject
 
@@ -24,5 +25,7 @@
 +(NSString*) getSettingsKeyTO:(int)slot;
 +(NSString*) getSettingsKeyFROM:(int)slot;
 +(NSString*) getSettingsKeyTEXT:(int)slot;
+
++(BOOL) user:(User*)one isEqualTo:(User*)two;
 
 @end

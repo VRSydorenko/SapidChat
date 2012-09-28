@@ -14,12 +14,56 @@
 #import "UserSettings.h"
 #import "Message.h"
 #import "Dialog.h"
+#import "AmazonKeyChainWrapper.h"
 
 @interface DataManager()
 
 @end
 
 @implementation DataManager
+
++(DbManager*) getDbManager{ // private
+    return ((AppDelegate*)[[UIApplication sharedApplication] delegate]).dbManager;
+}
+
++(User*) getCurrentUser{
+    return [[self getDbManager] loadUser:[UserSettings getEmail]];
+}
+
++(int) getLastInMessageTimestamp{
+    return [[self getDbManager] getLastInMessageTimestamp];
+}
+
++(int) getLastOutMessageTimestamp{
+    return [[self getDbManager] getLastOutMessageTimestamp];
+}
+
++(int) getUnreadMessagesCount{
+    return [[self getDbManager] getUnreadMessagesCount];
+}
+
++(void) resetUnreadMessagesCountForCollocutor:(NSString*)email{
+    [[self getDbManager] resetUnreadMessagesCountForCollocutor:email];
+}
+
++(void) saveUser:(User*)user{
+    [[self getDbManager] saveUser:user];
+}
+
++(User*) loadUser:(NSString*)email{
+    return [[self getDbManager] loadUser:email];
+}
+
++(void) saveMessage:(Message*)msg{
+    [[self getDbManager] saveMessage:msg];
+    if (msg.initial_message_global_timestamp > 0){
+        [[self getDbManager] setCollocutor:msg.from forExistingMessage:msg.initial_message_global_timestamp];
+    }
+}
+
++(NSArray*) getSavedMessages{
+    return [[self getDbManager] loadMessagesWithCondition:@""];
+}
 
 +(BOOL) existsUserWithEmail:(NSString*)email{
     DynamoDBGetItemRequest *getItemRequest = [[DynamoDBGetItemRequest alloc] init];
@@ -31,7 +75,7 @@
     return response.item.count != 0;
 }
 
-+(ErrorCodes) registerNewUser:(User*)user{
++(ErrorCodes) registerNewUser:(User*)user password:(NSString*)password{
     if ([DataManager existsUserWithEmail:user.email]){
         return USER_EXISTS;
     }
@@ -40,7 +84,7 @@
         NSMutableDictionary* userDic = [[NSMutableDictionary alloc] init];
         
         [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:user.email] forKey:DBFIELD_USERS_EMAIL];
-        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:user.password] forKey:DBFIELD_USERS_PASSWORD];// TODO: crypt pass
+        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:password] forKey:DBFIELD_USERS_PASSWORD];// TODO: crypt pass
         [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:user.nickname] forKey:DBFIELD_USERS_NICKNAME];
         NSMutableArray* langs = [[NSMutableArray alloc] init];
         for (NSNumber* lang in user.languages) {
@@ -69,45 +113,49 @@
                 return OK;
             }
         }
-        DynamoDBGetItemResponse *response = nil;
-        @try {
-            // login
-            DynamoDBGetItemRequest *getItemRequest = [[DynamoDBGetItemRequest alloc] init];
-            getItemRequest.tableName = DBTABLE_USERS;
-            DynamoDBAttributeValue* keyAttr = [[DynamoDBAttributeValue alloc] initWithS:email];
-            DynamoDBKey *key = [[DynamoDBKey alloc] initWithHashKeyElement: keyAttr];
-            getItemRequest.key = key;
-            response = [[AmazonClientManager ddb] getItem:getItemRequest];
-        }
-        @catch (AmazonServiceException *exception) {
-            return AMAZON_SERVICE_ERROR;
-        }
-        if (!response){
-            return AMAZON_SERVICE_ERROR;
-        }
-        if (response.item.count == 0){
-            return NO_SUCH_USER;
-        }
-        User* user = [DbItemHelper prepareUser:response.item];
-        if (![user.password isEqualToString:password]){
-            return WRONG_PASSWORD;
+        User* user = nil;
+        if ([self retrieveUser:&user withEmail:email] == OK){
+            if (![password isEqualToString:[AmazonKeyChainWrapper getValueFromKeyChain:user.email]]){
+                return WRONG_PASSWORD;
+            }
+            [UserSettings setEmail:email];
+            [AmazonKeyChainWrapper storeValueInKeyChain:password forKey:email];
+            [[self getDbManager] saveUser:user];
         }
     } else {
         return emailvalidation;
     }
-    [UserSettings setEmail:email];
-    [UserSettings setPassword:password];
+    return OK;
+}
+
++(ErrorCodes)retrieveUser:(User**)user withEmail:(NSString*)email{
+    *user = nil;
+    DynamoDBGetItemResponse *response = nil;
+    @try {
+        // login
+        DynamoDBGetItemRequest *getItemRequest = [[DynamoDBGetItemRequest alloc] init];
+        getItemRequest.tableName = DBTABLE_USERS;
+        DynamoDBAttributeValue* keyAttr = [[DynamoDBAttributeValue alloc] initWithS:email];
+        DynamoDBKey *key = [[DynamoDBKey alloc] initWithHashKeyElement: keyAttr];
+        getItemRequest.key = key;
+        response = [[AmazonClientManager ddb] getItem:getItemRequest];
+        //
+    }
+    @catch (AmazonServiceException *exception) {
+        return AMAZON_SERVICE_ERROR;
+    }
+    if (!response){
+        return AMAZON_SERVICE_ERROR;
+    }
+    if (response.item.count == 0){
+        return NO_SUCH_USER;
+    }
+    *user = [DbItemHelper prepareUser:response.item];
     return OK;
 }
 
 +(NSArray*) getDialogs{
     return [Utils buildDialogsOfMsgs:[self loadAllMessages]];
-}
-
-+(void) deleteDialog:(Dialog*)dialog{
-    for (Message* msg in [dialog getSortedMessages]) {
-        [UserSettings deleteMessage:msg];
-    }
 }
 
 +(ErrorCodes)sendMessage:(Message*)message{
@@ -121,19 +169,20 @@
     }
 }
 
-+(ErrorCodes) pickNewMessage:(NSString*) me{
++(ErrorCodes) pickNewMessage{
     ErrorCodes result = OK;
     Message* msg = nil;
+    User* me = [self loadUser:[UserSettings getEmail]];
     
     do {
         // load new message from bank
-        result = [self getOneMessageFromBank:me message:&msg];
+        result = [self getOneMessageFromBank:me.email message:&msg];
         if (result != OK){
             return result;
         }
-        
+            
         // delete it from the bank
-        result = [self deleteOneMessageFromBank:me rangeKey:msg.when/*carefully*/ deletedMessage:&msg];
+        result = [self deleteOneMessageFromBank:me.email rangeKey:msg.when/*carefully*/ deletedMessage:&msg];
         if (result != OK){
             if (result == SYSTEM_NO_SUCH_MESSAGE){
                 msg = nil; // continue
@@ -146,9 +195,14 @@
                 return result;
             }
             result = [self placeNewMessageToReceived:msg];
+            if (result == OK){
+                User* collocutor;
+                if ([self retrieveUser:&collocutor withEmail:msg.from] == OK){
+                    [self saveUser:collocutor];// retrieve user
+                }
+            }
         }
     } while (!msg);
-    
     
     return result;
 }
@@ -159,20 +213,19 @@
     // load and save new messages
     NSMutableArray* messages = [[NSMutableArray alloc] initWithArray:[self loadNewMessages]];
     for (Message* newMsg in messages) {
-        BOOL isNewIncome = [[UserSettings getEmail] isEqualToString:newMsg.to];
-        [UserSettings saveMessage:newMsg isNewIncome:isNewIncome];
+        [self saveMessage:newMsg];
     }
     
     // return messages from the local store
-    return [UserSettings getSavedMessages];
+    return [self getSavedMessages];
 }
 
 +(NSArray*) loadNewMessages{
     NSMutableArray* messages = [[NSMutableArray alloc] init];
     
     DynamoDBAttributeValue* hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[UserSettings getEmail]];
-    DynamoDBAttributeValue* rangeKeyAttrIncome = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", [UserSettings getLastInMsgTimestamp]]];
-    DynamoDBAttributeValue* rangeKeyAttrOutgoing = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", [UserSettings getLastOutMsgTimestamp]]];
+    DynamoDBAttributeValue* rangeKeyAttrIncome = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", [self getLastInMessageTimestamp]]];
+    DynamoDBAttributeValue* rangeKeyAttrOutgoing = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", [self getLastOutMessageTimestamp]]];
     
     DynamoDBQueryRequest* request;
     DynamoDBQueryResponse* response = nil;
@@ -254,7 +307,7 @@
     }
 
     msg.to = SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR;
-    [UserSettings saveMessage:msg isNewIncome:NO];
+    [DataManager saveMessage:msg];
     
     return OK;
 }
@@ -302,7 +355,7 @@
         return AMAZON_SERVICE_ERROR;
     }
     
-    [UserSettings saveMessage:message isNewIncome:NO];
+    [DataManager saveMessage:message];
     
     return OK;
 }
@@ -341,7 +394,8 @@
         }
         
         *pickedUpMsg = [DbItemHelper prepareMessage:[queryResponse.items objectAtIndex:0]];
-        if (![(*pickedUpMsg).from isEqualToString:me]){ // not interested in own messages
+        NSString* from = (*pickedUpMsg).from;
+        if (![from isEqualToString:me] && ![self loadUser:from]){ // not interested in own messages and in messages of already existing users
             return OK;
         } else { // if own message loaded then re-run query with new start point and condition
             rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", (*pickedUpMsg).when]];
@@ -434,9 +488,5 @@
     }*/    
     return OK;
 }
-
-/*+(int)getGlobalTimestamp{
-    return (int)[[Utils toGlobalTime:[NSDate date]] timeIntervalSinceReferenceDate];
-}*/
 
 @end

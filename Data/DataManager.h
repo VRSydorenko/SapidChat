@@ -7,23 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AWSiOSSDK/DynamoDB/AmazonDynamoDBClient.h>
 #import "DbModel.h"
 #import "Message.h"
-#import "Dialog.h"
 #import "User.h"
+#import "AppDelegate.h"
 
 @interface DataManager : NSObject{
 }
 
++(void) saveUser:(User*)user;
++(User*) loadUser:(NSString*)email;
++(User*) getCurrentUser;
+
 +(BOOL) existsUserWithEmail:(NSString*)email;
-+(ErrorCodes) registerNewUser:(User*)user;
++(ErrorCodes) registerNewUser:(User*)user password:(NSString*)password;
 +(ErrorCodes)login:(NSString*)email password:(NSString*)password;
 
 +(NSArray*) getDialogs;
-+(void) deleteDialog:(Dialog*)dialog;
++(int) getUnreadMessagesCount;
++(void) resetUnreadMessagesCountForCollocutor:(NSString*)email;
 
 +(ErrorCodes)sendMessage:(Message*)message;
-+(ErrorCodes) pickNewMessage:(NSString*) me;
++(ErrorCodes) pickNewMessage;
 
 @end

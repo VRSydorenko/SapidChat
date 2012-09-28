@@ -131,7 +131,7 @@
         
         dispatch_queue_t refreshQueue = dispatch_queue_create("pick Queue", NULL);
         dispatch_async(refreshQueue, ^{
-            ErrorCodes pickResult = [DataManager pickNewMessage:[UserSettings getEmail]];
+            ErrorCodes pickResult = [DataManager pickNewMessage];
             if (pickResult == OK){
                 navController.dialogs = [DataManager getDialogs];
             }

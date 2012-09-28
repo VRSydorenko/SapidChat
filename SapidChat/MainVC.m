@@ -66,7 +66,7 @@
         switch (indexPath.row) {
             case 0:{
                 cell.labelTitle.text = @"Messages";
-                int unreadMsgs = [UserSettings getUnreadMessagesCount];
+                int unreadMsgs = [DataManager getUnreadMessagesCount];
                 NSString* infoMessage = unreadMsgs == 0 ? @"No new messages" : [NSString stringWithFormat:@"%d new messages", unreadMsgs];
                 cell.labelMessagesInfoMessage.text = infoMessage;
                 break;

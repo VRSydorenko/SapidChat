@@ -25,10 +25,21 @@
     tables = [[NSMutableArray alloc] init];
     
     DbTable* tUsers = [[DbTable alloc] initWithTableName:T_USERS];
+    [tUsers addField:F_AUTHOR type:DBTYPE_TEXT notNull:YES];
     [tUsers addField:F_EMAIL type:DBTYPE_TEXT notNull:YES];
     [tUsers addField:F_NICK type:DBTYPE_TEXT notNull:YES];
     [tUsers addField:F_LANGS type:DBTYPE_TEXT notNull:NO];
     [tables addObject:tUsers];
+    
+    DbTable* tMessages = [[DbTable alloc] initWithTableName:T_MSGS];
+    [tMessages addField:F_AUTHOR type:DBTYPE_TEXT notNull:YES];
+    [tMessages addField:F_FROM type:DBTYPE_TEXT notNull:YES];
+    [tMessages addField:F_TO type:DBTYPE_TEXT notNull:YES];
+    [tMessages addField:F_WHEN type:DBTYPE_REAL notNull:YES];
+    [tMessages addField:F_TEXT type:DBTYPE_TEXT notNull:YES];
+    [tMessages addField:F_UNREAD type:DBTYPE_REAL notNull:NO];
+    [tMessages addField:F_INITIAL_TIMESTAMP type:DBTYPE_REAL notNull:NO];
+    [tables addObject:tMessages];
 }
 
 -(NSString*) getTablesCreationSQL{

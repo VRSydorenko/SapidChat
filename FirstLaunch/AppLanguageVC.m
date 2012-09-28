@@ -36,7 +36,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    appLangs = [UserSettings getAppLanguages];
+    appLangs = [UserSettings getAppSupportedLanguages];
     [UserSettings setAppLanguage:2];// English by default
     self.tableAppLanguages.dataSource = self;
     self.tableAppLanguages.delegate = self;

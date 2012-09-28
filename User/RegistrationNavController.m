@@ -68,7 +68,6 @@
     if (self.email.length > 0){
         User* result = [[User alloc] init];
         result.email = self.email;
-        result.password = self.password;
         result.nickname = self.nickname;
         result.languages = [[NSArray alloc] initWithArray:self.selectedLanguages copyItems:YES];
         return result;

@@ -9,9 +9,12 @@
 #import "SettingsValuesListTableVC.h"
 #import "UserSettings.h"
 #import "Utils.h"
+#import "User.h"
+#import "DataManager.h"
 
 @interface SettingsValuesListTableVC (){
     NSArray* values;
+    User* currentUser;
 }
 
 @end
@@ -35,10 +38,11 @@
             values = [[NSArray alloc] initWithObjects:@"YYYY-MM-dd E", @"YYYY.MM.dd", @"YYYY-MM-dd", @"MM.dd E", @"dd.MM.YYYY", @"E dd.MM.YYYY", @"E dd.MM", @"dd.MM", nil];
             break;
         case 3: // languages
+            currentUser = [DataManager getCurrentUser];
             // languages are loaded directly to the table
             break;
         case 4: // app languages
-            values = [[NSArray alloc] initWithObjects:@"2"/*English*/, @"10"/*Russian*/, nil];
+            values = [[NSArray alloc] initWithObjects:@"2", @"10", nil];
             break;
     }
 }
@@ -99,8 +103,11 @@
                 int row = indexPath.row;
                 cell.textLabel.text = [Utils getLanguageName:row needSelfName:NO];
                 cell.detailTextLabel.text = [Utils getLanguageName:row needSelfName:YES];
-                if ([UserSettings knowLanguage:indexPath.row]){
-                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                for (NSNumber *num in currentUser.languages) {
+                    if (num.intValue == row){
+                        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                        break;
+                    }
                 }
                 break;
             }

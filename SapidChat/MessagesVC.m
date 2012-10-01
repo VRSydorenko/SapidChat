@@ -13,11 +13,14 @@
 #import "Utils.h"
 #import "UserSettings.h"
 #import "ComposeVC.h"
+#import "LocalizationUtils.h"
+#import "Lang.h"
 
 @interface MessagesVC (){
     NSArray *messages;
     NSDictionary* datesRowCount;
     NSString* me;
+    bool replyMode;
     
     // dimensions
     UIFont* messageFont;
@@ -44,9 +47,9 @@
     self.tabelMessages.dataSource = self;
     self.tabelMessages.delegate = self;
     self.title = [self getCollocutor];
-    if ([[self getCollocutor] isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR]){
-        self.buttonReply.enabled = NO;
-    }
+    replyMode = ![[self getCollocutor] isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR];
+    
+    [self setLocalizableValues];
     
     [DataManager resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
 	// Do any additional setup after loading the view.
@@ -60,6 +63,11 @@
     // Release any retained subviews of the main view.
 }
 
+-(void) setLocalizableValues{
+    NSString* replyButtonText = replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE];
+    forButton:self.buttonReply.title = replyButtonText;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -69,7 +77,7 @@
     messages = [self.dialog getSortedMessages];
     
     datesRowCount = [[NSMutableDictionary alloc] init];
-    for (int i=0; i<messages.count; i++) {
+    for (int i = 0; i<messages.count; i++) {
         Message* msg = (Message*)[messages objectAtIndex:i];
         NSDate* localDate = [Utils toLocalDate:msg.when];
         NSString* date = [Utils dateToString:localDate];
@@ -139,8 +147,10 @@
     if ([segue.identifier isEqualToString:@"SegueDialogToCompose"]){
         ComposeVC* compoceVC = (ComposeVC*)segue.destinationViewController;
         compoceVC.composeHandler = self;
-        compoceVC.collocutor = [self getCollocutor];
-        compoceVC.initialMsgGlobalTimstamp = [self getInitialMessageGlobalTimestamp];
+        if (replyMode){
+            compoceVC.collocutor = [self getCollocutor];
+            compoceVC.initialMsgGlobalTimstamp = [self getInitialMessageGlobalTimestamp];
+        }
     }
 }
 

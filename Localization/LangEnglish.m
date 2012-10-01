@@ -16,11 +16,22 @@
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE{ return @"Application language";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT{ return @"Next";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_GO{ return @"Go!";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_WELCOME{ return @"Welcome!\rHere you will find interesting chatting! The intrigue is the essential thing which can be achieved by three simple steps...";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_COMPOSE{ return @"You compose a message which is placed to the shared message stack and...";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_PICKITUP{ return @"...somebody picks it up and replies!\rIn the same way you can pick someone's message! Then...";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_COMMUNICATE{ return @"...communication starts!\rYou don't know who is the person who replied you, you don't know where the person is from and they don't know about you anything!\rAll what happening is a message luckyly sent to somebody! The intrigue!";}
-
++(NSString*) LOC_FIRSTLAUNCH_LABEL_WELCOME{ return @"Welcome!\rHere you will find interesting chatting! The intrigue is the essential thing which can be achieved by three simple steps.";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_COMPOSE{ return @"You compose a message which is placed to the shared message queue.";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_PICKITUP{ return @"Somebody picks it up and replies!\rIn the same way you can pick someone's message!";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_COMMUNICATE{ return @"Communication starts!\rYou don't know who is the person replied you, you don't know where they are from and they don't know about you anything!\rAll what happening is a message luckily sent to somebody! The intrigue!";}
+// registration screen
++(NSString*) LOC_REGISTATOR_TITLE{return @"Registration";}
++(NSString*) LOC_REGISTATOR_BTN_CANCEL { return @"Cancel";}
++(NSString*) LOC_REGISTATOR_BTN_NEXT { return @"Next";}
++(NSString*) LOC_REGISTATOR_BTN_REGISTER { return @"Create account!";}
++(NSString*) LOC_REGISTATOR_BTN_CLOSE { return @"Done!";}
++(NSString*) LOC_REGISTATOR_BTN_BACK { return @"Back";}
++(NSString*) LOC_REGISTATOR_FIELD_EMAIL { return @"E-mail";}
++(NSString*) LOC_REGISTATOR_FIELD_PASSWORD { return @"Password";}
++(NSString*) LOC_REGISTATOR_SWITCH_SAVECREDS { return @"Save password";}
++(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Nickname";}
++(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Choose languages you can text on";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Login";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Registration";}
@@ -38,6 +49,8 @@
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Pick new";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"Awaiting reply...";}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"No records to display";}
++(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Reply";}
++(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Compose one more";}
 // settings
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS{return @"Settings";}
 // section date & time

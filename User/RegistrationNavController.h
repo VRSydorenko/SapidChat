@@ -28,13 +28,6 @@
 
 @property (assign) id <UserRegistrationDelegate> handler;
 -(void) cancel;
--(void) increaseCurrentSegue;
--(void) decreaseCurrentSegue;
--(NSString*) getNextSegueId;
-
--(BOOL) nowIsInit;
--(BOOL) nowIsLanguages;
--(BOOL) nowIsFinish;
 
 -(User*) composeUser;
 

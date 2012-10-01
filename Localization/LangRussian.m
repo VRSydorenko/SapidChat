@@ -16,11 +16,22 @@
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE{ return @"Язык приложения";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT{ return @"Далее";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_GO{ return @"Вперед!";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_WELCOME{ return @"Добро пожаловать!\rЗдесь вы найдете интересное общение! Итрига - залог интереса, который достигается тремя простыми действиями...";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_COMPOSE{ return @"Вы создаете сообщение и оно помещается в единое хранилище сообщений, а...";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_PICKITUP{ return @"...кто-то другой случайным образом читает ваше сообщение и отвечает на него!\rТочно так же и вы можете случайным образом выбрать чье-то сообщение! И...";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_COMMUNICATE{ return @"...завязывается общение!\rВы не знаете кто ответит на ваше сообщение, вы не знаете откуда будет этот человек и он тоже о вас ничего не знает.\rВсе что есть - сообщение, отправленное на удачу кому-нибудь! Интрига! :)";}
-
++(NSString*) LOC_FIRSTLAUNCH_LABEL_WELCOME{ return @"Добро пожаловать!\rЗдесь вы найдете интересное общение! Итрига - залог интереса, который достигается тремя простыми действиями.";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_COMPOSE{ return @"Вы создаете сообщение и оно помещается в единое хранилище сообщений.";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_PICKITUP{ return @"Кто-то другой случайным образом выбирает ваше сообщение и отвечает на него!\rТочно так же и вы можете случайным образом выбрать чье-то сообщение!";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_COMMUNICATE{ return @"Завязывается общение!\rВы не знаете кто ответит на ваше сообщение, вы не знаете откуда будет этот человек и он тоже о вас ничего не знает.\rВсе что есть - сообщение, отправленное на удачу кому-нибудь! Интрига! :)";}
+// registration screen
++(NSString*) LOC_REGISTATOR_TITLE{return @"Регистрация";}
++(NSString*) LOC_REGISTATOR_BTN_CANCEL { return @"Отмена";}
++(NSString*) LOC_REGISTATOR_BTN_NEXT { return @"Далее";}
++(NSString*) LOC_REGISTATOR_BTN_REGISTER { return @"Создать аккаунт!";}
++(NSString*) LOC_REGISTATOR_BTN_CLOSE { return @"Готово!";}
++(NSString*) LOC_REGISTATOR_BTN_BACK { return @"Назад";}
++(NSString*) LOC_REGISTATOR_FIELD_EMAIL { return @"Эл. почта";}
++(NSString*) LOC_REGISTATOR_FIELD_PASSWORD { return @"Пароль";}
++(NSString*) LOC_REGISTATOR_SWITCH_SAVECREDS { return @"Сохранить пароль";}
++(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Ник";}
++(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Выберите языки, на которых вы можете вести переписку";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Вход";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Регистрация";}
@@ -38,6 +49,8 @@
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Вытянуть";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"В ожидании ответа...";}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"Нет сообщений";}
++(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Ответить";}
++(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Разместить еще";}
 // settings
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS {return @"Настройки";}
 // section date & time

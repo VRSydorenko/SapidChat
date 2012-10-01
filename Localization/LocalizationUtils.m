@@ -15,4 +15,9 @@
     [button setTitle:title forState:UIControlStateHighlighted];
 }
 
++(void) setText:(NSString*)text forLabel:(UILabel*)label{
+    label.text = text;
+    [label sizeToFit];
+}
+
 @end

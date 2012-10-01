@@ -10,6 +10,8 @@
 
 @implementation LangEnglish
 
+// universal
++(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
 // first launch
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE{ return @"Application language";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT{ return @"Next";}
@@ -18,11 +20,51 @@
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_COMPOSE{ return @"You compose a message which is placed to the shared message stack and...";}
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_PICKITUP{ return @"...somebody picks it up and replies!\rIn the same way you can pick someone's message! Then...";}
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_COMMUNICATE{ return @"...communication starts!\rYou don't know who is the person who replied you, you don't know where the person is from and they don't know about you anything!\rAll what happening is a message luckyly sent to somebody! The intrigue!";}
-// languages
-+(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"English";}
 
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Login";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Registration";}
+// main screen
++(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Messages";}
++(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d new messages";}
++(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"No new messages";}
++(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Intrigue";}
++(NSString*) LOC_MAIN_CELL_SETTINGS {return @"Settings";}
++(NSString*) LOC_MAIN_BUTTON_REFRESH {return @"Refresh";}
+// messages screen
++(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
++(NSString*) LOC_MESSAGES_BTN_REFRESH {return @"Refresh";}
++(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Compose";}
++(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Pick new";}
++(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"Awaiting reply...";}
++(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"No records to display";}
+// settings
++(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS{return @"Settings";}
+// section date & time
++(NSString*) LOC_SETTINGS_SECTIONHEADER_DATEnTIME {return @"Date & Time";}
++(NSString*) LOC_SETTINGS_SECTION_DATEnTIME_TIMEZONE {return @"Time zone";}
++(NSString*) LOC_SETTINGS_SECTION_DATEnTIME_TIMEFORMAT {return @"Time format";}
++(NSString*) LOC_SETTINGS_SECTION_DATEnTIME_DATEFORMAT {return @"Date format";}
++(NSString*) LOC_SETTINGS_SECTIONHEADER_ACCOUNT {return @"Account";}
++(NSString*) LOC_SETTINGS_SECTION_ACCOUNT_NICKNAME {return @"Nickname";}
++(NSString*) LOC_SETTINGS_SECTION_ACCOUNT_PASSWORD {return @"Password";}
++(NSString*) LOC_SETTINGS_SECTION_ACCOUNT_SAVECREDS {return @"Save credentials";}
++(NSString*) LOC_SETTINGS_SECTIONHEADER_LANGUAGES {return @"Languages";}
++(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_MESSAGES {return @"Messages";}
++(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Application";}
+// settings - languages
++(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"English";}
++(NSString*) LOC_SETTINGS_LANGUAGES_ARABIC{ return @"Arabic";}
++(NSString*) LOC_SETTINGS_LANGUAGES_CHINESE{ return @"Chinese";}
++(NSString*) LOC_SETTINGS_LANGUAGES_ENGLISH{ return @"English";}
++(NSString*) LOC_SETTINGS_LANGUAGES_FRENCH{ return @"French";}
++(NSString*) LOC_SETTINGS_LANGUAGES_GERMAN{ return @"German";}
++(NSString*) LOC_SETTINGS_LANGUAGES_HINDI{ return @"Hindi";}
++(NSString*) LOC_SETTINGS_LANGUAGES_ITALIAN{ return @"Italian";}
++(NSString*) LOC_SETTINGS_LANGUAGES_JAPANESE{ return @"Japanese";}
++(NSString*) LOC_SETTINGS_LANGUAGES_KOREAN{ return @"Korean";}
++(NSString*) LOC_SETTINGS_LANGUAGES_PORTUGESE{ return @"Portugese";}
++(NSString*) LOC_SETTINGS_LANGUAGES_RUSSIAN{ return @"Russian";}
++(NSString*) LOC_SETTINGS_LANGUAGES_SPANISH{ return @"Spanish";}
 
 @end

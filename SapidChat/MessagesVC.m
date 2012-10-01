@@ -157,7 +157,7 @@
 
 -(int) getInitialMessageGlobalTimestamp{// dates
     for (Message* msg in messages) {
-        if ([msg.from isEqualToString:me]){ // it's not the first respond, return nil
+        if ([msg.from isEqualToString:me]){ // it's not the first respond, return 0
             return 0;
         } else {
             return msg.when;

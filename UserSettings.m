@@ -85,16 +85,6 @@
     [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%d", currentCount + 1] forKey:[self userSpecKey:collocutor]];
 }
 
-+(BOOL) knowLanguage:(int) lang{
-    NSString* key = [NSString stringWithFormat:@"%@%d", SETTINGS_MSG_LANGS_, lang];
-    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
-}
-
-+(void) setKnowlege:(BOOL)know forLanguage:(int)lang{
-    NSString* key = [NSString stringWithFormat:@"%@%d", SETTINGS_MSG_LANGS_, lang];
-    [[NSUserDefaults standardUserDefaults] setBool:know forKey:key];
-}
-
 +(int) getAppLanguage{
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     int result = (int)[defaults integerForKey:SETTINGS_SAVED_APP_LANG];

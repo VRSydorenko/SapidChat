@@ -14,7 +14,7 @@
 
 @interface SettingsValuesListTableVC (){
     NSArray* values;
-    User* currentUser;
+    NSMutableArray* msgLanguages;
 }
 
 @end
@@ -38,7 +38,7 @@
             values = [[NSArray alloc] initWithObjects:@"YYYY-MM-dd E", @"YYYY.MM.dd", @"YYYY-MM-dd", @"MM.dd E", @"dd.MM.YYYY", @"E dd.MM.YYYY", @"E dd.MM", @"dd.MM", nil];
             break;
         case 3: // languages
-            currentUser = [DataManager getCurrentUser];
+            msgLanguages = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
             // languages are loaded directly to the table
             break;
         case 4: // app languages
@@ -103,7 +103,7 @@
                 int row = indexPath.row;
                 cell.textLabel.text = [Utils getLanguageName:row needSelfName:NO];
                 cell.detailTextLabel.text = [Utils getLanguageName:row needSelfName:YES];
-                for (NSNumber *num in currentUser.languages) {
+                for (NSNumber *num in msgLanguages) {
                     if (num.intValue == row){
                         cell.accessoryType = UITableViewCellAccessoryCheckmark;
                         break;
@@ -140,14 +140,20 @@
             break;
         case VALUES_MSG_LANGUAGES:{
             UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
-            bool currentNo = cell.accessoryType == UITableViewCellAccessoryNone;
-            [UserSettings setKnowlege:currentNo forLanguage:indexPath.row];
-            cell.accessoryType = currentNo ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+             NSNumber *row = [NSNumber numberWithInt:indexPath.row];
+            if (cell.accessoryType == UITableViewCellAccessoryNone){
+                [msgLanguages addObject:row];
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            } else {
+                [msgLanguages removeObject:row];
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
+            [DataManager setMsgLanguagesForCurrentUser:msgLanguages];
+            break;
         }
-        break;
         case VALUES_APP_LANGUAGES:{
             UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
-            if( cell.accessoryType == UITableViewCellAccessoryNone){
+            if(cell.accessoryType == UITableViewCellAccessoryNone){
                 int lang = ((NSString*)[values objectAtIndex:indexPath.row]).intValue;
                 [UserSettings setAppLanguage:lang];
                 [self.tableView reloadData];

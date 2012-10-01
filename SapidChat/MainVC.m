@@ -11,6 +11,8 @@
 #import "DataManager.h"
 #import "UserSettings.h"
 #import "MainNavController.h"
+#import "Lang.h"
+#import "LocalizationUtils.h"
 
 @interface MainVC ()
 @end
@@ -28,6 +30,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    self.title = [Lang LOC_UNI_APP_NAME];
+    self.navigationItem.rightBarButtonItem.title = [Lang LOC_MAIN_BUTTON_REFRESH];
     [self.tableMain reloadData];
 }
 
@@ -65,14 +69,14 @@
     if (cell){
         switch (indexPath.row) {
             case 0:{
-                cell.labelTitle.text = @"Messages";
+                cell.labelTitle.text = [Lang LOC_MAIN_CELL_MESSAGES];
                 int unreadMsgs = [DataManager getUnreadMessagesCount];
-                NSString* infoMessage = unreadMsgs == 0 ? @"No new messages" : [NSString stringWithFormat:@"%d new messages", unreadMsgs];
+                NSString* infoMessage = unreadMsgs == 0 ? [Lang LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES] : [NSString stringWithFormat:[Lang LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES], unreadMsgs];
                 cell.labelMessagesInfoMessage.text = infoMessage;
                 break;
             }
             case 1:
-                cell.labelTitle.text = @"Settings";
+                cell.labelTitle.text = [Lang LOC_MAIN_CELL_SETTINGS];
                 break;
         }
     }

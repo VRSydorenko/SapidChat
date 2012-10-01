@@ -26,7 +26,7 @@
                                 <rect key="frame" x="50" y="49" width="250" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="P:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="pYf-hx-bhO">
                                 <rect key="frame" x="20" y="93" width="22" height="21"/>
@@ -39,7 +39,7 @@
                                 <rect key="frame" x="50" y="88" width="250" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ahd-5c-Uuu">
                                 <rect key="frame" x="50" y="143" width="118" height="37"/>
@@ -270,6 +270,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnCompose" destination="OHC-LX-aJL" id="d5P-BD-2Qz"/>
+                        <outlet property="btnPick" destination="H7w-ss-68t" id="2cl-gF-j8z"/>
                         <outlet property="spinnerPick" destination="oo7-h9-9JD" id="hEL-vV-ejN"/>
                         <outlet property="tableDialogs" destination="hDL-sG-y0O" id="6W3-Tc-2MX"/>
                         <segue destination="dDO-1s-p1P" identifier="SegueDialogsToDialog" kind="push" id="4gH-r1-YbD"/>
@@ -641,7 +643,7 @@
                                                 </switch>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save credentials" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="mTX-4E-PB1">
                                                     <rect key="frame" x="10" y="8" width="202" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -721,6 +723,14 @@
                         <outlet property="labelNickname" destination="dlf-aw-3fq" id="cNQ-3M-URl"/>
                         <outlet property="labelTimeFormat" destination="lww-x1-eNA" id="A6b-51-14W"/>
                         <outlet property="labelTimeZone" destination="ROR-du-60D" id="Che-IT-jcc"/>
+                        <outlet property="loc_Acc_Nickname" destination="osM-yC-xHo" id="5ap-IC-3Ln"/>
+                        <outlet property="loc_Acc_Password" destination="kRQ-Ka-xml" id="AE9-DW-fWF"/>
+                        <outlet property="loc_Acc_SaveCreds" destination="mTX-4E-PB1" id="c1w-Cl-9Y7"/>
+                        <outlet property="loc_DateTime_DateFormat" destination="VF1-fC-m2W" id="f9p-ON-7mY"/>
+                        <outlet property="loc_DateTime_TimeFormat" destination="CQ3-KT-Pfu" id="sTB-e1-M6v"/>
+                        <outlet property="loc_DateTime_Timezone" destination="Ilx-XO-cy7" id="Xy9-EM-gY1"/>
+                        <outlet property="loc_Langs_Application" destination="ELf-gd-1LP" id="u8O-ew-EcJ"/>
+                        <outlet property="loc_Langs_Messages" destination="8ZN-jL-5xJ" id="9GP-O5-hFI"/>
                         <outlet property="switchSaveCreds" destination="b6f-w3-OBl" id="9SQ-UE-t4S"/>
                         <segue destination="MIo-0l-CyJ" identifier="SegueSettingsToValuesList" kind="push" id="bQu-gV-C1X"/>
                     </connections>

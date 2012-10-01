@@ -30,6 +30,10 @@
     return [[self getDbManager] loadUser:[UserSettings getEmail]];
 }
 
++(void) setMsgLanguagesForCurrentUser:(NSArray*)langs{
+    [[self getDbManager] setMsgLanguages:langs forUser:[UserSettings getEmail]];
+}
+
 +(int) getLastInMessageTimestamp{
     return [[self getDbManager] getLastInMessageTimestamp];
 }

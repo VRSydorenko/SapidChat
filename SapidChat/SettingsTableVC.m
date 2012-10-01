@@ -11,6 +11,8 @@
 #import "SettingsValuesListTableVC.h"
 #import "Utils.h"
 #import "DataManager.h"
+#import "Lang.h"
+#import "LocalizationUtils.h"
 
 @interface SettingsTableVC (){
     int valuesMode;
@@ -26,6 +28,14 @@
 @synthesize labelNickname;
 @synthesize labelMsgLanguages;
 @synthesize labelAppLanguage;
+@synthesize loc_DateTime_Timezone;
+@synthesize loc_DateTime_TimeFormat;
+@synthesize loc_DateTime_DateFormat;
+@synthesize loc_Acc_Nickname;
+@synthesize loc_Acc_Password;
+@synthesize loc_Acc_SaveCreds;
+@synthesize loc_Langs_Messages;
+@synthesize loc_Langs_Application;
 
 - (void)viewDidLoad
 {
@@ -36,6 +46,7 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [self updateLabelValues];
+    [self updateLocalizableValues];
 }
 
 -(void) updateLabelValues{
@@ -52,9 +63,20 @@
         }
         [msgLangs appendString:[Utils getLanguageName:num.intValue needSelfName:NO]];
     }
-    self.labelMsgLanguages.text = msgLangs;
     
-    self.labelAppLanguage.text = [Utils getLanguageName:[UserSettings getAppLanguage] needSelfName:NO];
+    [LocalizationUtils setText:msgLangs  forLabel:self.labelMsgLanguages];
+    [LocalizationUtils setText:[Utils getLanguageName:[UserSettings getAppLanguage] needSelfName:NO] forLabel:self.labelAppLanguage];
+}
+
+-(void) updateLocalizableValues{
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_DATEnTIME_TIMEZONE] forLabel:self.loc_DateTime_Timezone];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_DATEnTIME_TIMEFORMAT] forLabel:self.loc_DateTime_TimeFormat];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_DATEnTIME_DATEFORMAT] forLabel:self.loc_DateTime_DateFormat];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_ACCOUNT_NICKNAME] forLabel:self.loc_Acc_Nickname];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_ACCOUNT_PASSWORD] forLabel:self.loc_Acc_Password];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_ACCOUNT_SAVECREDS] forLabel:self.loc_Acc_SaveCreds];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_MESSAGES] forLabel:self.loc_Langs_Messages];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION] forLabel:self.loc_Langs_Application];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -92,6 +114,16 @@
     }
 }
 
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0: return [Lang LOC_SETTINGS_SECTIONHEADER_DATEnTIME];
+        case 1: return [Lang LOC_SETTINGS_SECTIONHEADER_ACCOUNT];
+        case 2: return [Lang LOC_SETTINGS_SECTIONHEADER_LANGUAGES];
+    }
+    return [super tableView:tableView titleForHeaderInSection:section];
+}
+
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"SegueSettingsToValuesList"]){
         SettingsValuesListTableVC* valuesListVC = (SettingsValuesListTableVC*)segue.destinationViewController;
@@ -109,6 +141,14 @@
     [self setLabelNickname:nil];
     [self setLabelMsgLanguages:nil];
     [self setLabelAppLanguage:nil];
+    [self setLoc_DateTime_Timezone:nil];
+    [self setLoc_DateTime_TimeFormat:nil];
+    [self setLoc_DateTime_DateFormat:nil];
+    [self setLoc_Acc_Nickname:nil];
+    [self setLoc_Acc_Password:nil];
+    [self setLoc_Acc_SaveCreds:nil];
+    [self setLoc_Langs_Messages:nil];
+    [self setLoc_Langs_Application:nil];
     [super viewDidUnload];
 }
 @end

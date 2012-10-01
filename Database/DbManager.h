@@ -21,6 +21,7 @@
 
 -(void) saveUser:(User*)user;
 -(User*) loadUser:(NSString*)email;
+-(void) setMsgLanguages:(NSArray*)languages forUser:(NSString*)email;
 -(void) saveMessage:(Message*)msg;
 -(NSArray*) loadMessagesWithCondition:(NSString*)condition;
 -(void)setCollocutor:(NSString*)collocutor forExistingMessage:(int)globalInitialMessagesTimestamp;

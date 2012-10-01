@@ -46,9 +46,6 @@
 +(NSString*) getPassword;
 +(void) setPassword:(NSString*)pasword;
 
-+(BOOL) knowLanguage:(int) lang;
-+(void) setKnowlege:(BOOL)know forLanguage:(int)lang;
-
 +(NSArray*)getAppSupportedLanguages;
 +(int) getAppLanguage;
 +(void) setAppLanguage:(int) language;

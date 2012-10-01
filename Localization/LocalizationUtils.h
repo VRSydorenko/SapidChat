@@ -11,5 +11,6 @@
 @interface LocalizationUtils : NSObject
 
 +(void) setTitle:(NSString*)title forButton:(UIButton*)button;
++(void) setText:(NSString*)text forLabel:(UILabel*)label;
 
 @end

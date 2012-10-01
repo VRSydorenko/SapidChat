@@ -18,6 +18,7 @@
 +(void) saveUser:(User*)user;
 +(User*) loadUser:(NSString*)email;
 +(User*) getCurrentUser;
++(void) setMsgLanguagesForCurrentUser:(NSArray*)langs;
 
 +(BOOL) existsUserWithEmail:(NSString*)email;
 +(ErrorCodes) registerNewUser:(User*)user password:(NSString*)password;

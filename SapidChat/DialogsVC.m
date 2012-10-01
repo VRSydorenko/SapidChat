@@ -14,6 +14,7 @@
 #import "MessagesVC.h"
 #import "ComposeVC.h"
 #import "UserSettings.h"
+#import "Lang.h"
 
 @interface DialogsVC (){
     MainNavController* navController;
@@ -26,12 +27,20 @@
 @end
 
 @implementation DialogsVC
+@synthesize btnPick;
+@synthesize btnCompose;
 @synthesize tableDialogs;
 @synthesize spinnerPick;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = [Lang LOC_MESSAGES_TITLE];
+    self.btnPick.title = [Lang LOC_MESSAGES_BTN_PICKNEW];
+    self.btnCompose.title = [Lang LOC_MESSAGES_BTN_COMPOSE];
+    self.navigationItem.rightBarButtonItem.title = [Lang LOC_MESSAGES_BTN_REFRESH];
+    
     isPicking = NO;
     navController = (MainNavController*)self.navigationController;
     self.tableDialogs.dataSource = self;
@@ -44,6 +53,8 @@
 {
     [self setTableDialogs:nil];
     [self setSpinnerPick:nil];
+    [self setBtnPick:nil];
+    [self setBtnCompose:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -69,7 +80,7 @@
 {
     if (navController.dialogs.count == 0) { // if no data - return one cell-message
         UITableViewCell *cell = [[UITableViewCell alloc] init];
-        cell.textLabel.text = @"No records to display";
+        cell.textLabel.text = [Lang LOC_MESSAGES_CELL_NO_RECORDS];
         noEntries = YES;
         return cell;
     }
@@ -80,7 +91,7 @@
     if (cell){
         Dialog *dialog = [navController.dialogs objectAtIndex:indexPath.row];
         NSString* stringCollocutor = dialog.collocutor ? dialog.collocutor : [UserSettings getEmail];
-        cell.labelCollocutor.text = stringCollocutor;
+        cell.labelCollocutor.text = [stringCollocutor isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR] ? [Lang LOC_MESSAGES_CELL_WAIT_FOR_REPLY] : stringCollocutor;
         Message *msg = (Message*)[[dialog getSortedMessages] lastObject];
         cell.infoMessage.text = msg.text;
     }

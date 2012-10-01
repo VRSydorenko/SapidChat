@@ -80,10 +80,7 @@
         
     }
     
-    NSString* languages = [[NSString alloc] init];
-    for (NSNumber* lang in user.languages) {
-        languages = [languages stringByAppendingFormat:@"%@%@",(languages.length>0?USER_LANGS_SEPARATOR:@""), lang];
-    }
+    NSString* languages = [self buildLanguagesString:user.languages];
     
     NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", \"%@\")", T_USERS, F_AUTHOR, F_EMAIL, F_NICK, F_LANGS, [UserSettings getEmail], user.email, user.nickname, languages];
     const char *insert_stmt = [insertSQL UTF8String];
@@ -117,13 +114,14 @@
             user.nickname = nickField;
             
             NSString *langsField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
-            
-            NSArray* langStrings = [langsField componentsSeparatedByString: USER_LANGS_SEPARATOR];
             NSMutableArray* langNumbers = [[NSMutableArray alloc] init];
-            for (NSString* lang in langStrings) {
-                [langNumbers addObject:[NSNumber numberWithInt:lang.intValue]];
+            if (langsField.length > 0){
+                NSArray* langStrings = [langsField componentsSeparatedByString: USER_LANGS_SEPARATOR];
+                for (NSString* lang in langStrings) {
+                    [langNumbers addObject:[NSNumber numberWithInt:lang.intValue]];
+                }
+                user.languages = langNumbers;
             }
-            user.languages = langNumbers;
         } else {
             NSLog(@"User not found in the database");
         }
@@ -131,6 +129,22 @@
     sqlite3_finalize(statement);
     
     return user;
+}
+
+-(void) setMsgLanguages:(NSArray*)languages forUser:(NSString*)email{ // user specific method
+    NSString* langsString = [self buildLanguagesString:languages];
+    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = \"%@\" WHERE \"%@\" = \"%@\"", T_USERS, F_LANGS, langsString, F_EMAIL, [UserSettings getEmail]];
+    const char *query_stmt = [querySQL UTF8String];
+    
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(sapidDb, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+    {
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+        } else {
+            NSLog(@"Error updating message (set collocutor)");
+        }
+    }
 }
 
 -(void) saveMessage:(Message*)msg{ // user specific method
@@ -254,6 +268,14 @@
             NSLog(@"Error resetting unread flag of messages with collocutor)");
         }
     }
+}
+
+-(NSString*) buildLanguagesString:(NSArray*)langs{
+    NSString* languages = @"";
+    for (NSNumber* lang in langs) {
+        languages = [languages stringByAppendingFormat:@"%@%@",(languages.length>0?USER_LANGS_SEPARATOR:@""), lang];
+    }
+    return languages;
 }
 
 @end

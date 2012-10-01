@@ -43,7 +43,7 @@
 	
     if ([UserSettings getSaveCredentials]){
         self.textEmail.text = [UserSettings getEmail];
-        self.textPassword.text = [UserSettings getPassword];
+        self.textPassword.text = [AmazonKeyChainWrapper getValueFromKeyChain:[UserSettings getEmail]];
     }
 }
 

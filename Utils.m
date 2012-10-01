@@ -12,6 +12,9 @@
 #import "Message.h"
 #import "Dialog.h"
 #import "UserSettings.h"
+#import "Lang.h"
+#import "LangRussian.h"
+#import "LangEnglish.h"
 
 @implementation Utils
 
@@ -82,34 +85,20 @@
     }
 }
 
-/*
- ARABIC      = 0,
- CHINESE     = 1,
- ENGLISH     = 2,
- FRENCH      = 3,
- GERMAN      = 4,
- HINDI       = 5,
- ITALIAN     = 6,
- JAPANESE    = 7,
- KOREAN      = 8,
- PORTUGESE   = 9,
- RUSSIAN     = 10,
- SPANISH     = 11,
- */
 +(NSString*) getLanguageName:(int)langCode needSelfName:(bool)selfName;{
     switch (langCode) {
-        case ARABIC:    return selfName ? @"العربية" : @"Arabic";
-        case CHINESE:   return selfName ? @"中文, 汉语" : @"Chinese";
-        case ENGLISH:   return selfName ? @"English" : @"English";
-        case FRENCH:    return selfName ? @"Français" : @"French";
-        case GERMAN:    return selfName ? @"Deutsch" : @"German";
-        case HINDI:     return selfName ? @"हिन्दी" : @"Hindi";
-        case ITALIAN:   return selfName ? @"Italiano" : @"Inlian";
-        case JAPANESE:  return selfName ? @"日本語" : @"Japanese";
-        case KOREAN:    return selfName ? @"한국어, 조선말" : @"Korean";
-        case PORTUGESE: return selfName ? @"Português" : @"Portuguese";
-        case RUSSIAN:   return selfName ? @"Русский" : @"Russian";
-        case SPANISH:   return selfName ? @"Español" : @"Spanish";
+        case ARABIC:    return selfName ? @"العربية" : [Lang LOC_SETTINGS_LANGUAGES_ARABIC];
+        case CHINESE:   return selfName ? @"中文, 汉语" : [Lang LOC_SETTINGS_LANGUAGES_CHINESE];
+        case ENGLISH:   return selfName ? [LangEnglish LOC_SYS_LANGUAGE_SELFNAME] : [Lang LOC_SETTINGS_LANGUAGES_ENGLISH];
+        case FRENCH:    return selfName ? @"Français" : [Lang LOC_SETTINGS_LANGUAGES_FRENCH];
+        case GERMAN:    return selfName ? @"Deutsch" : [Lang LOC_SETTINGS_LANGUAGES_GERMAN];
+        case HINDI:     return selfName ? @"हिन्दी" : [Lang LOC_SETTINGS_LANGUAGES_HINDI];
+        case ITALIAN:   return selfName ? @"Italiano" : [Lang LOC_SETTINGS_LANGUAGES_ITALIAN];
+        case JAPANESE:  return selfName ? @"日本語" : [Lang LOC_SETTINGS_LANGUAGES_JAPANESE];
+        case KOREAN:    return selfName ? @"한국어, 조선말" : [Lang LOC_SETTINGS_LANGUAGES_KOREAN];
+        case PORTUGESE: return selfName ? @"Português" : [Lang LOC_SETTINGS_LANGUAGES_PORTUGESE];
+        case RUSSIAN:   return selfName ? [LangRussian LOC_SYS_LANGUAGE_SELFNAME] : [Lang LOC_SETTINGS_LANGUAGES_RUSSIAN];
+        case SPANISH:   return selfName ? @"Español" : [Lang LOC_SETTINGS_LANGUAGES_SPANISH];
         default:
             return @"Unknown language";
     }

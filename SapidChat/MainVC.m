@@ -18,6 +18,7 @@
 @end
 
 @implementation MainVC
+@synthesize btnLogout;
 @synthesize tableMain;
 
 - (void)viewDidLoad
@@ -38,6 +39,7 @@
 - (void)viewDidUnload
 {
     [self setTableMain:nil];
+    [self setBtnLogout:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -110,6 +112,10 @@
         });
     });
     dispatch_release(refreshQueue);
+}
+
+- (IBAction)logoutPressed:(id)sender {
+    [((MainNavController*)self.navigationController).logoutHandler controllerToLogout:self.navigationController];
 }
 
 @end

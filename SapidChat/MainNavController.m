@@ -18,6 +18,8 @@
 @synthesize dialogs = _dialogs;
 @synthesize lastUpdate = _lastUpdate;
 
+@synthesize logoutHandler = _logoutHandler;
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait ||

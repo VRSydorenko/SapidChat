@@ -53,6 +53,7 @@
         user = [navController composeUser];
         [self registerAsync];
         self.navigationItem.hidesBackButton = YES;
+        [self.navigationController setNavigationBarHidden:YES];
     } else {
         [self initControlsData];
     }

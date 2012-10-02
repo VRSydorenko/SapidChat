@@ -192,7 +192,7 @@
 }
 
 -(void)setCollocutor:(NSString*)collocutor forExistingMessage:(int)globalInitialMessagesTimestamp{
-    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = \"%@\" WHERE %@ = %d", T_MSGS, F_TO, collocutor, F_INITIAL_TIMESTAMP, globalInitialMessagesTimestamp];
+    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = \"%@\" WHERE %@ = %d", T_MSGS, F_TO, collocutor, F_WHEN, globalInitialMessagesTimestamp];
     const char *query_stmt = [querySQL UTF8String];
     
     sqlite3_stmt *statement;

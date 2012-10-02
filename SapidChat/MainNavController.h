@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class MainNavController;
+
+@protocol LogoutDelegate
+@required
+- (void) controllerToLogout:(UINavigationController*)navController;
+@end
+
 @interface MainNavController : UINavigationController
 
 @property NSArray* dialogs;
 @property NSDate* lastUpdate;
+
+@property (assign) id<LogoutDelegate> logoutHandler;
 
 @end

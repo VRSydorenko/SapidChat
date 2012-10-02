@@ -40,10 +40,15 @@
     [self localize];
     
     isLoggingIn = NO;
-	
+}
+
+-(void) viewWillAppear:(BOOL)animated{
     if ([UserSettings getSaveCredentials]){
         self.textEmail.text = [UserSettings getEmail];
         self.textPassword.text = [AmazonKeyChainWrapper getValueFromKeyChain:[UserSettings getEmail]];
+    } else {
+        self.textEmail.text = @"";
+        self.textPassword.text = @"";
     }
 }
 
@@ -101,6 +106,12 @@
     dispatch_release(logginQueue);
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"SegueLoginToMain"]){
+        MainNavController* navCon = (MainNavController*)segue.destinationViewController;
+        navCon.logoutHandler = self;
+    }
+}
 
 -(void) controllerToDismiss:(RegistrationNavController *)regController whichRegisteredTheUser:(User *)user{
     if (user){
@@ -108,6 +119,10 @@
         self.textPassword.text = [AmazonKeyChainWrapper getValueFromKeyChain:user.email];
     }
     [regController dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) controllerToLogout:(UINavigationController *)navController{
+    [navController dismissModalViewControllerAnimated:YES];
 }
 
 @end

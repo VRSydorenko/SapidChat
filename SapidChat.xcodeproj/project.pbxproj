@@ -54,6 +54,7 @@
 		7FC9881B1610BEC200AB04D5 /* Lang.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881A1610BEC200AB04D5 /* Lang.m */; };
 		7FC9881E1610C31600AB04D5 /* LangEnglish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881D1610C31600AB04D5 /* LangEnglish.m */; };
 		7FC988211610C32600AB04D5 /* LangRussian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988201610C32600AB04D5 /* LangRussian.m */; };
+		7FCB367C161A2C3A0041A1FD /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 7FCB367B161A2C3A0041A1FD /* ToDo */; };
 		7FCBF689160F291300A2A2E2 /* RegistrationNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */; };
 		7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */; };
 		7FCBF68C160F291300A2A2E2 /* UserRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */; };
@@ -167,6 +168,7 @@
 		7FC9881D1610C31600AB04D5 /* LangEnglish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangEnglish.m; path = Localization/LangEnglish.m; sourceTree = "<group>"; };
 		7FC9881F1610C32600AB04D5 /* LangRussian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangRussian.h; path = Localization/LangRussian.h; sourceTree = "<group>"; };
 		7FC988201610C32600AB04D5 /* LangRussian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangRussian.m; path = Localization/LangRussian.m; sourceTree = "<group>"; };
+		7FCB367B161A2C3A0041A1FD /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
 		7FCBF680160F291300A2A2E2 /* RegistrationNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationNavController.h; path = User/RegistrationNavController.h; sourceTree = "<group>"; };
 		7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationNavController.m; path = User/RegistrationNavController.m; sourceTree = "<group>"; };
 		7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserRegistration.storyboard; path = User/UserRegistration.storyboard; sourceTree = "<group>"; };
@@ -174,7 +176,7 @@
 		7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegistrationVC.m; path = User/UserRegistrationVC.m; sourceTree = "<group>"; };
 		7FCBF687160F291300A2A2E2 /* UserRegistrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRegistrator.h; path = User/UserRegistrator.h; sourceTree = "<group>"; };
 		7FCBF688160F291300A2A2E2 /* UserRegistrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegistrator.m; path = User/UserRegistrator.m; sourceTree = "<group>"; };
-		7FD64D2D1613511D00BE8551 /* DbManager.h */ = {isa = PBXFileReference; fileEncoding = 4; name = DbManager.h; path = Database/DbManager.h; sourceTree = "<group>"; };
+		7FD64D2D1613511D00BE8551 /* DbManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbManager.h; path = Database/DbManager.h; sourceTree = "<group>"; };
 		7FD64D2E1613511D00BE8551 /* DbManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbManager.m; path = Database/DbManager.m; sourceTree = "<group>"; };
 		7FD64D301613522B00BE8551 /* DBDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBDefinition.h; path = Database/DBDefinition.h; sourceTree = "<group>"; };
 		7FD64D311613522B00BE8551 /* DBDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBDefinition.m; path = Database/DBDefinition.m; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 		7FAF75F6159E4FE300D37D7D = {
 			isa = PBXGroup;
 			children = (
+				7FCB367B161A2C3A0041A1FD /* ToDo */,
 				7FD64D2B16134DB100BE8551 /* Database */,
 				7F7880101610D88600BDD517 /* FirstLaunch */,
 				7FC988171610BE4200AB04D5 /* Localization */,
@@ -534,6 +537,7 @@
 				7FAF761B159E4FE400D37D7D /* Main.storyboard in Resources */,
 				7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */,
 				7F7880221610DC5F00BDD517 /* FirstLaunch.storyboard in Resources */,
+				7FCB367C161A2C3A0041A1FD /* ToDo in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
         <scene sceneID="KEf-XY-MW4">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tp9-dI-MC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController storyboardIdentifier="SceneRegistration" definesPresentationContext="YES" toolbarHidden="NO" id="Ysn-Hc-xxa" customClass="RegistrationNavController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SceneRegistration" definesPresentationContext="YES" id="Ysn-Hc-xxa" customClass="RegistrationNavController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ITZ-My-RVi">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -31,7 +31,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8Y-nn-mWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="AeP-Ng-FkB" customClass="UserRegistrationVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xDD-gS-99x">
-                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Nickname:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="3ee-K2-rhU">
@@ -70,7 +70,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="YiC-f3-14p"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnNext" destination="FsX-7y-CM4" id="mCn-kF-7gP"/>
                         <outlet property="labelNickname" destination="3ee-K2-rhU" id="Lbb-dv-QWD"/>
@@ -87,7 +86,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSx-mL-uBz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="uVo-dK-wsK" customClass="UserRegistrationVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vHY-ZZ-4BG">
-                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LnK-6L-OMO">
@@ -129,20 +128,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2Ec-ld-Bhc">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BjU-Jh-jUg"/>
+                                    <barButtonItem title="Register!" id="Ard-zH-nuP">
+                                        <connections>
+                                            <action selector="nextPressed:" destination="uVo-dK-wsK" id="9Qd-cq-Yzm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="RLE-iE-nNQ"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="BjU-Jh-jUg"/>
-                        <barButtonItem title="Register!" id="Ard-zH-nuP">
-                            <connections>
-                                <action selector="nextPressed:" destination="uVo-dK-wsK" id="9Qd-cq-Yzm"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="RLE-iE-nNQ"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="PuC-Ud-Se7"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnRegister" destination="Ard-zH-nuP" id="Tvg-tA-AUk"/>
                         <outlet property="labelSelectLangs" destination="obw-V0-qZL" id="Lbn-V0-9qx"/>
@@ -159,7 +162,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6k-6o-uWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="9hL-7l-8g0" customClass="UserRegistrationVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hks-2h-0Ni">
-                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="E-mail:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="VTP-6b-bpT">
@@ -225,7 +228,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="c6k-IB-JqZ"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnNext" destination="2vH-Ea-78g" id="oOm-Hq-dGP"/>
                         <outlet property="labelEmail" destination="VTP-6b-bpT" id="ycH-8F-R4u"/>
@@ -246,7 +248,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LVn-KU-SIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="2V0-c0-0QV" customClass="UserRegistrationVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lIV-Ab-TZg">
-                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ZYT-8f-aq9">
@@ -260,20 +262,24 @@
                                 <rect key="frame" x="150" y="191" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Yn6-Pu-IXY">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fxn-ut-mlU"/>
+                                    <barButtonItem title="Close" id="K0K-44-udV">
+                                        <connections>
+                                            <action selector="nextPressed:" destination="2V0-c0-0QV" id="Ld4-Le-ErR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fXn-vG-wxa"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fxn-ut-mlU"/>
-                        <barButtonItem title="Close" id="K0K-44-udV">
-                            <connections>
-                                <action selector="nextPressed:" destination="2V0-c0-0QV" id="Ld4-Le-ErR"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fXn-vG-wxa"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="wmB-kV-hHO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnClose" destination="K0K-44-udV" id="l2S-Cc-1PM"/>
                         <outlet property="labelServiseMessage" destination="ZYT-8f-aq9" id="taf-9q-CJQ"/>

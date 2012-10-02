@@ -65,10 +65,6 @@
     }
 }
 
-+(NSArray*) getSavedMessages{
-    return [[self getDbManager] loadMessagesWithCondition:@""];
-}
-
 +(BOOL) existsUserWithEmail:(NSString*)email{
     DynamoDBGetItemRequest *getItemRequest = [[DynamoDBGetItemRequest alloc] init];
     getItemRequest.tableName = DBTABLE_USERS;
@@ -221,7 +217,7 @@
     }
     
     // return messages from the local store
-    return [self getSavedMessages];
+    return [[self getDbManager] loadMessagesWithCondition:@""];
 }
 
 +(NSArray*) loadNewMessages{

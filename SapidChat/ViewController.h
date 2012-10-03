@@ -19,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnRegister;
 - (IBAction)goPressed:(id)sender;
 - (IBAction)registerPressed:(id)sender;
+- (IBAction)didEndOnExit:(UITextField *)sender;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end

@@ -106,26 +106,21 @@
 }
 
 +(ErrorCodes)login:(NSString*)email password:(NSString*)password{
-    ErrorCodes emailvalidation = [Utils validateEmail:email];
-    if (emailvalidation == OK){
-        if ([email isEqualToString:[UserSettings getEmail]]){//login with saved data
-            if ([password isEqualToString:[UserSettings getPassword]]){
-                return OK;
-            }
-        }
+    ErrorCodes result = [Utils validateEmail:email];
+    if (result == OK){
         User* user = nil;
-        if ([self retrieveUser:&user withEmail:email] == OK){
-            if (![password isEqualToString:[AmazonKeyChainWrapper getValueFromKeyChain:user.email]]){
-                return WRONG_PASSWORD;
+        result = [self retrieveUser:&user withEmail:email];
+        if (result == OK){
+            if ([password isEqualToString:[AmazonKeyChainWrapper getValueFromKeyChain:user.email]]){
+                [UserSettings setEmail:email];
+                [AmazonKeyChainWrapper storeValueInKeyChain:password forKey:email];
+                [[self getDbManager] saveUser:user];
+            } else {
+                result = WRONG_PASSWORD;
             }
-            [UserSettings setEmail:email];
-            [AmazonKeyChainWrapper storeValueInKeyChain:password forKey:email];
-            [[self getDbManager] saveUser:user];
         }
-    } else {
-        return emailvalidation;
     }
-    return OK;
+    return result;
 }
 
 +(ErrorCodes)retrieveUser:(User**)user withEmail:(NSString*)email{

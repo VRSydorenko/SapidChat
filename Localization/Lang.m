@@ -61,6 +61,10 @@
 +(NSString*) LOC_MAIN_CELL_INTRIGUE{return [[self AppLanguage] LOC_MAIN_CELL_INTRIGUE];}
 +(NSString*) LOC_MAIN_CELL_SETTINGS{return [[self AppLanguage] LOC_MAIN_CELL_SETTINGS];}
 +(NSString*) LOC_MAIN_BUTTON_REFRESH{return [[self AppLanguage] LOC_MAIN_BUTTON_REFRESH];}
++(NSString*) LOC_MAIN_BUTTON_LOGOUT{return [[self AppLanguage] LOC_MAIN_BUTTON_LOGOUT];}
+// intrigue sell screen
++(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{ return [[self AppLanguage] LOC_INTRIGUE_SELL_DESCRIPTION];}
++(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return [[self AppLanguage] LOC_INTRIGUE_SELL_BTN_ACTIVATE];}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [[self AppLanguage] LOC_MESSAGES_TITLE];}
 +(NSString*) LOC_MESSAGES_BTN_REFRESH {return [[self AppLanguage] LOC_MESSAGES_BTN_REFRESH];}

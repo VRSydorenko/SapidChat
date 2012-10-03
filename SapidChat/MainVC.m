@@ -33,6 +33,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     self.title = [Lang LOC_UNI_APP_NAME];
     self.navigationItem.rightBarButtonItem.title = [Lang LOC_MAIN_BUTTON_REFRESH];
+    self.btnLogout.title = [Lang LOC_MAIN_BUTTON_LOGOUT];
     [self.tableMain reloadData];
 }
 
@@ -51,7 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,6 +63,9 @@
             reuseId = @"MainCellMessages";
             break;
         case 1:
+            reuseId = @"MainCellIntrigue";
+            break;
+        case 2:
             reuseId = @"MainCellSettings";
             break;
     }
@@ -78,8 +82,12 @@
                 break;
             }
             case 1:
+                cell.labelTitle.text = [Lang LOC_MAIN_CELL_INTRIGUE];
+                break;
+            case 2:
                 cell.labelTitle.text = [Lang LOC_MAIN_CELL_SETTINGS];
                 break;
+
         }
     }
     
@@ -92,7 +100,12 @@
         case 0:
             [self performSegueWithIdentifier:@"SegueMainToDialogs" sender:self];
             break;
-        case 1:
+        case 1:{
+            NSString* intrigueSegue = [UserSettings intrigueUnlocked] ? @"SegueMainToIntrigue" : @"SegueMainToSellIntrigue";
+            [self performSegueWithIdentifier:intrigueSegue sender:self];
+            break;
+        }
+        case 2:
             [self performSegueWithIdentifier:@"SegueMainToSettings" sender:self];
             break;
     }

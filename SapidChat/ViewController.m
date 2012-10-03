@@ -33,9 +33,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (![UserSettings hasLaunched]){
-        [UserSettings setHasLaunched:YES];
-    }
+    
+    [UserSettings setHasLaunched];
     
     [self localize];
     
@@ -82,6 +81,10 @@
 
 - (IBAction)registerPressed:(id)sender {
     [UserRegistrator registerUserOverCurrentViewController:self andHandler:self];
+}
+
+- (IBAction)didEndOnExit:(UITextField *)sender {
+    [sender resignFirstResponder];
 }
 
 -(void) loginAsync{

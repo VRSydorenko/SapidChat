@@ -39,9 +39,13 @@
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Сообщения";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d новых сообщений";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"Новых сообщений нет";}
-+(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Итрига";}
++(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Интрига";}
 +(NSString*) LOC_MAIN_CELL_SETTINGS {return @"Настройки";}
 +(NSString*) LOC_MAIN_BUTTON_REFRESH {return @"Обновить";}
++(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Выйти";}
+// intrigue sell screen
++(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Тут - описание замечательной опции: отсылки анонимный приглашений на почту!\rПригласите того, кто вам нравится!";}
++(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return @"Активировать";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
 +(NSString*) LOC_MESSAGES_BTN_REFRESH {return @"Обновить";}

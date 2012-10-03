@@ -42,6 +42,10 @@
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Intrigue";}
 +(NSString*) LOC_MAIN_CELL_SETTINGS {return @"Settings";}
 +(NSString*) LOC_MAIN_BUTTON_REFRESH {return @"Refresh";}
++(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Log out";}
+// intrigue sell screen
++(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Here is a description of the amazing option!\rIt is sending an anonymous email!";}
++(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return @"Activate";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
 +(NSString*) LOC_MESSAGES_BTN_REFRESH {return @"Refresh";}

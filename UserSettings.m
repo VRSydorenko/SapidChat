@@ -107,8 +107,15 @@
     return [[NSUserDefaults standardUserDefaults] boolForKey:SYS_HAS_LAUNCHED];
 }
 
-+(void) setHasLaunched:(bool)launched{
-    [[NSUserDefaults standardUserDefaults] setBool:launched forKey:SYS_HAS_LAUNCHED];
++(void) setHasLaunched{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:SYS_HAS_LAUNCHED];
+}
+
++(bool) intrigueUnlocked{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:PURCHASE_INTRIGUE_UNLOCKED];
+}
++(void) setIntrigueUnlocked{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:PURCHASE_INTRIGUE_UNLOCKED];
 }
 
 @end

@@ -11,6 +11,8 @@
 
 #define SYS_HAS_LAUNCHED @"sys_has_launched"
 
+#define PURCHASE_INTRIGUE_UNLOCKED @"purchase_intrigue_unlocked"
+
 #define DEF_DATEFORMAT @"YYYY.MM.dd"
 #define DEF_TIMEFORMAT @"HH:mm"
 
@@ -21,10 +23,6 @@
 #define CURRENTLY_LOGGED_EMAIL @"defs_savedEmail"
 
 #define SETTINGS_SAVED_CRED_PASS @"defs_savedPass"
-// prefix for saved msg languages (defs_msg_lang_1,2,3)
-#define SETTINGS_MSG_LANGS_ @"defs_msg_lang_"
-// prefix for saved app languages (defs_app_lang_1,2,3)
-#define SETTINGS_APP_LANGS_ @"defs_app_lang_"
 #define SETTINGS_SAVED_APP_LANG @"defs_savedAppLang"
 
 @interface UserSettings : NSObject
@@ -43,14 +41,14 @@
 +(NSString*) getEmail;
 +(void) setEmail:(NSString*)email;
 
-+(NSString*) getPassword;
-+(void) setPassword:(NSString*)pasword;
-
 +(NSArray*)getAppSupportedLanguages;
 +(int) getAppLanguage;
 +(void) setAppLanguage:(int) language;
 
 +(bool) hasLaunched;
-+(void) setHasLaunched:(bool)launched;
++(void) setHasLaunched;
+
++(bool) intrigueUnlocked;
++(void) setIntrigueUnlocked;
 
 @end

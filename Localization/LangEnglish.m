@@ -46,6 +46,9 @@
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Here is a description of the amazing option!\rIt is sending an anonymous email!";}
 +(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return @"Activate";}
++(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Enter email of whose you want to get intrigued by inviting to the chat:";}
++(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Make intrigued!";}
++(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Sent";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
 +(NSString*) LOC_MESSAGES_BTN_REFRESH {return @"Refresh";}

@@ -15,13 +15,14 @@
 
 #import <Foundation/Foundation.h>
 #import <AWSiOSSDK/DynamoDB/AmazonDynamoDBClient.h>
-#import "Response.h"
+#import "AWSiOSSDK.framework/Headers/SES/AmazonSESClient.h"
 
 @interface AmazonClientManager:NSObject
 {
 }
 
 +(AmazonDynamoDBClient *)ddb;
++(AmazonSESClient *)ses;
 + (void)wipeCredentialsOnAuthError:(NSError *)error;
 
 @end

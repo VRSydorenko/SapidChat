@@ -17,11 +17,10 @@
 #import <AWSiOSSDK/AmazonLogger.h>
 #import "AmazonKeyChainWrapper.h"
 #import "AmazonTVMClient.h"
-#import <AWSiOSSDK/S3/AmazonS3Client.h>
-#import <AWSiOSSDK/S3/S3GetObjectRequest.h>
-#import <AWSiOSSDK/S3/S3GetObjectResponse.h>
+#import "AWSiOSSDK.framework/Headers/SES/AmazonSESClient.h"
 
 static AmazonDynamoDBClient *ddb = nil;
+static AmazonSESClient      *ses = nil;
 static AmazonTVMClient      *tvm = nil;
 
 @implementation AmazonClientManager
@@ -30,6 +29,12 @@ static AmazonTVMClient      *tvm = nil;
 {
     [AmazonClientManager validateCredentials];
     return ddb;
+}
+
++(AmazonSESClient *)ses
+{
+    [AmazonClientManager validateCredentials];
+    return ses;
 }
 
 +(AmazonTVMClient *)tvm
@@ -53,11 +58,11 @@ static AmazonTVMClient      *tvm = nil;
                 
                 ableToGetToken = [[AmazonClientManager tvm] anonymousRegister];
                 
-                if ( [ableToGetToken wasSuccessful])
+                if ([ableToGetToken wasSuccessful])
                 {
                     ableToGetToken = [[AmazonClientManager tvm] getToken];
                     
-                    if ( [ableToGetToken wasSuccessful])
+                    if ([ableToGetToken wasSuccessful])
                     {
                         [AmazonClientManager initClients];
                     }
@@ -65,11 +70,11 @@ static AmazonTVMClient      *tvm = nil;
             }
         }
     }
-    else if (ddb == nil)
+    else if (ddb == nil || ses == nil)
     {
         @synchronized(self)
         {
-            if (ddb == nil)
+            if (ddb == nil || ses == nil)
             {
                 [AmazonClientManager initClients];
             }
@@ -83,8 +88,14 @@ static AmazonTVMClient      *tvm = nil;
 {
     AmazonCredentials *credentials = [AmazonKeyChainWrapper getCredentialsFromKeyChain];
     
-    [ddb release];
-    ddb = [[AmazonDynamoDBClient alloc] initWithCredentials:credentials];
+    if (ddb == nil){
+        ddb = [[AmazonDynamoDBClient alloc] initWithCredentials:credentials];
+    }
+    
+    if (ses == nil){
+        ses = [[AmazonSESClient alloc] initWithCredentials:credentials];
+        ses.endpoint = @"https://email.us-east-1.amazonaws.com";
+    }
 }
 
 +(void)wipeAllCredentials
@@ -95,6 +106,8 @@ static AmazonTVMClient      *tvm = nil;
         
         [ddb release];
         ddb = nil;
+        [ses release];
+        ses = nil;
     }
 }
 

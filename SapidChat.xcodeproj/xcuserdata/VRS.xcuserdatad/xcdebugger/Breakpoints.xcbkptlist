@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Data/DataManager.m"
-         timestampString = "370985409.918887"
+         timestampString = "371303706.757374"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "209"
-         endingLineNumber = "209"
+         startingLineNumber = "245"
+         endingLineNumber = "245"
          landmarkName = "+loadAllMessages"
          landmarkType = "5">
       </FileBreakpoint>
@@ -105,6 +105,45 @@
          startingLineNumber = "119"
          endingLineNumber = "119"
          landmarkName = "-controllerToDismiss:whichRegisteredTheUser:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Data/DataManager.m"
+         timestampString = "371303706.757374"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
+         landmarkName = "+sendIntrigueTo:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Data/DataManager.m"
+         timestampString = "371303674.867351"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "152"
+         endingLineNumber = "152"
+         landmarkName = "+sendIntrigueTo:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AmazonClientManager.m"
+         timestampString = "371305453.08553"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "96"
+         endingLineNumber = "96"
+         landmarkName = "+initClients"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

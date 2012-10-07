@@ -23,6 +23,7 @@
 +(BOOL) existsUserWithEmail:(NSString*)email;
 +(ErrorCodes) registerNewUser:(User*)user password:(NSString*)password;
 +(ErrorCodes)login:(NSString*)email password:(NSString*)password;
++(ErrorCodes) sendIntrigueTo:(NSString*)email;
 
 +(NSArray*) getDialogs;
 +(int) getUnreadMessagesCount;

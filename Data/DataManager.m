@@ -123,6 +123,42 @@
     return result;
 }
 
++(ErrorCodes) sendIntrigueTo:(NSString*)email{
+    ErrorCodes result = OK;
+    
+    SESContent *messageBody = [[SESContent alloc] init];
+    messageBody.data = @"Message body";
+        
+    SESContent *subject = [[SESContent alloc] init];
+    subject.data = @"This is subject";
+        
+    SESBody *body = [[SESBody alloc] init];
+    body.text = messageBody;
+        
+    SESMessage *message = [[SESMessage alloc] init];
+    message.subject = subject;
+    message.body    = body;
+        
+    SESDestination *destination = [[SESDestination alloc] init];
+    [destination.toAddresses addObject:email];
+    
+    SESSendEmailRequest *emailRequest = [[SESSendEmailRequest alloc] init];
+    emailRequest.source = @"viktor.sydorenko@gmail.com";
+    emailRequest.destination = destination;
+    emailRequest.message = message;
+    
+    SESSendEmailResponse *response = nil;
+    @try{
+        AmazonSESClient *ses = [AmazonClientManager ses];
+        response = [ses sendEmail:emailRequest];
+    }
+    @catch (AmazonServiceException* ex) {
+        result = AMAZON_SERVICE_ERROR;
+    }
+    
+    return result;
+}
+
 +(ErrorCodes)retrieveUser:(User**)user withEmail:(NSString*)email{
     *user = nil;
     DynamoDBGetItemResponse *response = nil;

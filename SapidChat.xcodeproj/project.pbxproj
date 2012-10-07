@@ -24,7 +24,6 @@
 		7F1A5B9715E56393002BC781 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A5B9615E56393002BC781 /* User.m */; };
 		7F44FC3715F2267E007C0387 /* ComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F44FC3615F2267E007C0387 /* ComposeVC.m */; };
 		7F5079501613728900067338 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F50794F1613728800067338 /* libsqlite3.0.dylib */; };
-		7F76ED9315E7FD37007463D7 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */; };
 		7F78801B1610DABE00BDD517 /* FirstLaunchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F78801A1610DABE00BDD517 /* FirstLaunchNavController.m */; };
 		7F7880221610DC5F00BDD517 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7880211610DC5F00BDD517 /* FirstLaunch.storyboard */; };
 		7F7880251610DE5500BDD517 /* AppLanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7880241610DE5500BDD517 /* AppLanguageVC.m */; };
@@ -54,6 +53,7 @@
 		7FC9881B1610BEC200AB04D5 /* Lang.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881A1610BEC200AB04D5 /* Lang.m */; };
 		7FC9881E1610C31600AB04D5 /* LangEnglish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881D1610C31600AB04D5 /* LangEnglish.m */; };
 		7FC988211610C32600AB04D5 /* LangRussian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988201610C32600AB04D5 /* LangRussian.m */; };
+		7FCB2A8A1621B498000EDB0B /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FCB2A891621B498000EDB0B /* AWSiOSSDK.framework */; };
 		7FCB367C161A2C3A0041A1FD /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 7FCB367B161A2C3A0041A1FD /* ToDo */; };
 		7FCBF689160F291300A2A2E2 /* RegistrationNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */; };
 		7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */; };
@@ -120,7 +120,6 @@
 		7F44FC3515F2267E007C0387 /* ComposeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeVC.h; sourceTree = "<group>"; };
 		7F44FC3615F2267E007C0387 /* ComposeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeVC.m; sourceTree = "<group>"; };
 		7F50794F1613728800067338 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSiOSSDK.framework; sourceTree = "<group>"; };
 		7F7880191610DABE00BDD517 /* FirstLaunchNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstLaunchNavController.h; path = FirstLaunch/FirstLaunchNavController.h; sourceTree = "<group>"; };
 		7F78801A1610DABE00BDD517 /* FirstLaunchNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstLaunchNavController.m; path = FirstLaunch/FirstLaunchNavController.m; sourceTree = "<group>"; };
 		7F7880211610DC5F00BDD517 /* FirstLaunch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FirstLaunch.storyboard; path = FirstLaunch/FirstLaunch.storyboard; sourceTree = "<group>"; };
@@ -170,6 +169,7 @@
 		7FC9881D1610C31600AB04D5 /* LangEnglish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangEnglish.m; path = Localization/LangEnglish.m; sourceTree = "<group>"; };
 		7FC9881F1610C32600AB04D5 /* LangRussian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangRussian.h; path = Localization/LangRussian.h; sourceTree = "<group>"; };
 		7FC988201610C32600AB04D5 /* LangRussian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangRussian.m; path = Localization/LangRussian.m; sourceTree = "<group>"; };
+		7FCB2A891621B498000EDB0B /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSiOSSDK.framework; sourceTree = "<group>"; };
 		7FCB367B161A2C3A0041A1FD /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
 		7FCBF680160F291300A2A2E2 /* RegistrationNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationNavController.h; path = User/RegistrationNavController.h; sourceTree = "<group>"; };
 		7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationNavController.m; path = User/RegistrationNavController.m; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 				7FAF7606159E4FE400D37D7D /* UIKit.framework in Frameworks */,
 				7FAF7608159E4FE400D37D7D /* Foundation.framework in Frameworks */,
 				7FAF760A159E4FE400D37D7D /* CoreGraphics.framework in Frameworks */,
-				7F76ED9315E7FD37007463D7 /* AWSiOSSDK.framework in Frameworks */,
+				7FCB2A8A1621B498000EDB0B /* AWSiOSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,8 +313,8 @@
 		7FAF7604159E4FE300D37D7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7FCB2A891621B498000EDB0B /* AWSiOSSDK.framework */,
 				7F50794F1613728800067338 /* libsqlite3.0.dylib */,
-				7F76ED9215E7FD37007463D7 /* AWSiOSSDK.framework */,
 				7F11FEB2159E658E002F5982 /* Security.framework */,
 				7FAF7605159E4FE400D37D7D /* UIKit.framework */,
 				7FAF7607159E4FE400D37D7D /* Foundation.framework */,

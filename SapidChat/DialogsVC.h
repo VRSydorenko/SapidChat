@@ -18,5 +18,6 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinnerPick;
 - (IBAction)refreshPressed:(id)sender;
 - (IBAction)pickPressed:(id)sender;
+- (IBAction)composePressed:(id)sender;
 
 @end

@@ -17,7 +17,7 @@
 #import <AWSiOSSDK/AmazonLogger.h>
 #import "AmazonKeyChainWrapper.h"
 #import "AmazonTVMClient.h"
-#import "AWSiOSSDK.framework/Headers/SES/AmazonSESClient.h"
+#import <AWSiOSSDK/SES/AmazonSESClient.h>
 
 static AmazonDynamoDBClient *ddb = nil;
 static AmazonSESClient      *ses = nil;
@@ -25,22 +25,22 @@ static AmazonTVMClient      *tvm = nil;
 
 @implementation AmazonClientManager
 
-+(AmazonDynamoDBClient *)ddb
++(AmazonDynamoDBClient*)ddb
 {
     [AmazonClientManager validateCredentials];
     return ddb;
 }
 
-+(AmazonSESClient *)ses
++(AmazonSESClient*)ses
 {
     [AmazonClientManager validateCredentials];
     return ses;
 }
 
-+(AmazonTVMClient *)tvm
++(AmazonTVMClient*)tvm
 {
     if (tvm == nil) {
-        tvm = [[AmazonTVMClient alloc] initWithEndpoint:@"http://iosstudentschat.elasticbeanstalk.com" useSSL:NO];
+        tvm = [[AmazonTVMClient alloc] initWithEndpoint:@"sapidchat.elasticbeanstalk.com" useSSL:NO];
     }
     
     return tvm;
@@ -58,11 +58,11 @@ static AmazonTVMClient      *tvm = nil;
                 
                 ableToGetToken = [[AmazonClientManager tvm] anonymousRegister];
                 
-                if ([ableToGetToken wasSuccessful])
+                if ( [ableToGetToken wasSuccessful])
                 {
                     ableToGetToken = [[AmazonClientManager tvm] getToken];
                     
-                    if ([ableToGetToken wasSuccessful])
+                    if ( [ableToGetToken wasSuccessful])
                     {
                         [AmazonClientManager initClients];
                     }
@@ -88,14 +88,12 @@ static AmazonTVMClient      *tvm = nil;
 {
     AmazonCredentials *credentials = [AmazonKeyChainWrapper getCredentialsFromKeyChain];
     
-    if (ddb == nil){
-        ddb = [[AmazonDynamoDBClient alloc] initWithCredentials:credentials];
-    }
+    [ddb release];
+    ddb = [[AmazonDynamoDBClient alloc] initWithCredentials:credentials];
     
-    if (ses == nil){
-        ses = [[AmazonSESClient alloc] initWithCredentials:credentials];
-        ses.endpoint = @"https://email.us-east-1.amazonaws.com";
-    }
+    [ses release];
+    ses = [[AmazonSESClient alloc] initWithCredentials:credentials];
+    [ses setEndpoint:@"https://email.us-east-1.amazonaws.com"];
 }
 
 +(void)wipeAllCredentials
@@ -106,6 +104,7 @@ static AmazonTVMClient      *tvm = nil;
         
         [ddb release];
         ddb = nil;
+        
         [ses release];
         ses = nil;
     }

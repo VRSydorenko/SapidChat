@@ -64,6 +64,7 @@
 		7FD64D3516135AEC00BE8551 /* DbTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D3416135AEC00BE8551 /* DbTable.m */; };
 		7FD64D3816135F1200BE8551 /* DbField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D3716135F1200BE8551 /* DbField.m */; };
 		7FD64D3B16135F2700BE8551 /* DbForeignKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D3A16135F2700BE8551 /* DbForeignKey.m */; };
+		7FD6E11516346C5700233201 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD6E11416346C5700233201 /* AmazonClientManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7FDAFAE2161CAAEB00CA1223 /* IntrigueSellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAFAE1161CAAEB00CA1223 /* IntrigueSellVC.m */; };
 		7FDAFAE6161CAB5400CA1223 /* IntrigueVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAFAE5161CAB5400CA1223 /* IntrigueVC.m */; };
 		7FDCBE90161223A800DBDDFB /* FirstScreensVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCBE8F161223A800DBDDFB /* FirstScreensVC.m */; };
@@ -71,7 +72,6 @@
 		7FDD2833159E5BA9008E1080 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2830159E5BA9008E1080 /* DataManager.m */; };
 		7FDD2834159E5BA9008E1080 /* DbModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2832159E5BA9008E1080 /* DbModel.m */; };
 		7FDD283A159E5C01008E1080 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2839159E5C01008E1080 /* Message.m */; };
-		7FDD283D159E5CA0008E1080 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD283C159E5CA0008E1080 /* AmazonClientManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7FDD284A159E5F72008E1080 /* DbItemHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2845159E5F72008E1080 /* DbItemHelper.m */; };
 		7FDD284B159E5F72008E1080 /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2847159E5F72008E1080 /* UserSettings.m */; };
 		7FDD284C159E5F72008E1080 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2849159E5F72008E1080 /* Utils.m */; };
@@ -188,6 +188,8 @@
 		7FD64D3716135F1200BE8551 /* DbField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbField.m; path = Database/DbField.m; sourceTree = "<group>"; };
 		7FD64D3916135F2700BE8551 /* DbForeignKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbForeignKey.h; path = Database/DbForeignKey.h; sourceTree = "<group>"; };
 		7FD64D3A16135F2700BE8551 /* DbForeignKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbForeignKey.m; path = Database/DbForeignKey.m; sourceTree = "<group>"; };
+		7FD6E11316346C5700233201 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
+		7FD6E11416346C5700233201 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
 		7FDAFAE0161CAAEB00CA1223 /* IntrigueSellVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntrigueSellVC.h; sourceTree = "<group>"; };
 		7FDAFAE1161CAAEB00CA1223 /* IntrigueSellVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntrigueSellVC.m; sourceTree = "<group>"; };
 		7FDAFAE4161CAB5400CA1223 /* IntrigueVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntrigueVC.h; sourceTree = "<group>"; };
@@ -202,8 +204,6 @@
 		7FDD2832159E5BA9008E1080 /* DbModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbModel.m; path = Data/DbModel.m; sourceTree = "<group>"; };
 		7FDD2838159E5C01008E1080 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		7FDD2839159E5C01008E1080 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		7FDD283B159E5CA0008E1080 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
-		7FDD283C159E5CA0008E1080 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
 		7FDD2844159E5F72008E1080 /* DbItemHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DbItemHelper.h; sourceTree = "<group>"; };
 		7FDD2845159E5F72008E1080 /* DbItemHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbItemHelper.m; sourceTree = "<group>"; };
 		7FDD2846159E5F72008E1080 /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
@@ -449,6 +449,8 @@
 		7FDD282B159E58E8008E1080 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				7FD6E11316346C5700233201 /* AmazonClientManager.h */,
+				7FD6E11416346C5700233201 /* AmazonClientManager.m */,
 				7F11FEAB159E63DD002F5982 /* Dialog.h */,
 				7F11FEAC159E63DD002F5982 /* Dialog.m */,
 				7FDD2844159E5F72008E1080 /* DbItemHelper.h */,
@@ -459,8 +461,6 @@
 				7FDD2847159E5F72008E1080 /* UserSettings.m */,
 				7FDD2848159E5F72008E1080 /* Utils.h */,
 				7FDD2849159E5F72008E1080 /* Utils.m */,
-				7FDD283B159E5CA0008E1080 /* AmazonClientManager.h */,
-				7FDD283C159E5CA0008E1080 /* AmazonClientManager.m */,
 				7FDD2838159E5C01008E1080 /* Message.h */,
 				7FDD2839159E5C01008E1080 /* Message.m */,
 				7FDD2831159E5BA9008E1080 /* DbModel.h */,
@@ -588,7 +588,6 @@
 				7FDD2833159E5BA9008E1080 /* DataManager.m in Sources */,
 				7FDD2834159E5BA9008E1080 /* DbModel.m in Sources */,
 				7FDD283A159E5C01008E1080 /* Message.m in Sources */,
-				7FDD283D159E5CA0008E1080 /* AmazonClientManager.m in Sources */,
 				7FDD284A159E5F72008E1080 /* DbItemHelper.m in Sources */,
 				7FDD284B159E5F72008E1080 /* UserSettings.m in Sources */,
 				7FDD284C159E5F72008E1080 /* Utils.m in Sources */,
@@ -633,6 +632,7 @@
 				7FD64D3B16135F2700BE8551 /* DbForeignKey.m in Sources */,
 				7FDAFAE2161CAAEB00CA1223 /* IntrigueSellVC.m in Sources */,
 				7FDAFAE6161CAB5400CA1223 /* IntrigueVC.m in Sources */,
+				7FD6E11516346C5700233201 /* AmazonClientManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

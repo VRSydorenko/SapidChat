@@ -58,7 +58,7 @@
             [AmazonKeyChainWrapper registerDeviceId:uid andKey:key];
         }
         else {
-            AMZLogDebug(@"Token Vending Machine responded with Code: [%d] and Messgae: [%@]", response.code, response.message);
+            AMZLog(@"Token Vending Machine responded with Code: [%d] and Messgae: [%@]", response.code, response.message);
         }
     }
 
@@ -79,7 +79,7 @@
         [AmazonKeyChainWrapper storeCredentialsInKeyChain:response.accessKey secretKey:response.secretKey securityToken:response.securityToken expiration:response.expirationDate];
     }
     else {
-        AMZLogDebug(@"Token Vending Machine responded with Code: [%d] and Messgae: [%@]", response.code, response.message);
+        AMZLog(@"Token Vending Machine responded with Code: [%d] and Messgae: [%@]", response.code, response.message);
     }
 
     return response;

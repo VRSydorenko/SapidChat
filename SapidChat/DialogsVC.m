@@ -158,6 +158,10 @@
     }
 }
 
+- (IBAction)composePressed:(id)sender {
+    [self performSegueWithIdentifier:@"SegueDialogsToCompose" sender:self];
+}
+
 -(void) composeCompleted:(Message*)composedMsg{
     [self refreshPressed:self.navigationItem.rightBarButtonItem];
 }

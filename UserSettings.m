@@ -103,6 +103,19 @@
     return [[NSMutableArray alloc] initWithObjects:@"2", @"10", nil]; // localization!!!
 }
 
++(int) getNewMessagesLanguage{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    int result = (int)[defaults integerForKey:SETTINGS_SAVED_NEWMSG_LANG];
+    if (!result){
+        return -1; // no language set as default for new messages
+    }
+    return result;
+}
+
++(void) setNewMessagesLanguage:(int) language{
+    [[NSUserDefaults standardUserDefaults] setInteger:language forKey:SETTINGS_SAVED_NEWMSG_LANG];
+}
+
 +(bool) hasLaunched{
     return [[NSUserDefaults standardUserDefaults] boolForKey:SYS_HAS_LAUNCHED];
 }

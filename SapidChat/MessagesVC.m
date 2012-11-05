@@ -176,4 +176,7 @@
     return 0;
 }
 
+- (IBAction)replyPressed:(id)sender {
+    [self performSegueWithIdentifier:@"SegueDialogToCompose" sender:self];
+}
 @end

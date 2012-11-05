@@ -11,7 +11,7 @@
 @implementation LangRussian
 
 // universal
-+(NSString*) LOC_UNI_APP_NAME {return @"Интересный чат";}
++(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
 // first launch
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE{ return @"Язык приложения";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT{ return @"Далее";}
@@ -41,7 +41,6 @@
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"Новых сообщений нет";}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Интрига";}
 +(NSString*) LOC_MAIN_CELL_SETTINGS {return @"Настройки";}
-+(NSString*) LOC_MAIN_BUTTON_REFRESH {return @"Обновить";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Выйти";}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Тут - описание замечательной опции: отсылки анонимный приглашений на почту!\rПригласите того, кто вам нравится!";}
@@ -51,7 +50,6 @@
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Отправлено";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
-+(NSString*) LOC_MESSAGES_BTN_REFRESH {return @"Обновить";}
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Разместить";}
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Вытянуть";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"В ожидании ответа...";}
@@ -70,7 +68,8 @@
 +(NSString*) LOC_SETTINGS_SECTION_ACCOUNT_PASSWORD {return @"Пароль";}
 +(NSString*) LOC_SETTINGS_SECTION_ACCOUNT_SAVECREDS {return @"Сохранить пароль";}
 +(NSString*) LOC_SETTINGS_SECTIONHEADER_LANGUAGES {return @"Языки";}
-+(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_MESSAGES {return @"Сообщения";}
++(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION {return @"Общение";}
++(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"Новые сообщения";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Приложение";}
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"Русский";}

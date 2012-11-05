@@ -41,7 +41,6 @@
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"No new messages";}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Intrigue";}
 +(NSString*) LOC_MAIN_CELL_SETTINGS {return @"Settings";}
-+(NSString*) LOC_MAIN_BUTTON_REFRESH {return @"Refresh";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Log out";}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Here is a description of the amazing option!\rIt is sending an anonymous email!";}
@@ -51,7 +50,6 @@
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Sent";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
-+(NSString*) LOC_MESSAGES_BTN_REFRESH {return @"Refresh";}
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Compose";}
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Pick new";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"Awaiting reply...";}
@@ -70,7 +68,8 @@
 +(NSString*) LOC_SETTINGS_SECTION_ACCOUNT_PASSWORD {return @"Password";}
 +(NSString*) LOC_SETTINGS_SECTION_ACCOUNT_SAVECREDS {return @"Save credentials";}
 +(NSString*) LOC_SETTINGS_SECTIONHEADER_LANGUAGES {return @"Languages";}
-+(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_MESSAGES {return @"Messages";}
++(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION {return @"Conversations";}
++(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"New messages";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Application";}
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"English";}

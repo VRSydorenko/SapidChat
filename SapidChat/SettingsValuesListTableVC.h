@@ -11,8 +11,9 @@
 #define VALUES_TIME_ZONE 0 // hardcoded!!!
 #define VALUES_TIME_FORMAT 1
 #define VALUES_DATE_FORMAT 2
-#define VALUES_MSG_LANGUAGES 3
+#define VALUES_CNV_LANGUAGES 3
 #define VALUES_APP_LANGUAGES 4
+#define VALUES_NEWMSG_LANGUAGES 5
 
 @interface SettingsValuesListTableVC : UITableViewController
 

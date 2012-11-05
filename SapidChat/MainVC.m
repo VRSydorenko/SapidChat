@@ -32,7 +32,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.title = [Lang LOC_UNI_APP_NAME];
-    self.navigationItem.rightBarButtonItem.title = [Lang LOC_MAIN_BUTTON_REFRESH];
     self.btnLogout.title = [Lang LOC_MAIN_BUTTON_LOGOUT];
     [self.tableMain reloadData];
 }

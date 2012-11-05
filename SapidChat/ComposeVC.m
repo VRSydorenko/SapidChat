@@ -30,8 +30,8 @@
 {
     [super viewDidLoad];
 	isSending = NO;
-    if (collocutor.length > 0){
-        self.textTitle.title = [@"Reply to " stringByAppendingString:collocutor];
+    if (self.collocutor.length > 0){
+        self.textTitle.title = self.collocutor;
     } else {
         self.textTitle.title = @"New message";
     }

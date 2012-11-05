@@ -44,6 +44,9 @@
         case 4: // app languages
             values = [[NSArray alloc] initWithObjects:@"2", @"10", nil];
             break;
+        case 5: // new messages languages
+            values = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
+            break;
     }
 }
 
@@ -55,7 +58,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.valuesMode == VALUES_MSG_LANGUAGES){
+    if (self.valuesMode == VALUES_CNV_LANGUAGES){
         return LANG_COUNT;
     }
     return values.count;
@@ -63,7 +66,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    bool languageMode = self.valuesMode == VALUES_MSG_LANGUAGES || self.valuesMode == VALUES_APP_LANGUAGES;
+    bool languageMode = self.valuesMode == VALUES_CNV_LANGUAGES || self.valuesMode == VALUES_APP_LANGUAGES || self.valuesMode == VALUES_NEWMSG_LANGUAGES;
     NSString* cellId = languageMode ? @"CellLanguage" : @"CellValue";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
@@ -99,7 +102,7 @@
                 cell.textLabel.text = value;
                 break;
             }
-            case VALUES_MSG_LANGUAGES:{
+            case VALUES_CNV_LANGUAGES:{
                 int row = indexPath.row;
                 cell.textLabel.text = [Utils getLanguageName:row needSelfName:NO];
                 cell.detailTextLabel.text = [Utils getLanguageName:row needSelfName:YES];
@@ -108,6 +111,15 @@
                         cell.accessoryType = UITableViewCellAccessoryCheckmark;
                         break;
                     }
+                }
+                break;
+            }
+            case VALUES_NEWMSG_LANGUAGES:{
+                int lang = ((NSString*)[values objectAtIndex:indexPath.row]).intValue;
+                cell.textLabel.text = [Utils getLanguageName:lang needSelfName:NO];
+                cell.detailTextLabel.text = [Utils getLanguageName:lang needSelfName:YES];
+                if ([UserSettings getNewMessagesLanguage] == lang){
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 }
                 break;
             }
@@ -138,7 +150,7 @@
         case VALUES_DATE_FORMAT:
             [UserSettings setDateFormat:selectedValue];
             break;
-        case VALUES_MSG_LANGUAGES:{
+        case VALUES_CNV_LANGUAGES:{
             UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
              NSNumber *row = [NSNumber numberWithInt:indexPath.row];
             if (cell.accessoryType == UITableViewCellAccessoryNone){
@@ -151,11 +163,18 @@
             [DataManager setMsgLanguagesForCurrentUser:msgLanguages];
             break;
         }
+        case VALUES_NEWMSG_LANGUAGES:{
+            UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            if(cell.accessoryType == UITableViewCellAccessoryNone){
+                [UserSettings setNewMessagesLanguage:selectedValue.intValue];
+                [self.tableView reloadData];
+            }
+            break;
+        }
         case VALUES_APP_LANGUAGES:{
             UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
             if(cell.accessoryType == UITableViewCellAccessoryNone){
-                int lang = ((NSString*)[values objectAtIndex:indexPath.row]).intValue;
-                [UserSettings setAppLanguage:lang];
+                [UserSettings setAppLanguage:selectedValue.intValue];
                 [self.tableView reloadData];
             }
         break;

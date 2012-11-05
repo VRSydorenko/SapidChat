@@ -26,7 +26,8 @@
 @synthesize labelTimeFormat;
 @synthesize labelDateFormat;
 @synthesize labelNickname;
-@synthesize labelMsgLanguages;
+@synthesize labelCnvLanguages;
+@synthesize labelNewMsgLanguage;
 @synthesize labelAppLanguage;
 @synthesize loc_DateTime_Timezone;
 @synthesize loc_DateTime_TimeFormat;
@@ -34,8 +35,9 @@
 @synthesize loc_Acc_Nickname;
 @synthesize loc_Acc_Password;
 @synthesize loc_Acc_SaveCreds;
-@synthesize loc_Langs_Messages;
+@synthesize loc_Langs_Conversation;
 @synthesize loc_Langs_Application;
+@synthesize loc_Langs_NewMessages;
 
 - (void)viewDidLoad
 {
@@ -64,7 +66,8 @@
         [msgLangs appendString:[Utils getLanguageName:num.intValue needSelfName:NO]];
     }
     
-    [LocalizationUtils setText:msgLangs  forLabel:self.labelMsgLanguages];
+    [LocalizationUtils setText:msgLangs  forLabel:self.labelCnvLanguages];
+    [LocalizationUtils setText:[Utils getLanguageName:[UserSettings getNewMessagesLanguage] needSelfName:NO] forLabel:self.labelNewMsgLanguage];
     [LocalizationUtils setText:[Utils getLanguageName:[UserSettings getAppLanguage] needSelfName:NO] forLabel:self.labelAppLanguage];
 }
 
@@ -75,7 +78,8 @@
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_ACCOUNT_NICKNAME] forLabel:self.loc_Acc_Nickname];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_ACCOUNT_PASSWORD] forLabel:self.loc_Acc_Password];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_ACCOUNT_SAVECREDS] forLabel:self.loc_Acc_SaveCreds];
-    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_MESSAGES] forLabel:self.loc_Langs_Messages];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION] forLabel:self.loc_Langs_Conversation];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES] forLabel:self.loc_Langs_NewMessages];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION] forLabel:self.loc_Langs_Application];
 }
 
@@ -102,10 +106,13 @@
             break;
         case 2: // languages section
             switch (indexPath.row) {
-                case 0: // messages language
-                    valuesMode = VALUES_MSG_LANGUAGES;
+                case 0: // conversation language
+                    valuesMode = VALUES_CNV_LANGUAGES;
                     break;
-                case 1: // application language
+                case 1: // newly composed messages
+                    valuesMode = VALUES_NEWMSG_LANGUAGES;
+                    break;
+                case 2: // application language
                     valuesMode = VALUES_APP_LANGUAGES;
                     break;
             }
@@ -139,7 +146,7 @@
     [self setLabelTimeFormat:nil];
     [self setLabelDateFormat:nil];
     [self setLabelNickname:nil];
-    [self setLabelMsgLanguages:nil];
+    [self setLabelCnvLanguages:nil];
     [self setLabelAppLanguage:nil];
     [self setLoc_DateTime_Timezone:nil];
     [self setLoc_DateTime_TimeFormat:nil];
@@ -147,8 +154,10 @@
     [self setLoc_Acc_Nickname:nil];
     [self setLoc_Acc_Password:nil];
     [self setLoc_Acc_SaveCreds:nil];
-    [self setLoc_Langs_Messages:nil];
+    [self setLoc_Langs_Conversation:nil];
     [self setLoc_Langs_Application:nil];
+    [self setLoc_Langs_NewMessages:nil];
+    [self setLabelNewMsgLanguage:nil];
     [super viewDidUnload];
 }
 @end

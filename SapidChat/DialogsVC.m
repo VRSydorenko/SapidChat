@@ -39,7 +39,6 @@
     self.title = [Lang LOC_MESSAGES_TITLE];
     self.btnPick.title = [Lang LOC_MESSAGES_BTN_PICKNEW];
     self.btnCompose.title = [Lang LOC_MESSAGES_BTN_COMPOSE];
-    self.navigationItem.rightBarButtonItem.title = [Lang LOC_MESSAGES_BTN_REFRESH];
     
     isPicking = NO;
     navController = (MainNavController*)self.navigationController;

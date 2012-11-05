@@ -19,5 +19,6 @@
 @property Dialog *dialog;
 @property (strong, nonatomic) IBOutlet UITableView *tabelMessages;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *buttonReply;
+- (IBAction)replyPressed:(id)sender;
 
 @end

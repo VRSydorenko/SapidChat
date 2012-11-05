@@ -67,6 +67,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.title = @"";
 }
+
 -(void) viewWillDisappear:(BOOL)animated{
     self.navigationItem.title = [Lang LOC_REGISTATOR_BTN_BACK];
     if ([navController.viewControllers indexOfObject:self] == NSNotFound){ // back button
@@ -103,11 +104,6 @@
     if (self.labelSelectLangs){
         [LocalizationUtils setText:[Lang LOC_REGISTATOR_LABEL_SELECT_LANGS] forLabel:self.labelSelectLangs];
     }
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (IBAction)cancelPressed:(id)sender {

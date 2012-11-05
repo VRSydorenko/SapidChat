@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/ViewController.m"
-         timestampString = "370985631.077942"
+         timestampString = "373844378.891856"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "100"
-         endingLineNumber = "100"
+         startingLineNumber = "95"
+         endingLineNumber = "95"
          landmarkName = "-loginAsync"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/ViewController.m"
-         timestampString = "370985631.077942"
+         timestampString = "373844378.891856"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "119"
-         endingLineNumber = "119"
+         startingLineNumber = "114"
+         endingLineNumber = "114"
          landmarkName = "-controllerToDismiss:whichRegisteredTheUser:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -131,6 +131,19 @@
          startingLineNumber = "152"
          endingLineNumber = "152"
          landmarkName = "+sendIntrigueTo:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "User/UserRegistrationVC.m"
+         timestampString = "373844529.390303"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "110"
+         endingLineNumber = "110"
+         landmarkName = "-cancelPressed:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -68,11 +68,6 @@
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
 - (IBAction)goPressed:(id)sender {
     if (!isLoggingIn){
         [self loginAsync];
@@ -92,7 +87,7 @@
     self.labelServiceMessage.text = @"";
     [self.activityIndicator startAnimating];
     
-    dispatch_queue_t logginQueue = dispatch_queue_create("loggin queue", NULL);
+    dispatch_queue_t logginQueue = dispatch_queue_create("login queue", NULL);
     dispatch_async(logginQueue, ^{
         ErrorCodes logginResult = [DataManager login:self.textEmail.text password:self.textPassword.text];
         dispatch_async(dispatch_get_main_queue(), ^{

@@ -68,11 +68,6 @@
     forButton:self.buttonReply.title = replyButtonText;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 -(void) updateMessages{
     messages = [self.dialog getSortedMessages];
     

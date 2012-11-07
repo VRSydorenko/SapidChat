@@ -86,4 +86,9 @@
 +(NSString*) LOC_SETTINGS_LANGUAGES_RUSSIAN{ return @"Russian";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_SPANISH{ return @"Spanish";}
 
+// separate settings
++(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_TEXT_PICKLANGFROMKNOWN{ return @"Choose from the languages you know one for the new message";}
++(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_TEXT_LANGS_I_KNOW{ return @"Select languages you can communicate in";}
++(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_TO_LANGS_YOU_KNOW{ return @"The languages I know";}
+
 @end

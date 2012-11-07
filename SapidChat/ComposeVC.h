@@ -8,18 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "Message.h"
+#import "NewMsgLanguageVC.h"
 
 @protocol ComposeNewMessageResponseDelegate
 @required
 - (void) composeCompleted:(Message*)composedMsg;
 @end
 
-@interface ComposeVC : UIViewController
+@interface ComposeVC : UIViewController<NewMsgLanguagesSettingsDelegate>
 
 @property (strong, nonatomic) id <ComposeNewMessageResponseDelegate> composeHandler;
 @property (strong, nonatomic) IBOutlet UITextView *textMessage;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *textTitle;
+@property (strong, nonatomic) IBOutlet UIButton *buttonLanguage;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *labelTitle;
 
 // for sending message to collocutor
 @property (nonatomic) int initialMsgGlobalTimstamp;
@@ -27,4 +29,5 @@
 
 - (IBAction)sendPressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;
+- (IBAction)languagePressed:(id)sender;
 @end

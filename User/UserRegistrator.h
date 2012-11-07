@@ -11,7 +11,6 @@
 
 @interface UserRegistrator : NSObject
 
-+ (void) registerUserOverCurrentViewController:(UIViewController*)currentViewController
-                                    andHandler:(id <UserRegistrationDelegate>) handler;
++ (void) registerUserOverCurrentViewController:(UIViewController*)currentViewController;
 
 @end

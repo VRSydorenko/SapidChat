@@ -11,11 +11,9 @@
 
 @implementation UserRegistrator
 
-+ (void) registerUserOverCurrentViewController:(UIViewController*)currentViewController
-                                        andHandler:(id <UserRegistrationDelegate>) handler{
-    
++ (void) registerUserOverCurrentViewController:(UIViewController <UserRegistrationDelegate>*)currentViewController{
     RegistrationNavController *navcon = [[UIStoryboard storyboardWithName:@"UserRegistration" bundle:nil] instantiateViewControllerWithIdentifier:@"SceneRegistration"];
-    navcon.handler = handler;
+    navcon.handler = currentViewController;
     [currentViewController presentModalViewController:navcon animated:YES];
 }
 

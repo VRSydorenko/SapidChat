@@ -11,9 +11,12 @@
 #import "MainNavController.h"
 #import "UserSettings.h"
 #import "Utils.h"
+#import "LocalizationUtils.h"
+#import "SettingsManager.h"
 
 @interface ComposeVC (){
     bool isSending;
+    //NSString* currentMessageText;
 }
 
 @end
@@ -21,7 +24,8 @@
 @implementation ComposeVC
 @synthesize textMessage;
 @synthesize spinner;
-@synthesize textTitle;
+@synthesize buttonLanguage;
+@synthesize labelTitle;
 
 @synthesize initialMsgGlobalTimstamp;
 @synthesize collocutor;
@@ -31,9 +35,11 @@
     [super viewDidLoad];
 	isSending = NO;
     if (self.collocutor.length > 0){
-        self.textTitle.title = self.collocutor;
+        self.labelTitle.title = self.collocutor;
+        self.buttonLanguage.hidden = YES;
     } else {
-        self.textTitle.title = @"New message";
+        self.labelTitle.title = @"New message";
+        [self updateLanguageText];
     }
 }
 
@@ -41,9 +47,15 @@
 {
     [self setTextMessage:nil];
     [self setSpinner:nil];
-    [self setTextTitle:nil];
+    [self setButtonLanguage:nil];
+    [self setLabelTitle:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (void) updateLanguageText{
+    [LocalizationUtils setTitle:[Utils getLanguageName:[UserSettings getNewMessagesLanguage] needSelfName:NO] forButton:self.buttonLanguage];
+    [self.buttonLanguage sizeToFit];
 }
 
 - (IBAction)sendPressed:(id)sender {
@@ -76,10 +88,19 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (IBAction)languagePressed:(id)sender {
+    [SettingsManager callNewMessagesLanguageScreenOverViewController:self];
+}
+
+- (void)msgLangControllerToDismiss:(NewMsgLanguageVC *)msgLangController{
+    [self updateLanguageText];
+    [msgLangController dismissModalViewControllerAnimated:YES];
+}
+
 -(Message*) prepareMessage{
     Message* msg = [[Message alloc] init];
     msg.from = [UserSettings getEmail];
-    msg.to = collocutor;
+    msg.to = self.collocutor;
     msg.text = self.textMessage.text;
     msg.when = [[NSDate date] timeIntervalSinceReferenceDate];
     msg.initial_message_global_timestamp = initialMsgGlobalTimstamp;

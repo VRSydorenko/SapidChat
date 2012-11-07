@@ -75,7 +75,7 @@
 }
 
 - (IBAction)registerPressed:(id)sender {
-    [UserRegistrator registerUserOverCurrentViewController:self andHandler:self];
+    [UserRegistrator registerUserOverCurrentViewController:self];
 }
 
 - (IBAction)didEndOnExit:(UITextField *)sender {

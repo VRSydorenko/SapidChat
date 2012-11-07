@@ -75,6 +75,10 @@
 		7FDD284A159E5F72008E1080 /* DbItemHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2845159E5F72008E1080 /* DbItemHelper.m */; };
 		7FDD284B159E5F72008E1080 /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2847159E5F72008E1080 /* UserSettings.m */; };
 		7FDD284C159E5F72008E1080 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2849159E5F72008E1080 /* Utils.m */; };
+		7FEF2F51164B0D6C003C8745 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEF2F50164B0D6C003C8745 /* Settings.storyboard */; };
+		7FEF2F54164B0E78003C8745 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF2F53164B0E78003C8745 /* SettingsManager.m */; };
+		7FEF2F57164B0FEC003C8745 /* NewMsgLanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF2F56164B0FEC003C8745 /* NewMsgLanguageVC.m */; };
+		7FEF2F62164B1D8C003C8745 /* LangsIKnowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF2F61164B1D8C003C8745 /* LangsIKnowVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +214,13 @@
 		7FDD2847159E5F72008E1080 /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
 		7FDD2848159E5F72008E1080 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		7FDD2849159E5F72008E1080 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		7FEF2F50164B0D6C003C8745 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Settings/Settings.storyboard; sourceTree = "<group>"; };
+		7FEF2F52164B0E78003C8745 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsManager.h; path = Settings/SettingsManager.h; sourceTree = "<group>"; };
+		7FEF2F53164B0E78003C8745 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsManager.m; path = Settings/SettingsManager.m; sourceTree = "<group>"; };
+		7FEF2F55164B0FEC003C8745 /* NewMsgLanguageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewMsgLanguageVC.h; path = Settings/NewMsgLanguageVC.h; sourceTree = "<group>"; };
+		7FEF2F56164B0FEC003C8745 /* NewMsgLanguageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewMsgLanguageVC.m; path = Settings/NewMsgLanguageVC.m; sourceTree = "<group>"; };
+		7FEF2F60164B1D8C003C8745 /* LangsIKnowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangsIKnowVC.h; path = Settings/LangsIKnowVC.h; sourceTree = "<group>"; };
+		7FEF2F61164B1D8C003C8745 /* LangsIKnowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangsIKnowVC.m; path = Settings/LangsIKnowVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +298,7 @@
 		7FAF75F6159E4FE300D37D7D = {
 			isa = PBXGroup;
 			children = (
+				7FEF2F4E164B0D34003C8745 /* Settings */,
 				7FCB367B161A2C3A0041A1FD /* ToDo */,
 				7FD64D2B16134DB100BE8551 /* Database */,
 				7F7880101610D88600BDD517 /* FirstLaunch */,
@@ -471,6 +483,20 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		7FEF2F4E164B0D34003C8745 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7FEF2F50164B0D6C003C8745 /* Settings.storyboard */,
+				7FEF2F60164B1D8C003C8745 /* LangsIKnowVC.h */,
+				7FEF2F61164B1D8C003C8745 /* LangsIKnowVC.m */,
+				7FEF2F55164B0FEC003C8745 /* NewMsgLanguageVC.h */,
+				7FEF2F56164B0FEC003C8745 /* NewMsgLanguageVC.m */,
+				7FEF2F52164B0E78003C8745 /* SettingsManager.h */,
+				7FEF2F53164B0E78003C8745 /* SettingsManager.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -548,6 +574,7 @@
 				7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */,
 				7F7880221610DC5F00BDD517 /* FirstLaunch.storyboard in Resources */,
 				7FCB367C161A2C3A0041A1FD /* ToDo in Resources */,
+				7FEF2F51164B0D6C003C8745 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +660,9 @@
 				7FDAFAE2161CAAEB00CA1223 /* IntrigueSellVC.m in Sources */,
 				7FDAFAE6161CAB5400CA1223 /* IntrigueVC.m in Sources */,
 				7FD6E11516346C5700233201 /* AmazonClientManager.m in Sources */,
+				7FEF2F54164B0E78003C8745 /* SettingsManager.m in Sources */,
+				7FEF2F57164B0FEC003C8745 /* NewMsgLanguageVC.m in Sources */,
+				7FEF2F62164B1D8C003C8745 /* LangsIKnowVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

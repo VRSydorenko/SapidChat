@@ -324,7 +324,8 @@
         response = nil;
         
         // add to the bank table
-        [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", ENGLISH]] forKey:DBFIELD_MSGS_BANK_LANG];
+        int newMsgLang = [UserSettings getNewMessagesLanguage];
+        [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", newMsgLang]] forKey:DBFIELD_MSGS_BANK_LANG];
         
         request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_MSGS_BANK andItem:msgDic];
         

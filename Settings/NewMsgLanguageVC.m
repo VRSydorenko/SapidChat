@@ -13,6 +13,7 @@
 #import "LocalizationUtils.h"
 #import "Lang.h"
 #import "LangsIKnowVC.h"
+#import "NewMsgLanguagesNavCon.h"
 
 @interface NewMsgLanguageVC (){
     NSArray* languages;
@@ -21,8 +22,8 @@
 @end
 
 @implementation NewMsgLanguageVC
+@synthesize btnCancel;
 @synthesize tableLanguages;
-@synthesize handler;
 @synthesize textNewMsgLangs;
 @synthesize btnToLangsIKnow;
 
@@ -35,6 +36,8 @@
 {
     [super viewDidLoad];
     [LocalizationUtils setTitle:[Lang LOC_SEPSETTINGS_NEWMSGLANG_BTN_TO_LANGS_YOU_KNOW] forButton:self.btnToLangsIKnow];
+    //[self.btnToLangsIKnow sizeToFit];
+    [LocalizationUtils setTitle:[Lang LOC_SEPSETTINGS_NEWMSGLANG_BTN_CANCEL] forButton:self.btnCancel];
     self.textNewMsgLangs.text = [Lang LOC_SEPSETTINGS_NEWMSGLANG_TEXT_PICKLANGFROMKNOWN];
     self.tableLanguages.dataSource = self;
     self.tableLanguages.delegate = self;
@@ -45,6 +48,7 @@
     [self setTableLanguages:nil];
     [self setBtnToLangsIKnow:nil];
     [self setTextNewMsgLangs:nil];
+    [self setBtnCancel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -73,11 +77,14 @@
         NSString* selectedValue = [languages objectAtIndex:indexPath.row];
         [UserSettings setNewMessagesLanguage:selectedValue.intValue];
     }
-    [self.handler msgLangControllerToDismiss:self];
+    [(NewMsgLanguagesNavCon*)self.navigationController closeUsingHandler];
 }
 
 - (IBAction)toLangsIKnowPressed:(id)sender {
     [self performSegueWithIdentifier:@"SegueNewMsgLangsToLangsIKnow" sender:self];
-    // HERE: next vc doesnt appear
+}
+
+- (IBAction)cancelPressed:(id)sender {
+    [(NewMsgLanguagesNavCon*)self.navigationController closeUsingHandler];
 }
 @end

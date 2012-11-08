@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NewMsgLanguageVC.h"
+#import "NewMsgLanguagesNavCon.h"
 
 @interface SettingsManager : NSObject
 

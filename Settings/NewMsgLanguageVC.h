@@ -8,18 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class NewMsgLanguageVC;
-
-@protocol NewMsgLanguagesSettingsDelegate
-@required
-- (void) msgLangControllerToDismiss:(NewMsgLanguageVC*)msgLangController;
-@end
-
 @interface NewMsgLanguageVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (assign) id <NewMsgLanguagesSettingsDelegate> handler;
 @property (strong, nonatomic) IBOutlet UITextView *textNewMsgLangs;
 @property (strong, nonatomic) IBOutlet UIButton *btnToLangsIKnow;
 @property (strong, nonatomic) IBOutlet UITableView *tableLanguages;
 - (IBAction)toLangsIKnowPressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *btnCancel;
+- (IBAction)cancelPressed:(id)sender;
+
 @end

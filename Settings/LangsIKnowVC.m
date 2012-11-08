@@ -23,6 +23,7 @@
 
 @synthesize textLangsIKnow;
 @synthesize tableLanguages;
+@synthesize btnBack;
 
 - (void)viewWillAppear:(BOOL)animated{
     languages = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
@@ -32,7 +33,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.textLangsIKnow.text = [Lang LOC_SEPSETTINGS_NEWMSGLANG_TEXT_LANGS_I_KNOW];
+    self.textLangsIKnow.text = [Lang LOC_SEPSETTINGS_LANGSIKNOW_TEXT];
+    [LocalizationUtils setTitle:[Lang LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK] forButton:self.btnBack];
     self.tableLanguages.dataSource = self;
     self.tableLanguages.delegate = self;
 }
@@ -41,6 +43,7 @@
 {
     [self setTableLanguages:nil];
     [self setTextLangsIKnow:nil];
+    [self setBtnBack:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -53,6 +56,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellLanguage"];
     if (cell){
+        cell.accessoryType = UITableViewCellAccessoryNone;
         int row = indexPath.row;
         cell.textLabel.text = [Utils getLanguageName:row needSelfName:NO];
         cell.detailTextLabel.text = [Utils getLanguageName:row needSelfName:YES];
@@ -68,10 +72,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell* cell = [self.tableLanguages cellForRowAtIndexPath:indexPath];
-    if(cell.accessoryType == UITableViewCellAccessoryNone){
-        NSString* selectedValue = [languages objectAtIndex:indexPath.row];
-        [UserSettings setNewMessagesLanguage:selectedValue.intValue];
+    if (cell){
+        NSNumber *row = [NSNumber numberWithInt:indexPath.row];
+        if (cell.accessoryType == UITableViewCellAccessoryNone){
+            [languages addObject:row];
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            [languages removeObject:row];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        [DataManager setMsgLanguagesForCurrentUser:languages];
     }
 }
 
+- (IBAction)backPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

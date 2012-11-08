@@ -75,6 +75,7 @@
 		7FDD284A159E5F72008E1080 /* DbItemHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2845159E5F72008E1080 /* DbItemHelper.m */; };
 		7FDD284B159E5F72008E1080 /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2847159E5F72008E1080 /* UserSettings.m */; };
 		7FDD284C159E5F72008E1080 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2849159E5F72008E1080 /* Utils.m */; };
+		7FE38787164C1A7300E80814 /* NewMsgLanguagesNavCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE38786164C1A7300E80814 /* NewMsgLanguagesNavCon.m */; };
 		7FEF2F51164B0D6C003C8745 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEF2F50164B0D6C003C8745 /* Settings.storyboard */; };
 		7FEF2F54164B0E78003C8745 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF2F53164B0E78003C8745 /* SettingsManager.m */; };
 		7FEF2F57164B0FEC003C8745 /* NewMsgLanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF2F56164B0FEC003C8745 /* NewMsgLanguageVC.m */; };
@@ -214,6 +215,8 @@
 		7FDD2847159E5F72008E1080 /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
 		7FDD2848159E5F72008E1080 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		7FDD2849159E5F72008E1080 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		7FE38785164C1A7300E80814 /* NewMsgLanguagesNavCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewMsgLanguagesNavCon.h; path = Settings/NewMsgLanguagesNavCon.h; sourceTree = "<group>"; };
+		7FE38786164C1A7300E80814 /* NewMsgLanguagesNavCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewMsgLanguagesNavCon.m; path = Settings/NewMsgLanguagesNavCon.m; sourceTree = "<group>"; };
 		7FEF2F50164B0D6C003C8745 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Settings/Settings.storyboard; sourceTree = "<group>"; };
 		7FEF2F52164B0E78003C8745 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsManager.h; path = Settings/SettingsManager.h; sourceTree = "<group>"; };
 		7FEF2F53164B0E78003C8745 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsManager.m; path = Settings/SettingsManager.m; sourceTree = "<group>"; };
@@ -491,6 +494,8 @@
 				7FEF2F61164B1D8C003C8745 /* LangsIKnowVC.m */,
 				7FEF2F55164B0FEC003C8745 /* NewMsgLanguageVC.h */,
 				7FEF2F56164B0FEC003C8745 /* NewMsgLanguageVC.m */,
+				7FE38785164C1A7300E80814 /* NewMsgLanguagesNavCon.h */,
+				7FE38786164C1A7300E80814 /* NewMsgLanguagesNavCon.m */,
 				7FEF2F52164B0E78003C8745 /* SettingsManager.h */,
 				7FEF2F53164B0E78003C8745 /* SettingsManager.m */,
 			);
@@ -663,6 +668,7 @@
 				7FEF2F54164B0E78003C8745 /* SettingsManager.m in Sources */,
 				7FEF2F57164B0FEC003C8745 /* NewMsgLanguageVC.m in Sources */,
 				7FEF2F62164B1D8C003C8745 /* LangsIKnowVC.m in Sources */,
+				7FE38787164C1A7300E80814 /* NewMsgLanguagesNavCon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

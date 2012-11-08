@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Message.h"
-#import "NewMsgLanguageVC.h"
+#import "NewMsgLanguagesNavCon.h"
 
 @protocol ComposeNewMessageResponseDelegate
 @required

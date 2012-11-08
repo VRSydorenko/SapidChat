@@ -12,5 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextView *textLangsIKnow;
 @property (strong, nonatomic) IBOutlet UITableView *tableLanguages;
+@property (strong, nonatomic) IBOutlet UIButton *btnBack;
+- (IBAction)backPressed:(id)sender;
 
 @end

@@ -8,11 +8,12 @@
 
 #import "SettingsManager.h"
 #import "NewMsgLanguageVC.h"
+#import "NewMsgLanguagesNavCon.h"
 
 @implementation SettingsManager
 
 + (void) callNewMessagesLanguageScreenOverViewController:(UIViewController<NewMsgLanguagesSettingsDelegate>*)controller{
-    NewMsgLanguageVC *vc = [[UIStoryboard storyboardWithName:@"Settings" bundle:nil] instantiateViewControllerWithIdentifier:@"ScreenNewMessageLanguages"];
+    NewMsgLanguagesNavCon *vc = [[UIStoryboard storyboardWithName:@"Settings" bundle:nil] instantiateViewControllerWithIdentifier:@"ScreenNewMsgLanguagesNavigation"];
     vc.handler = controller;
     [controller presentModalViewController:vc animated:YES];
 }

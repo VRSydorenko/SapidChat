@@ -13,6 +13,7 @@
 #import "DataManager.h"
 #import "Lang.h"
 #import "LocalizationUtils.h"
+#import "AmazonKeyChainWrapper.h"
 
 @interface SettingsTableVC (){
     int valuesMode;
@@ -135,7 +136,12 @@
 
 - (IBAction)switchSaveCreds:(UISwitch *)sender {
     [UserSettings setSaveCredentials:sender.on];
+    if (sender.on){
+        NSString* email = [DataManager getCurrentUser].email;
+        [UserSettings setEmail:email];
+    }
 }
+
 - (void)viewDidUnload {
     [self setLabelTimeZone:nil];
     [self setLabelTimeFormat:nil];

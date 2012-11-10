@@ -19,6 +19,7 @@
 +(User*) loadUser:(NSString*)email;
 +(User*) getCurrentUser;
 +(void) setMsgLanguagesForCurrentUser:(NSArray*)langs;
++(void) setNewMessageLanguageFromUserLanguages:(NSArray*)languages;
 
 +(BOOL) existsUserWithEmail:(NSString*)email;
 +(ErrorCodes) registerNewUser:(User*)user password:(NSString*)password;

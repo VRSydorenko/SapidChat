@@ -73,6 +73,7 @@
 }
 
 -(void) updateLocalizableValues{
+    self.title = [Lang LOC_SETTINGS_WINDOWTITLE_SETTINGS];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_DATEnTIME_TIMEZONE] forLabel:self.loc_DateTime_Timezone];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_DATEnTIME_TIMEFORMAT] forLabel:self.loc_DateTime_TimeFormat];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_DATEnTIME_DATEFORMAT] forLabel:self.loc_DateTime_DateFormat];

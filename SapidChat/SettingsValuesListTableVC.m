@@ -150,8 +150,9 @@
             if (cell.accessoryType == UITableViewCellAccessoryNone){
                 [msgLanguages addObject:row];
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            } else {
+            } else if (msgLanguages.count > 1){
                 [msgLanguages removeObject:row];
+                [DataManager setNewMessageLanguageFromUserLanguages:msgLanguages];
                 cell.accessoryType = UITableViewCellAccessoryNone;
             }
             [DataManager setMsgLanguagesForCurrentUser:msgLanguages];

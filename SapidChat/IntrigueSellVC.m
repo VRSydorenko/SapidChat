@@ -23,6 +23,7 @@
 {
     [super viewDidLoad];
     
+    self.title = [Lang LOC_INTRIGUE_SCREEN_TITLE];
 	self.textViewDescription.text = [Lang LOC_INTRIGUE_SELL_DESCRIPTION];
     [LocalizationUtils setTitle:[Lang LOC_INTRIGUE_SELL_BTN_ACTIVATE] forButton:self.btnActivate];
 }

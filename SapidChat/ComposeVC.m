@@ -13,6 +13,7 @@
 #import "Utils.h"
 #import "LocalizationUtils.h"
 #import "SettingsManager.h"
+#import "Lang.h"
 
 @interface ComposeVC (){
     bool isSending;
@@ -26,6 +27,8 @@
 @synthesize spinner;
 @synthesize buttonLanguage;
 @synthesize labelTitle;
+@synthesize btnSend;
+@synthesize btnCancel;
 
 @synthesize initialMsgGlobalTimstamp;
 @synthesize collocutor;
@@ -38,7 +41,9 @@
         self.labelTitle.title = self.collocutor;
         self.buttonLanguage.hidden = YES;
     } else {
-        self.labelTitle.title = @"New message";
+        self.labelTitle.title = [Lang LOC_COMPOSE_TITLE];
+        [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_SEND] forButton:self.btnSend];
+        [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_CANCEL] forButton:self.btnCancel];
         [self updateLanguageText];
     }
 }
@@ -49,6 +54,8 @@
     [self setSpinner:nil];
     [self setButtonLanguage:nil];
     [self setLabelTitle:nil];
+    [self setBtnSend:nil];
+    [self setBtnCancel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

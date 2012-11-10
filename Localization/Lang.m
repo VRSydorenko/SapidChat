@@ -62,6 +62,7 @@
 +(NSString*) LOC_MAIN_CELL_SETTINGS{return [[self AppLanguage] LOC_MAIN_CELL_SETTINGS];}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return [[self AppLanguage] LOC_MAIN_BUTTON_LOGOUT];}
 // intrigue sell screen
++(NSString*) LOC_INTRIGUE_SCREEN_TITLE{ return [[self AppLanguage] LOC_INTRIGUE_SCREEN_TITLE];}
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{ return [[self AppLanguage] LOC_INTRIGUE_SELL_DESCRIPTION];}
 +(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return [[self AppLanguage] LOC_INTRIGUE_SELL_BTN_ACTIVATE];}
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return [[self AppLanguage] LOC_INTRIGUE_LABEL_ENTERMAIL];}
@@ -77,6 +78,10 @@
 +(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return [[self AppLanguage] LOC_MESSAGES_CELL_BTN_HIDE];}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY{return [[self AppLanguage] LOC_MESSAGES_MESSAGES_BTN_REPLY];}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE{return [[self AppLanguage] LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE];}
+// compose screen
++(NSString*) LOC_COMPOSE_TITLE{return [[self AppLanguage] LOC_COMPOSE_TITLE];}
++(NSString*) LOC_COMPOSE_BTN_SEND{return [[self AppLanguage] LOC_COMPOSE_BTN_SEND];}
++(NSString*) LOC_COMPOSE_BTN_CANCEL{return [[self AppLanguage] LOC_COMPOSE_BTN_CANCEL];}
 // settings
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS {return [[self AppLanguage] LOC_SETTINGS_WINDOWTITLE_SETTINGS];}
 // section date & time

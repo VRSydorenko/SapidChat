@@ -26,20 +26,12 @@
 @synthesize btnSend;
 @synthesize indicatorSend;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
     isSending = NO;
+    self.title = [Lang LOC_INTRIGUE_SCREEN_TITLE];
     [LocalizationUtils setText:[Lang LOC_INTRIGUE_LABEL_ENTERMAIL] forLabel:self.labelEnterEmail];
     [LocalizationUtils setTitle:[Lang LOC_INTRIGUE_BTN_SEND] forButton:self.btnSend];
 }
@@ -52,7 +44,6 @@
     [self setIndicatorSend:nil];
     [self setLabelServiceMessage:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (IBAction)sendPressed:(id)sender {

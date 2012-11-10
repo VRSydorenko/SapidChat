@@ -43,6 +43,7 @@
 +(NSString*) LOC_MAIN_CELL_SETTINGS {return @"Настройки";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Выйти";}
 // intrigue sell screen
++(NSString*) LOC_INTRIGUE_SCREEN_TITLE{return @"Интрига";}
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Тут - описание замечательной опции: отсылки анонимный приглашений на почту!\rПригласите того, кто вам нравится!";}
 +(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return @"Активировать";}
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Введите e-mail того, кого хотите заинтриговать, пригласив анонимно пообщаться:";}
@@ -53,11 +54,15 @@
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Разместить";}
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Вытянуть";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"В ожидании ответа...";}
-+(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"Нет сообщений";}
++(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"Пока что нет сообщений";}
 +(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"Знаете, сейчас нету сообщения на вашем языке(ах) для выборки. Давайте не много подождем и тогда что-нибудь появится. Тем временем, пока можно написать что-то от себя ;)";}
 +(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return @"Скрыть";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Ответить";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Разместить еще";}
+// compose screen
++(NSString*) LOC_COMPOSE_TITLE{return @"Новое сообщение";}
++(NSString*) LOC_COMPOSE_BTN_SEND{return @"Отправить";}
++(NSString*) LOC_COMPOSE_BTN_CANCEL{return @"Отмена";}
 // settings
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS {return @"Настройки";}
 // section date & time

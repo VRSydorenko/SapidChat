@@ -18,6 +18,7 @@
 
 @interface ViewController (){
     bool isLoggingIn;
+    bool isAfterRegistration;
 }
 
 @end
@@ -39,9 +40,14 @@
     [self localize];
     
     isLoggingIn = NO;
+    isAfterRegistration = NO;
 }
 
 -(void) viewWillAppear:(BOOL)animated{
+    if (isAfterRegistration){
+        isAfterRegistration = NO;
+        return;
+    }
     if ([UserSettings getSaveCredentials]){
         self.textEmail.text = [UserSettings getEmail];
         self.textPassword.text = [AmazonKeyChainWrapper getValueFromKeyChain:[UserSettings getEmail]];
@@ -115,6 +121,7 @@
     if (user){
         self.textEmail.text = user.email;
         self.textPassword.text = [AmazonKeyChainWrapper getValueFromKeyChain:user.email];
+        isAfterRegistration = YES; // to prevent resetting fields in ViewWillAppear
     }
     [regController dismissViewControllerAnimated:YES completion:nil];
 }

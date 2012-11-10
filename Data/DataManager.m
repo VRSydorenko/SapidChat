@@ -54,6 +54,21 @@
     [[self getDbManager] saveUser:user];
 }
 
++(void) setNewMessageLanguageFromUserLanguages:(NSArray*)languages{
+    int currentNewMsgLang = [UserSettings getNewMessagesLanguage];
+    bool langFound = NO;
+    for (NSNumber* num in languages) {
+        if (num.intValue == currentNewMsgLang){
+            langFound = YES;
+            break;
+        }
+    }
+    if (!langFound){
+        int lang = ((NSNumber*)[languages objectAtIndex:0]).intValue;
+        [UserSettings setNewMessagesLanguage:lang];
+    }
+}
+
 +(User*) loadUser:(NSString*)email{
     return [[self getDbManager] loadUser:email];
 }
@@ -115,6 +130,7 @@
                 [UserSettings setEmail:email];
                 [AmazonKeyChainWrapper storeValueInKeyChain:password forKey:email];
                 [[self getDbManager] saveUser:user];
+                [self setNewMessageLanguageFromUserLanguages:user.languages];
             } else {
                 result = WRONG_PASSWORD;
             }

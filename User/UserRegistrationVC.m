@@ -14,6 +14,7 @@
 #import "AmazonKeyChainWrapper.h"
 #import "Lang.h"
 #import "LocalizationUtils.h"
+#import "UserSettings.h"
 
 @interface UserRegistrationVC (){
     RegistrationNavController* navController;
@@ -122,6 +123,7 @@
             self.textPassword.textColor = [UIColor redColor];
             return;
         }
+        [UserSettings setSaveCredentials:self.switchSaveCreds.on];
     }
     if (self.textNick){
         nextSegueId = SEGUE_NICK_TO_LANGS;
@@ -245,6 +247,9 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (errCode == OK){
                 registered = YES;
+                if (navController.saveCreds){
+                    [UserSettings setEmail:navController.email];
+                }
                 [AmazonKeyChainWrapper storeValueInKeyChain:navController.password forKey:user.email];
             } else {
                 self.labelServiseMessage.text = [Utils getErrorDescription:registered];

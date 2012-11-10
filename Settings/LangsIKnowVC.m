@@ -77,7 +77,7 @@
         if (cell.accessoryType == UITableViewCellAccessoryNone){
             [languages addObject:row];
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        } else {
+        } else if (languages.count > 1){
             [languages removeObject:row];
             cell.accessoryType = UITableViewCellAccessoryNone;
         }

@@ -43,6 +43,7 @@
 +(NSString*) LOC_MAIN_CELL_SETTINGS {return @"Settings";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Log out";}
 // intrigue sell screen
++(NSString*) LOC_INTRIGUE_SCREEN_TITLE{return @"Intrigue";}
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Here is a description of the amazing option!\rIt is sending an anonymous email!";}
 +(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return @"Activate";}
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Enter email of whose you want to get intrigued by inviting to the chat:";}
@@ -53,11 +54,15 @@
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Compose";}
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Pick new";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"Awaiting reply...";}
-+(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"No records to display";}
++(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"No records to display yet";}
 +(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"You know, there are currently no messages to pick up in your language(s).\rLet's wait a little bit for somebody to create a message for you. In meanwhile we can add some message to somebody now ;)";}
 +(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return @"Hide";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Reply";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Compose one more";}
+// compose screen
++(NSString*) LOC_COMPOSE_TITLE{return @"New message";}
++(NSString*) LOC_COMPOSE_BTN_SEND{return @"Send";}
++(NSString*) LOC_COMPOSE_BTN_CANCEL{return @"Cancel";}
 // settings
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS{return @"Settings";}
 // section date & time

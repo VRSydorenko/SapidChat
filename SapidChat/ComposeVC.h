@@ -22,6 +22,8 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UIButton *buttonLanguage;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *labelTitle;
+@property (strong, nonatomic) IBOutlet UIButton *btnSend;
+@property (strong, nonatomic) IBOutlet UIButton *btnCancel;
 
 // for sending message to collocutor
 @property (nonatomic) int initialMsgGlobalTimstamp;

@@ -14,11 +14,12 @@
 #define CELL_MESSAGE_WIDTH 263.0f
 #define CELL_MESSAGE_TOPBOTTOM_PADDING 5.0f
 
-@interface MessagesVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate>
+@interface MessagesVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate, UIActionSheetDelegate>
 
 @property Dialog *dialog;
 @property (strong, nonatomic) IBOutlet UITableView *tabelMessages;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *buttonReply;
 - (IBAction)replyPressed:(id)sender;
+- (IBAction)actionPressed:(id)sender;
 
 @end

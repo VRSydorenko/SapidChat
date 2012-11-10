@@ -59,6 +59,10 @@
 +(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return @"Hide";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Reply";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Compose one more";}
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE{return @"Dialog actions";}
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE{return @"Delete";};
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM{return @"Claim";}
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL{return @"Cancel";};
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"New message";}
 +(NSString*) LOC_COMPOSE_BTN_SEND{return @"Send";}

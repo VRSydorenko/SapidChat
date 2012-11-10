@@ -32,5 +32,6 @@
 
 +(ErrorCodes)sendMessage:(Message*)message;
 +(ErrorCodes) pickNewMessage;
++(ErrorCodes) deleteMessage:(Message*)msg;
 
 @end

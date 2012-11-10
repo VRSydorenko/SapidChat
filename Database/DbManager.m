@@ -159,6 +159,20 @@
     sqlite3_finalize(statement);
 }
 
+-(void) deleteMessage:(int)whenCreated{
+    NSString *deleteSQL = [NSString stringWithFormat:@"DELETE FROM %@ WHERE %@ = %d AND %@ = \"%@\"",T_MSGS, F_WHEN, whenCreated, F_AUTHOR, [UserSettings getEmail]];
+    const char *delete_stmt = [deleteSQL UTF8String];
+    
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(sapidDb, delete_stmt, -1, &statement, NULL) == SQLITE_OK){
+        if (sqlite3_step(statement) == SQLITE_DONE){
+        } else {
+            NSLog(@"Error deleting message from database");
+        }
+    }
+    sqlite3_finalize(statement);
+}
+
 -(NSArray*) loadMessagesWithCondition:(NSString*)condition{ // user specific method
     NSString* cond = condition.length > 0 ? [NSString stringWithFormat:@" AND %@", condition] : @"";
     NSString *querySQL = [NSString stringWithFormat: @"SELECT %@, %@, %@, %@ FROM %@ WHERE %@=\"%@\" %@", F_FROM, F_TO, F_WHEN, F_TEXT, T_MSGS, F_AUTHOR, [UserSettings getEmail], cond];

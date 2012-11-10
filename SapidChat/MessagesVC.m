@@ -21,6 +21,7 @@
     NSDictionary* datesRowCount;
     NSString* me;
     bool replyMode;
+    UIActionSheet *actionSheet;
     
     // dimensions
     UIFont* messageFont;
@@ -49,6 +50,7 @@
     self.title = [self getCollocutor];
     replyMode = ![[self getCollocutor] isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR];
     
+    [self setupActionSheet];
     [self setLocalizableValues];
     
     [DataManager resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
@@ -61,6 +63,38 @@
     [self setButtonReply:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+-(void) setupActionSheet{
+    NSString* title = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE];
+    NSString* cancel = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL];
+    NSString* delete = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE];
+    NSString* claim = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM];
+    actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:delete otherButtonTitles:claim, nil];
+}
+
+-(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0: // delete
+        {
+            bool ok = YES;
+            for (Message* message in messages) {
+                if ([DataManager deleteMessage:message] != OK){
+                    ok = NO;
+                    break;
+                }
+            }
+            if (ok){
+                //[self.tabelMessages reloadData];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            break;
+        }
+        case 1: // claim
+        {
+            break;
+        }
+    }
 }
 
 -(void) setLocalizableValues{
@@ -173,5 +207,11 @@
 
 - (IBAction)replyPressed:(id)sender {
     [self performSegueWithIdentifier:@"SegueDialogToCompose" sender:self];
+}
+
+- (IBAction)actionPressed:(id)sender {
+    if (replyMode){
+        [actionSheet showInView:self.view];
+    }
 }
 @end

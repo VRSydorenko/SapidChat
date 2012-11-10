@@ -226,12 +226,14 @@
     }
     
     do {
+        int loadedMessageLanguage = -1;
         // load new message from bank
         for (NSNumber* lang in me.languages) {
             result = [self getOneMessageFromBank:me.email inLanguage:lang.intValue message:&msg];
             if (result == NO_MESSAGES_TO_PICKUP){
                 continue;
             } else {
+                loadedMessageLanguage = lang.intValue;
                 break;
             }
         }
@@ -241,7 +243,7 @@
         }
             
         // delete it from the bank
-        result = [self deleteOneMessageFromBank:me.email rangeKey:msg.when/*carefully*/ deletedMessage:&msg];
+        result = [self deleteOneMessageFromBank:me.email inLanguage:loadedMessageLanguage rangeKey:msg.when/*carefully*/ deletedMessage:&msg];
         if (result != OK){
             if (result == SYSTEM_NO_SUCH_MESSAGE){
                 msg = nil; // continue
@@ -262,6 +264,43 @@
             }
         }
     } while (!msg);
+    
+    return result;
+}
+
++(ErrorCodes) deleteMessage:(Message*)msg{
+    ErrorCodes result = OK;
+    
+    NSString* table;
+    NSString* keyEmail;
+    if ([msg.to isEqualToString:[UserSettings getEmail]]){
+        table = DBTABLE_MSGS_RECEIVED;
+        keyEmail = [UserSettings getEmail];
+    } else if (![msg.to isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR]){
+        table = DBTABLE_MSGS_SENT;
+        keyEmail = msg.from;
+    } else {
+        return ERROR; // no deletion from the bank yet
+    }
+    
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:keyEmail];
+    DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", msg.when]];
+    DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr andRangeKeyElement:rangeKeyAttr];
+    
+    DynamoDBDeleteItemRequest *delRequest = [[DynamoDBDeleteItemRequest alloc] initWithTableName:table andKey:key];
+    DynamoDBDeleteItemResponse *response = nil;
+    
+    @try {
+        response = [[AmazonClientManager ddb] deleteItem:delRequest];
+        [[self getDbManager] deleteMessage:msg.when];
+    }
+    @catch (NSException *exception) {
+        return AMAZON_SERVICE_ERROR;
+    }
+    
+    if (!response){
+        result = AMAZON_SERVICE_ERROR;
+    }
     
     return result;
 }
@@ -464,8 +503,8 @@
     } while (!condition); // can be just while(YES)
 }
 
-+(ErrorCodes) deleteOneMessageFromBank:(NSString*)me rangeKey:(int)when deletedMessage:(Message**)deletedMsg{
-    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", ENGLISH]];
++(ErrorCodes) deleteOneMessageFromBank:(NSString*)me inLanguage:(int)lang rangeKey:(int)when deletedMessage:(Message**)deletedMsg{
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", lang]];
     DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", when]];
     DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr andRangeKeyElement:rangeKeyAttr];
     

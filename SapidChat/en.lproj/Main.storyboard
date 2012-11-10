@@ -465,7 +465,13 @@ Place a message?</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="qn9-19-Q60"/>
+                    <navigationItem key="navigationItem" id="qn9-19-Q60">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="dSb-iH-IaN">
+                            <connections>
+                                <action selector="actionPressed:" destination="dDO-1s-p1P" id="WoW-HX-Ne2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="buttonReply" destination="DaY-iS-6w2" id="u75-qa-BFZ"/>
@@ -1044,6 +1050,6 @@ Place a message?</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nTz-gt-Agf"/>
+        <segue reference="8wf-yh-Ir8"/>
     </inferredMetricsTieBreakers>
 </document>

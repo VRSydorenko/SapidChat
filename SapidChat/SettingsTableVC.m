@@ -136,10 +136,6 @@
 
 - (IBAction)switchSaveCreds:(UISwitch *)sender {
     [UserSettings setSaveCredentials:sender.on];
-    if (sender.on){
-        NSString* email = [DataManager getCurrentUser].email;
-        [UserSettings setEmail:email];
-    }
 }
 
 - (void)viewDidUnload {

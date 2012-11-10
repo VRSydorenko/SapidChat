@@ -120,6 +120,9 @@
 }
 
 -(void) controllerToLogout:(UINavigationController *)navController{
+    [UserSettings setEmail:@""];
+    // also might be good to remove the password from the Keychain
+    [UserSettings setSaveCredentials:NO];
     [navController dismissModalViewControllerAnimated:YES];
 }
 

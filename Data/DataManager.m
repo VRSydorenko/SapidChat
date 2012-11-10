@@ -205,9 +205,21 @@
     Message* msg = nil;
     User* me = [self loadUser:[UserSettings getEmail]];
     
+    if (me.languages.count == 0){
+        return CONVERSATION_LANGUAGES_NOT_CONFIGURED;
+    }
+    
     do {
         // load new message from bank
-        result = [self getOneMessageFromBank:me.email message:&msg];
+        for (NSNumber* lang in me.languages) {
+            result = [self getOneMessageFromBank:me.email inLanguage:lang.intValue message:&msg];
+            if (result == NO_MESSAGES_TO_PICKUP){
+                continue;
+            } else {
+                break;
+            }
+        }
+        
         if (result != OK){
             return result;
         }
@@ -392,8 +404,8 @@
     return OK;
 }
 
-+(ErrorCodes) getOneMessageFromBank:(NSString*)me message:(Message**)pickedUpMsg{
-    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", ENGLISH]];
++(ErrorCodes) getOneMessageFromBank:(NSString*)me inLanguage:(int)lang message:(Message**)pickedUpMsg{
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", lang]];
     DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:@"0"];
     
     DynamoDBQueryRequest* queryRequest = nil;

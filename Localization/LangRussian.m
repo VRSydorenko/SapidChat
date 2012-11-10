@@ -54,6 +54,8 @@
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Вытянуть";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"В ожидании ответа...";}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"Нет сообщений";}
++(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"Знаете, сейчас нету сообщения на вашем языке(ах) для выборки. Давайте не много подождем и тогда что-нибудь появится. Тем временем, пока можно написать что-то от себя ;)";}
++(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return @"Скрыть";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Ответить";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Разместить еще";}
 // settings

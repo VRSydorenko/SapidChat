@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ComposeVC.h"
+#import "InfoCell.h"
 
-
-@interface DialogsVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate>
+@interface DialogsVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate, InfoCellDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *btnPick;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *btnCompose;

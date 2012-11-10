@@ -15,12 +15,15 @@
 #import "ComposeVC.h"
 #import "UserSettings.h"
 #import "Lang.h"
+#import "InfoCell.h"
+#import "LocalizationUtils.h"
 
 @interface DialogsVC (){
     MainNavController* navController;
     
     BOOL noEntries;
     bool isPicking;
+    bool isNothingToPickUp;
     Dialog *selectedDialog;
 }
 
@@ -41,6 +44,7 @@
     self.btnCompose.title = [Lang LOC_MESSAGES_BTN_COMPOSE];
     
     isPicking = NO;
+    isNothingToPickUp = NO;
     navController = (MainNavController*)self.navigationController;
     self.tableDialogs.dataSource = self;
     self.tableDialogs.delegate = self;
@@ -67,11 +71,20 @@
     if (navController.dialogs.count == 0){
         return 1; // for "No data" message
     }
-    return navController.dialogs.count;
+    return navController.dialogs.count + (isNothingToPickUp ? 1 : 0); // if there are already some dialogs but no messages to pick up: plus one cell for such message
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (isNothingToPickUp && indexPath.row == 0){
+        InfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell"];
+        if (cell){
+            cell.textNoMessageToPickUp.text = [Lang LOC_MESSAGES_CELL_NO_MSG_TOPICKUP];
+            [LocalizationUtils setTitle:[Lang LOC_MESSAGES_CELL_BTN_HIDE] forButton:cell.btnHideCell];
+            cell.handler = self;
+        }
+        return cell;
+    }
     if (navController.dialogs.count == 0) { // if no data - return one cell-message
         UITableViewCell *cell = [[UITableViewCell alloc] init];
         cell.textLabel.text = [Lang LOC_MESSAGES_CELL_NO_RECORDS];
@@ -81,9 +94,9 @@
     
     noEntries = NO;
     DialogCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DialogCell"];
-    
+    int dialogIndexToLookFor = indexPath.row + (isNothingToPickUp ? -1 : 0); // if the InfoCell is shown we need to shift indexes one step back for not to have NSRangeException
     if (cell){
-        Dialog *dialog = [navController.dialogs objectAtIndex:indexPath.row];
+        Dialog *dialog = [navController.dialogs objectAtIndex:dialogIndexToLookFor];
         NSString* stringCollocutor = dialog.collocutor ? dialog.collocutor : [UserSettings getEmail];
         cell.labelCollocutor.text = [stringCollocutor isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR] ? [Lang LOC_MESSAGES_CELL_WAIT_FOR_REPLY] : stringCollocutor;
         Message *msg = (Message*)[[dialog getSortedMessages] lastObject];
@@ -96,7 +109,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!noEntries){
-        selectedDialog = [navController.dialogs objectAtIndex:indexPath.row];
+        int dialogIndexToLookFor = indexPath.row + (isNothingToPickUp ? -1 : 0); // if the InfoCell is shown we need to shift indexes one step back for not to have NSRangeException
+        selectedDialog = [navController.dialogs objectAtIndex:dialogIndexToLookFor];
         [self performSegueWithIdentifier:@"SegueDialogsToDialog" sender:self];
     }
 }
@@ -140,8 +154,11 @@
             if (pickResult == OK){
                 navController.dialogs = [DataManager getDialogs];
             }
+            if (pickResult == NO_MESSAGES_TO_PICKUP){
+                isNothingToPickUp = YES;
+            }
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (pickResult == OK){
+                if (pickResult == OK || pickResult == NO_MESSAGES_TO_PICKUP){
                     [self.tableDialogs reloadData];
                 }
                 [self.spinnerPick stopAnimating];
@@ -158,5 +175,10 @@
 
 -(void) composeCompleted:(Message*)composedMsg{
     [self refreshPressed:self.navigationItem.rightBarButtonItem];
+}
+
+- (void) infoCellHideButtonPressed{
+    isNothingToPickUp = NO;
+    [tableDialogs reloadData];
 }
 @end

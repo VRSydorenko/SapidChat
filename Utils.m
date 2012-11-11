@@ -65,23 +65,26 @@
  AMAZON_SERVICE_ERROR = 7,
  PASSWORD_TOO_SHORT = 8,
  LOGIN_NOT_SPECIFIED = 9,
+ TEXT_NOT_SPECIFIED = 10
+ NO_MESSAGES_TO_PICKUP = 11
+ SYSTEM_NO_SUCH_MESSAGE = 12
+ CONVERSATION_LANGUAGES_NOT_CONFIGURED = 13
 */
 +(NSString*) getErrorDescription:(ErrorCodes)error{
     switch (error) {
-        case OK:            return @"Success";
-        case ERROR:         return @"Error occured";
-        case INVALID_EMAIL: return @"Invalid email addresse";
-        case USER_EXISTS:   return @"User exists";
-        case NO_SUCH_USER:  return @"No such user";
-        case WRONG_PASSWORD:return @"Wrong password";
-        case EMAIL_NOT_SPECIFIED:   return @"Email not specified";
-        case AMAZON_SERVICE_ERROR:  return @"Database service error";
-        case PASSWORD_TOO_SHORT:    return @"Password too short";
-        case LOGIN_NOT_SPECIFIED:   return @"Login not specified";
-        case TEXT_NOT_SPECIFIED:    return @"The text should not be empty";
-        case NO_MESSAGES_TO_PICKUP: return @"There is no messages to pick up";
+        case OK:            return [Lang LOC_ERRORCODE_OK];
+        case ERROR:         return [Lang LOC_ERRORCODE_ERROR];
+        case INVALID_EMAIL: return [Lang LOC_ERRORCODE_INVALID_EMAIL];
+        case USER_EXISTS:   return [Lang LOC_ERRORCODE_USER_EXISTS];
+        case NO_SUCH_USER:  return [Lang LOC_ERRORCODE_NO_SUCH_USER];
+        case WRONG_PASSWORD:return [Lang LOC_ERRORCODE_WRONG_PASSWORD];
+        case EMAIL_NOT_SPECIFIED:   return [Lang LOC_ERRORCODE_EMAIL_NOT_SPECIFIED];
+        case AMAZON_SERVICE_ERROR:  return [Lang LOC_ERRORCODE_AMAZON_SERVICE_ERROR];
+        case PASSWORD_TOO_SHORT:    return [Lang LOC_ERRORCODE_PASSWORD_TOO_SHORT];
+        case LOGIN_NOT_SPECIFIED:   return [Lang LOC_ERRORCODE_LOGIN_NOT_SPECIFIED];
+        case TEXT_NOT_SPECIFIED:    return [Lang LOC_ERRORCODE_TEXT_NOT_SPECIFIED];
         default:
-            return @"Unknown error!";
+            return @"Error without description.";
     }
 }
 

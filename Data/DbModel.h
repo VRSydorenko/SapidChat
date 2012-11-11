@@ -22,9 +22,9 @@ typedef enum ErrorCodes{
     PASSWORD_TOO_SHORT = 8,
     LOGIN_NOT_SPECIFIED = 9,
     TEXT_NOT_SPECIFIED = 10,
-    NO_MESSAGES_TO_PICKUP = 11,
+    SYSTEM_NO_MESSAGES_TO_PICKUP = 11,
     SYSTEM_NO_SUCH_MESSAGE = 12,
-    CONVERSATION_LANGUAGES_NOT_CONFIGURED = 13,
+    SYSTEM_CONVERSATION_LANGUAGES_NOT_CONFIGURED = 13,
 } ErrorCodes;
 
 typedef enum Languages{ // !!! Don't change the numbers !!!

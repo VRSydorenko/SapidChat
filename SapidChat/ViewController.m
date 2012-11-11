@@ -48,6 +48,9 @@
         isAfterRegistration = NO;
         return;
     }
+    self.textEmail.placeholder = [Lang LOC_LOGIN_TXT_LOGIN_PLACEHOLDER];
+    self.textPassword.placeholder = [Lang LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER];
+    
     if ([UserSettings getSaveCredentials]){
         self.textEmail.text = [UserSettings getEmail];
         self.textPassword.text = [AmazonKeyChainWrapper getValueFromKeyChain:[UserSettings getEmail]];
@@ -76,6 +79,8 @@
 
 - (IBAction)goPressed:(id)sender {
     if (!isLoggingIn){
+        [self.textEmail resignFirstResponder];
+        [self.textPassword resignFirstResponder];
         [self loginAsync];
     }
 }

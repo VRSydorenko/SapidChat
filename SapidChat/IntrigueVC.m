@@ -47,12 +47,15 @@
 }
 
 - (IBAction)sendPressed:(id)sender {
-    if (!isSending){
+    NSString* email = self.textEmail.text;
+    ErrorCodes emailErrorCode = [Utils validateEmail:email];
+    if (emailErrorCode != OK){
+        [LocalizationUtils setText:[Utils getErrorDescription:emailErrorCode] forLabel:self.labelServiceMessage];
+    } else if (!isSending){
         isSending = YES;
+        [self.textEmail resignFirstResponder];
         
         [self.indicatorSend startAnimating];
-        
-        NSString* email = self.textEmail.text;
         
         dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
         dispatch_async(refreshQueue, ^{
@@ -65,6 +68,8 @@
             });
         });
         dispatch_release(refreshQueue);
+    } else {
+        [LocalizationUtils setText:[Lang LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS] forLabel:self.labelServiceMessage];
     }
 
 }

@@ -31,10 +31,13 @@
 +(NSString*) LOC_REGISTATOR_FIELD_PASSWORD { return @"Пароль";}
 +(NSString*) LOC_REGISTATOR_SWITCH_SAVECREDS { return @"Сохранить пароль";}
 +(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Ник";}
++(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Поскольку общение здесь анонимное, то было бы хорошо придумать себе ник чтобы было удобно различать собеседников";}
 +(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Выберите языки, на которых вы можете вести переписку";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Вход";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Регистрация";}
++(NSString*) LOC_LOGIN_TXT_LOGIN_PLACEHOLDER    {return @"Email";}
++(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER {return @"Пароль";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Сообщения";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d новых сообщений";}
@@ -49,6 +52,7 @@
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Введите e-mail того, кого хотите заинтриговать, пригласив анонимно пообщаться:";}
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Заинтриговать!";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Отправлено";}
++(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Отправка в процессе, подождите...";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Разместить";}
@@ -103,5 +107,18 @@
 +(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_CANCEL{return @"Отмена";}
 +(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_TEXT{ return @"Выберите языки, на которых вы можете общаться";}
 +(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK {return @"Назад";}
+
+// error codes
++(NSString*) LOC_ERRORCODE_OK {return @"OK";}
++(NSString*) LOC_ERRORCODE_ERROR{return @"Ошибка";}
++(NSString*) LOC_ERRORCODE_INVALID_EMAIL{return @"Некорректный email адрес";}
++(NSString*) LOC_ERRORCODE_USER_EXISTS{return @"Такой пользователь уже существует";}
++(NSString*) LOC_ERRORCODE_NO_SUCH_USER{return @"Пользователь не найден";}
++(NSString*) LOC_ERRORCODE_WRONG_PASSWORD{return @"Неправильный пароль";}
++(NSString*) LOC_ERRORCODE_EMAIL_NOT_SPECIFIED{return @"Не указан email";}
++(NSString*) LOC_ERRORCODE_AMAZON_SERVICE_ERROR{return @"Ошибка сервиса";}
++(NSString*) LOC_ERRORCODE_PASSWORD_TOO_SHORT{return @"Пароль слишком короткий";}
++(NSString*) LOC_ERRORCODE_LOGIN_NOT_SPECIFIED{return @"Не указан логин";}
++(NSString*) LOC_ERRORCODE_TEXT_NOT_SPECIFIED{return @"Текст не может быть пустым";}
 
 @end

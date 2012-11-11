@@ -224,7 +224,7 @@
     User* me = [self loadUser:[UserSettings getEmail]];
     
     if (me.languages.count == 0){
-        return CONVERSATION_LANGUAGES_NOT_CONFIGURED;
+        return SYSTEM_CONVERSATION_LANGUAGES_NOT_CONFIGURED;
     }
     
     do {
@@ -232,7 +232,7 @@
         // load new message from bank
         for (NSNumber* lang in me.languages) {
             result = [self getOneMessageFromBank:me.email inLanguage:lang.intValue message:&msg];
-            if (result == NO_MESSAGES_TO_PICKUP){
+            if (result == SYSTEM_NO_MESSAGES_TO_PICKUP){
                 continue;
             } else {
                 loadedMessageLanguage = lang.intValue;
@@ -489,7 +489,7 @@
             return ERROR;
         }
         if (queryResponse.items.count == 0){
-            return NO_MESSAGES_TO_PICKUP;
+            return SYSTEM_NO_MESSAGES_TO_PICKUP;
         }
         
         *pickedUpMsg = [DbItemHelper prepareMessage:[queryResponse.items objectAtIndex:0]];

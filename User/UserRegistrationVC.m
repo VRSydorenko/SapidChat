@@ -34,17 +34,15 @@
 @synthesize textPassword;
 @synthesize switchSaveCreds;
 @synthesize textNick;
+@synthesize txtSpecifyNick;
 @synthesize labelServiseMessage;
 @synthesize spinner;
 @synthesize tableLanguages;
 @synthesize btnNext;
 @synthesize btnRegister;
 @synthesize btnClose;
-@synthesize labelEmail;
-@synthesize labelPassword;
 @synthesize labelSaveCreds;
-@synthesize labelNickname;
-@synthesize labelSelectLangs;
+@synthesize txtSelectLangs;
 
 - (void)viewDidLoad
 {
@@ -90,20 +88,23 @@
     if (self.btnRegister){
         self.btnRegister.title = [Lang LOC_REGISTATOR_BTN_REGISTER];
     }
-    if (self.labelEmail){
-        [LocalizationUtils setText:[Lang LOC_REGISTATOR_FIELD_EMAIL] forLabel:self.labelEmail];
+    if (self.textEmail){
+        self.textEmail.placeholder = [Lang LOC_REGISTATOR_FIELD_EMAIL];
     }
-    if (self.labelPassword){
-        [LocalizationUtils setText:[Lang LOC_REGISTATOR_FIELD_PASSWORD] forLabel:self.labelPassword];
+    if (self.textPassword){
+        self.textPassword.placeholder = [Lang LOC_REGISTATOR_FIELD_PASSWORD];
     }
     if (self.labelSaveCreds){
         [LocalizationUtils setText:[Lang LOC_REGISTATOR_SWITCH_SAVECREDS] forLabel:self.labelSaveCreds];
     }
-    if (self.labelNickname){
-        [LocalizationUtils setText:[Lang LOC_REGISTATOR_FIELD_NICK] forLabel:self.labelNickname];
+    if (self.txtSpecifyNick){
+        self.txtSpecifyNick.text = [Lang LOC_REGISTATOR_TEXT_SPECIFYNICK];
     }
-    if (self.labelSelectLangs){
-        [LocalizationUtils setText:[Lang LOC_REGISTATOR_LABEL_SELECT_LANGS] forLabel:self.labelSelectLangs];
+    if (self.textNick){
+        self.textNick.placeholder = [Lang LOC_REGISTATOR_FIELD_NICK];
+    }
+    if (self.txtSelectLangs){
+        self.txtSelectLangs.text = [Lang LOC_REGISTATOR_LABEL_SELECT_LANGS];
     }
 }
 
@@ -158,11 +159,9 @@
     [self setBtnNext:nil];
     [self setBtnRegister:nil];
     [self setBtnClose:nil];
-    [self setLabelEmail:nil];
-    [self setLabelPassword:nil];
     [self setLabelSaveCreds:nil];
-    [self setLabelNickname:nil];
-    [self setLabelSelectLangs:nil];
+    [self setTxtSelectLangs:nil];
+    [self setTxtSpecifyNick:nil];
     [super viewDidUnload];
 }
 
@@ -251,6 +250,7 @@
                     [UserSettings setEmail:navController.email];
                 }
                 [AmazonKeyChainWrapper storeValueInKeyChain:navController.password forKey:user.email];
+                self.labelServiseMessage.text = [Utils getErrorDescription:OK];
             } else {
                 self.labelServiseMessage.text = [Utils getErrorDescription:registered];
             }

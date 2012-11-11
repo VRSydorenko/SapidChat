@@ -154,11 +154,11 @@
             if (pickResult == OK){
                 navController.dialogs = [DataManager getDialogs];
             }
-            if (pickResult == NO_MESSAGES_TO_PICKUP){
+            if (pickResult == SYSTEM_NO_MESSAGES_TO_PICKUP){
                 isNothingToPickUp = YES;
             }
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (pickResult == OK || pickResult == NO_MESSAGES_TO_PICKUP){
+                if (pickResult == OK || pickResult == SYSTEM_NO_MESSAGES_TO_PICKUP){
                     [self.tableDialogs reloadData];
                 }
                 [self.spinnerPick stopAnimating];

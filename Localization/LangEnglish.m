@@ -31,10 +31,13 @@
 +(NSString*) LOC_REGISTATOR_FIELD_PASSWORD { return @"Password";}
 +(NSString*) LOC_REGISTATOR_SWITCH_SAVECREDS { return @"Save password";}
 +(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Nickname";}
++(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Since the communication here is anonymous it would be good to specify a nickname in order for distinguish between interlocutors";}
 +(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Choose languages you can text on";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Login";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Registration";}
++(NSString*) LOC_LOGIN_TXT_LOGIN_PLACEHOLDER    {return @"Email";}
++(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER {return @"Password";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Messages";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d new messages";}
@@ -49,6 +52,7 @@
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Enter email of whose you want to get intrigued by inviting to the chat:";}
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Make intrigued!";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Sent";}
++(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Sending in progress, wait...";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Compose";}
@@ -103,5 +107,18 @@
 +(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_CANCEL{return @"Cancel";}
 +(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_TEXT{ return @"Select languages you can communicate in";}
 +(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK {return @"Back";}
+
+// error codes
++(NSString*) LOC_ERRORCODE_OK {return @"OK";}
++(NSString*) LOC_ERRORCODE_ERROR{return @"Error ocurred";}
++(NSString*) LOC_ERRORCODE_INVALID_EMAIL{return @"The email is not correct";}
++(NSString*) LOC_ERRORCODE_USER_EXISTS{return @"The user already exists";}
++(NSString*) LOC_ERRORCODE_NO_SUCH_USER{return @"No such user registered";}
++(NSString*) LOC_ERRORCODE_WRONG_PASSWORD{return @"The password is incorrect";}
++(NSString*) LOC_ERRORCODE_EMAIL_NOT_SPECIFIED{return @"The email cannot be empty";}
++(NSString*) LOC_ERRORCODE_AMAZON_SERVICE_ERROR{return @"Service error ocurred";}
++(NSString*) LOC_ERRORCODE_PASSWORD_TOO_SHORT{return @"The password is too short";}
++(NSString*) LOC_ERRORCODE_LOGIN_NOT_SPECIFIED{return @"The login cannot be empty";}
++(NSString*) LOC_ERRORCODE_TEXT_NOT_SPECIFIED{return @"Text cannot be empty";}
 
 @end

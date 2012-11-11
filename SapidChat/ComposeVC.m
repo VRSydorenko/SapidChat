@@ -42,10 +42,10 @@
         self.buttonLanguage.hidden = YES;
     } else {
         self.labelTitle.title = [Lang LOC_COMPOSE_TITLE];
-        [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_SEND] forButton:self.btnSend];
-        [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_CANCEL] forButton:self.btnCancel];
         [self updateLanguageText];
     }
+    [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_SEND] forButton:self.btnSend];
+    [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_CANCEL] forButton:self.btnCancel];
 }
 
 - (void)viewDidUnload

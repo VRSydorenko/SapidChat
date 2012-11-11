@@ -45,7 +45,7 @@ NSString *kKeychainKeyIdentifier;
 
 +(bool)areCredentialsExpired
 {
-    AMZLogDebug(@"areCredentialsExpired");
+    //AMZLogDebug(@"areCredentialsExpired");
 
     NSString *expiration = [AmazonKeyChainWrapper getValueFromKeyChain:kKeychainExpirationDateIdentifier];
     if (expiration == nil) {
@@ -54,7 +54,7 @@ NSString *kKeychainKeyIdentifier;
     else {
         NSDate *expirationDate = [AmazonKeyChainWrapper convertStringToDate:expiration];
 
-        AMZLog(@"expirationDate : %@, %@", expiration, expirationDate);
+        //AMZLog(@"expirationDate : %@, %@", expiration, expirationDate);
 
         return [AmazonKeyChainWrapper isExpired:expirationDate];
     }

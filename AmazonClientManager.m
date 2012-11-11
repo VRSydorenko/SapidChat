@@ -93,7 +93,6 @@ static AmazonTVMClient      *tvm = nil;
     
     [ses release];
     ses = [[AmazonSESClient alloc] initWithCredentials:credentials];
-    [ses setEndpoint:@"https://email.us-east-1.amazonaws.com"];
 }
 
 +(void)wipeAllCredentials

@@ -168,8 +168,9 @@
         AmazonSESClient *ses = [AmazonClientManager ses];
         response = [ses sendEmail:emailRequest];
     }
-    @catch (AmazonServiceException* ex) {
+    @catch (NSException* ex) {
         result = AMAZON_SERVICE_ERROR;
+        NSLog(@"%@", ex);
     }
     
     return result;
@@ -189,6 +190,7 @@
         //
     }
     @catch (AmazonServiceException *exception) {
+        NSLog(@"%@", exception);
         return AMAZON_SERVICE_ERROR;
     }
     if (!response){
@@ -272,18 +274,15 @@
     ErrorCodes result = OK;
     
     NSString* table;
-    NSString* keyEmail;
     if ([msg.to isEqualToString:[UserSettings getEmail]]){
         table = DBTABLE_MSGS_RECEIVED;
-        keyEmail = [UserSettings getEmail];
     } else if (![msg.to isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR]){
         table = DBTABLE_MSGS_SENT;
-        keyEmail = msg.from;
     } else {
         return ERROR; // no deletion from the bank yet
     }
     
-    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:keyEmail];
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[UserSettings getEmail]];
     DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", msg.when]];
     DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr andRangeKeyElement:rangeKeyAttr];
     
@@ -454,6 +453,7 @@
         return AMAZON_SERVICE_ERROR;
     }
     
+    message.when = timestamp; 
     [DataManager saveMessage:message];
     
     return OK;

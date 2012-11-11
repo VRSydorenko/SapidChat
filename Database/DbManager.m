@@ -89,7 +89,7 @@
     sqlite3_prepare_v2(sapidDb, insert_stmt, -1, &statement, NULL);
     if (sqlite3_step(statement) == SQLITE_DONE)
     {
-        NSLog(@"User saved");
+        //NSLog(@"User saved");
     } else {
         NSLog(@"Failed to save user");
     }
@@ -106,7 +106,7 @@
     {
         if (sqlite3_step(statement) == SQLITE_ROW)
         {
-            NSLog(@"User found");
+            //NSLog(@"User found");
             user = [[User alloc] init];
             user.email = email;
             
@@ -159,7 +159,7 @@
     sqlite3_finalize(statement);
 }
 
--(void) deleteMessage:(int)whenCreated{
+-(void) deleteMessage:(int)whenCreated{ // user specific method
     NSString *deleteSQL = [NSString stringWithFormat:@"DELETE FROM %@ WHERE %@ = %d AND %@ = \"%@\"",T_MSGS, F_WHEN, whenCreated, F_AUTHOR, [UserSettings getEmail]];
     const char *delete_stmt = [deleteSQL UTF8String];
     

@@ -43,6 +43,12 @@
             }
             result.languages = [[NSArray alloc] initWithArray:langs copyItems:YES];
         }
+        if ([key isEqualToString: DBFIELD_USERS_RP]){
+            result.rp = attrVal.n.intValue;
+        }
+        if ([key isEqualToString: DBFIELD_USERS_BP]){
+            result.bp = attrVal.n.intValue;
+        }
      /* if ([key isEqualToString: DBFIELD_USERS_BIRTHDAY]){
             result.birthday = [NSDate dateWithTimeIntervalSince   1970:[attrVal.n intValue]];
         }

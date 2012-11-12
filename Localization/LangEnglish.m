@@ -120,5 +120,6 @@
 +(NSString*) LOC_ERRORCODE_PASSWORD_TOO_SHORT{return @"The password is too short";}
 +(NSString*) LOC_ERRORCODE_LOGIN_NOT_SPECIFIED{return @"The login cannot be empty";}
 +(NSString*) LOC_ERRORCODE_TEXT_NOT_SPECIFIED{return @"Text cannot be empty";}
++(NSString*) LOC_ERRORCODE_POSTSTAMPS_NOT_ENOUGH{return @"Not enough poststamps";}
 
 @end

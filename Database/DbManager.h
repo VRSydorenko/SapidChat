@@ -31,4 +31,14 @@
 -(int) getUnreadMessagesCount;
 -(void) resetUnreadMessagesCountForCollocutor:(NSString*)email;
 
+-(int) getRegularPoststampsCount;
+-(void) addRegularPoststamps:(int)count;
+-(int) getRegularPoststampsFromLocalBuffer;
+-(void) addRegularPoststampsToLocalBuffer:(int)count;
+
+-(int) getBonusPoststampsCount;
+-(void) addBonusPoststamps:(int)count;
+-(int) getBonusPoststampsFromLocalBuffer;
+-(void) addBonusPoststampsToLocalBuffer:(int)count;
+
 @end

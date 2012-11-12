@@ -41,6 +41,8 @@
         result.email = self.email;
         result.nickname = self.nickname;
         result.languages = [[NSArray alloc] initWithArray:self.selectedLanguages copyItems:YES];
+        result.rp = 0;
+        result.bp = 10;
         return result;
     }
     return nil;

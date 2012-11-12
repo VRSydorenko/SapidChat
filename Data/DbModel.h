@@ -25,6 +25,7 @@ typedef enum ErrorCodes{
     SYSTEM_NO_MESSAGES_TO_PICKUP = 11,
     SYSTEM_NO_SUCH_MESSAGE = 12,
     SYSTEM_CONVERSATION_LANGUAGES_NOT_CONFIGURED = 13,
+    POSTSTAMPS_NOT_ENOUGH = 14,
 } ErrorCodes;
 
 typedef enum Languages{ // !!! Don't change the numbers !!!
@@ -51,6 +52,8 @@ typedef enum Languages{ // !!! Don't change the numbers !!!
 #define DBFIELD_USERS_PASSWORD @"pass"
 #define DBFIELD_USERS_NICKNAME @"nick"
 #define DBFIELD_USERS_LANGS @"langs"
+#define DBFIELD_USERS_RP @"rp"
+#define DBFIELD_USERS_BP @"bp"
 
 #define DBTABLE_MSGS_SENT @"t_msgs_sent"
 #define DBTABLE_MSGS_RECEIVED @"t_msgs_received"

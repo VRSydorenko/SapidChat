@@ -10,6 +10,7 @@
 #import "Lang.h"
 #import "LocalizationUtils.h"
 #import "UserSettings.h"
+#import "PurchaseManager.h"
 
 @interface IntrigueSellVC ()
 

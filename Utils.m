@@ -83,6 +83,7 @@
         case PASSWORD_TOO_SHORT:    return [Lang LOC_ERRORCODE_PASSWORD_TOO_SHORT];
         case LOGIN_NOT_SPECIFIED:   return [Lang LOC_ERRORCODE_LOGIN_NOT_SPECIFIED];
         case TEXT_NOT_SPECIFIED:    return [Lang LOC_ERRORCODE_TEXT_NOT_SPECIFIED];
+        case POSTSTAMPS_NOT_ENOUGH: return [Lang LOC_ERRORCODE_POSTSTAMPS_NOT_ENOUGH];
         default:
             return @"Error without description.";
     }

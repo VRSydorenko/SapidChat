@@ -15,6 +15,7 @@
 
 @interface IntrigueVC (){
     bool isSending;
+    int intriguePrice;
 }
 
 @end
@@ -30,6 +31,8 @@
 {
     [super viewDidLoad];
 
+    intriguePrice = 1;
+    
     isSending = NO;
     self.title = [Lang LOC_INTRIGUE_SCREEN_TITLE];
     [LocalizationUtils setText:[Lang LOC_INTRIGUE_LABEL_ENTERMAIL] forLabel:self.labelEnterEmail];
@@ -48,21 +51,26 @@
 
 - (IBAction)sendPressed:(id)sender {
     NSString* email = self.textEmail.text;
-    ErrorCodes emailErrorCode = [Utils validateEmail:email];
-    if (emailErrorCode != OK){
-        [LocalizationUtils setText:[Utils getErrorDescription:emailErrorCode] forLabel:self.labelServiceMessage];
+    ErrorCodes emailValidationError = [Utils validateEmail:email];
+    if (emailValidationError != OK){
+        [LocalizationUtils setText:[Utils getErrorDescription:emailValidationError] forLabel:self.labelServiceMessage];
     } else if (!isSending){
         isSending = YES;
         [self.textEmail resignFirstResponder];
-        
         [self.indicatorSend startAnimating];
         
         dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
         dispatch_async(refreshQueue, ^{
-            ErrorCodes msgSent = [DataManager sendIntrigueTo:email];
+            ErrorCodes errorCode = [PurchaseManager beginRegularPoststampsSpending:intriguePrice];
+            if (errorCode == OK){
+                errorCode = [DataManager sendIntrigueTo:email];
+            }
+            if (errorCode == OK){
+                [PurchaseManager finishRegularPoststampsSpending:intriguePrice];
+            }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.indicatorSend stopAnimating];
-                NSString* resultString = msgSent == OK ? [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_OK] : [Utils getErrorDescription:msgSent];
+                NSString* resultString = errorCode == OK ? [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_OK] : [Utils getErrorDescription:errorCode];
                 [LocalizationUtils setText:resultString forLabel:self.labelServiceMessage];
                 isSending = NO;
             });
@@ -71,7 +79,6 @@
     } else {
         [LocalizationUtils setText:[Lang LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS] forLabel:self.labelServiceMessage];
     }
-
 }
 
 - (IBAction)didEndOnExit:(id)sender {

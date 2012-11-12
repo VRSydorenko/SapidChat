@@ -106,6 +106,10 @@
             [langs addObject:lang.stringValue];
         }
         [userDic setObject:[[DynamoDBAttributeValue alloc] initWithNS:langs] forKey:DBFIELD_USERS_LANGS];
+        NSString* rpString = [NSString stringWithFormat:@"%d", user.rp];
+        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithN:rpString] forKey:DBFIELD_USERS_RP];
+        NSString* bpString = [NSString stringWithFormat:@"%d", user.bp];
+        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithN:bpString] forKey:DBFIELD_USERS_BP];
 
         DynamoDBPutItemRequest *request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_USERS andItem:userDic];
         DynamoDBPutItemResponse *response = nil;
@@ -303,6 +307,34 @@
     
     return result;
 }
+
++(int) getRegularPoststampsCount{
+    return [[self getDbManager] getRegularPoststampsCount];
+}
++(int) getRegularPoststampsFromLocalBuffer{
+    return [[self getDbManager] getRegularPoststampsFromLocalBuffer];
+}
++(int) getBonusPoststampsCount{
+    return [[self getDbManager] getBonusPoststampsCount];
+}
++(int) getBonusPoststampsFromLocalBuffer{
+    return [[self getDbManager] getRegularPoststampsFromLocalBuffer];
+}
++(void) addRegularPoststampsToLocalBuffer:(int)count{
+    [[self getDbManager] addRegularPoststampsToLocalBuffer:count];
+}
++(void) addBonusPoststampsToLocalBuffer:(int)count{
+    [[self getDbManager] addBonusPoststampsToLocalBuffer:count];
+}
+
++(ErrorCodes) spendRegularPoststamps:(int)count{
+    return [self chargeUsersPoststamps:count fromBonusAccount:NO];
+}
+
++(ErrorCodes) spendBonusPoststamps:(int)count{
+    return [self chargeUsersPoststamps:count fromBonusAccount:YES];
+}
+
 
 // internal methods
 
@@ -583,8 +615,50 @@
         return SYSTEM_NO_SUCH_MESSAGE;
     }
     /*if ([response attributesValueForKey:DBFIELD_MSGS_TO].s != msg.to){
+     return ERROR;
+     }*/    
+    return OK;
+}
+
++(ErrorCodes) chargeUsersPoststamps:(int)amount fromBonusAccount:(bool)bonus{
+    User* user;
+    
+    ErrorCodes retrieveUser = [self retrieveUser:&user withEmail:[UserSettings getEmail]];
+    if (retrieveUser != OK){
+        return retrieveUser;
+    }
+    int newValue = bonus ? user.bp - amount : user.rp - amount;
+    if (newValue < 0){
+        return POSTSTAMPS_NOT_ENOUGH;
+    }
+    
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:user.email];
+    DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr];
+    
+    DynamoDBAttributeValue *attrValue = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", newValue]];
+    DynamoDBAttributeValueUpdate *attrUpdate = [[DynamoDBAttributeValueUpdate alloc] initWithValue:attrValue andAction:@"PUT"];
+    
+    NSMutableDictionary* updatesDict = [NSMutableDictionary dictionaryWithObject:attrUpdate forKey: bonus ? DBFIELD_USERS_BP : DBFIELD_USERS_RP];
+    
+    DynamoDBUpdateItemRequest *updateRequest = [[DynamoDBUpdateItemRequest alloc] initWithTableName:DBTABLE_USERS andKey:key andAttributeUpdates:updatesDict];
+    [updateRequest setReturnValues:@"UPDATED_NEW"];
+    
+    DynamoDBUpdateItemResponse *response = nil;
+    @try {
+        response = [[AmazonClientManager ddb] updateItem:updateRequest];
+    }
+    @catch (NSException *exception) {
+        return AMAZON_SERVICE_ERROR;
+    }
+    if (!response){
         return ERROR;
-    }*/    
+    }
+    /*if (response.attributes.count == 0){
+        return SYSTEM_NO_SUCH_MESSAGE;
+    }*/
+    /*if ([response attributesValueForKey:DBFIELD_MSGS_TO].s != msg.to){
+     return ERROR;
+     }*/    
     return OK;
 }
 

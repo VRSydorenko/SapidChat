@@ -28,7 +28,11 @@
     [tUsers addField:F_AUTHOR type:DBTYPE_TEXT notNull:YES];
     [tUsers addField:F_EMAIL type:DBTYPE_TEXT notNull:YES];
     [tUsers addField:F_NICK type:DBTYPE_TEXT notNull:YES];
-    [tUsers addField:F_LANGS type:DBTYPE_TEXT notNull:NO];
+    [tUsers addField:F_LANGS type:DBTYPE_TEXT notNull:YES];
+    [tUsers addField:F_RP type:DBTYPE_REAL notNull:YES];
+    [tUsers addField:F_BP type:DBTYPE_REAL notNull:YES];
+    [tUsers addField:F_RP_BUF type:DBTYPE_REAL notNull:YES];
+    [tUsers addField:F_BP_BUF type:DBTYPE_REAL notNull:YES];
     [tables addObject:tUsers];
     
     DbTable* tMessages = [[DbTable alloc] initWithTableName:T_MSGS];

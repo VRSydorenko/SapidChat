@@ -11,6 +11,7 @@
 #import "Message.h"
 #import "User.h"
 #import "AppDelegate.h"
+#import "PurchaseManager.h"
 
 @interface DataManager : NSObject{
 }
@@ -33,5 +34,15 @@
 +(ErrorCodes)sendMessage:(Message*)message;
 +(ErrorCodes) pickNewMessage;
 +(ErrorCodes) deleteMessage:(Message*)msg;
+
++(int) getRegularPoststampsCount;
++(int) getRegularPoststampsFromLocalBuffer;
++(int) getBonusPoststampsCount;
++(int) getBonusPoststampsFromLocalBuffer;
++(void) addRegularPoststampsToLocalBuffer:(int)count;
++(void) addBonusPoststampsToLocalBuffer:(int)count;
+
++(ErrorCodes) spendRegularPoststamps:(int)count;
++(ErrorCodes) spendBonusPoststamps:(int)count;
 
 @end

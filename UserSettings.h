@@ -11,7 +11,7 @@
 
 #define SYS_HAS_LAUNCHED @"sys_has_launched"
 
-#define PURCHASE_INTRIGUE_UNLOCKED @"purchase_intrigue_unlocked"
+#define PURCHASE_PREMIUM_UNLOCKED @"purchase_premium_unlocked"
 
 #define DEF_DATEFORMAT @"YYYY.MM.dd"
 #define DEF_TIMEFORMAT @"HH:mm"
@@ -52,7 +52,7 @@
 +(bool) hasLaunched;
 +(void) setHasLaunched;
 
-+(bool) intrigueUnlocked;
-+(void) setIntrigueUnlocked;
++(bool) premiumUnlocked;
++(void) setPremiumUnlocked;
 
 @end

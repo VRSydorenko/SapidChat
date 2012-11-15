@@ -124,11 +124,11 @@
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:SYS_HAS_LAUNCHED];
 }
 
-+(bool) intrigueUnlocked{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:PURCHASE_INTRIGUE_UNLOCKED];
++(bool) premiumUnlocked{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:PURCHASE_PREMIUM_UNLOCKED];
 }
-+(void) setIntrigueUnlocked{
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:PURCHASE_INTRIGUE_UNLOCKED];
++(void) setPremiumUnlocked{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:PURCHASE_PREMIUM_UNLOCKED];
 }
 
 @end

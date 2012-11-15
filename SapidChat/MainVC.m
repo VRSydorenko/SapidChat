@@ -95,7 +95,7 @@
             [self performSegueWithIdentifier:@"SegueMainToDialogs" sender:self];
             break;
         case 1:{
-            NSString* intrigueSegue = [UserSettings intrigueUnlocked] ? @"SegueMainToIntrigue" : @"SegueMainToSellIntrigue";
+            NSString* intrigueSegue = @"SegueMainToIntrigue";
             [self performSegueWithIdentifier:intrigueSegue sender:self];
             break;
         }

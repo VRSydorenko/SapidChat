@@ -87,9 +87,18 @@
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"New messages";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Application";}
 
+// section account
 +(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_OK{return @"OK";}
 +(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_CANCEL{return @"Cancel";}
 +(NSString*) LOC_SETTINGS_POPUPEDIT_NICK_PLACEHOLDER_ENTERHERE{return @"Please enter your nick";}
+
++(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CURRENT{return @"Current password";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_NEW{return @"New password";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CONFIRM{return @"Confirm new password";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_BTN_OK{return @"Change";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE{return @"New password";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_MSG{return @"The password has been changed";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK{return @"OK";}
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"English";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ARABIC{ return @"Arabic";}
@@ -125,5 +134,6 @@
 +(NSString*) LOC_ERRORCODE_LOGIN_NOT_SPECIFIED{return @"The login cannot be empty";}
 +(NSString*) LOC_ERRORCODE_TEXT_NOT_SPECIFIED{return @"Text cannot be empty";}
 +(NSString*) LOC_ERRORCODE_POSTSTAMPS_NOT_ENOUGH{return @"Not enough poststamps";}
++(NSString*) LOC_ERRORCODE_PASSWORDS_NOT_MATCH{return @"New password is not confirmed";}
 
 @end

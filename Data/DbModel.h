@@ -26,6 +26,7 @@ typedef enum ErrorCodes{
     SYSTEM_NO_SUCH_MESSAGE = 12,
     SYSTEM_CONVERSATION_LANGUAGES_NOT_CONFIGURED = 13,
     POSTSTAMPS_NOT_ENOUGH = 14,
+    PASSWORDS_NOT_MATCH = 15,
 } ErrorCodes;
 
 typedef enum Languages{ // !!! Don't change the numbers !!!
@@ -72,7 +73,8 @@ typedef enum Languages{ // !!! Don't change the numbers !!!
 // when
 
 // system definitions
-#define SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR @"Wait for reply..."
+#define SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR @"WaitForReplyCollocutor"
+#define MINIMUM_PASSWORD_LENGTH 5
 
 @interface DbModel : NSObject
 

@@ -37,6 +37,7 @@
 
 +(ErrorCodes) updateOwnNick:(NSString*)nick; // in AWS
 +(void) updateOwnNickInDb:(NSString*)nick; // local db
++(ErrorCodes) updateOwnPassword:(NSString*)pass; // in AWS
 
 +(int) getRegularPoststampsCount;
 +(int) getRegularPoststampsFromLocalBuffer;

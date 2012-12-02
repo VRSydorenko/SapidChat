@@ -81,6 +81,7 @@
 		7FEF2F54164B0E78003C8745 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF2F53164B0E78003C8745 /* SettingsManager.m */; };
 		7FEF2F57164B0FEC003C8745 /* NewMsgLanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF2F56164B0FEC003C8745 /* NewMsgLanguageVC.m */; };
 		7FEF2F62164B1D8C003C8745 /* LangsIKnowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF2F61164B1D8C003C8745 /* LangsIKnowVC.m */; };
+		7FFB984F166BA7EC00AED809 /* SettingsChangePassVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB984E166BA7EC00AED809 /* SettingsChangePassVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +228,8 @@
 		7FEF2F56164B0FEC003C8745 /* NewMsgLanguageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewMsgLanguageVC.m; path = Settings/NewMsgLanguageVC.m; sourceTree = "<group>"; };
 		7FEF2F60164B1D8C003C8745 /* LangsIKnowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangsIKnowVC.h; path = Settings/LangsIKnowVC.h; sourceTree = "<group>"; };
 		7FEF2F61164B1D8C003C8745 /* LangsIKnowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangsIKnowVC.m; path = Settings/LangsIKnowVC.m; sourceTree = "<group>"; };
+		7FFB984D166BA7EC00AED809 /* SettingsChangePassVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsChangePassVC.h; sourceTree = "<group>"; };
+		7FFB984E166BA7EC00AED809 /* SettingsChangePassVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsChangePassVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +367,8 @@
 				7FB3FB9215D9786F00EE91F1 /* SettingsTableVC.m */,
 				7FB3FB9915D97CF000EE91F1 /* SettingsValuesListTableVC.h */,
 				7FB3FB9A15D97CF000EE91F1 /* SettingsValuesListTableVC.m */,
+				7FFB984D166BA7EC00AED809 /* SettingsChangePassVC.h */,
+				7FFB984E166BA7EC00AED809 /* SettingsChangePassVC.m */,
 				7FDAFAE4161CAB5400CA1223 /* IntrigueVC.h */,
 				7FDAFAE5161CAB5400CA1223 /* IntrigueVC.m */,
 				7FAF760C159E4FE400D37D7D /* Supporting Files */,
@@ -683,6 +688,7 @@
 				7FE38787164C1A7300E80814 /* NewMsgLanguagesNavCon.m in Sources */,
 				7FD6A0DC164EA3F800459070 /* InfoCell.m in Sources */,
 				7FE5BA2C1651555900B807B1 /* PurchaseManager.m in Sources */,
+				7FFB984F166BA7EC00AED809 /* SettingsChangePassVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

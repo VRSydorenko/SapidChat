@@ -10,7 +10,7 @@
 #import "UserRegistrator.h"
 #import "MainNavController.h"
 
-@interface ViewController : UIViewController <UserRegistrationDelegate, LogoutDelegate>
+@interface ViewController : UIViewController <UserRegistrationDelegate, LogoutDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *textEmail;
 @property (strong, nonatomic) IBOutlet UITextField *textPassword;

@@ -343,6 +343,31 @@
     return OK;
 }
 
++(ErrorCodes) updateOwnPassword:(NSString*)pass{
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[UserSettings getEmail]];
+    DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr];
+    
+    DynamoDBAttributeValue *attrValue = [[DynamoDBAttributeValue alloc] initWithS:pass];
+    DynamoDBAttributeValueUpdate *attrUpdate = [[DynamoDBAttributeValueUpdate alloc] initWithValue:attrValue andAction:@"PUT"];
+    
+    NSMutableDictionary* updatesDict = [NSMutableDictionary dictionaryWithObject:attrUpdate forKey:DBFIELD_USERS_PASSWORD];
+    
+    DynamoDBUpdateItemRequest *updateRequest = [[DynamoDBUpdateItemRequest alloc] initWithTableName:DBTABLE_USERS andKey:key andAttributeUpdates:updatesDict];
+    [updateRequest setReturnValues:@"NONE"];
+    
+    DynamoDBUpdateItemResponse *response = nil;
+    @try {
+        response = [[AmazonClientManager ddb] updateItem:updateRequest];
+    }
+    @catch (NSException *exception) {
+        return AMAZON_SERVICE_ERROR;
+    }
+    if (!response){
+        return ERROR;
+    }
+    return OK;
+}
+
 +(int) getRegularPoststampsCount{
     return [[self getDbManager] getRegularPoststampsCount];
 }

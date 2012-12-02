@@ -54,22 +54,7 @@
     }
     return (Dialog*)[collocutorDialogMapping objectForKey:collocutor];
 }
-/*    
- OK              = 0,
- ERROR           = 1,
- INVALID_EMAIL   = 2,
- USER_EXISTS     = 3,
- NO_SUCH_USER    = 4,
- WRONG_PASSWORD  = 5,
- EMAIL_NOT_SPECIFIED = 6,
- AMAZON_SERVICE_ERROR = 7,
- PASSWORD_TOO_SHORT = 8,
- LOGIN_NOT_SPECIFIED = 9,
- TEXT_NOT_SPECIFIED = 10
- NO_MESSAGES_TO_PICKUP = 11
- SYSTEM_NO_SUCH_MESSAGE = 12
- CONVERSATION_LANGUAGES_NOT_CONFIGURED = 13
-*/
+
 +(NSString*) getErrorDescription:(ErrorCodes)error{
     switch (error) {
         case OK:            return [Lang LOC_ERRORCODE_OK];
@@ -84,6 +69,7 @@
         case LOGIN_NOT_SPECIFIED:   return [Lang LOC_ERRORCODE_LOGIN_NOT_SPECIFIED];
         case TEXT_NOT_SPECIFIED:    return [Lang LOC_ERRORCODE_TEXT_NOT_SPECIFIED];
         case POSTSTAMPS_NOT_ENOUGH: return [Lang LOC_ERRORCODE_POSTSTAMPS_NOT_ENOUGH];
+        case PASSWORDS_NOT_MATCH:   return [Lang LOC_ERRORCODE_PASSWORDS_NOT_MATCH];
         default:
             return @"Error without description.";
     }

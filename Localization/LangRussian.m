@@ -87,9 +87,18 @@
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"Новые сообщения";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Приложение";}
 
+// section account
 +(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_OK{return @"ОК";}
 +(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_CANCEL{return @"Отмена";}
 +(NSString*) LOC_SETTINGS_POPUPEDIT_NICK_PLACEHOLDER_ENTERHERE{return @"Введите ваш ник";}
+
++(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CURRENT{return @"Текущий пароль";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_NEW{return @"Новый пароль";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CONFIRM{return @"Подтвердите новый пароль";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_BTN_OK{return @"Поменять";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE{return @"Новый пароль";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_MSG{return @"Пароль успешно изменен";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK{return @"OK";}
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"Русский";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ARABIC{ return @"Арабский";}
@@ -125,5 +134,6 @@
 +(NSString*) LOC_ERRORCODE_LOGIN_NOT_SPECIFIED{return @"Не указан логин";}
 +(NSString*) LOC_ERRORCODE_TEXT_NOT_SPECIFIED{return @"Текст не может быть пустым";}
 +(NSString*) LOC_ERRORCODE_POSTSTAMPS_NOT_ENOUGH{return @"Недостаточно марок";}
++(NSString*) LOC_ERRORCODE_PASSWORDS_NOT_MATCH{return @"Новый пароль не подтвержден";}
 
 @end

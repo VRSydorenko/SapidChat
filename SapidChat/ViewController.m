@@ -41,6 +41,7 @@
     
     isLoggingIn = NO;
     isAfterRegistration = NO;
+    self.textPassword.delegate = self;
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -91,6 +92,11 @@
 
 - (IBAction)didEndOnExit:(UITextField *)sender {
     [sender resignFirstResponder];
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [self goPressed:self.btnGo];
+    return YES;
 }
 
 -(void) loginAsync{

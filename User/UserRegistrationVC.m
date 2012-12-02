@@ -114,13 +114,13 @@
 
 - (IBAction)nextPressed:(UIBarButtonItem *)sender {
     NSString *nextSegueId = nil;
-    if (self.textEmail){ // not is initial screen
+    if (self.textEmail){ // now is initial screen
         nextSegueId = SEGUE_EMAIL_TO_NICK;
         if (self.textEmail.text.length == 0 || [Utils validateEmail:self.textEmail.text] != OK || [DataManager existsUserWithEmail:self.textEmail.text]){
             self.textEmail.textColor = [UIColor redColor];
             return;
         }
-        if (self.textPassword.text.length < 5){
+        if (self.textPassword.text.length < MINIMUM_PASSWORD_LENGTH){
             self.textPassword.textColor = [UIColor redColor];
             return;
         }

@@ -86,6 +86,10 @@
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION {return @"Общение";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"Новые сообщения";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Приложение";}
+
++(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_OK{return @"ОК";}
++(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_CANCEL{return @"Отмена";}
++(NSString*) LOC_SETTINGS_POPUPEDIT_NICK_PLACEHOLDER_ENTERHERE{return @"Введите ваш ник";}
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"Русский";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ARABIC{ return @"Арабский";}

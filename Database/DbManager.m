@@ -134,9 +134,24 @@
     return user;
 }
 
+-(void)updateOwnNick:(NSString*)nick{
+    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = \"%@\" WHERE %@ = \"%@\" AND %@ = \"%@\"", T_USERS, F_NICK, nick, F_EMAIL, [UserSettings getEmail], F_AUTHOR, [UserSettings getEmail]];
+    const char *query_stmt = [querySQL UTF8String];
+    
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(sapidDb, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+    {
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+        } else {
+            NSLog(@"Error updating nick");
+        }
+    }
+}
+
 -(void) setMsgLanguages:(NSArray*)languages forUser:(NSString*)email{ // user specific method
     NSString* langsString = [self buildLanguagesString:languages];
-    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = \"%@\" WHERE \"%@\" = \"%@\"", T_USERS, F_LANGS, langsString, F_EMAIL, [UserSettings getEmail]];
+    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = \"%@\" WHERE %@ = \"%@\"", T_USERS, F_LANGS, langsString, F_EMAIL, [UserSettings getEmail]];
     const char *query_stmt = [querySQL UTF8String];
     
     sqlite3_stmt *statement;

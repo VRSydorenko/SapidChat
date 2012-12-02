@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsTableVC : UITableViewController
+@interface SettingsTableVC : UITableViewController<UIAlertViewDelegate>
 
 
 - (IBAction)switchSaveCreds:(UISwitch *)sender;

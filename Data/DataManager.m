@@ -54,6 +54,10 @@
     [[self getDbManager] saveUser:user];
 }
 
++(void) updateOwnNickInDb:(NSString*)nick{
+    [[self getDbManager] updateOwnNick:nick];
+}
+
 +(void) setNewMessageLanguageFromUserLanguages:(NSArray*)languages{
     int currentNewMsgLang = [UserSettings getNewMessagesLanguage];
     bool langFound = NO;
@@ -306,6 +310,37 @@
     }
     
     return result;
+}
+
++(ErrorCodes) updateOwnNick:(NSString*)nick{
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[UserSettings getEmail]];
+    DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr];
+    
+    DynamoDBAttributeValue *attrValue = [[DynamoDBAttributeValue alloc] initWithS:nick];
+    DynamoDBAttributeValueUpdate *attrUpdate = [[DynamoDBAttributeValueUpdate alloc] initWithValue:attrValue andAction:@"PUT"];
+    
+    NSMutableDictionary* updatesDict = [NSMutableDictionary dictionaryWithObject:attrUpdate forKey:DBFIELD_USERS_NICKNAME];
+    
+    DynamoDBUpdateItemRequest *updateRequest = [[DynamoDBUpdateItemRequest alloc] initWithTableName:DBTABLE_USERS andKey:key andAttributeUpdates:updatesDict];
+    [updateRequest setReturnValues:@"UPDATED_NEW"];
+    
+    DynamoDBUpdateItemResponse *response = nil;
+    @try {
+        response = [[AmazonClientManager ddb] updateItem:updateRequest];
+    }
+    @catch (NSException *exception) {
+        return AMAZON_SERVICE_ERROR;
+    }
+    if (!response){
+        return ERROR;
+    }
+    if (response.attributes.count == 0){
+        return ERROR;
+    }
+    if (![[response attributesValueForKey:DBFIELD_USERS_NICKNAME].s isEqualToString:nick]){
+        return ERROR;
+    }
+    return OK;
 }
 
 +(int) getRegularPoststampsCount{

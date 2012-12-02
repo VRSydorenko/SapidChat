@@ -21,6 +21,7 @@
 
 -(void) saveUser:(User*)user;
 -(User*) loadUser:(NSString*)email;
+-(void)updateOwnNick:(NSString*)nick;
 -(void) setMsgLanguages:(NSArray*)languages forUser:(NSString*)email;
 -(void) saveMessage:(Message*)msg;
 -(void) deleteMessage:(int)whenCreated;

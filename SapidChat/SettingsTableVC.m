@@ -101,6 +101,20 @@
             }
             [self performSegueWithIdentifier:@"SegueSettingsToValuesList" sender:self];
             break;
+        case 1: // account section
+            switch (indexPath.row) {
+                case 0:{
+                    NSString* captionNick = [Lang LOC_SETTINGS_SECTION_ACCOUNT_NICKNAME];
+                    NSString* currentNick = [DataManager getCurrentUser].nickname;
+                    NSString* placeholder = [Lang LOC_SETTINGS_POPUPEDIT_NICK_PLACEHOLDER_ENTERHERE];
+                    [self editSimpleTextSetting:captionNick currentText:currentNick placeholder:placeholder];
+                    break;
+                }
+                /*case 1:
+                    [self editSimpleTextSetting:[Lang LOC_SETTINGS_SECTION_ACCOUNT_PASSWORD] currentText:@"current pass" placeholder:@"Please enter pass here"];
+                    break;*/
+            }
+            break;
         case 2: // languages section
             switch (indexPath.row) {
                 case 0: // conversation language
@@ -137,6 +151,32 @@
 
 - (IBAction)switchSaveCreds:(UISwitch *)sender {
     [UserSettings setSaveCredentials:sender.on];
+}
+
+- (void) editSimpleTextSetting:(NSString*)title currentText:(NSString*)currentValue placeholder:(NSString*)placeholder{
+    NSString* btnOkText = [Lang LOC_SETTINGS_POPUPEDIT_BTN_OK];
+    NSString* btnCancelText = [Lang LOC_SETTINGS_POPUPEDIT_BTN_CANCEL];
+    
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:title message:@"" delegate:self cancelButtonTitle:btnCancelText otherButtonTitles:btnOkText, nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField * alertTextField = [alert textFieldAtIndex:0];
+    alertTextField.keyboardType = UIKeyboardTypeNamePhonePad;
+    alertTextField.placeholder = placeholder;
+    alertTextField.text = currentValue;
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        return;
+    }
+    
+    NSString* newNick = [[alertView textFieldAtIndex:0] text];
+    // TODO: check nick for acceptable values
+    if ([DataManager updateOwnNick:newNick] == OK){
+        [DataManager updateOwnNickInDb:newNick];
+        self.labelNickname.text = newNick;
+    }
 }
 
 - (void)viewDidUnload {

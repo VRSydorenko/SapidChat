@@ -35,6 +35,9 @@
 +(ErrorCodes) pickNewMessage;
 +(ErrorCodes) deleteMessage:(Message*)msg;
 
++(ErrorCodes) updateOwnNick:(NSString*)nick; // in AWS
++(void) updateOwnNickInDb:(NSString*)nick; // local db
+
 +(int) getRegularPoststampsCount;
 +(int) getRegularPoststampsFromLocalBuffer;
 +(int) getBonusPoststampsCount;

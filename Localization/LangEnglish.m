@@ -86,6 +86,10 @@
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION {return @"Conversations";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"New messages";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Application";}
+
++(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_OK{return @"OK";}
++(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_CANCEL{return @"Cancel";}
++(NSString*) LOC_SETTINGS_POPUPEDIT_NICK_PLACEHOLDER_ENTERHERE{return @"Please enter your nick";}
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"English";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ARABIC{ return @"Arabic";}

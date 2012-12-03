@@ -19,6 +19,7 @@
 
 @implementation MainVC
 @synthesize btnLogout;
+@synthesize btnSettings;
 @synthesize tableMain;
 
 - (void)viewDidLoad
@@ -33,6 +34,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     self.title = [Lang LOC_UNI_APP_NAME];
     self.btnLogout.title = [Lang LOC_MAIN_BUTTON_LOGOUT];
+    self.btnSettings.title = [Lang LOC_MAIN_BUTTON_SETTINGS];
     [self.tableMain reloadData];
 }
 
@@ -40,6 +42,7 @@
 {
     [self setTableMain:nil];
     [self setBtnLogout:nil];
+    [self setBtnSettings:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -79,7 +82,7 @@
                 cell.labelTitle.text = [Lang LOC_MAIN_CELL_INTRIGUE];
                 break;
             case 2:
-                cell.labelTitle.text = [Lang LOC_MAIN_CELL_SETTINGS];
+                cell.labelTitle.text = [Lang LOC_MAIN_CELL_BALANCE];
                 break;
 
         }
@@ -100,7 +103,7 @@
             break;
         }
         case 2:
-            [self performSegueWithIdentifier:@"SegueMainToSettings" sender:self];
+            [self performSegueWithIdentifier:@"SegueMainToBalance" sender:self];
             break;
     }
 }

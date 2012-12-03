@@ -37,9 +37,4 @@
 -(int) getRegularPoststampsFromLocalBuffer;
 -(void) addRegularPoststampsToLocalBuffer:(int)count;
 
--(int) getBonusPoststampsCount;
--(void) addBonusPoststamps:(int)count;
--(int) getBonusPoststampsFromLocalBuffer;
--(void) addBonusPoststampsToLocalBuffer:(int)count;
-
 @end

@@ -43,7 +43,8 @@
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d new messages";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"No new messages";}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Intrigue";}
-+(NSString*) LOC_MAIN_CELL_SETTINGS {return @"Settings";}
++(NSString*) LOC_MAIN_CELL_BALANCE {return @"Your balance";}
++(NSString*) LOC_MAIN_BUTTON_SETTINGS {return @"Settings";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Log out";}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SCREEN_TITLE{return @"Intrigue";}
@@ -98,6 +99,21 @@
 +(NSString*) LOC_SETTINGS_CHANGEPASS_BTN_OK{return @"Change";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE{return @"New password";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_MSG{return @"The password has been changed";}
+
+// screen balance
++(NSString*) LOC_BALANCE_SCREEN_TITLE{return @"Balance";}
++(NSString*) LOC_BALANCE_PRO_NO{return @"You are using limited version of Sapid Chat";}
++(NSString*) LOC_BALANCE_PRO_YES{return @"You are using a Pro version of Sapid Chat";}
++(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Read about Pro";}
++(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Make it Pro";}
++(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Restore purchase";}
++(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return @"Your balance";}
++(NSString*) LOC_BALANCE_POSTSTAMPS_1{return @"poststamp";}
++(NSString*) LOC_BALANCE_POSTSTAMPS_3{return @"poststamps";}
++(NSString*) LOC_BALANCE_POSTSTAMPS_5{return @"poststamps";}
++(NSString*) LOC_BALANCE_HEADER_TOPUP{return @"Top up your balance";}
++(NSString*) LOC_BALANCE_BUY_POSTSTAMPS{return @"poststamps";}
+
 +(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK{return @"OK";}
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"English";}

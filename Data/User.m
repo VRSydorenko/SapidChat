@@ -14,6 +14,5 @@
 @synthesize nickname = _nickname;
 @synthesize languages = _languages;
 @synthesize rp = _rp;
-@synthesize bp = _bp;
 
 @end

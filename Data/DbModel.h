@@ -54,7 +54,6 @@ typedef enum Languages{ // !!! Don't change the numbers !!!
 #define DBFIELD_USERS_NICKNAME @"nick"
 #define DBFIELD_USERS_LANGS @"langs"
 #define DBFIELD_USERS_RP @"rp"
-#define DBFIELD_USERS_BP @"bp"
 
 #define DBTABLE_MSGS_SENT @"t_msgs_sent"
 #define DBTABLE_MSGS_RECEIVED @"t_msgs_received"

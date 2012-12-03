@@ -21,9 +21,7 @@
 #define F_NICK @"f_nick"
 #define F_LANGS @"f_langs" // comma separated language numbers
 #define F_RP @"f_rp" // regular poststamps
-#define F_BP @"f_bp" // bonus poststamps
 #define F_RP_BUF @"f_rp_buf" // regular poststamps buffer
-#define F_BP_BUF @"f_bp_buf" // bonus poststamps buffer
 
 #define T_MSGS @"t_msgs"
 #define F_AUTHOR @"f_author" // for separating data between different users on the same iOS device

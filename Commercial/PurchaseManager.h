@@ -18,6 +18,8 @@
 //+(void) finishBonusPoststampsSpending:(int)amount;
 
 +(ErrorCodes) purchaseRegularPoststamps;
-+(ErrorCodes) purchaseBonusPoststamps; // actually bonus ones are free, just such naming
+
++(ErrorCodes) makeItPro;
++(ErrorCodes) restorePurchase;
 
 @end

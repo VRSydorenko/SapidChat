@@ -43,7 +43,8 @@
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d новых сообщений";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"Новых сообщений нет";}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Интрига";}
-+(NSString*) LOC_MAIN_CELL_SETTINGS {return @"Настройки";}
++(NSString*) LOC_MAIN_CELL_BALANCE {return @"Ваш баланс";}
++(NSString*) LOC_MAIN_BUTTON_SETTINGS {return @"Настройки";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Выйти";}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SCREEN_TITLE{return @"Интрига";}
@@ -99,6 +100,21 @@
 +(NSString*) LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE{return @"Новый пароль";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_MSG{return @"Пароль успешно изменен";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK{return @"OK";}
+
+// screen balance
++(NSString*) LOC_BALANCE_SCREEN_TITLE{return @"Баланс";}
++(NSString*) LOC_BALANCE_PRO_NO{return @"Вы используете ограниченную версию Sapid Chat";}
++(NSString*) LOC_BALANCE_PRO_YES{return @"Вы используете Pro версию Sapid Chat";}
++(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Подробнее о Pro";}
++(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Перейти на Pro";}
++(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Восстановить покупку";}
++(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return @"Ваш баланс";}
++(NSString*) LOC_BALANCE_POSTSTAMPS_1{return @"почтовая марка";}
++(NSString*) LOC_BALANCE_POSTSTAMPS_3{return @"почтовых марки";}
++(NSString*) LOC_BALANCE_POSTSTAMPS_5{return @"почтовых марок";}
++(NSString*) LOC_BALANCE_HEADER_TOPUP{return @"Пополнение баланса";}
++(NSString*) LOC_BALANCE_BUY_POSTSTAMPS{return @"почтовых марок";}
+
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"Русский";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ARABIC{ return @"Арабский";}

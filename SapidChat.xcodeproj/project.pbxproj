@@ -22,6 +22,13 @@
 		7F11FED7159E6865002F5982 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FECA159E6865002F5982 /* Response.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F11FED8159E6865002F5982 /* ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FECC159E6865002F5982 /* ResponseHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F1A5B9715E56393002BC781 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A5B9615E56393002BC781 /* User.m */; };
+		7F2F4B6E166D34CD00074681 /* BalanceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B6D166D34CD00074681 /* BalanceVC.m */; };
+		7F2F4B76166D39D400074681 /* BalanceGroupHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B75166D39D400074681 /* BalanceGroupHeaderCell.m */; };
+		7F2F4B7A166D3D1C00074681 /* CurrentProModeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B79166D3D1C00074681 /* CurrentProModeCell.m */; };
+		7F2F4B81166D3F0200074681 /* MakeItProCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B80166D3F0200074681 /* MakeItProCell.m */; };
+		7F2F4B85166D3F3600074681 /* ReadAboutProCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B84166D3F3600074681 /* ReadAboutProCell.m */; };
+		7F2F4B90166D501700074681 /* CurrentBalanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B8F166D501700074681 /* CurrentBalanceCell.m */; };
+		7F2F4B94166D503000074681 /* BuyOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B93166D503000074681 /* BuyOptionCell.m */; };
 		7F44FC3715F2267E007C0387 /* ComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F44FC3615F2267E007C0387 /* ComposeVC.m */; };
 		7F5079501613728900067338 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F50794F1613728800067338 /* libsqlite3.0.dylib */; };
 		7F78801B1610DABE00BDD517 /* FirstLaunchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F78801A1610DABE00BDD517 /* FirstLaunchNavController.m */; };
@@ -124,6 +131,20 @@
 		7F11FECC159E6865002F5982 /* ResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResponseHandler.m; path = TVMClient/ResponseHandler.m; sourceTree = "<group>"; };
 		7F1A5B9515E56393002BC781 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Data/User.h; sourceTree = "<group>"; };
 		7F1A5B9615E56393002BC781 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Data/User.m; sourceTree = "<group>"; };
+		7F2F4B6C166D34CD00074681 /* BalanceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceVC.h; sourceTree = "<group>"; };
+		7F2F4B6D166D34CD00074681 /* BalanceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceVC.m; sourceTree = "<group>"; };
+		7F2F4B74166D39D400074681 /* BalanceGroupHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceGroupHeaderCell.h; sourceTree = "<group>"; };
+		7F2F4B75166D39D400074681 /* BalanceGroupHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceGroupHeaderCell.m; sourceTree = "<group>"; };
+		7F2F4B78166D3D1C00074681 /* CurrentProModeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentProModeCell.h; sourceTree = "<group>"; };
+		7F2F4B79166D3D1C00074681 /* CurrentProModeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentProModeCell.m; sourceTree = "<group>"; };
+		7F2F4B7F166D3F0200074681 /* MakeItProCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MakeItProCell.h; path = TableCells/MakeItProCell.h; sourceTree = "<group>"; };
+		7F2F4B80166D3F0200074681 /* MakeItProCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MakeItProCell.m; path = TableCells/MakeItProCell.m; sourceTree = "<group>"; };
+		7F2F4B83166D3F3600074681 /* ReadAboutProCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadAboutProCell.h; path = TableCells/ReadAboutProCell.h; sourceTree = "<group>"; };
+		7F2F4B84166D3F3600074681 /* ReadAboutProCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReadAboutProCell.m; path = TableCells/ReadAboutProCell.m; sourceTree = "<group>"; };
+		7F2F4B8E166D501700074681 /* CurrentBalanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentBalanceCell.h; path = TableCells/CurrentBalanceCell.h; sourceTree = "<group>"; };
+		7F2F4B8F166D501700074681 /* CurrentBalanceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentBalanceCell.m; path = TableCells/CurrentBalanceCell.m; sourceTree = "<group>"; };
+		7F2F4B92166D503000074681 /* BuyOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuyOptionCell.h; path = TableCells/BuyOptionCell.h; sourceTree = "<group>"; };
+		7F2F4B93166D503000074681 /* BuyOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuyOptionCell.m; path = TableCells/BuyOptionCell.m; sourceTree = "<group>"; };
 		7F44FC3515F2267E007C0387 /* ComposeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeVC.h; sourceTree = "<group>"; };
 		7F44FC3615F2267E007C0387 /* ComposeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeVC.m; sourceTree = "<group>"; };
 		7F50794F1613728800067338 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -371,6 +392,8 @@
 				7FFB984E166BA7EC00AED809 /* SettingsChangePassVC.m */,
 				7FDAFAE4161CAB5400CA1223 /* IntrigueVC.h */,
 				7FDAFAE5161CAB5400CA1223 /* IntrigueVC.m */,
+				7F2F4B6C166D34CD00074681 /* BalanceVC.h */,
+				7F2F4B6D166D34CD00074681 /* BalanceVC.m */,
 				7FAF760C159E4FE400D37D7D /* Supporting Files */,
 			);
 			path = SapidChat;
@@ -420,6 +443,18 @@
 				7FAAC65515D035D9009AC87C /* MessageCell.m */,
 				7FD6A0DA164EA3F700459070 /* InfoCell.h */,
 				7FD6A0DB164EA3F700459070 /* InfoCell.m */,
+				7F2F4B74166D39D400074681 /* BalanceGroupHeaderCell.h */,
+				7F2F4B75166D39D400074681 /* BalanceGroupHeaderCell.m */,
+				7F2F4B78166D3D1C00074681 /* CurrentProModeCell.h */,
+				7F2F4B79166D3D1C00074681 /* CurrentProModeCell.m */,
+				7F2F4B7F166D3F0200074681 /* MakeItProCell.h */,
+				7F2F4B80166D3F0200074681 /* MakeItProCell.m */,
+				7F2F4B83166D3F3600074681 /* ReadAboutProCell.h */,
+				7F2F4B84166D3F3600074681 /* ReadAboutProCell.m */,
+				7F2F4B8E166D501700074681 /* CurrentBalanceCell.h */,
+				7F2F4B8F166D501700074681 /* CurrentBalanceCell.m */,
+				7F2F4B92166D503000074681 /* BuyOptionCell.h */,
+				7F2F4B93166D503000074681 /* BuyOptionCell.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -689,6 +724,13 @@
 				7FD6A0DC164EA3F800459070 /* InfoCell.m in Sources */,
 				7FE5BA2C1651555900B807B1 /* PurchaseManager.m in Sources */,
 				7FFB984F166BA7EC00AED809 /* SettingsChangePassVC.m in Sources */,
+				7F2F4B6E166D34CD00074681 /* BalanceVC.m in Sources */,
+				7F2F4B76166D39D400074681 /* BalanceGroupHeaderCell.m in Sources */,
+				7F2F4B7A166D3D1C00074681 /* CurrentProModeCell.m in Sources */,
+				7F2F4B81166D3F0200074681 /* MakeItProCell.m in Sources */,
+				7F2F4B85166D3F3600074681 /* ReadAboutProCell.m in Sources */,
+				7F2F4B90166D501700074681 /* CurrentBalanceCell.m in Sources */,
+				7F2F4B94166D503000074681 /* BuyOptionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -62,7 +62,8 @@
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES{return [[self AppLanguage] LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES];}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES{return [[self AppLanguage] LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES];}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE{return [[self AppLanguage] LOC_MAIN_CELL_INTRIGUE];}
-+(NSString*) LOC_MAIN_CELL_SETTINGS{return [[self AppLanguage] LOC_MAIN_CELL_SETTINGS];}
++(NSString*) LOC_MAIN_CELL_BALANCE{return [[self AppLanguage] LOC_MAIN_CELL_BALANCE];}
++(NSString*) LOC_MAIN_BUTTON_SETTINGS{return [[self AppLanguage] LOC_MAIN_BUTTON_SETTINGS];}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return [[self AppLanguage] LOC_MAIN_BUTTON_LOGOUT];}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SCREEN_TITLE{ return [[self AppLanguage] LOC_INTRIGUE_SCREEN_TITLE];}
@@ -118,6 +119,21 @@
 +(NSString*) LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE{return [[self AppLanguage] LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE];}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_MSG{return [[self AppLanguage] LOC_SETTINGS_CHANGEPASS_RESULT_MSG];}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK{return [[self AppLanguage] LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK];}
+
+
+// screen balance
++(NSString*) LOC_BALANCE_SCREEN_TITLE{return [[self AppLanguage] LOC_BALANCE_SCREEN_TITLE];}
++(NSString*) LOC_BALANCE_PRO_NO{return [[self AppLanguage] LOC_BALANCE_PRO_NO];}
++(NSString*) LOC_BALANCE_PRO_YES{return [[self AppLanguage] LOC_BALANCE_PRO_YES];}
++(NSString*) LOC_BALANCE_WHAT_IN_PRO{return [[self AppLanguage] LOC_BALANCE_WHAT_IN_PRO];}
++(NSString*) LOC_BALANCE_BTN_MAKEPRO{return [[self AppLanguage] LOC_BALANCE_BTN_MAKEPRO];}
++(NSString*) LOC_BALANCE_BTN_RESTORE{return [[self AppLanguage] LOC_BALANCE_BTN_RESTORE];}
++(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return [[self AppLanguage] LOC_BALANCE_HEADER_YOUR_BALANCE];}
++(NSString*) LOC_BALANCE_POSTSTAMPS_1{return [[self AppLanguage] LOC_BALANCE_POSTSTAMPS_1];}
++(NSString*) LOC_BALANCE_POSTSTAMPS_3{return [[self AppLanguage] LOC_BALANCE_POSTSTAMPS_3];}
++(NSString*) LOC_BALANCE_POSTSTAMPS_5{return [[self AppLanguage] LOC_BALANCE_POSTSTAMPS_5];}
++(NSString*) LOC_BALANCE_HEADER_TOPUP{return [[self AppLanguage] LOC_BALANCE_HEADER_TOPUP];}
++(NSString*) LOC_BALANCE_BUY_POSTSTAMPS{return [[self AppLanguage] LOC_BALANCE_BUY_POSTSTAMPS];}
 
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME {return [[self AppLanguage] LOC_SYS_LANGUAGE_SELFNAME];}

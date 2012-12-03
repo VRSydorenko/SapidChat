@@ -41,9 +41,15 @@
     ErrorCodes result = OK;
     return result;
 }
-+(ErrorCodes) purchaseBonusPoststamps{ // actually bonus ones are free, just such naming
-    ErrorCodes result = OK;
-    return result;
+
++(ErrorCodes) makeItPro{
+    [UserSettings setPremiumUnlocked];
+    return OK;
+}
+
++(ErrorCodes) restorePurchase{
+    [UserSettings setPremiumUnlocked];
+    return OK;
 }
 
 // private methods

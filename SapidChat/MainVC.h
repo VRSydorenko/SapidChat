@@ -11,6 +11,7 @@
 @interface MainVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *btnLogout;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *btnSettings;
 @property (strong, nonatomic) IBOutlet UITableView *tableMain;
 - (IBAction)refreshPressed:(UIBarButtonItem *)sender;
 - (IBAction)logoutPressed:(id)sender;

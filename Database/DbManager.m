@@ -80,10 +80,10 @@
     NSString* sql;
     NSString *logMsg = @"";
     if (exists){ // already exists so update
-        sql = [NSString stringWithFormat: @"UPDATE %@ SET %@ = \"%@\", %@ = \"%@\", %@ = %d, %@ = %d WHERE %@ =\"%@\" AND %@ = \"%@\"", T_USERS, F_NICK, user.nickname, F_LANGS, languages, F_RP, user.rp, F_BP, user.bp, F_EMAIL, user.email, F_AUTHOR, [UserSettings getEmail]];
+        sql = [NSString stringWithFormat: @"UPDATE %@ SET %@ = \"%@\", %@ = \"%@\", %@ = %d WHERE %@ =\"%@\" AND %@ = \"%@\"", T_USERS, F_NICK, user.nickname, F_LANGS, languages, F_RP, user.rp, F_EMAIL, user.email, F_AUTHOR, [UserSettings getEmail]];
         logMsg = @"User updated!!!";
     } else { // doesnt exist so insert
-        sql = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", %d, %d, 0, 0)", T_USERS, F_AUTHOR, F_EMAIL, F_NICK, F_LANGS, F_RP, F_BP, F_RP_BUF, F_BP_BUF, [UserSettings getEmail], user.email, user.nickname, languages, user.rp, user.bp];
+        sql = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", %d, 0)", T_USERS, F_AUTHOR, F_EMAIL, F_NICK, F_LANGS, F_RP, F_RP_BUF, [UserSettings getEmail], user.email, user.nickname, languages, user.rp];
         logMsg = @"User inserted!!!";
     }
     const char *insert_stmt = [sql UTF8String];
@@ -303,35 +303,19 @@
 }
 
 -(int) getRegularPoststampsCount{ // user specific method
-    return [self getPoststampsCount:NO buffer:NO];
-}
-
--(int) getBonusPoststampsCount{ // user specific method
-    return [self getPoststampsCount:YES buffer:NO];
+    return [self getPoststampsCount:NO];
 }
 
 -(int) getRegularPoststampsFromLocalBuffer{ // user specific method
-    return [self getPoststampsCount:NO buffer:YES];
-}
-
--(int) getBonusPoststampsFromLocalBuffer{ // user specific method
-    return [self getPoststampsCount:YES buffer:YES];
+    return [self getPoststampsCount:YES];
 }
 
 -(void) addRegularPoststamps:(int)count{ // user specific method
-    [self addPoststamps:count bonus:NO toBuffer:NO];
-}
-
--(void) addBonusPoststamps:(int)count{ // user specific method
-    [self addPoststamps:count bonus:YES toBuffer:NO];
+    [self addPoststamps:count toBuffer:NO];
 }
 
 -(void) addRegularPoststampsToLocalBuffer:(int)count{ // user specific method
-    [self addPoststamps:count bonus:NO toBuffer:YES];
-}
-
--(void) addBonusPoststampsToLocalBuffer:(int)count{ // user specific method
-    [self addPoststamps:count bonus:YES toBuffer:YES];
+    [self addPoststamps:count toBuffer:YES];
 }
 
 // private methods
@@ -344,8 +328,8 @@
     return languages;
 }
 
--(int) getPoststampsCount:(bool)bonus buffer:(bool)fromBuffer{ // user specific method
-    NSString* field = bonus ? (fromBuffer ? F_BP_BUF : F_BP) : (fromBuffer ? F_RP_BUF : F_RP);
+-(int) getPoststampsCount:(bool)fromBuffer{ // user specific method
+    NSString* field = fromBuffer ? F_RP_BUF : F_RP;
     NSString *querySQL = [NSString stringWithFormat: @"SELECT %@ FROM %@ WHERE %@=\"%@\" AND %@=\"%@\"", field, T_USERS, F_EMAIL, [UserSettings getEmail], F_AUTHOR, [UserSettings getEmail]];
     const char *query_stmt = [querySQL UTF8String];
     
@@ -362,9 +346,9 @@
     return -1;
 }
 
--(void) addPoststamps:(int)count bonus:(bool)bonus toBuffer:(bool)toBuffer{ // user specific method
-    NSString* field = bonus ? (toBuffer ? F_BP_BUF : F_BP) : (toBuffer ? F_RP_BUF : F_RP);
-    int currentValue = [self getPoststampsCount:bonus buffer:toBuffer];
+-(void) addPoststamps:(int)count toBuffer:(bool)toBuffer{ // user specific method
+    NSString* field = toBuffer ? F_RP_BUF : F_RP;
+    int currentValue = [self getPoststampsCount:toBuffer];
     NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = %d WHERE %@=\"%@\" AND %@=\"%@\"", T_USERS, field, currentValue + count, F_EMAIL, [UserSettings getEmail], F_AUTHOR, [UserSettings getEmail]];
     const char *query_stmt = [querySQL UTF8String];
     

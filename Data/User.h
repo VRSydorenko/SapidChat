@@ -14,6 +14,5 @@
 @property (nonatomic) NSString* nickname;
 @property (nonatomic) NSArray* languages; // numbers according to the Model
 @property (nonatomic) int rp;
-@property (nonatomic) int bp;
 
 @end

@@ -39,7 +39,7 @@
 {
     [super viewDidLoad];
     
-    boundingSize = CGSizeMake(240, CGFLOAT_MAX); // 240 is the width of the message's UILabel
+    boundingSize = CGSizeMake(CELL_MESSAGE_WIDTH, CGFLOAT_MAX); // 240 is the width of the message's UILabel
     messageFont = [UIFont fontWithName:@"Helvetica" size:FONT_MSG_SIZE];
     
     [self updateMessages];
@@ -169,7 +169,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Message* msg = (Message*)[messages objectAtIndex:indexPath.row];
-    return [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height+10;
+    return [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + CELL_MESSAGE_TOPBOTTOM_PADDING;
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

@@ -316,6 +316,9 @@
 
 -(void) addRegularPoststampsToLocalBuffer:(int)count{ // user specific method
     [self addPoststamps:count toBuffer:YES];
+    if (count > 0){ // if they are transfering TO buffer then they are deducting from main balance 
+        [self addPoststamps:-count toBuffer:NO];
+    }
 }
 
 // private methods

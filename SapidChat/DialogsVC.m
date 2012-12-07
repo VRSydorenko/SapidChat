@@ -110,6 +110,9 @@
 {
     if (!noEntries){
         int dialogIndexToLookFor = indexPath.row + (isNothingToPickUp ? -1 : 0); // if the InfoCell is shown we need to shift indexes one step back for not to have NSRangeException
+        if (dialogIndexToLookFor < 0){
+            return;
+        }
         selectedDialog = [navController.dialogs objectAtIndex:dialogIndexToLookFor];
         [self performSegueWithIdentifier:@"SegueDialogsToDialog" sender:self];
     }

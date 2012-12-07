@@ -375,6 +375,9 @@
 +(void) addRegularPoststampsToLocalBuffer:(int)count{
     [[self getDbManager] addRegularPoststampsToLocalBuffer:count];
 }
++(int) getTotalAvailablePoststamps{
+    return [self getRegularPoststampsCount] + [self getRegularPoststampsFromLocalBuffer];
+}
 
 +(ErrorCodes) spendRegularPoststamps:(int)count{
     return [self chargeUsersPoststamps:count];
@@ -671,6 +674,7 @@
     if (retrieveUser != OK){
         return retrieveUser;
     }
+    [self saveUser:user]; // update local poststamps
     int newValue = user.rp - amount;
     if (newValue < 0){
         return POSTSTAMPS_NOT_ENOUGH;
@@ -685,7 +689,7 @@
     NSMutableDictionary* updatesDict = [NSMutableDictionary dictionaryWithObject:attrUpdate forKey: DBFIELD_USERS_RP];
     
     DynamoDBUpdateItemRequest *updateRequest = [[DynamoDBUpdateItemRequest alloc] initWithTableName:DBTABLE_USERS andKey:key andAttributeUpdates:updatesDict];
-    [updateRequest setReturnValues:@"UPDATED_NEW"];
+    [updateRequest setReturnValues:@"NONE"];
     
     DynamoDBUpdateItemResponse *response = nil;
     @try {

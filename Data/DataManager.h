@@ -42,6 +42,7 @@
 +(int) getRegularPoststampsCount;
 +(int) getRegularPoststampsFromLocalBuffer;
 +(void) addRegularPoststampsToLocalBuffer:(int)count;
++(int) getTotalAvailablePoststamps;
 
 +(ErrorCodes) spendRegularPoststamps:(int)count;
 

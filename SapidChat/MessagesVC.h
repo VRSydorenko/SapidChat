@@ -11,8 +11,8 @@
 #import "ComposeVC.h"
 
 #define FONT_MSG_SIZE 14.0f
-#define CELL_MESSAGE_WIDTH 263.0f
-#define CELL_MESSAGE_TOPBOTTOM_PADDING 5.0f
+#define CELL_MESSAGE_WIDTH 240.0f
+#define CELL_MESSAGE_TOPBOTTOM_PADDING 10.0f
 
 @interface MessagesVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate, UIActionSheetDelegate>
 

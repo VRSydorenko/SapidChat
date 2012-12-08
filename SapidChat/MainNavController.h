@@ -26,5 +26,6 @@
 @property (assign) id<LogoutDelegate> logoutHandler;
 
 - (void) initLocationManager;
+-(double)calcDistanceTo:(double)latd longitude:(double)lond;
 
 @end

@@ -62,12 +62,18 @@
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"Пока что нет сообщений";}
 +(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"Знаете, сейчас нету сообщения на вашем языке(ах) для выборки. Давайте не много подождем и тогда что-нибудь появится. Тем временем, пока можно написать что-то от себя ;)";}
 +(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return @"Скрыть";}
++(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"км";}
++(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"м";}
++(NSString*) LOC_MESSAGES_CELL_DISTANCE_MILES{return @"м";}
++(NSString*) LOC_MESSAGES_CELL_DISTANCE_FOOTS{return @"ф";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Ответить";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Разместить еще";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE{return @"Действия над диалогом";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE{return @"Удалить";};
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM{return @"Пожаловаться";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL{return @"Отмена";};
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR{return @"Очистить";};
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_EDIT{return @"Изменить";};
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"Новое сообщение";}
 +(NSString*) LOC_COMPOSE_BTN_SEND{return @"Отправить";}

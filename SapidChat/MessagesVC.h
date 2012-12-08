@@ -10,9 +10,17 @@
 #import "Dialog.h"
 #import "ComposeVC.h"
 
+#define FONT_TIME_DISTANCE_SIZE 11.0f
+#define CELL_MESSAGE_TOP_HEIGHT 20.0f
+#define CELL_MESSAGE_BOTTOM_HEIGHT 17.0f
+
 #define FONT_MSG_SIZE 14.0f
 #define CELL_MESSAGE_WIDTH 240.0f
-#define CELL_MESSAGE_TOPBOTTOM_PADDING 10.0f
+#define CELL_MESSAGE_TOPBOTTOM_PADDING 5.0f
+
+
+#define FONT_SECTIONHEADER_SIZE 11.0f
+#define HEADER_HEIGHT 17.0f
 
 @interface MessagesVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate, UIActionSheetDelegate>
 

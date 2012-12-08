@@ -25,6 +25,8 @@
 @synthesize logoutHandler = _logoutHandler;
 
 -(void) initLocationManager{
+    self.latitude = 0;
+    self.longitude = 0;
     locationMgr = [[CLLocationManager alloc] init];
     locationMgr.delegate = self;
     [locationMgr setDesiredAccuracy:kCLLocationAccuracyBest];
@@ -37,6 +39,19 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+}
+
+-(double)calcDistanceTo:(double)latd longitude:(double)lond{
+    if (latd == 0 && lond == 0){
+        return 0;
+    }
+    if (self.latitude == 0 && self.longitude == 0){
+        return 0;
+    }
+    CLLocation *myLocation = [[CLLocation alloc] initWithLatitude:self.latitude longitude:self.longitude];
+    CLLocation *givenLocation = [[CLLocation alloc] initWithLatitude:latd longitude:lond];
+    
+    return [myLocation distanceFromLocation:givenLocation];
 }
 
 -(void) viewDidUnload{

@@ -8,23 +8,27 @@
 
 #import "MessagesVC.h"
 #import "DataManager.h"
-#import "MessageCell.h"
 #import "MainNavController.h"
 #import "Utils.h"
 #import "UserSettings.h"
 #import "ComposeVC.h"
 #import "LocalizationUtils.h"
 #import "Lang.h"
+#import "MessageBottomCell.h"
+#import "MessageMiddleCell.h"
+#import "MessageTopCell.h"
 
 @interface MessagesVC (){
     NSArray *messages;
     NSDictionary* datesRowCount;
     NSString* me;
     bool replyMode;
-    UIActionSheet *actionSheet;
+    UIActionSheet *replyModeActionSheet;
+    UIActionSheet *aloneModeActionSheet;
     
     // dimensions
     UIFont* messageFont;
+    UIFont* timeAndDistanceFont;
     CGSize boundingSize;
 }
 
@@ -41,6 +45,7 @@
     
     boundingSize = CGSizeMake(CELL_MESSAGE_WIDTH, CGFLOAT_MAX); // 240 is the width of the message's UILabel
     messageFont = [UIFont fontWithName:@"Helvetica" size:FONT_MSG_SIZE];
+    timeAndDistanceFont = [UIFont fontWithName:@"Helvetica" size:FONT_TIME_DISTANCE_SIZE];
     
     [self updateMessages];
     
@@ -50,8 +55,9 @@
     self.title = [self getCollocutor];
     replyMode = ![[self getCollocutor] isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR];
     
-    [self setupActionSheet];
-    [self setLocalizableValues];
+    [self setupActionSheets];
+    
+    self.buttonReply.title = replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE];;
     
     [DataManager resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
 	// Do any additional setup after loading the view.
@@ -65,15 +71,28 @@
     // Release any retained subviews of the main view.
 }
 
--(void) setupActionSheet{
+-(void) setupActionSheets{
     NSString* title = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE];
     NSString* cancel = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL];
+    
     NSString* delete = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE];
     NSString* claim = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM];
-    actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:delete otherButtonTitles:claim, nil];
+    replyModeActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:delete otherButtonTitles:claim, nil];
+    
+    NSString* clear = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR];
+    NSString* edit = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_EDIT];
+    aloneModeActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:clear otherButtonTitles:edit, nil];
 }
 
 -(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if (actionSheet == replyModeActionSheet){
+        [self processReplyModeActionSheet:buttonIndex];
+    } else if (actionSheet == aloneModeActionSheet){
+        [self processAloneModeActionSheet:buttonIndex];
+    }
+}
+
+-(void) processReplyModeActionSheet:(int)buttonIndex{
     switch (buttonIndex) {
         case 0: // delete
         {
@@ -97,9 +116,28 @@
     }
 }
 
--(void) setLocalizableValues{
-    NSString* replyButtonText = replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE];
-    forButton:self.buttonReply.title = replyButtonText;
+-(void) processAloneModeActionSheet:(int)buttonIndex{
+    switch (buttonIndex) {
+        case 0: // delete
+        {
+            /*bool ok = YES;
+            for (Message* message in messages) {
+                if ([DataManager deleteMessage:message] != OK){
+                    ok = NO;
+                    break;
+                }
+            }
+            if (ok){
+                //[self.tabelMessages reloadData];
+                [self.navigationController popViewControllerAnimated:YES];
+            }*/
+            break;
+        }
+        case 1: // edit
+        {
+            break;
+        }
+    }
 }
 
 -(void) updateMessages{
@@ -120,56 +158,98 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [datesRowCount allKeys].count;
+    //return [datesRowCount allKeys].count;
+    return messages.count;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    CGRect headerRect = CGRectMake(0, 0, tableView.bounds.size.width, 17);
-    UILabel* labelHeader = [[UILabel alloc] initWithFrame:headerRect];
-    [labelHeader setFont:[UIFont fontWithName:@"Helvetica-Bold" size:11]];
-    labelHeader.textColor = [UIColor lightGrayColor];
-    labelHeader.textAlignment = UITextAlignmentCenter;
-    labelHeader.text = (NSString*)[[datesRowCount allKeys] objectAtIndex:section];
-    return labelHeader;
+    for (int i = 0; i < messages.count; i += [[[datesRowCount allValues] objectAtIndex:i] intValue]) {
+        if (section == i){
+            CGRect headerRect = CGRectMake(0, 0, tableView.bounds.size.width, HEADER_HEIGHT);
+            UILabel* labelHeader = [[UILabel alloc] initWithFrame:headerRect];
+            [labelHeader setFont:[UIFont fontWithName:@"Helvetica-Bold" size:FONT_SECTIONHEADER_SIZE]];
+            labelHeader.textColor = [UIColor lightGrayColor];
+            labelHeader.textAlignment = UITextAlignmentCenter;
+            NSDate* localDate = [Utils toLocalDate:((Message*)[messages objectAtIndex:section]).when];// !!!
+            labelHeader.text = [Utils dateToString:localDate];
+            return labelHeader;
+        }
+    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 17;
+    // same cycle like above
+    for (int i = 0; i < messages.count; i += [[[datesRowCount allValues] objectAtIndex:i] intValue]) {
+        if (section == i){
+            return HEADER_HEIGHT;
+        }
+    }
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int number = [[[datesRowCount allValues] objectAtIndex:section] intValue];
-    return number;
+    return 3; // top, middle, bottom
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int msgIndex = 0; // real message index according to section
+    switch (indexPath.row) {
+        case 0:{ // top
+            Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
+            MessageTopCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageTopCell"];
+            if (cell){
+                cell.labelTime.font = timeAndDistanceFont;
+                NSDate* localTime = [Utils toLocalDate:msg.when];// !!!
+                cell.labelTime.text = [Utils timeToString:localTime];
+                
+                NSString* distanceText = @"";
+                if ([msg.to isEqualToString:me]){
+                    cell.labelDistance.font = timeAndDistanceFont;
+                    distanceText = [self getDistanceStringForLatitude:msg.latitude andLongitude:msg.longitude];
+                }
+                cell.labelDistance.text = distanceText;
+            }
+            return cell;
+        }
+        case 1:{ // middle
+            Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
+            MessageMiddleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageMiddleCell"];
+            if (cell){
+                cell.labelMessage.font = messageFont;
+                cell.labelMessage.text = msg.text;
+                
+            }
+            return cell;
+        }
+        case 2:{ // bottom
+            return [tableView dequeueReusableCellWithIdentifier:@"MessageBottomCell"];
+        }
+    }
+        /*int msgIndex = 0; // real message index according to section
     for (int sec = 0; sec<indexPath.section; sec++) {
         msgIndex += [[[datesRowCount allValues] objectAtIndex:sec] intValue];
     }
-    msgIndex += indexPath.row;
+    msgIndex += indexPath.row;*/
     
-    Message* msg = (Message*)[messages objectAtIndex:msgIndex];
-    
-    NSString* cellId = [msg.from isEqualToString:me] ? @"MessageCellMy" : @"MessageCellCollocutor";
-        
-    MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    
-    if (cell){
-        cell.labelMessage.font = messageFont;
-        cell.labelMessage.text = msg.text;
-        NSDate* localTime = [Utils toLocalDate:msg.when];// !!!
-        cell.labelTime.text = [Utils timeToString:localTime];
-    }
-    
-    return cell;
+    return [[UITableViewCell alloc] init];
+    //NSString* cellId = [msg.from isEqualToString:me] ? @"MessageCellMy" : @"MessageCellCollocutor";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Message* msg = (Message*)[messages objectAtIndex:indexPath.row];
-    return [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + CELL_MESSAGE_TOPBOTTOM_PADDING;
+    CGFloat height = 5;
+    if (indexPath.row == 0){ // top message cell
+        height = CELL_MESSAGE_TOP_HEIGHT;
+    }
+    if (indexPath.row == 1){ // middle message cell
+        Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
+        height = [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + CELL_MESSAGE_TOPBOTTOM_PADDING;
+    }
+    if (indexPath.row == 2){ // bottom meccage cell
+        height = CELL_MESSAGE_BOTTOM_HEIGHT;
+    }
+    return height;
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -182,6 +262,40 @@
             compoceVC.initialMsgGlobalTimstamp = [self getInitialMessageGlobalTimestamp];
         }
     }
+}
+
+-(NSString*) getDistanceStringForLatitude:(double)latd andLongitude:(double)lond{
+    NSString* formattedDistance = @"";
+    double meters = [((MainNavController*)self.navigationController) calcDistanceTo:latd longitude:lond];
+    if (meters != 0){
+        if ([Utils getIfMetricMeasurementSystem]){
+            int km = meters / 1000;
+            if (km > 0){
+                meters = (int)meters%1000;
+            }
+            NSString* text_m =  [Lang LOC_MESSAGES_CELL_DISTANCE_METERS];
+            if (km > 0){
+                NSString* text_km = [Lang LOC_MESSAGES_CELL_DISTANCE_KILOMETERS];
+                return [NSString stringWithFormat:@"%d%@ %d%@", km, text_km, (int)meters, text_m];
+            } else {
+                return [NSString stringWithFormat:@"%d%@", (int)meters, text_m];
+            }
+        } else {
+            double feets = meters * 3.2808399;
+            int miles = feets / 5280;
+            if (miles > 0){
+                feets = (int)feets % 5280;
+            }
+            NSString* text_f =  [Lang LOC_MESSAGES_CELL_DISTANCE_FOOTS];
+            if (miles > 0){
+                NSString* text_m = [Lang LOC_MESSAGES_CELL_DISTANCE_MILES];
+                return [NSString stringWithFormat:@"%d%@ %d%@", miles, text_m, (int)feets, text_f];
+            } else {
+                return [NSString stringWithFormat:@"%d%@", (int)feets, text_f];
+            }
+        }
+    }
+    return formattedDistance;
 }
 
 -(void) composeCompleted:(Message*)composedMsg{
@@ -212,7 +326,9 @@
 
 - (IBAction)actionPressed:(id)sender {
     if (replyMode){
-        [actionSheet showInView:self.view];
+        [replyModeActionSheet showInView:self.view];
+    } else {
+        [aloneModeActionSheet showInView:self.view];
     }
 }
 @end

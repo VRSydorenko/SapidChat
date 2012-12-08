@@ -117,23 +117,14 @@
     return localTimestamp - localTz.secondsFromGMT;
 }
 
-+(NSString*) getSettingsKeyWHEN:(int)slot{
-    return [NSString stringWithFormat:@"%@_MSG_WHEN%d", [UserSettings getEmail], slot];
-}
-+(NSString*) getSettingsKeyFROM:(int)slot{
-    return [NSString stringWithFormat:@"%@_MSG_FROM%d", [UserSettings getEmail], slot];
-}
-+(NSString*) getSettingsKeyTO:(int)slot{
-    return [NSString stringWithFormat:@"%@_MSG_TO%d", [UserSettings getEmail], slot];
-}
-+(NSString*) getSettingsKeyTEXT:(int)slot{
-    return [NSString stringWithFormat:@"%@_MSG_TEXT%d", [UserSettings getEmail], slot];
-}
-
 +(BOOL) user:(User*)one isEqualTo:(User*)two{
     return [one.email isEqualToString:two.email] &&
     [one.nickname isEqualToString:two.nickname] &&
     [one.languages isEqualToArray:two.languages];
+}
+
++(bool) getIfMetricMeasurementSystem{
+    return [[[NSLocale currentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
 }
 
 @end

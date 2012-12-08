@@ -21,11 +21,8 @@
 +(NSDate*)toLocalDate:(int)globalTimestamp;
 +(int)toGlobalTimestamp:(int)localTimestamp;
 
-+(NSString*) getSettingsKeyWHEN:(int)slot;
-+(NSString*) getSettingsKeyTO:(int)slot;
-+(NSString*) getSettingsKeyFROM:(int)slot;
-+(NSString*) getSettingsKeyTEXT:(int)slot;
-
 +(BOOL) user:(User*)one isEqualTo:(User*)two;
+
++(bool) getIfMetricMeasurementSystem;
 
 @end

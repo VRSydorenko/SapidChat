@@ -36,7 +36,6 @@
 		7F99594415BF409500A0DE84 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F99594315BF409500A0DE84 /* MainNavController.m */; };
 		7F99594715BF443100A0DE84 /* DialogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F99594615BF443100A0DE84 /* DialogCell.m */; };
 		7FA5F72915D2C04A009F5A96 /* DialogsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5F72815D2C04A009F5A96 /* DialogsVC.m */; };
-		7FAAC65615D035D9009AC87C /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAAC65515D035D9009AC87C /* MessageCell.m */; };
 		7FAF7606159E4FE400D37D7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAF7605159E4FE400D37D7D /* UIKit.framework */; };
 		7FAF7608159E4FE400D37D7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAF7607159E4FE400D37D7D /* Foundation.framework */; };
 		7FAF760A159E4FE400D37D7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAF7609159E4FE400D37D7D /* CoreGraphics.framework */; };
@@ -56,6 +55,9 @@
 		7FBF28B115D2DBAC00F04B99 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF28B015D2DBAC00F04B99 /* MainVC.m */; };
 		7FBF28B515D2DCCA00F04B99 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF28B415D2DCCA00F04B99 /* MainCell.m */; };
 		7FBF622C15D69E9200A34CDB /* MessagesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF622B15D69E9100A34CDB /* MessagesVC.m */; };
+		7FC21DD816739BC40093612C /* MessageTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC21DD716739BC40093612C /* MessageTopCell.m */; };
+		7FC21DDB16739BF20093612C /* MessageMiddleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC21DDA16739BF20093612C /* MessageMiddleCell.m */; };
+		7FC21DDE16739C0C0093612C /* MessageBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC21DDD16739C0C0093612C /* MessageBottomCell.m */; };
 		7FC9881B1610BEC200AB04D5 /* Lang.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881A1610BEC200AB04D5 /* Lang.m */; };
 		7FC9881E1610C31600AB04D5 /* LangEnglish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881D1610C31600AB04D5 /* LangEnglish.m */; };
 		7FC988211610C32600AB04D5 /* LangRussian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988201610C32600AB04D5 /* LangRussian.m */; };
@@ -156,8 +158,6 @@
 		7F99594615BF443100A0DE84 /* DialogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogCell.m; sourceTree = "<group>"; };
 		7FA5F72715D2C04A009F5A96 /* DialogsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogsVC.h; sourceTree = "<group>"; };
 		7FA5F72815D2C04A009F5A96 /* DialogsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogsVC.m; sourceTree = "<group>"; };
-		7FAAC65415D035D9009AC87C /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
-		7FAAC65515D035D9009AC87C /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		7FAF7601159E4FE300D37D7D /* SapidChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SapidChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FAF7605159E4FE400D37D7D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7FAF7607159E4FE400D37D7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -188,6 +188,12 @@
 		7FBF28B415D2DCCA00F04B99 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
 		7FBF622A15D69E9100A34CDB /* MessagesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesVC.h; sourceTree = "<group>"; };
 		7FBF622B15D69E9100A34CDB /* MessagesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesVC.m; sourceTree = "<group>"; };
+		7FC21DD616739BC40093612C /* MessageTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageTopCell.h; path = TableCells/MessageTopCell.h; sourceTree = "<group>"; };
+		7FC21DD716739BC40093612C /* MessageTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageTopCell.m; path = TableCells/MessageTopCell.m; sourceTree = "<group>"; };
+		7FC21DD916739BF20093612C /* MessageMiddleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageMiddleCell.h; path = TableCells/MessageMiddleCell.h; sourceTree = "<group>"; };
+		7FC21DDA16739BF20093612C /* MessageMiddleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageMiddleCell.m; path = TableCells/MessageMiddleCell.m; sourceTree = "<group>"; };
+		7FC21DDC16739C0C0093612C /* MessageBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageBottomCell.h; path = TableCells/MessageBottomCell.h; sourceTree = "<group>"; };
+		7FC21DDD16739C0C0093612C /* MessageBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageBottomCell.m; path = TableCells/MessageBottomCell.m; sourceTree = "<group>"; };
 		7FC988191610BEC200AB04D5 /* Lang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lang.h; path = Localization/Lang.h; sourceTree = "<group>"; };
 		7FC9881A1610BEC200AB04D5 /* Lang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Lang.m; path = Localization/Lang.m; sourceTree = "<group>"; };
 		7FC9881C1610C31600AB04D5 /* LangEnglish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangEnglish.h; path = Localization/LangEnglish.h; sourceTree = "<group>"; };
@@ -437,8 +443,6 @@
 				7FBF28B415D2DCCA00F04B99 /* MainCell.m */,
 				7F99594515BF443100A0DE84 /* DialogCell.h */,
 				7F99594615BF443100A0DE84 /* DialogCell.m */,
-				7FAAC65415D035D9009AC87C /* MessageCell.h */,
-				7FAAC65515D035D9009AC87C /* MessageCell.m */,
 				7FD6A0DA164EA3F700459070 /* InfoCell.h */,
 				7FD6A0DB164EA3F700459070 /* InfoCell.m */,
 				7F2F4B78166D3D1C00074681 /* CurrentProModeCell.h */,
@@ -451,6 +455,12 @@
 				7F2F4B8F166D501700074681 /* CurrentBalanceCell.m */,
 				7F2F4B92166D503000074681 /* BuyOptionCell.h */,
 				7F2F4B93166D503000074681 /* BuyOptionCell.m */,
+				7FC21DD616739BC40093612C /* MessageTopCell.h */,
+				7FC21DD716739BC40093612C /* MessageTopCell.m */,
+				7FC21DD916739BF20093612C /* MessageMiddleCell.h */,
+				7FC21DDA16739BF20093612C /* MessageMiddleCell.m */,
+				7FC21DDC16739C0C0093612C /* MessageBottomCell.h */,
+				7FC21DDD16739C0C0093612C /* MessageBottomCell.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -686,7 +696,6 @@
 				7F11FED8159E6865002F5982 /* ResponseHandler.m in Sources */,
 				7F99594415BF409500A0DE84 /* MainNavController.m in Sources */,
 				7F99594715BF443100A0DE84 /* DialogCell.m in Sources */,
-				7FAAC65615D035D9009AC87C /* MessageCell.m in Sources */,
 				7FA5F72915D2C04A009F5A96 /* DialogsVC.m in Sources */,
 				7FBF28B115D2DBAC00F04B99 /* MainVC.m in Sources */,
 				7FBF28B515D2DCCA00F04B99 /* MainCell.m in Sources */,
@@ -725,6 +734,9 @@
 				7F2F4B85166D3F3600074681 /* ReadAboutProCell.m in Sources */,
 				7F2F4B90166D501700074681 /* CurrentBalanceCell.m in Sources */,
 				7F2F4B94166D503000074681 /* BuyOptionCell.m in Sources */,
+				7FC21DD816739BC40093612C /* MessageTopCell.m in Sources */,
+				7FC21DDB16739BF20093612C /* MessageMiddleCell.m in Sources */,
+				7FC21DDE16739C0C0093612C /* MessageBottomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -62,12 +62,18 @@
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"No records to display yet";}
 +(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"You know, there are currently no messages to pick up in your language(s).\rLet's wait a little bit for somebody to create a message for you. In meanwhile we can add some message to somebody now ;)";}
 +(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return @"Hide";}
++(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"km";}
++(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"m";}
++(NSString*) LOC_MESSAGES_CELL_DISTANCE_MILES{return @"m";}
++(NSString*) LOC_MESSAGES_CELL_DISTANCE_FOOTS{return @"f";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Reply";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Compose one more";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE{return @"Dialog actions";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE{return @"Delete";};
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM{return @"Claim";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL{return @"Cancel";};
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR{return @"Clear";};
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_EDIT{return @"Edit";};
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"New message";}
 +(NSString*) LOC_COMPOSE_BTN_SEND{return @"Send";}

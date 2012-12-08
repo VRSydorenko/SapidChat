@@ -49,6 +49,15 @@
 +(NSString*) LOC_MAIN_CELL_BALANCE {return @"Your balance";}
 +(NSString*) LOC_MAIN_BUTTON_SETTINGS {return @"Settings";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Log out";}
++(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{ return @"Forgot password?";}
+// restore pass screen
++(NSString*) LOC_RESTORE_SCREEN_TITLE{return @"Restore password";}
++(NSString*) LOC_RESTORE_TXT_EMAIL_PLACEHOLDER{return @"Email";}
++(NSString*) LOC_RESTORE_LABEL_INSTRUCTION{return @"Please enter email you registered with:";}
++(NSString*) LOC_RESTORE_BTN_GO{return @"Send password";}
++(NSString*) LOC_RESTORE_BTN_CANCEL{return @"Cancel";}
++(NSString*) LOC_RESTORE_ALERT_STATE{return @"The password has been sent to the entered email address";}
++(NSString*) LOC_RESTORE_ALERT_BTN_OK{return @"Close";}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SCREEN_TITLE{return @"Intrigue";}
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Here is a description of the amazing option!\rIt is sending an anonymous email!";}

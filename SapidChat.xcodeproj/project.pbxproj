@@ -22,6 +22,7 @@
 		7F11FED7159E6865002F5982 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FECA159E6865002F5982 /* Response.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F11FED8159E6865002F5982 /* ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FECC159E6865002F5982 /* ResponseHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F1364C31673DBB60053A1B2 /* InfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1364C21673DBB60053A1B2 /* InfoVC.m */; };
+		7F1364CB1673F43B0053A1B2 /* RestorePassVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1364CA1673F43B0053A1B2 /* RestorePassVC.m */; };
 		7F1A5B9715E56393002BC781 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A5B9615E56393002BC781 /* User.m */; };
 		7F2F4B6E166D34CD00074681 /* BalanceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B6D166D34CD00074681 /* BalanceVC.m */; };
 		7F2F4B7A166D3D1C00074681 /* CurrentProModeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B79166D3D1C00074681 /* CurrentProModeCell.m */; };
@@ -133,6 +134,8 @@
 		7F11FECC159E6865002F5982 /* ResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResponseHandler.m; path = TVMClient/ResponseHandler.m; sourceTree = "<group>"; };
 		7F1364C11673DBB60053A1B2 /* InfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoVC.h; sourceTree = "<group>"; };
 		7F1364C21673DBB60053A1B2 /* InfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoVC.m; sourceTree = "<group>"; };
+		7F1364C91673F43B0053A1B2 /* RestorePassVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestorePassVC.h; sourceTree = "<group>"; };
+		7F1364CA1673F43B0053A1B2 /* RestorePassVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestorePassVC.m; sourceTree = "<group>"; };
 		7F1A5B9515E56393002BC781 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Data/User.h; sourceTree = "<group>"; };
 		7F1A5B9615E56393002BC781 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Data/User.m; sourceTree = "<group>"; };
 		7F2F4B6C166D34CD00074681 /* BalanceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceVC.h; sourceTree = "<group>"; };
@@ -403,6 +406,8 @@
 				7F2F4B6D166D34CD00074681 /* BalanceVC.m */,
 				7F1364C11673DBB60053A1B2 /* InfoVC.h */,
 				7F1364C21673DBB60053A1B2 /* InfoVC.m */,
+				7F1364C91673F43B0053A1B2 /* RestorePassVC.h */,
+				7F1364CA1673F43B0053A1B2 /* RestorePassVC.m */,
 				7FAF760C159E4FE400D37D7D /* Supporting Files */,
 			);
 			path = SapidChat;
@@ -743,6 +748,7 @@
 				7FC21DDB16739BF20093612C /* MessageMiddleCell.m in Sources */,
 				7FC21DDE16739C0C0093612C /* MessageBottomCell.m in Sources */,
 				7F1364C31673DBB60053A1B2 /* InfoVC.m in Sources */,
+				7F1364CB1673F43B0053A1B2 /* RestorePassVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -49,6 +49,15 @@
 +(NSString*) LOC_MAIN_CELL_BALANCE {return @"Ваш баланс";}
 +(NSString*) LOC_MAIN_BUTTON_SETTINGS {return @"Настройки";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Выйти";}
++(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{ return @"Забыли пароль?";}
+// restore pass screen
++(NSString*) LOC_RESTORE_SCREEN_TITLE{return @"Восстановление пароля";}
++(NSString*) LOC_RESTORE_TXT_EMAIL_PLACEHOLDER{return @"Email";}
++(NSString*) LOC_RESTORE_LABEL_INSTRUCTION{return @"Введите email, указанный при регистрации:";}
++(NSString*) LOC_RESTORE_BTN_GO{return @"Выслать пароль";}
++(NSString*) LOC_RESTORE_BTN_CANCEL{return @"Отмена";}
++(NSString*) LOC_RESTORE_ALERT_STATE{return @"Пароль отправлен по указанному адресу";}
++(NSString*) LOC_RESTORE_ALERT_BTN_OK{return @"Закрыть";}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SCREEN_TITLE{return @"Интрига";}
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Тут - описание замечательной опции: отсылки анонимный приглашений на почту!\rПригласите того, кто вам нравится!";}

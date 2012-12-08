@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelServiceMessage;
 @property (strong, nonatomic) IBOutlet UIButton *btnGo;
 @property (strong, nonatomic) IBOutlet UIButton *btnRegister;
+@property (strong, nonatomic) IBOutlet UIButton *btnForgotPass;
 - (IBAction)goPressed:(id)sender;
 - (IBAction)registerPressed:(id)sender;
 - (IBAction)didEndOnExit:(UITextField *)sender;

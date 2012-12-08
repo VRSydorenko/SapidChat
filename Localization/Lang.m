@@ -68,6 +68,15 @@
 +(NSString*) LOC_MAIN_CELL_BALANCE{return [[self AppLanguage] LOC_MAIN_CELL_BALANCE];}
 +(NSString*) LOC_MAIN_BUTTON_SETTINGS{return [[self AppLanguage] LOC_MAIN_BUTTON_SETTINGS];}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return [[self AppLanguage] LOC_MAIN_BUTTON_LOGOUT];}
++(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{return [[self AppLanguage] LOC_MAIN_BUTTON_FORGOTPASS];}
+// restore pass screen
++(NSString*) LOC_RESTORE_SCREEN_TITLE{return [[self AppLanguage] LOC_RESTORE_SCREEN_TITLE];}
++(NSString*) LOC_RESTORE_TXT_EMAIL_PLACEHOLDER{return [[self AppLanguage] LOC_RESTORE_TXT_EMAIL_PLACEHOLDER];}
++(NSString*) LOC_RESTORE_LABEL_INSTRUCTION{return [[self AppLanguage] LOC_RESTORE_LABEL_INSTRUCTION];}
++(NSString*) LOC_RESTORE_BTN_GO{return [[self AppLanguage] LOC_RESTORE_BTN_GO];}
++(NSString*) LOC_RESTORE_BTN_CANCEL{return [[self AppLanguage] LOC_RESTORE_BTN_CANCEL];}
++(NSString*) LOC_RESTORE_ALERT_STATE{return [[self AppLanguage] LOC_RESTORE_ALERT_STATE];}
++(NSString*) LOC_RESTORE_ALERT_BTN_OK{return [[self AppLanguage] LOC_RESTORE_ALERT_BTN_OK];}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SCREEN_TITLE{ return [[self AppLanguage] LOC_INTRIGUE_SCREEN_TITLE];}
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{ return [[self AppLanguage] LOC_INTRIGUE_SELL_DESCRIPTION];}

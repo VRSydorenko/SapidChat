@@ -182,6 +182,58 @@
     return result;
 }
 
++(ErrorCodes) restorePassword:(NSString*)email{
+    ErrorCodes result = [Utils validateEmail:email];
+    if (result != OK){
+        return result;
+    }
+    
+    User* user;
+    result = [self retrieveUserPass:&user withEmail:email];
+    if (result != OK){
+        return result;
+    }
+    
+    if (user.email.length == 0 || user.nickname.length == 0){
+        return ERROR;
+    }
+    
+    // user.email is the password
+    
+    SESContent *messageBody = [[SESContent alloc] init];
+    messageBody.data = [NSString stringWithFormat:@"Hello %@,\r\rYou password: %@", user.nickname, user.email];
+    
+    SESContent *subject = [[SESContent alloc] init];
+    subject.data = @"Sapid Chat password restore";
+    
+    SESBody *body = [[SESBody alloc] init];
+    body.text = messageBody;
+    
+    SESMessage *message = [[SESMessage alloc] init];
+    message.subject = subject;
+    message.body    = body;
+    
+    SESDestination *destination = [[SESDestination alloc] init];
+    [destination.toAddresses addObject:email];
+    
+    SESSendEmailRequest *emailRequest = [[SESSendEmailRequest alloc] init];
+    emailRequest.source = @"viktor.sydorenko@gmail.com";
+    emailRequest.destination = destination;
+    emailRequest.message = message;
+    
+    SESSendEmailResponse *response = nil;
+    @try{
+        AmazonSESClient *ses = [AmazonClientManager ses];
+        response = [ses sendEmail:emailRequest];
+    }
+    @catch (NSException* ex) {
+        result = AMAZON_SERVICE_ERROR;
+        NSLog(@"%@", ex);
+    }
+    
+    return result;
+}
+
 +(ErrorCodes)retrieveUser:(User**)user withEmail:(NSString*)email{
     *user = nil;
     DynamoDBGetItemResponse *response = nil;
@@ -206,6 +258,49 @@
         return NO_SUCH_USER;
     }
     *user = [DbItemHelper prepareUser:response.item];
+    return OK;
+}
+
++(ErrorCodes)retrieveUserPass:(User**)user withEmail:(NSString*)email{
+    *user = nil;
+    DynamoDBGetItemResponse *response = nil;
+    @try {
+        // login
+        DynamoDBGetItemRequest *getItemRequest = [[DynamoDBGetItemRequest alloc] init];
+        getItemRequest.tableName = DBTABLE_USERS;
+        DynamoDBAttributeValue* keyAttr = [[DynamoDBAttributeValue alloc] initWithS:email];
+        DynamoDBKey *key = [[DynamoDBKey alloc] initWithHashKeyElement: keyAttr];
+        getItemRequest.key = key;
+        response = [[AmazonClientManager ddb] getItem:getItemRequest];
+        //
+    }
+    @catch (AmazonServiceException *exception) {
+        NSLog(@"%@", exception);
+        return AMAZON_SERVICE_ERROR;
+    }
+    if (!response){
+        return AMAZON_SERVICE_ERROR;
+    }
+    if (response.item.count == 0){
+        return NO_SUCH_USER;
+    }
+    
+    DynamoDBAttributeValue *attrVal = (DynamoDBAttributeValue*)[response.item valueForKey:DBFIELD_USERS_EMAIL];
+    User* result = [[User alloc] init];
+    
+    for (NSString* key in response.item.allKeys) {
+        attrVal = (DynamoDBAttributeValue*)[response.item valueForKey:key];
+        
+        if ([key isEqualToString: DBFIELD_USERS_PASSWORD]){
+            result.email = attrVal.s;
+        }
+        if ([key isEqualToString: DBFIELD_USERS_NICKNAME]){
+            result.nickname = attrVal.s;
+        }
+    }
+    
+    *user = result;
+    
     return OK;
 }
 

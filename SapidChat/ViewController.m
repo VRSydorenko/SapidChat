@@ -30,6 +30,7 @@
 @synthesize labelServiceMessage;
 @synthesize btnGo;
 @synthesize btnRegister;
+@synthesize btnForgotPass;
 
 - (void)viewDidLoad
 {
@@ -74,6 +75,7 @@
     [self setActivityIndicator:nil];
     [self setBtnGo:nil];
     [self setBtnRegister:nil];
+    [self setBtnForgotPass:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

@@ -49,13 +49,15 @@
         if (sqlite3_exec(sapidDb, sql, NULL, NULL, &errMsg) != SQLITE_OK)
         {
             NSLog(@"Error creating DB table(s)");
+            NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
         }
     } else {
         NSLog(@"Failed to open/create database");
+        NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
     }
-    
 }
 
+/*
 -(int) getUserDbId:(NSString*)userEmail{
     NSString *querySQL = [NSString stringWithFormat: @"SELECT %@ FROM %@ WHERE %@=\"%@\"", F_ID, T_USERS, F_EMAIL, userEmail];
     const char *query_stmt = [querySQL UTF8String];
@@ -71,7 +73,7 @@
         sqlite3_finalize(statement);
     }
     return -1;
-}
+}*/
 
 // public methods
 -(void) saveUser:(User*)user{ // user specific method
@@ -95,6 +97,7 @@
         NSLog(@"%@", logMsg);
     } else {
         NSLog(@"Failed to save user");
+        NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
     }
     sqlite3_finalize(statement);
 }
@@ -145,8 +148,10 @@
         {
         } else {
             NSLog(@"Error updating nick");
+            NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
         }
     }
+    sqlite3_finalize(statement);
 }
 
 -(void) setMsgLanguages:(NSArray*)languages forUser:(NSString*)email{ // user specific method
@@ -161,18 +166,24 @@
         {
         } else {
             NSLog(@"Error updating message (set collocutor)");
+            NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
         }
     }
+    sqlite3_finalize(statement);
 }
 
 -(void) saveMessage:(Message*)msg{ // user specific method
     BOOL isNew = [[UserSettings getEmail] isEqualToString:msg.to];
-    NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, \"%@\", %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.text, isNew];
+    NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, \"%@\", %.10f, %.10f, %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_LATD, F_LOND, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.text, msg.latitude, msg.longitude, isNew];
     const char *insert_stmt = [insertSQL UTF8String];
     
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(sapidDb, insert_stmt, -1, &statement, NULL) == SQLITE_OK){
-        sqlite3_step(statement);
+        if (sqlite3_step(statement) == SQLITE_DONE){
+        } else {
+            NSLog(@"Error saving message into the database");
+            NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
+        }
     }
     sqlite3_finalize(statement);
 }
@@ -186,6 +197,7 @@
         if (sqlite3_step(statement) == SQLITE_DONE){
         } else {
             NSLog(@"Error deleting message from database");
+            NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
         }
     }
     sqlite3_finalize(statement);
@@ -193,7 +205,7 @@
 
 -(NSArray*) loadMessagesWithCondition:(NSString*)condition{ // user specific method
     NSString* cond = condition.length > 0 ? [NSString stringWithFormat:@" AND %@", condition] : @"";
-    NSString *querySQL = [NSString stringWithFormat: @"SELECT %@, %@, %@, %@ FROM %@ WHERE %@=\"%@\" %@", F_FROM, F_TO, F_WHEN, F_TEXT, T_MSGS, F_AUTHOR, [UserSettings getEmail], cond];
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT %@, %@, %@, %@, %@, %@ FROM %@ WHERE %@=\"%@\" %@", F_FROM, F_TO, F_WHEN, F_TEXT, F_LATD, F_LOND, T_MSGS, F_AUTHOR, [UserSettings getEmail], cond];
     const char *query_stmt = [querySQL UTF8String];
     
     NSMutableArray* msgs = [[NSMutableArray alloc] init];
@@ -215,6 +227,12 @@
             NSString *textField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 3)];
             msg.text = textField;
             
+            NSString *latitudeField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 4)];
+            msg.latitude = [latitudeField doubleValue];
+            
+            NSString *longitudeField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)];
+            msg.latitude = [longitudeField doubleValue];
+            
             [msgs addObject:msg];
         }
     }
@@ -234,8 +252,10 @@
         {
         } else {
             NSLog(@"Error updating message (set collocutor)");
+            NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
         }
     }
+    sqlite3_finalize(statement);
 }
 
 -(int) getLastInMessageTimestamp{ // user specific method
@@ -249,8 +269,8 @@
         {
             return sqlite3_column_int(statement, 0);
         }
-        sqlite3_finalize(statement);
     }
+    sqlite3_finalize(statement);
     return 0;
 }
 
@@ -265,8 +285,8 @@
         {
             return sqlite3_column_int(statement, 0);
         }
-        sqlite3_finalize(statement);
     }
+    sqlite3_finalize(statement);
     return 0;
 }
 
@@ -282,8 +302,8 @@
             NSString *countField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
             return countField.intValue;
         }
-        sqlite3_finalize(statement);
     }
+    sqlite3_finalize(statement);
     return -1;
 }
 
@@ -298,8 +318,10 @@
         {
         } else {
             NSLog(@"Error resetting unread flag of messages with collocutor)");
+            NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
         }
     }
+    sqlite3_finalize(statement);
 }
 
 -(int) getRegularPoststampsCount{ // user specific method
@@ -344,8 +366,8 @@
             NSString *countField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
             return countField.intValue;
         }
-        sqlite3_finalize(statement);
     }
+    sqlite3_finalize(statement);
     return -1;
 }
 
@@ -362,8 +384,10 @@
         {
         } else {
             NSLog(@"Error resetting unread flag of messages with collocutor)");
+            NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
         }
     }
+    sqlite3_finalize(statement);
 }
 
 

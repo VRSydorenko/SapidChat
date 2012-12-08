@@ -39,6 +39,8 @@
     [tMessages addField:F_TO type:DBTYPE_TEXT notNull:YES];
     [tMessages addField:F_WHEN type:DBTYPE_REAL notNull:YES];
     [tMessages addField:F_TEXT type:DBTYPE_TEXT notNull:YES];
+    [tMessages addField:F_LATD type:DBTYPE_REAL notNull:YES];
+    [tMessages addField:F_LOND type:DBTYPE_REAL notNull:YES];
     [tMessages addField:F_UNREAD type:DBTYPE_REAL notNull:NO];
     [tMessages addField:F_INITIAL_TIMESTAMP type:DBTYPE_REAL notNull:NO];
     [tables addObject:tMessages];

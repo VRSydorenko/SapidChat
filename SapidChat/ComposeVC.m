@@ -18,6 +18,7 @@
 @interface ComposeVC (){
     bool isSending;
     //NSString* currentMessageText;
+    MainNavController* navCon;
 }
 
 @end
@@ -71,10 +72,9 @@
         
         [self.spinner startAnimating];
     
-        Message* msg = [self prepareMessage];
-    
         dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
         dispatch_async(refreshQueue, ^{
+            Message* msg = [self prepareMessage];
             ErrorCodes msgSent = [DataManager sendMessage:msg];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.spinner stopAnimating];
@@ -104,12 +104,21 @@
     [msgLangController dismissModalViewControllerAnimated:YES];
 }
 
+// MainNavController is used for retrieving location coordinates
+-(void)setNavigationController:(MainNavController*)controller{
+    navCon = controller;
+}
+
 -(Message*) prepareMessage{
     Message* msg = [[Message alloc] init];
     msg.from = [UserSettings getEmail];
     msg.to = self.collocutor;
     msg.text = self.textMessage.text;
     msg.when = [[NSDate date] timeIntervalSinceReferenceDate];
+    
+    msg.latitude = navCon.latitude;
+    msg.longitude = navCon.longitude;
+    
     msg.initial_message_global_timestamp = initialMsgGlobalTimstamp;
     return msg;
 }

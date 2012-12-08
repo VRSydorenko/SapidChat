@@ -176,6 +176,7 @@
     if ([segue.identifier isEqualToString:@"SegueDialogToCompose"]){
         ComposeVC* compoceVC = (ComposeVC*)segue.destinationViewController;
         compoceVC.composeHandler = self;
+        [compoceVC setNavigationController:(MainNavController*)self.navigationController];
         if (replyMode){
             compoceVC.collocutor = [self getCollocutor];
             compoceVC.initialMsgGlobalTimstamp = [self getInitialMessageGlobalTimestamp];

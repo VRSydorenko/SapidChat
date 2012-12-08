@@ -126,6 +126,7 @@
     if ([segue.identifier isEqualToString:@"SegueDialogsToCompose"]){
         ComposeVC *composeVC = (ComposeVC*) segue.destinationViewController;
         composeVC.composeHandler = self;
+        [composeVC setNavigationController:navController]; // for GPS
     }
 }
 

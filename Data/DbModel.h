@@ -64,6 +64,8 @@ typedef enum Languages{ // !!! Don't change the numbers !!!
 #define DBFIELD_MSGS_TO @"to"
 #define DBFIELD_MSGS_WHEN @"when"
 #define DBFIELD_MSGS_TEXT @"text"
+#define DBFIELD_MSGS_LATD @"latd" // latitude
+#define DBFIELD_MSGS_LOND @"lond" // longitude
 
 #define DBTABLE_MSGS_BANK @"t_msgs_bank"
 #define DBFIELD_MSGS_BANK_LANG @"lang"

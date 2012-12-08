@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class MainNavController;
 
@@ -15,11 +16,15 @@
 - (void) controllerToLogout:(UINavigationController*)navController;
 @end
 
-@interface MainNavController : UINavigationController
+@interface MainNavController : UINavigationController <CLLocationManagerDelegate>
 
 @property NSArray* dialogs;
 @property NSDate* lastUpdate;
+@property double latitude;
+@property double longitude;
 
 @property (assign) id<LogoutDelegate> logoutHandler;
+
+- (void) initLocationManager;
 
 @end

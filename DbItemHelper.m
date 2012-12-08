@@ -83,6 +83,12 @@
         if ([key isEqualToString: DBFIELD_MSGS_TEXT]){
             result.text = attrVal.s;
         }
+        if ([key isEqualToString: DBFIELD_MSGS_LATD]){
+            result.latitude = [attrVal.s doubleValue];
+        }
+        if ([key isEqualToString: DBFIELD_MSGS_LOND]){
+            result.longitude = [attrVal.s doubleValue];
+        }
         if ([key isEqualToString: DBFIELD_MSGS_INITIAL_MSG]){
             result.initial_message_global_timestamp = [attrVal.n intValue];
         }

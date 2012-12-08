@@ -23,7 +23,6 @@
 		7F11FED8159E6865002F5982 /* ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11FECC159E6865002F5982 /* ResponseHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F1A5B9715E56393002BC781 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A5B9615E56393002BC781 /* User.m */; };
 		7F2F4B6E166D34CD00074681 /* BalanceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B6D166D34CD00074681 /* BalanceVC.m */; };
-		7F2F4B76166D39D400074681 /* BalanceGroupHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B75166D39D400074681 /* BalanceGroupHeaderCell.m */; };
 		7F2F4B7A166D3D1C00074681 /* CurrentProModeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B79166D3D1C00074681 /* CurrentProModeCell.m */; };
 		7F2F4B81166D3F0200074681 /* MakeItProCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B80166D3F0200074681 /* MakeItProCell.m */; };
 		7F2F4B85166D3F3600074681 /* ReadAboutProCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B84166D3F3600074681 /* ReadAboutProCell.m */; };
@@ -61,7 +60,6 @@
 		7FC9881E1610C31600AB04D5 /* LangEnglish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881D1610C31600AB04D5 /* LangEnglish.m */; };
 		7FC988211610C32600AB04D5 /* LangRussian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988201610C32600AB04D5 /* LangRussian.m */; };
 		7FCB2A8A1621B498000EDB0B /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FCB2A891621B498000EDB0B /* AWSiOSSDK.framework */; };
-		7FCB367C161A2C3A0041A1FD /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 7FCB367B161A2C3A0041A1FD /* ToDo */; };
 		7FCBF689160F291300A2A2E2 /* RegistrationNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */; };
 		7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */; };
 		7FCBF68C160F291300A2A2E2 /* UserRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */; };
@@ -82,6 +80,7 @@
 		7FDD284A159E5F72008E1080 /* DbItemHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2845159E5F72008E1080 /* DbItemHelper.m */; };
 		7FDD284B159E5F72008E1080 /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2847159E5F72008E1080 /* UserSettings.m */; };
 		7FDD284C159E5F72008E1080 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2849159E5F72008E1080 /* Utils.m */; };
+		7FDD5D9A16729631003090FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDD5D9916729631003090FC /* CoreLocation.framework */; };
 		7FE38787164C1A7300E80814 /* NewMsgLanguagesNavCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE38786164C1A7300E80814 /* NewMsgLanguagesNavCon.m */; };
 		7FE5BA2C1651555900B807B1 /* PurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5BA2B1651555900B807B1 /* PurchaseManager.m */; };
 		7FEF2F51164B0D6C003C8745 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEF2F50164B0D6C003C8745 /* Settings.storyboard */; };
@@ -133,8 +132,6 @@
 		7F1A5B9615E56393002BC781 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Data/User.m; sourceTree = "<group>"; };
 		7F2F4B6C166D34CD00074681 /* BalanceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceVC.h; sourceTree = "<group>"; };
 		7F2F4B6D166D34CD00074681 /* BalanceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceVC.m; sourceTree = "<group>"; };
-		7F2F4B74166D39D400074681 /* BalanceGroupHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceGroupHeaderCell.h; sourceTree = "<group>"; };
-		7F2F4B75166D39D400074681 /* BalanceGroupHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceGroupHeaderCell.m; sourceTree = "<group>"; };
 		7F2F4B78166D3D1C00074681 /* CurrentProModeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentProModeCell.h; sourceTree = "<group>"; };
 		7F2F4B79166D3D1C00074681 /* CurrentProModeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentProModeCell.m; sourceTree = "<group>"; };
 		7F2F4B7F166D3F0200074681 /* MakeItProCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MakeItProCell.h; path = TableCells/MakeItProCell.h; sourceTree = "<group>"; };
@@ -198,7 +195,6 @@
 		7FC9881F1610C32600AB04D5 /* LangRussian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangRussian.h; path = Localization/LangRussian.h; sourceTree = "<group>"; };
 		7FC988201610C32600AB04D5 /* LangRussian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangRussian.m; path = Localization/LangRussian.m; sourceTree = "<group>"; };
 		7FCB2A891621B498000EDB0B /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSiOSSDK.framework; sourceTree = "<group>"; };
-		7FCB367B161A2C3A0041A1FD /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
 		7FCBF680160F291300A2A2E2 /* RegistrationNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationNavController.h; path = User/RegistrationNavController.h; sourceTree = "<group>"; };
 		7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationNavController.m; path = User/RegistrationNavController.m; sourceTree = "<group>"; };
 		7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserRegistration.storyboard; path = User/UserRegistration.storyboard; sourceTree = "<group>"; };
@@ -238,6 +234,7 @@
 		7FDD2847159E5F72008E1080 /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
 		7FDD2848159E5F72008E1080 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		7FDD2849159E5F72008E1080 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		7FDD5D9916729631003090FC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7FE38785164C1A7300E80814 /* NewMsgLanguagesNavCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewMsgLanguagesNavCon.h; path = Settings/NewMsgLanguagesNavCon.h; sourceTree = "<group>"; };
 		7FE38786164C1A7300E80814 /* NewMsgLanguagesNavCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewMsgLanguagesNavCon.m; path = Settings/NewMsgLanguagesNavCon.m; sourceTree = "<group>"; };
 		7FE5BA2A1651555900B807B1 /* PurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PurchaseManager.h; path = Commercial/PurchaseManager.h; sourceTree = "<group>"; };
@@ -258,6 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FDD5D9A16729631003090FC /* CoreLocation.framework in Frameworks */,
 				7F5079501613728900067338 /* libsqlite3.0.dylib in Frameworks */,
 				7F11FEB3159E658E002F5982 /* Security.framework in Frameworks */,
 				7FAF7606159E4FE400D37D7D /* UIKit.framework in Frameworks */,
@@ -330,7 +328,6 @@
 			children = (
 				7FE5BA251651541300B807B1 /* Commercial */,
 				7FEF2F4E164B0D34003C8745 /* Settings */,
-				7FCB367B161A2C3A0041A1FD /* ToDo */,
 				7FD64D2B16134DB100BE8551 /* Database */,
 				7F7880101610D88600BDD517 /* FirstLaunch */,
 				7FC988171610BE4200AB04D5 /* Localization */,
@@ -356,6 +353,7 @@
 		7FAF7604159E4FE300D37D7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7FDD5D9916729631003090FC /* CoreLocation.framework */,
 				7FCB2A891621B498000EDB0B /* AWSiOSSDK.framework */,
 				7F50794F1613728800067338 /* libsqlite3.0.dylib */,
 				7F11FEB2159E658E002F5982 /* Security.framework */,
@@ -443,8 +441,6 @@
 				7FAAC65515D035D9009AC87C /* MessageCell.m */,
 				7FD6A0DA164EA3F700459070 /* InfoCell.h */,
 				7FD6A0DB164EA3F700459070 /* InfoCell.m */,
-				7F2F4B74166D39D400074681 /* BalanceGroupHeaderCell.h */,
-				7F2F4B75166D39D400074681 /* BalanceGroupHeaderCell.m */,
 				7F2F4B78166D3D1C00074681 /* CurrentProModeCell.h */,
 				7F2F4B79166D3D1C00074681 /* CurrentProModeCell.m */,
 				7F2F4B7F166D3F0200074681 /* MakeItProCell.h */,
@@ -631,7 +627,6 @@
 				7FAF761B159E4FE400D37D7D /* Main.storyboard in Resources */,
 				7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */,
 				7F7880221610DC5F00BDD517 /* FirstLaunch.storyboard in Resources */,
-				7FCB367C161A2C3A0041A1FD /* ToDo in Resources */,
 				7FEF2F51164B0D6C003C8745 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,7 +720,6 @@
 				7FE5BA2C1651555900B807B1 /* PurchaseManager.m in Sources */,
 				7FFB984F166BA7EC00AED809 /* SettingsChangePassVC.m in Sources */,
 				7F2F4B6E166D34CD00074681 /* BalanceVC.m in Sources */,
-				7F2F4B76166D39D400074681 /* BalanceGroupHeaderCell.m in Sources */,
 				7F2F4B7A166D3D1C00074681 /* CurrentProModeCell.m in Sources */,
 				7F2F4B81166D3F0200074681 /* MakeItProCell.m in Sources */,
 				7F2F4B85166D3F3600074681 /* ReadAboutProCell.m in Sources */,

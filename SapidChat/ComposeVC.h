@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Message.h"
 #import "NewMsgLanguagesNavCon.h"
+#import "MainNavController.h"
 
 @protocol ComposeNewMessageResponseDelegate
 @required
@@ -32,4 +33,7 @@
 - (IBAction)sendPressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;
 - (IBAction)languagePressed:(id)sender;
+
+- (void)setNavigationController:(MainNavController*)controller;
+
 @end

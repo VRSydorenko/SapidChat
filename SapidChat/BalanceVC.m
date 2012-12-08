@@ -13,7 +13,6 @@
 #import "Lang.h"
 #import "ReadAboutProCell.h"
 #import "MakeItProCell.h"
-#import "BalanceGroupHeaderCell.h"
 #import "CurrentBalanceCell.h"
 #import "DataManager.h"
 #import "BuyOptionCell.h"

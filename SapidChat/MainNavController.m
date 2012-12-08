@@ -13,11 +13,36 @@
 
 @end
 
-@implementation MainNavController
+@implementation MainNavController{
+    CLLocationManager *locationMgr;
+}
 
 @synthesize dialogs = _dialogs;
 @synthesize lastUpdate = _lastUpdate;
+@synthesize latitude = _latitude;
+@synthesize longitude = _longitude;
 
 @synthesize logoutHandler = _logoutHandler;
+
+-(void) initLocationManager{
+    locationMgr = [[CLLocationManager alloc] init];
+    locationMgr.delegate = self;
+    [locationMgr setDesiredAccuracy:kCLLocationAccuracyBest];
+    [locationMgr startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    self.latitude = newLocation.coordinate.latitude;
+    self.longitude = newLocation.coordinate.longitude;
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+}
+
+-(void) viewDidUnload{
+    [self setDialogs:nil];
+    [self setLastUpdate:nil];
+    [self setLogoutHandler:nil];
+}
 
 @end

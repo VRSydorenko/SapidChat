@@ -471,6 +471,10 @@
         // add to the bank table
         int newMsgLang = [UserSettings getNewMessagesLanguage];
         [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", newMsgLang]] forKey:DBFIELD_MSGS_BANK_LANG];
+        if (msg.latitude != 0 || msg.longitude != 0){
+            [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%.10f", msg.latitude]] forKey:DBFIELD_MSGS_LATD];
+            [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%.10f", msg.longitude]] forKey:DBFIELD_MSGS_LOND];
+        }
         
         request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_MSGS_BANK andItem:msgDic];
         
@@ -519,6 +523,10 @@
         if (message.initial_message_global_timestamp > 0){
             DynamoDBAttributeValue *n = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", message.initial_message_global_timestamp]];
             [msgDic setObject:n forKey:DBFIELD_MSGS_INITIAL_MSG];
+        }
+        if (message.latitude != 0 || message.longitude != 0){
+            [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%.10f", message.latitude]] forKey:DBFIELD_MSGS_LATD];
+            [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%.10f", message.longitude]] forKey:DBFIELD_MSGS_LOND];
         }
         
         request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_MSGS_RECEIVED andItem:msgDic];
@@ -618,6 +626,10 @@
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.text] forKey:DBFIELD_MSGS_TEXT];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.from] forKey:DBFIELD_MSGS_FROM];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.to] forKey:DBFIELD_MSGS_TO];
+    if (msg.latitude != 0 || msg.longitude != 0){
+        [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%.10f", msg.latitude]] forKey:DBFIELD_MSGS_LATD];
+        [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%.10f", msg.longitude]] forKey:DBFIELD_MSGS_LOND];
+    }
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
     
     @try {

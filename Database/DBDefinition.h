@@ -29,6 +29,8 @@
 #define F_TO @"f_to"
 #define F_WHEN @"f_when"
 #define F_TEXT @"f_text"
+#define F_LATD @"f_latitude"
+#define F_LOND @"f_longitude"
 #define F_UNREAD @"f_unread"
 #define F_INITIAL_TIMESTAMP @"f_initial_timestamp"
 

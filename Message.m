@@ -14,6 +14,17 @@
 @synthesize from = _from;
 @synthesize to = _to;
 @synthesize when = _when;
+@synthesize latitude = _latitude;
+@synthesize longitude = _longitude;
 @synthesize initial_message_global_timestamp;
+
+-(id) init{
+    self = [super init];
+    if (self){
+        self.latitude = 0;
+        self.longitude = 0;
+    }
+    return self;
+}
 
 @end

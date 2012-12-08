@@ -66,6 +66,12 @@
     [self refreshPressed:self.navigationItem.rightBarButtonItem];// TODO: remove this extra update!!! load only saved messages
 }
 
+-(void) viewWillDisappear:(BOOL)animated{
+    if ([navController.viewControllers indexOfObject:self] == NSNotFound){ // back button
+        [navController stopMonitoringLocation];
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (navController.dialogs.count == 0){

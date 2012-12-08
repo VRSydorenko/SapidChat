@@ -38,6 +38,9 @@
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Registration";}
 +(NSString*) LOC_LOGIN_TXT_LOGIN_PLACEHOLDER    {return @"Email";}
 +(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER {return @"Password";}
+// info screen
++(NSString*) LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE{return @"About intrigue";}
++(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE{return @"With Intrigue option you can anonymousely invite somebody to talk in Sapid Chat.\rIf you like somebody and are ashamed to say her/him about it you can make their intrigued by inviting to Sapid Chat and make this secret come true.\r It is just one of many reasons you might have for inviting somebody.\rImportant: currently Sapid Chat is developed only for iOS devices so when making somebody intrigued with this option please be sure your partner has iPhone or iPad and thus will be able to run Sapid Chat and talk to you.";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Messages";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d new messages";}
@@ -51,9 +54,10 @@
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Here is a description of the amazing option!\rIt is sending an anonymous email!";}
 +(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return @"Activate";}
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Enter email of whose you want to get intrigued by inviting to the chat:";}
++(NSString*) LOC_INTRIGUE_LABEL_CONDITIONS{return @"Sending: %d %@; You have: %d";}
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Make intrigued!";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Sent";}
-+(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Sending in progress, wait...";}
++(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Sending...";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Compose";}

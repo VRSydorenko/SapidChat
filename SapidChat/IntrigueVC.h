@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *labelEnterEmail;
 @property (strong, nonatomic) IBOutlet UILabel *labelServiceMessage;
+@property (strong, nonatomic) IBOutlet UILabel *labelConditions;
 @property (strong, nonatomic) IBOutlet UITextField *textEmail;
 @property (strong, nonatomic) IBOutlet UIButton *btnSend;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicatorSend;

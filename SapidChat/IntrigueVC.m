@@ -12,6 +12,7 @@
 #import "DbModel.h"
 #import "DataManager.h"
 #import "Utils.h"
+#import "InfoVC.h"
 
 @interface IntrigueVC (){
     bool isSending;
@@ -23,6 +24,7 @@
 @implementation IntrigueVC
 @synthesize labelEnterEmail;
 @synthesize labelServiceMessage;
+@synthesize labelConditions;
 @synthesize textEmail;
 @synthesize btnSend;
 @synthesize indicatorSend;
@@ -37,6 +39,7 @@
     self.title = [Lang LOC_INTRIGUE_SCREEN_TITLE];
     [LocalizationUtils setText:[Lang LOC_INTRIGUE_LABEL_ENTERMAIL] forLabel:self.labelEnterEmail];
     [LocalizationUtils setTitle:[Lang LOC_INTRIGUE_BTN_SEND] forButton:self.btnSend];
+    [self updateConoditionsLabel];
 }
 
 - (void)viewDidUnload
@@ -46,6 +49,7 @@
     [self setBtnSend:nil];
     [self setIndicatorSend:nil];
     [self setLabelServiceMessage:nil];
+    [self setLabelConditions:nil];
     [super viewDidUnload];
 }
 
@@ -53,11 +57,12 @@
     NSString* email = self.textEmail.text;
     ErrorCodes emailValidationError = [Utils validateEmail:email];
     if (emailValidationError != OK){
-        [LocalizationUtils setText:[Utils getErrorDescription:emailValidationError] forLabel:self.labelServiceMessage];
+       self.labelServiceMessage.text = [Utils getErrorDescription:emailValidationError];
     } else if (!isSending){
         isSending = YES;
         [self.textEmail resignFirstResponder];
         [self.indicatorSend startAnimating];
+        self.labelServiceMessage.text = [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS];
         
         dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
         dispatch_async(refreshQueue, ^{
@@ -71,18 +76,29 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.indicatorSend stopAnimating];
                 NSString* resultString = errorCode == OK ? [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_OK] : [Utils getErrorDescription:errorCode];
-                [LocalizationUtils setText:resultString forLabel:self.labelServiceMessage];
+                self.labelServiceMessage.text = resultString;
+                [self updateConoditionsLabel];
                 isSending = NO;
             });
         });
         dispatch_release(refreshQueue);
-    } else {
-        [LocalizationUtils setText:[Lang LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS] forLabel:self.labelServiceMessage];
     }
+}
+
+-(void) updateConoditionsLabel{
+    self.labelConditions.text = [NSString stringWithFormat:[Lang LOC_INTRIGUE_LABEL_CONDITIONS], 1, [Lang LOC_BALANCE_POSTSTAMPS_1], [DataManager getTotalAvailablePoststamps]];
 }
 
 - (IBAction)didEndOnExit:(id)sender {
     [sender resignFirstResponder];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"SegueIntrigueToInfo"]){
+        InfoVC* infoVC = (InfoVC*)[segue destinationViewController];
+        infoVC.title = [Lang LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE];
+        infoVC.infoString = [Lang LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE];
+    }
 }
 
 @end

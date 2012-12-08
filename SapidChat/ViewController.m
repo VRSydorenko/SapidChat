@@ -125,7 +125,6 @@
     if ([segue.identifier isEqualToString:@"SegueLoginToMain"]){
         MainNavController* navCon = (MainNavController*)segue.destinationViewController;
         navCon.logoutHandler = self;
-        [navCon initLocationManager];
     }
 }
 

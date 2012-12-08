@@ -38,6 +38,9 @@
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Регистрация";}
 +(NSString*) LOC_LOGIN_TXT_LOGIN_PLACEHOLDER    {return @"Email";}
 +(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER {return @"Пароль";}
+// info screen
++(NSString*) LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE{return @"Об Интриге";}
++(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE{return @"С помощью этой опции вы можете анонимно пригласить кого-нибудь для общения в Sapid Chat.\rЕсли вам кто-то нравится но вы стесняетесь сказать ему/ей об этом, вы можете заинтриговать ее (или его), пригласив пообщатсья в Sapid Chat, где и впоследствии раскрыть свой секрет.\rЭто только одна из причин, которые подойдуть для использовании данной опции.\rВажно: в настоящее время Sapid Chat существует только на платформе iOS, поэтому, приглашая кого-то пообщаться в Sapid Chat, убедитесь в том, что у нее/него есть iPhone или iPad и поэтому будет возможность ответить на ваше анонимное сообщние в Sapid Chat.";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Сообщения";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d новых сообщений";}
@@ -51,9 +54,10 @@
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Тут - описание замечательной опции: отсылки анонимный приглашений на почту!\rПригласите того, кто вам нравится!";}
 +(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return @"Активировать";}
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Введите e-mail того, кого хотите заинтриговать, пригласив анонимно пообщаться:";}
++(NSString*) LOC_INTRIGUE_LABEL_CONDITIONS{return @"Отправка: %d %@; У вас: %d";}
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Заинтриговать!";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Отправлено";}
-+(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Отправка в процессе, подождите...";}
++(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Отправка...";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Разместить";}

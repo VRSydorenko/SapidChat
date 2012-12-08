@@ -108,6 +108,12 @@
     }
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"SegueMainToDialogs"]){
+        [((MainNavController*)self.navigationController) startMonitoringLocation];
+    }
+}
+
 - (IBAction)refreshPressed:(UIBarButtonItem *)sender {
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [spinner startAnimating];

@@ -30,7 +30,17 @@
     locationMgr = [[CLLocationManager alloc] init];
     locationMgr.delegate = self;
     [locationMgr setDesiredAccuracy:kCLLocationAccuracyBest];
+}
+
+-(void) startMonitoringLocation{
+    if (!locationMgr){
+        [self initLocationManager];
+    }
     [locationMgr startUpdatingLocation];
+}
+
+-(void) stopMonitoringLocation{
+    [locationMgr stopUpdatingLocation];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {

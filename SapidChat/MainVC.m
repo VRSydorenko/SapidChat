@@ -33,8 +33,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.title = [Lang LOC_UNI_APP_NAME];
-    self.btnLogout.title = [Lang LOC_MAIN_BUTTON_LOGOUT];
-    self.btnSettings.title = [Lang LOC_MAIN_BUTTON_SETTINGS];
+    [LocalizationUtils setTitle:[Lang LOC_MAIN_BUTTON_LOGOUT] forButton:self.btnLogout];
+    [LocalizationUtils setTitle:[Lang LOC_MAIN_BUTTON_SETTINGS] forButton:self.btnSettings];
     [self.tableMain reloadData];
 }
 

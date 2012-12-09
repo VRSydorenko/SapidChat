@@ -11,6 +11,13 @@
 @protocol Language
 // universal
 +(NSString*) LOC_UNI_APP_NAME;
+// about screen
++(NSString*) LOC_ABOUT_SCREEN_TITLE;
++(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO;
++(NSString*) LOC_ABOUT_DASHA_DESIGNER;
++(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT;
++(NSString*) LOC_ABOUT_DESIGN;
++(NSString*) LOC_ABOUT_LOCALIZATION;
 // first launch
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE;
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT;

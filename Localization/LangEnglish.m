@@ -12,6 +12,13 @@
 
 // universal
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
+// about screen
++(NSString*) LOC_ABOUT_SCREEN_TITLE{ return @"About the app";}
++(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Viktor Sydorenko";}
++(NSString*) LOC_ABOUT_DASHA_DESIGNER{ return @"Dasha Designer";}
++(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"Idea and development";}
++(NSString*) LOC_ABOUT_DESIGN{return @"Graphics";}
++(NSString*) LOC_ABOUT_LOCALIZATION{return @"Localization";}
 // first launch
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE{ return @"Application language";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT{ return @"Next";}

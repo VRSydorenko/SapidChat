@@ -78,6 +78,7 @@
 		7FDAFAE6161CAB5400CA1223 /* IntrigueVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAFAE5161CAB5400CA1223 /* IntrigueVC.m */; };
 		7FDCBE90161223A800DBDDFB /* FirstScreensVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCBE8F161223A800DBDDFB /* FirstScreensVC.m */; };
 		7FDCBE93161224FF00DBDDFB /* LocalizationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCBE92161224FF00DBDDFB /* LocalizationUtils.m */; };
+		7FDCE07B1674EFAF007FEE1D /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCE07A1674EFAF007FEE1D /* AboutVC.m */; };
 		7FDD2833159E5BA9008E1080 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2830159E5BA9008E1080 /* DataManager.m */; };
 		7FDD2834159E5BA9008E1080 /* DbModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2832159E5BA9008E1080 /* DbModel.m */; };
 		7FDD283A159E5C01008E1080 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD2839159E5C01008E1080 /* Message.m */; };
@@ -234,6 +235,8 @@
 		7FDCBE8F161223A800DBDDFB /* FirstScreensVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstScreensVC.m; path = FirstLaunch/FirstScreensVC.m; sourceTree = "<group>"; };
 		7FDCBE91161224FF00DBDDFB /* LocalizationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalizationUtils.h; path = Localization/LocalizationUtils.h; sourceTree = "<group>"; };
 		7FDCBE92161224FF00DBDDFB /* LocalizationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalizationUtils.m; path = Localization/LocalizationUtils.m; sourceTree = "<group>"; };
+		7FDCE0791674EFAF007FEE1D /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
+		7FDCE07A1674EFAF007FEE1D /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
 		7FDD282F159E5BA9008E1080 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = Data/DataManager.h; sourceTree = "<group>"; };
 		7FDD2830159E5BA9008E1080 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = Data/DataManager.m; sourceTree = "<group>"; };
 		7FDD2831159E5BA9008E1080 /* DbModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbModel.h; path = Data/DbModel.h; sourceTree = "<group>"; };
@@ -408,6 +411,8 @@
 				7F1364C21673DBB60053A1B2 /* InfoVC.m */,
 				7F1364C91673F43B0053A1B2 /* RestorePassVC.h */,
 				7F1364CA1673F43B0053A1B2 /* RestorePassVC.m */,
+				7FDCE0791674EFAF007FEE1D /* AboutVC.h */,
+				7FDCE07A1674EFAF007FEE1D /* AboutVC.m */,
 				7FAF760C159E4FE400D37D7D /* Supporting Files */,
 			);
 			path = SapidChat;
@@ -749,6 +754,7 @@
 				7FC21DDE16739C0C0093612C /* MessageBottomCell.m in Sources */,
 				7F1364C31673DBB60053A1B2 /* InfoVC.m in Sources */,
 				7F1364CB1673F43B0053A1B2 /* RestorePassVC.m in Sources */,
+				7FDCE07B1674EFAF007FEE1D /* AboutVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

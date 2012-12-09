@@ -20,7 +20,11 @@
 
 @interface MessagesVC (){
     NSArray *messages;
-    NSDictionary* datesRowCount;
+    
+    // indexes of first and last messages within a day
+    NSArray* firstMsgs;
+    NSArray* lastMsgs;
+    
     NSString* me;
     bool replyMode;
     UIActionSheet *replyModeActionSheet;
@@ -143,7 +147,7 @@
 -(void) updateMessages{
     messages = [self.dialog getSortedMessages];
     
-    datesRowCount = [[NSMutableDictionary alloc] init];
+    NSDictionary* datesRowCount = [[NSMutableDictionary alloc] init];
     for (int i = 0; i<messages.count; i++) {
         Message* msg = (Message*)[messages objectAtIndex:i];
         NSDate* localDate = [Utils toLocalDate:msg.when];
@@ -155,37 +159,59 @@
             [datesRowCount setValue:[NSNumber numberWithInt:[objForKey intValue]+ 1] forKey:date];
         }
     }
+    
+    NSMutableArray* firsts = [[NSMutableArray alloc] init];
+    [firsts addObject:[NSNumber numberWithInt:0]];
+    int ndx = 0;
+    for (int i = 0; i < [datesRowCount allValues].count - 1; i++) {
+        ndx += [[[datesRowCount allValues] objectAtIndex:i] intValue];
+        [firsts addObject:[NSNumber numberWithInt:ndx]];
+    }
+    firstMsgs = [[NSArray alloc] initWithArray:firsts copyItems:YES];
+    
+    NSMutableArray* lasts = [[NSMutableArray alloc] init];
+    ndx = 0;
+    for (int i = 0; i < [datesRowCount allValues].count; i++) {
+        if (ndx == 0){
+            ndx = [[[datesRowCount allValues] objectAtIndex:0] intValue] - 1;
+        } else {
+            ndx += [[[datesRowCount allValues] objectAtIndex:i] intValue];
+        }
+        [lasts addObject:[NSNumber numberWithInt:ndx]];
+    }
+    lastMsgs = [[NSArray alloc] initWithArray:lasts copyItems:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    //return [datesRowCount allKeys].count;
     return messages.count;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    for (int i = 0; i < messages.count; i += [[[datesRowCount allValues] objectAtIndex:i] intValue]) {
-        if (section == i){
-            CGRect headerRect = CGRectMake(0, 0, tableView.bounds.size.width, HEADER_HEIGHT);
-            UILabel* labelHeader = [[UILabel alloc] initWithFrame:headerRect];
-            [labelHeader setFont:[UIFont fontWithName:@"Helvetica-Bold" size:FONT_SECTIONHEADER_SIZE]];
-            labelHeader.textColor = [UIColor lightGrayColor];
-            labelHeader.textAlignment = UITextAlignmentCenter;
-            NSDate* localDate = [Utils toLocalDate:((Message*)[messages objectAtIndex:section]).when];// !!!
-            labelHeader.text = [Utils dateToString:localDate];
-            return labelHeader;
-        }
+    if ([firstMsgs containsObject:[NSNumber numberWithInt:section]]){
+        CGRect headerRect = CGRectMake(0, 0, tableView.bounds.size.width, HEADER_HEIGHT);
+        UILabel* labelHeader = [[UILabel alloc] initWithFrame:headerRect];
+        [labelHeader setFont:[UIFont fontWithName:@"Helvetica-Bold" size:FONT_SECTIONHEADER_SIZE]];
+        labelHeader.textColor = [UIColor lightGrayColor];
+        labelHeader.textAlignment = UITextAlignmentCenter;
+        NSDate* localDate = [Utils toLocalDate:((Message*)[messages objectAtIndex:section]).when];// !!!
+        labelHeader.text = [Utils dateToString:localDate];
+        return labelHeader;
     }
     return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    // same cycle like above
-    for (int i = 0; i < messages.count; i += [[[datesRowCount allValues] objectAtIndex:i] intValue]) {
-        if (section == i){
-            return HEADER_HEIGHT;
-        }
+    if ([firstMsgs containsObject:[NSNumber numberWithInt:section]]){
+        return HEADER_HEIGHT;
     }
-    return 0;
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if ([lastMsgs containsObject:[NSNumber numberWithInt:section]]){
+            return DAY_LAST_FOOTER_HEIGHT;
+        }
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -227,14 +253,8 @@
             return [tableView dequeueReusableCellWithIdentifier:@"MessageBottomCell"];
         }
     }
-        /*int msgIndex = 0; // real message index according to section
-    for (int sec = 0; sec<indexPath.section; sec++) {
-        msgIndex += [[[datesRowCount allValues] objectAtIndex:sec] intValue];
-    }
-    msgIndex += indexPath.row;*/
     
     return [[UITableViewCell alloc] init];
-    //NSString* cellId = [msg.from isEqualToString:me] ? @"MessageCellMy" : @"MessageCellCollocutor";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

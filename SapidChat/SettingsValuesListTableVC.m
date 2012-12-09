@@ -42,7 +42,8 @@
             // languages are loaded directly to the table
             break;
         case 4: // app languages
-            values = [[NSArray alloc] initWithObjects:@"2", @"10", nil];
+            values = [[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%d", RUSSIAN],
+                                                      [NSString stringWithFormat:@"%d", ENGLISH], nil];
             break;
         case 5: // new messages languages
             values = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];

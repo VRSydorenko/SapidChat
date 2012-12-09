@@ -21,6 +21,7 @@
 
 #define FONT_SECTIONHEADER_SIZE 11.0f
 #define HEADER_HEIGHT 17.0f
+#define DAY_LAST_FOOTER_HEIGHT 7.0f;
 
 @interface MessagesVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate, UIActionSheetDelegate>
 

@@ -374,16 +374,20 @@
 +(ErrorCodes) deleteMessage:(Message*)msg{
     ErrorCodes result = OK;
     
+    NSString* hashKeyString;
     NSString* table;
     if ([msg.to isEqualToString:[UserSettings getEmail]]){
+        hashKeyString = [UserSettings getEmail];
         table = DBTABLE_MSGS_RECEIVED;
     } else if (![msg.to isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR]){
+        hashKeyString = [UserSettings getEmail];
         table = DBTABLE_MSGS_SENT;
     } else {
+        //hashKeyString = msg.lang
         return ERROR; // no deletion from the bank yet
     }
     
-    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[UserSettings getEmail]];
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:hashKeyString];
     DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", msg.when]];
     DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr andRangeKeyElement:rangeKeyAttr];
     

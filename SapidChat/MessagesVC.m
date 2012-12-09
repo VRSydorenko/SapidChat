@@ -58,6 +58,10 @@
     self.tabelMessages.delegate = self;
     self.title = [self getCollocutor];
     replyMode = ![[self getCollocutor] isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR];
+    if (!replyMode){
+        // disable action sheet for 'awaiting reply' messages until it is possible to delete messages from the bank
+        self.navigationItem.rightBarButtonItem = nil;
+    }
     
     [self setupActionSheets];
     

@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/MessagesVC.m"
-         timestampString = "376776610.914708"
+         timestampString = "376779884.436759"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "279"
-         endingLineNumber = "279"
+         startingLineNumber = "283"
+         endingLineNumber = "283"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/MessagesVC.m"
-         timestampString = "376776610.914708"
+         timestampString = "376779884.436759"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "288"
-         endingLineNumber = "288"
+         startingLineNumber = "292"
+         endingLineNumber = "292"
          landmarkName = "-getDistanceStringForLatitude:andLongitude:"
          landmarkType = "5">
       </FileBreakpoint>

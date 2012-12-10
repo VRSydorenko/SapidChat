@@ -114,6 +114,7 @@
     msg.from = [UserSettings getEmail];
     msg.to = self.collocutor;
     msg.text = self.textMessage.text;
+    msg.type = MSG_REGULAR;
     msg.when = [[NSDate date] timeIntervalSinceReferenceDate];
     
     msg.latitude = navCon.latitude;

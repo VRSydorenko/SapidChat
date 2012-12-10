@@ -174,7 +174,7 @@
 
 -(void) saveMessage:(Message*)msg{ // user specific method
     BOOL isNew = [[UserSettings getEmail] isEqualToString:msg.to];
-    NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, \"%@\", %.10f, %.10f, %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_LATD, F_LOND, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.text, msg.latitude, msg.longitude, isNew];
+    NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, \"%@\", %d, %.10f, %.10f, %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.text, msg.type, msg.latitude, msg.longitude, isNew];
     const char *insert_stmt = [insertSQL UTF8String];
     
     sqlite3_stmt *statement;
@@ -205,7 +205,7 @@
 
 -(NSArray*) loadMessagesWithCondition:(NSString*)condition{ // user specific method
     NSString* cond = condition.length > 0 ? [NSString stringWithFormat:@" AND %@", condition] : @"";
-    NSString *querySQL = [NSString stringWithFormat: @"SELECT %@, %@, %@, %@, %@, %@ FROM %@ WHERE %@=\"%@\" %@", F_FROM, F_TO, F_WHEN, F_TEXT, F_LATD, F_LOND, T_MSGS, F_AUTHOR, [UserSettings getEmail], cond];
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT %@, %@, %@, %@, %@, %@, %@ FROM %@ WHERE %@=\"%@\" %@", F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, T_MSGS, F_AUTHOR, [UserSettings getEmail], cond];
     const char *query_stmt = [querySQL UTF8String];
     
     NSMutableArray* msgs = [[NSMutableArray alloc] init];
@@ -227,11 +227,14 @@
             NSString *textField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 3)];
             msg.text = textField;
             
-            NSString *latitudeField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 4)];
-            msg.latitude = [latitudeField doubleValue];
+            NSString *typeField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 4)];
+            msg.type = typeField.intValue;
             
-            NSString *longitudeField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)];
-            msg.latitude = [longitudeField doubleValue];
+            NSString *latitudeField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)];
+            msg.latitude = latitudeField.doubleValue;
+            
+            NSString *longitudeField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 6)];
+            msg.latitude = longitudeField.doubleValue;
             
             [msgs addObject:msg];
         }

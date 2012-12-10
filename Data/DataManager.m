@@ -292,7 +292,7 @@
         attrVal = (DynamoDBAttributeValue*)[response.item valueForKey:key];
         
         if ([key isEqualToString: DBFIELD_USERS_PASSWORD]){
-            result.email = attrVal.s;
+            result.email = attrVal.s; // email field is used as storage
         }
         if ([key isEqualToString: DBFIELD_USERS_NICKNAME]){
             result.nickname = attrVal.s;
@@ -553,6 +553,7 @@
     NSMutableDictionary* msgDic = [[NSMutableDictionary alloc] init];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.text] forKey:DBFIELD_MSGS_TEXT];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.from] forKey:DBFIELD_MSGS_FROM];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", msg.type]] forKey:DBFIELD_MSGS_TYPE];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
     
     // TODO: do it in a batch!
@@ -603,6 +604,7 @@
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.text] forKey:DBFIELD_MSGS_TEXT];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.from] forKey:DBFIELD_MSGS_FROM];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.to] forKey:DBFIELD_MSGS_TO];
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", message.type]] forKey:DBFIELD_MSGS_TYPE];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
     
     
@@ -729,6 +731,7 @@
         [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%.10f", msg.latitude]] forKey:DBFIELD_MSGS_LATD];
         [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%.10f", msg.longitude]] forKey:DBFIELD_MSGS_LOND];
     }
+    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", msg.type]] forKey:DBFIELD_MSGS_TYPE];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
     
     @try {

@@ -14,6 +14,7 @@
 @property (nonatomic) NSString* from;
 @property (nonatomic) NSString* to;
 @property (nonatomic) int when;
+@property (nonatomic) int type;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
 // initial messages are timestamps of first messages in the current dialog

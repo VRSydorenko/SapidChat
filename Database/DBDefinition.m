@@ -39,6 +39,7 @@
     [tMessages addField:F_TO type:DBTYPE_TEXT notNull:YES];
     [tMessages addField:F_WHEN type:DBTYPE_REAL notNull:YES];
     [tMessages addField:F_TEXT type:DBTYPE_TEXT notNull:YES];
+    [tMessages addField:F_TYPE type:DBTYPE_REAL notNull:YES];
     [tMessages addField:F_LATD type:DBTYPE_REAL notNull:YES];
     [tMessages addField:F_LOND type:DBTYPE_REAL notNull:YES];
     [tMessages addField:F_UNREAD type:DBTYPE_REAL notNull:NO];

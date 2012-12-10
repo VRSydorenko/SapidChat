@@ -83,6 +83,9 @@
         if ([key isEqualToString: DBFIELD_MSGS_TEXT]){
             result.text = attrVal.s;
         }
+        if ([key isEqualToString: DBFIELD_MSGS_TYPE]){
+            result.type = [attrVal.n intValue];
+        }
         if ([key isEqualToString: DBFIELD_MSGS_LATD]){
             result.latitude = [attrVal.s doubleValue];
         }

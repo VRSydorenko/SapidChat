@@ -18,14 +18,14 @@ typedef enum ErrorCodes{
     NO_SUCH_USER    = 4,
     WRONG_PASSWORD  = 5,
     EMAIL_NOT_SPECIFIED = 6,
-    AMAZON_SERVICE_ERROR = 7,
-    PASSWORD_TOO_SHORT = 8,
+    AMAZON_SERVICE_ERROR= 7,
+    PASSWORD_TOO_SHORT  = 8,
     LOGIN_NOT_SPECIFIED = 9,
-    TEXT_NOT_SPECIFIED = 10,
+    TEXT_NOT_SPECIFIED  = 10,
     SYSTEM_NO_MESSAGES_TO_PICKUP = 11,
-    SYSTEM_NO_SUCH_MESSAGE = 12,
+    SYSTEM_NO_SUCH_MESSAGE  = 12,
     SYSTEM_CONVERSATION_LANGUAGES_NOT_CONFIGURED = 13,
-    POSTSTAMPS_NOT_ENOUGH = 14,
+    POSTSTAMPS_NOT_ENOUGH   = 14,
     PASSWORDS_NOT_MATCH = 15,
 } ErrorCodes;
 
@@ -46,6 +46,13 @@ typedef enum Languages{ // !!! Don't change the numbers !!!
     LANG_COUNT  = 12,
 } Languages;
 
+
+typedef enum MessageTypes{ // !!! Don't change the numbers !!!
+    MSG_SYSTEM      = 0,
+    MSG_REGULAR     = 1,
+    MSG_INTRIGUE    = 2,
+} MessageTypes;
+
 // database
 
 #define DBTABLE_USERS @"t_users"
@@ -64,6 +71,7 @@ typedef enum Languages{ // !!! Don't change the numbers !!!
 #define DBFIELD_MSGS_TO @"to"
 #define DBFIELD_MSGS_WHEN @"when"
 #define DBFIELD_MSGS_TEXT @"text"
+#define DBFIELD_MSGS_TYPE @"type"
 #define DBFIELD_MSGS_LATD @"latd" // latitude
 #define DBFIELD_MSGS_LOND @"lond" // longitude
 

@@ -241,7 +241,7 @@
         // login
         DynamoDBGetItemRequest *getItemRequest = [[DynamoDBGetItemRequest alloc] init];
         getItemRequest.tableName = DBTABLE_USERS;
-        DynamoDBAttributeValue* keyAttr = [[DynamoDBAttributeValue alloc] initWithS:email];
+        DynamoDBAttributeValue* keyAttr = [[DynamoDBAttributeValue alloc] initWithS:[email lowercaseString]];
         DynamoDBKey *key = [[DynamoDBKey alloc] initWithHashKeyElement: keyAttr];
         getItemRequest.key = key;
         response = [[AmazonClientManager ddb] getItem:getItemRequest];

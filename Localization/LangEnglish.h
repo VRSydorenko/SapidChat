@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Lang.h"
+#import "Utils.h"
 
 @interface LangEnglish : NSObject <Language>
 

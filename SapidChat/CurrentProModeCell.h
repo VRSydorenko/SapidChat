@@ -10,5 +10,5 @@
 
 @interface CurrentProModeCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UITextView *textCurrentProMode;
+@property (strong, nonatomic) IBOutlet UILabel *labelProMode;
 @end

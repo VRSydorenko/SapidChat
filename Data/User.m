@@ -15,4 +15,8 @@
 @synthesize languages = _languages;
 @synthesize rp = _rp;
 
+-(NSString*)getEmail{
+    return [_email lowercaseString];
+}
+
 @end

@@ -59,7 +59,7 @@
             switch (indexPath.row) {
                 case 0:{
                     CurrentProModeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellProOrNotPro"];
-                    cell.textCurrentProMode.text = [self getCurrentProModeCellText];
+                    cell.labelProMode.text = [self getCurrentProModeCellText];
                     return  cell;
                 }
                 case 1:{
@@ -143,7 +143,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0){
-        return 50;
+        return 35; // first row. Will be with image later
     }
     return 35;
 }

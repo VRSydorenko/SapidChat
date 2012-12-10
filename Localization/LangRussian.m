@@ -12,6 +12,11 @@
 
 // universal
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
+// info
++(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return @"Расстояние до собеседника";}
++(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{
+    return [NSString stringWithFormat:@"Когда вы получаете входящее сообщение, вы видите расстояние от вас до собеседника.\rИнтересно, с кем вы общаетесь. Ваш собеседник может быть рядом, а может быть и за тысячи %@ от вас.", [Utils getIfMetricMeasurementSystem] ? @"километров" : @"миль"];
+}
 // about screen
 +(NSString*) LOC_ABOUT_SCREEN_TITLE{ return @"О приложении";}
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Виктор Сидоренко";}
@@ -129,9 +134,9 @@
 
 // screen balance
 +(NSString*) LOC_BALANCE_SCREEN_TITLE{return @"Баланс";}
-+(NSString*) LOC_BALANCE_PRO_NO{return @"Вы используете ограниченную версию Sapid Chat";}
-+(NSString*) LOC_BALANCE_PRO_YES{return @"Вы используете Pro версию Sapid Chat";}
-+(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Подробнее о Pro";}
++(NSString*) LOC_BALANCE_PRO_NO{return @"Ограниченная версия!";}
++(NSString*) LOC_BALANCE_PRO_YES{return @"Полная версия!";}
++(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Преимущества полной версии";}
 +(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Перейти на Pro";}
 +(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Восстановить покупку";}
 +(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return @"Ваш баланс";}

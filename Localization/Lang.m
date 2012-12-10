@@ -31,6 +31,9 @@
 
 // universal
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
+// info
++(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return [[self AppLanguage] LOC_INFO_FEATURE_TITLE_DISTANCE];}
++(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{ return [[self AppLanguage] LOC_INFO_FEATURE_DESCR_DISTANCE];}
 // about screen
 +(NSString*) LOC_ABOUT_SCREEN_TITLE{ return [[self AppLanguage] LOC_ABOUT_SCREEN_TITLE];}
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return [[self AppLanguage] LOC_ABOUT_VIKTOR_SYDORENKO];}

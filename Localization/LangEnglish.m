@@ -12,6 +12,11 @@
 
 // universal
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
+// info
++(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return @"Distance to collocutor";}
++(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{
+    return [NSString stringWithFormat:@"When you receive a message you see a distance between you and the collocutor.\rIt is interesting who you a talking to, they can be close to you or in thousand %@ away.", [Utils getIfMetricMeasurementSystem] ? @"kilometers" : @"miles"];
+}
 // about screen
 +(NSString*) LOC_ABOUT_SCREEN_TITLE{ return @"About the app";}
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Viktor Sydorenko";}
@@ -125,12 +130,13 @@
 +(NSString*) LOC_SETTINGS_CHANGEPASS_BTN_OK{return @"Change";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE{return @"New password";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_MSG{return @"The password has been changed";}
++(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK{return @"OK";}
 
 // screen balance
 +(NSString*) LOC_BALANCE_SCREEN_TITLE{return @"Balance";}
-+(NSString*) LOC_BALANCE_PRO_NO{return @"You are using limited version of Sapid Chat";}
-+(NSString*) LOC_BALANCE_PRO_YES{return @"You are using a Pro version of Sapid Chat";}
-+(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Read about Pro";}
++(NSString*) LOC_BALANCE_PRO_NO{return @"Limited version!";}
++(NSString*) LOC_BALANCE_PRO_YES{return @"Pro version!";}
++(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Advantages of the Pro";}
 +(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Make it Pro";}
 +(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Restore purchase";}
 +(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return @"Your balance";}
@@ -140,7 +146,6 @@
 +(NSString*) LOC_BALANCE_HEADER_TOPUP{return @"Top up your balance";}
 +(NSString*) LOC_BALANCE_BUY_POSTSTAMPS{return @"poststamps";}
 
-+(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK{return @"OK";}
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"English";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ARABIC{ return @"Arabic";}

@@ -11,6 +11,9 @@
 @protocol Language
 // universal
 +(NSString*) LOC_UNI_APP_NAME;
+// info
++(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE;
++(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE;
 // about screen
 +(NSString*) LOC_ABOUT_SCREEN_TITLE;
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO;

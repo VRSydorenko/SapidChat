@@ -70,6 +70,7 @@
         case TEXT_NOT_SPECIFIED:    return [Lang LOC_ERRORCODE_TEXT_NOT_SPECIFIED];
         case POSTSTAMPS_NOT_ENOUGH: return [Lang LOC_ERRORCODE_POSTSTAMPS_NOT_ENOUGH];
         case PASSWORDS_NOT_MATCH:   return [Lang LOC_ERRORCODE_PASSWORDS_NOT_MATCH];
+        case PASSWORD_NOT_SPECIFIED:   return [Lang LOC_ERRORCODE_PASSWORD_NOT_SPECIFIED];
         default:
             return @"Error without description.";
     }

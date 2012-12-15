@@ -45,6 +45,8 @@
 +(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Ник";}
 +(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Поскольку общение здесь анонимное, то было бы хорошо придумать себе ник чтобы было удобно различать собеседников";}
 +(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Выберите языки, на которых вы можете вести переписку";}
++(NSString*) LOC_REGISTATOR_ERR_EMPTYNICK{return @"Не указан ник";}
++(NSString*) LOC_REGISTATOR_ERR_NOLANGS_SELECTED{return @"Не выбрано ни одного языка";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Вход";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Регистрация";}
@@ -87,7 +89,7 @@
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Вытянуть";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"В ожидании ответа...";}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"Пока что нет сообщений";}
-+(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"Знаете, сейчас нету сообщения на вашем языке(ах) для выборки. Давайте не много подождем и тогда что-нибудь появится. Тем временем, пока можно написать что-то от себя ;)";}
++(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"Сейчас нету сообщения на вашем языке(ах) для выборки.";}
 +(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return @"Скрыть";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"км";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"м";}
@@ -96,11 +98,15 @@
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Ответить";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Разместить еще";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE{return @"Действия над диалогом";}
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE{return @"Удалить";};
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE{return @"Удалить";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM{return @"Пожаловаться";}
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL{return @"Отмена";};
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR{return @"Очистить";};
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_EDIT{return @"Изменить";};
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL{return @"Отмена";}
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR{return @"Очистить";}
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_EDIT{return @"Изменить";}
++(NSString*) LOC_MESSAGES_ALERT_DELETION_TITLE{return @"Подтверждение удаления";}
++(NSString*) LOC_MESSAGES_ALERT_DELETION_QUESTION{return @"Удалить этот диалог?";}
++(NSString*) LOC_MESSAGES_ALERT_DELETION_CANCEL{return @"Отмена";}
++(NSString*) LOC_MESSAGES_ALERT_DELETION_OK{return @"Да";}
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"Новое сообщение";}
 +(NSString*) LOC_COMPOSE_BTN_SEND{return @"Отправить";}
@@ -179,10 +185,11 @@
 +(NSString*) LOC_ERRORCODE_WRONG_PASSWORD{return @"Неправильный пароль";}
 +(NSString*) LOC_ERRORCODE_EMAIL_NOT_SPECIFIED{return @"Не указан email";}
 +(NSString*) LOC_ERRORCODE_AMAZON_SERVICE_ERROR{return @"Ошибка сервиса";}
-+(NSString*) LOC_ERRORCODE_PASSWORD_TOO_SHORT{return @"Пароль слишком короткий";}
++(NSString*) LOC_ERRORCODE_PASSWORD_TOO_SHORT{return @"Пароль слишком короткий (мин 5 символов)";}
 +(NSString*) LOC_ERRORCODE_LOGIN_NOT_SPECIFIED{return @"Не указан логин";}
 +(NSString*) LOC_ERRORCODE_TEXT_NOT_SPECIFIED{return @"Текст не может быть пустым";}
 +(NSString*) LOC_ERRORCODE_POSTSTAMPS_NOT_ENOUGH{return @"Недостаточно марок";}
 +(NSString*) LOC_ERRORCODE_PASSWORDS_NOT_MATCH{return @"Новый пароль не подтвержден";}
++(NSString*) LOC_ERRORCODE_PASSWORD_NOT_SPECIFIED{return @"Не указан пароль";}
 
 @end

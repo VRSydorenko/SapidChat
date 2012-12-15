@@ -45,6 +45,8 @@
 +(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Nickname";}
 +(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Since the communication here is anonymous it would be good to specify a nickname in order for distinguish between interlocutors";}
 +(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Choose languages you can text on";}
++(NSString*) LOC_REGISTATOR_ERR_EMPTYNICK{return @"Nick not specified";}
++(NSString*) LOC_REGISTATOR_ERR_NOLANGS_SELECTED{return @"No languages selected";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Login";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Registration";}
@@ -87,7 +89,7 @@
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Pick new";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"Awaiting reply...";}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"No records to display yet";}
-+(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"You know, there are currently no messages to pick up in your language(s).\rLet's wait a little bit for somebody to create a message for you. In meanwhile we can add some message to somebody now ;)";}
++(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"There are currently no messages in your language(s) to pick up.";}
 +(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return @"Hide";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"km";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"m";}
@@ -96,11 +98,15 @@
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Reply";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Compose one more";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE{return @"Dialog actions";}
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE{return @"Delete";};
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE{return @"Delete";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM{return @"Claim";}
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL{return @"Cancel";};
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR{return @"Clear";};
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_EDIT{return @"Edit";};
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL{return @"Cancel";}
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR{return @"Clear";}
++(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_EDIT{return @"Edit";}
++(NSString*) LOC_MESSAGES_ALERT_DELETION_TITLE{return @"Confirm delete";}
++(NSString*) LOC_MESSAGES_ALERT_DELETION_QUESTION{return @"Delete this dialog?";}
++(NSString*) LOC_MESSAGES_ALERT_DELETION_CANCEL{return @"Cancel";}
++(NSString*) LOC_MESSAGES_ALERT_DELETION_OK{return @"Yes";}
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"New message";}
 +(NSString*) LOC_COMPOSE_BTN_SEND{return @"Send";}
@@ -179,10 +185,11 @@
 +(NSString*) LOC_ERRORCODE_WRONG_PASSWORD{return @"The password is incorrect";}
 +(NSString*) LOC_ERRORCODE_EMAIL_NOT_SPECIFIED{return @"The email cannot be empty";}
 +(NSString*) LOC_ERRORCODE_AMAZON_SERVICE_ERROR{return @"Service error ocurred";}
-+(NSString*) LOC_ERRORCODE_PASSWORD_TOO_SHORT{return @"The password is too short";}
++(NSString*) LOC_ERRORCODE_PASSWORD_TOO_SHORT{return @"The password is too short (min 5 characters)";}
 +(NSString*) LOC_ERRORCODE_LOGIN_NOT_SPECIFIED{return @"The login cannot be empty";}
 +(NSString*) LOC_ERRORCODE_TEXT_NOT_SPECIFIED{return @"Text cannot be empty";}
 +(NSString*) LOC_ERRORCODE_POSTSTAMPS_NOT_ENOUGH{return @"Not enough poststamps";}
 +(NSString*) LOC_ERRORCODE_PASSWORDS_NOT_MATCH{return @"New password is not confirmed";}
++(NSString*) LOC_ERRORCODE_PASSWORD_NOT_SPECIFIED{return @"The password not specified";}
 
 @end

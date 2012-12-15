@@ -22,7 +22,7 @@
 #define HEADER_HEIGHT 17.0f
 #define DAY_LAST_FOOTER_HEIGHT 7.0f;
 
-@interface MessagesVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate, UIActionSheetDelegate>
+@interface MessagesVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 
 @property Dialog *dialog;
 @property (strong, nonatomic) IBOutlet UITableView *tabelMessages;

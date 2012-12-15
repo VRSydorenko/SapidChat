@@ -86,6 +86,9 @@
 }
 
 -(ErrorCodes) validate{
+    if (self.editCurrentPass.text.length == 0){
+        return PASSWORD_NOT_SPECIFIED;
+    }
     if (![self.editCurrentPass.text isEqualToString:[AmazonKeyChainWrapper getValueFromKeyChain:[UserSettings getEmail]]]){
         return WRONG_PASSWORD;
     }

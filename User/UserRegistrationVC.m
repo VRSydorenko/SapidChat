@@ -116,22 +116,39 @@
     NSString *nextSegueId = nil;
     if (self.textEmail){ // now is initial screen
         nextSegueId = SEGUE_EMAIL_TO_NICK;
-        if (self.textEmail.text.length == 0 || [Utils validateEmail:self.textEmail.text] != OK || [DataManager existsUserWithEmail:self.textEmail.text]){
-            self.textEmail.textColor = [UIColor redColor];
+        if (self.textEmail.text.length == 0){
+            self.labelServiseMessage.text = [Utils getErrorDescription:EMAIL_NOT_SPECIFIED];
+            return;
+        }
+        if ([Utils validateEmail:self.textEmail.text] != OK){
+            self.labelServiseMessage.text = [Utils getErrorDescription:INVALID_EMAIL];
+            return;
+        }
+        if ([DataManager existsUserWithEmail:self.textEmail.text]){
+            self.labelServiseMessage.text = [Utils getErrorDescription:USER_EXISTS];
+            return;
+        }
+        if (self.textPassword.text.length  == 0){
+            self.labelServiseMessage.text = [Utils getErrorDescription:PASSWORD_NOT_SPECIFIED];
             return;
         }
         if (self.textPassword.text.length < MINIMUM_PASSWORD_LENGTH){
-            self.textPassword.textColor = [UIColor redColor];
+            self.labelServiseMessage.text = [Utils getErrorDescription:PASSWORD_TOO_SHORT];
             return;
         }
         [UserSettings setSaveCredentials:self.switchSaveCreds.on];
     }
     if (self.textNick){
+        if (self.textNick.text.length == 0){
+            self.labelServiseMessage.text = [Lang LOC_REGISTATOR_ERR_EMPTYNICK];
+            return;
+        }
         nextSegueId = SEGUE_NICK_TO_LANGS;
     }
     if (self.tableLanguages){ // now is languages screen
         nextSegueId = SEGUE_LANGS_TO_FINISH;
         if (navController.selectedLanguages.count == 0){
+            self.labelServiseMessage.text = [Lang LOC_REGISTATOR_ERR_NOLANGS_SELECTED];
             return;
         }
     }
@@ -139,6 +156,7 @@
     if (self.btnClose){ // last segue reached. We are done.
         [navController.handler controllerToDismiss:navController whichRegisteredTheUser: registered ? user : nil];
     } else {
+        self.labelServiseMessage.text = @"";
         [self saveControlsData];
         [self performSegueWithIdentifier:nextSegueId sender:self];
     }

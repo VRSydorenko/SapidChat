@@ -88,37 +88,27 @@
     NSString* cancel = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL];
     
     NSString* delete = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE];
-    NSString* claim = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM];
-    replyModeActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:delete otherButtonTitles:claim, nil];
+    //NSString* claim = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM];
+    replyModeActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:delete otherButtonTitles:/*claim,*/ nil];
     
-    NSString* clear = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR];
+    /*NSString* clear = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR];
     NSString* edit = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_EDIT];
-    aloneModeActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:clear otherButtonTitles:edit, nil];
+    aloneModeActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:clear otherButtonTitles:edit, nil];*/
 }
 
 -(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (actionSheet == replyModeActionSheet){
         [self processReplyModeActionSheet:buttonIndex];
-    } else if (actionSheet == aloneModeActionSheet){
+    }/* else if (actionSheet == aloneModeActionSheet){
         [self processAloneModeActionSheet:buttonIndex];
-    }
+    }*/
 }
 
 -(void) processReplyModeActionSheet:(int)buttonIndex{
     switch (buttonIndex) {
         case 0: // delete
         {
-            bool ok = YES;
-            for (Message* message in messages) {
-                if ([DataManager deleteMessage:message] != OK){
-                    ok = NO;
-                    break;
-                }
-            }
-            if (ok){
-                //[self.tabelMessages reloadData];
-                [self.navigationController popViewControllerAnimated:YES];
-            }
+            [self AskToConfirmDeletion];
             break;
         }
         case 1: // claim
@@ -129,27 +119,16 @@
 }
 
 -(void) processAloneModeActionSheet:(int)buttonIndex{
-    switch (buttonIndex) {
+    /*switch (buttonIndex) {
         case 0: // delete
         {
-            /*bool ok = YES;
-            for (Message* message in messages) {
-                if ([DataManager deleteMessage:message] != OK){
-                    ok = NO;
-                    break;
-                }
-            }
-            if (ok){
-                //[self.tabelMessages reloadData];
-                [self.navigationController popViewControllerAnimated:YES];
-            }*/
             break;
         }
         case 1: // edit
         {
             break;
         }
-    }
+    }*/
 }
 
 -(void) updateMessages{
@@ -408,6 +387,27 @@
         [replyModeActionSheet showInView:self.view];
     } else {
         [aloneModeActionSheet showInView:self.view];
+    }
+}
+
+-(void) AskToConfirmDeletion{
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@""/*[Lang LOC_MESSAGES_ALERT_DELETION_TITLE]*/ message:[Lang LOC_MESSAGES_ALERT_DELETION_QUESTION] delegate:self cancelButtonTitle:[Lang LOC_MESSAGES_ALERT_DELETION_CANCEL] otherButtonTitles:[Lang LOC_MESSAGES_ALERT_DELETION_OK], nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1){
+        bool ok = YES;
+        for (Message* message in messages) {
+            if ([DataManager deleteMessage:message] != OK){
+                ok = NO;
+                break;
+            }
+        }
+        if (ok){
+            //[self.tabelMessages reloadData];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 @end

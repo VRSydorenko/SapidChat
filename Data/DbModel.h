@@ -27,6 +27,7 @@ typedef enum ErrorCodes{
     SYSTEM_CONVERSATION_LANGUAGES_NOT_CONFIGURED = 13,
     POSTSTAMPS_NOT_ENOUGH   = 14,
     PASSWORDS_NOT_MATCH = 15,
+    PASSWORD_NOT_SPECIFIED = 16,
 } ErrorCodes;
 
 typedef enum Languages{ // !!! Don't change the numbers !!!

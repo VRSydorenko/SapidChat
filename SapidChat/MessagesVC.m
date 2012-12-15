@@ -225,9 +225,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
+    bool incoming = [msg.to isEqualToString:me];
     switch (indexPath.row) {
         case 0:{ // top
-            Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
             MessageTopCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageTopCell"];
             if (cell){
                 cell.labelTime.font = timeAndDistanceFont;
@@ -235,26 +236,43 @@
                 cell.labelTime.text = [Utils timeToString:localTime];
                 
                 NSString* distanceText = @"";
-                if ([msg.to isEqualToString:me]){
+                if (incoming){
                     cell.labelDistance.font = timeAndDistanceFont;
                     distanceText = [self getDistanceStringForLatitude:msg.latitude andLongitude:msg.longitude];
                 }
                 cell.labelDistance.text = distanceText;
+                
+                UIImage* bgImg = [self getTopMessageCellImageBkg:msg.type incoming:incoming];
+                if (bgImg){
+                    cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
+                }
             }
             return cell;
         }
         case 1:{ // middle
-            Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
             MessageMiddleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageMiddleCell"];
             if (cell){
                 cell.labelMessage.font = messageFont;
                 cell.labelMessage.text = msg.text;
                 
+                UIImage* bgImg = [self getMidMessageCellImageBkg:msg.type incoming:incoming];
+                if (bgImg){
+                    cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
+                }
+                
             }
             return cell;
         }
         case 2:{ // bottom
-            return [tableView dequeueReusableCellWithIdentifier:@"MessageBottomCell"];
+            MessageBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageBottomCell"];
+            if (cell){
+                UIImage* bgImg = [self getBottomMessageCellImageBkg:msg.type incoming:incoming];
+                if (bgImg){
+                    cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
+                }
+                
+            }
+            return cell;
         }
     }
     
@@ -270,10 +288,43 @@
         Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
         height = [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + CELL_MESSAGE_TOPBOTTOM_PADDING;
     }
-    if (indexPath.row == 2){ // bottom meccage cell
+    if (indexPath.row == 2){ // bottom message cell
         height = CELL_MESSAGE_BOTTOM_HEIGHT;
     }
     return height;
+}
+
+- (UIImage*) getTopMessageCellImageBkg:(int)msgType incoming:(bool)incoming{
+    NSString* fileName = [NSString stringWithFormat:@"%@_top.png", [self getMsgCellImageNameStart:msgType incoming:incoming]];
+    return [UIImage imageNamed:fileName];
+}
+
+- (UIImage*) getMidMessageCellImageBkg:(int)msgType incoming:(bool)incoming{
+    NSString* fileName = [NSString stringWithFormat:@"%@_mid.png", [self getMsgCellImageNameStart:msgType incoming:incoming]];
+    return [UIImage imageNamed:fileName];
+}
+
+- (UIImage*) getBottomMessageCellImageBkg:(int)msgType incoming:(bool)incoming{
+    NSString* fileName = [NSString stringWithFormat:@"%@_bottom.png", [self getMsgCellImageNameStart:msgType incoming:incoming]];
+    return [UIImage imageNamed:fileName];
+}
+
+-(NSString*) getMsgCellImageNameStart:(int)type incoming:(bool)incoming{
+    NSString* fileName = @"msg_%@_%@";
+    NSString* inOutSpecifier = incoming || type == MSG_SYSTEM ? @"in" : @"out"; // system are always In
+    NSString* typeSpecifier;
+    switch (type) {
+        case MSG_REGULAR:
+            typeSpecifier = @"regular";
+            break;
+        case MSG_SYSTEM:
+            typeSpecifier = @"system";
+            break;
+        case MSG_INTRIGUE:
+            typeSpecifier = @"intrigue";
+            break;
+    }
+    return [NSString stringWithFormat:fileName, inOutSpecifier, typeSpecifier];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

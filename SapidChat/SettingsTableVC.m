@@ -23,7 +23,6 @@
 
 @implementation SettingsTableVC
 @synthesize switchSaveCreds;
-@synthesize labelTimeZone;
 @synthesize labelTimeFormat;
 @synthesize labelDateFormat;
 @synthesize labelNickname;
@@ -54,7 +53,6 @@
 
 -(void) updateLabelValues{
     User* user = [DataManager getCurrentUser];
-    self.labelTimeZone.text = [UserSettings getTimeZone];
     self.labelTimeFormat.text = [Utils timeToString:[NSDate date]];
     self.labelDateFormat.text = [Utils dateToString:[NSDate date]];
     self.labelNickname.text = user.nickname;
@@ -89,13 +87,10 @@
     switch (indexPath.section) {
         case 0: // time and data section
             switch (indexPath.row) {
-                case 0: // hardcoded!!!
-                    valuesMode = VALUES_TIME_ZONE;
-                    break;
-                case 1:
+                case 0:
                     valuesMode = VALUES_TIME_FORMAT;
                     break;
-                case 2:
+                case 1:
                     valuesMode = VALUES_DATE_FORMAT;
                     break;
             }
@@ -180,7 +175,6 @@
 }
 
 - (void)viewDidUnload {
-    [self setLabelTimeZone:nil];
     [self setLabelTimeFormat:nil];
     [self setLabelDateFormat:nil];
     [self setLabelNickname:nil];

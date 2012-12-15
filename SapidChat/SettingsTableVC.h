@@ -13,7 +13,6 @@
 
 - (IBAction)switchSaveCreds:(UISwitch *)sender;
 @property (strong, nonatomic) IBOutlet UISwitch *switchSaveCreds;
-@property (strong, nonatomic) IBOutlet UILabel *labelTimeZone;
 @property (strong, nonatomic) IBOutlet UILabel *labelTimeFormat;
 @property (strong, nonatomic) IBOutlet UILabel *labelDateFormat;
 @property (strong, nonatomic) IBOutlet UILabel *labelNickname;

@@ -106,15 +106,13 @@
 }
 
 +(NSDate*)toLocalDate:(int)globalTimestamp{
-    NSTimeZone *localTz = [NSTimeZone timeZoneWithName:[UserSettings getTimeZone]];
-    NSInteger seconds = localTz.secondsFromGMT;
+    NSInteger seconds = 0;//[NSTimeZone systemTimeZone].secondsFromGMT;
     return [NSDate dateWithTimeIntervalSinceReferenceDate:globalTimestamp + seconds];
 }
 
 +(int)toGlobalTimestamp:(int)localTimestamp
 {
-    NSTimeZone *localTz = [NSTimeZone timeZoneWithName:[UserSettings getTimeZone]];
-    return localTimestamp - localTz.secondsFromGMT;
+    return localTimestamp;// - [NSTimeZone systemTimeZone].secondsFromGMT;
 }
 
 +(BOOL) user:(User*)one isEqualTo:(User*)two{

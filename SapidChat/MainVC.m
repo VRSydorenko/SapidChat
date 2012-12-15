@@ -25,7 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithName:[UserSettings getTimeZone]]];
+    [NSTimeZone resetSystemTimeZone];
     [DataManager getDialogs];
     self.tableMain.dataSource = self;
     self.tableMain.delegate = self;

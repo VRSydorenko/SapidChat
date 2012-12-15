@@ -18,7 +18,6 @@
 
 #define SETTINGS_DATEFORMAT @"defs_dateFormat"
 #define SETTINGS_TIMEFORMAT @"defs_timeFormat"
-#define SETTINGS_TIMEZONE @"defs_timeZone"
 #define SETTINGS_MEASURE_SYS @"defs_measure_sys"
 #define SETTINGS_SAVECREDENTIALS @"defs_saveCredentials"
 #define CURRENTLY_LOGGED_EMAIL @"defs_savedEmail"
@@ -33,9 +32,6 @@
 
 +(NSString*) getTimeFormat;
 +(void) setTimeFormat:(NSString*)format;
-
-+(NSString*) getTimeZone;
-+(void) setTimeZone:(NSString*)timezone;
 
 +(BOOL) getSaveCredentials;
 +(void) setSaveCredentials:(BOOL)save;

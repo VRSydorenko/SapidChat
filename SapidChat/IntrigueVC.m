@@ -26,6 +26,7 @@
 @synthesize labelServiceMessage;
 @synthesize labelConditions;
 @synthesize textEmail;
+@synthesize textMsg;
 @synthesize btnSend;
 @synthesize indicatorSend;
 
@@ -39,6 +40,8 @@
     self.title = [Lang LOC_INTRIGUE_SCREEN_TITLE];
     [LocalizationUtils setText:[Lang LOC_INTRIGUE_LABEL_ENTERMAIL] forLabel:self.labelEnterEmail];
     [LocalizationUtils setTitle:[Lang LOC_INTRIGUE_BTN_SEND] forButton:self.btnSend];
+    self.textEmail.placeholder = [Lang LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL];
+    self.textMsg.placeholder = [Lang LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG];
     [self updateConoditionsLabel];
 }
 
@@ -50,6 +53,7 @@
     [self setIndicatorSend:nil];
     [self setLabelServiceMessage:nil];
     [self setLabelConditions:nil];
+    [self setTextMsg:nil];
     [super viewDidUnload];
 }
 
@@ -68,7 +72,7 @@
         dispatch_async(refreshQueue, ^{
             ErrorCodes errorCode = [PurchaseManager beginRegularPoststampsSpending:intriguePrice];
             if (errorCode == OK){
-                errorCode = [DataManager sendIntrigueTo:email];
+                errorCode = [DataManager sendIntrigueTo:email withOptionalText:self.textMsg.text];
             }
             if (errorCode == OK){
                 [PurchaseManager finishRegularPoststampsSpending:intriguePrice];

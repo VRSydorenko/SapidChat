@@ -28,10 +28,10 @@
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE{ return @"Application language";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT{ return @"Next";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_GO{ return @"Go!";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_WELCOME{ return @"Welcome!\rHere you will find interesting chatting! The intrigue is the essential thing which can be achieved by three simple steps.";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_COMPOSE{ return @"You compose a message which is placed to the shared message queue.";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_PICKITUP{ return @"Somebody picks it up and replies!\rIn the same way you can pick someone's message!";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_COMMUNICATE{ return @"Communication starts!\rYou don't know who is the person replied you, you don't know where they are from and they don't know about you anything!\rAll what happening is a message luckily sent to somebody! The intrigue!";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_WELCOME{ return @"Welcome to SapidChat!";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_COMPOSE{ return @"Compose a message and place it to a common message queue.";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_PICKITUP{ return @"Somebody picks it randomly up and replies!";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_COMMUNICATE{ return @"Communicate!";}
 // registration screen
 +(NSString*) LOC_REGISTATOR_TITLE{return @"Registration";}
 +(NSString*) LOC_REGISTATOR_BTN_CANCEL { return @"Cancel";}
@@ -79,6 +79,8 @@
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Make intrigued!";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Sent";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Sending...";}
++(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL{return @"Email";}
++(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Your message (optional)";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Compose";}

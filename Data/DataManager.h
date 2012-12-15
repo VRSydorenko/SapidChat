@@ -25,7 +25,7 @@
 +(BOOL) existsUserWithEmail:(NSString*)email;
 +(ErrorCodes) registerNewUser:(User*)user password:(NSString*)password;
 +(ErrorCodes)login:(NSString*)email password:(NSString*)password;
-+(ErrorCodes) sendIntrigueTo:(NSString*)email;
++(ErrorCodes) sendIntrigueTo:(NSString*)email withOptionalText:(NSString*)text;
 +(ErrorCodes) restorePassword:(NSString*)email;
 
 +(NSArray*) getDialogs;

@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#define VALUES_TIME_ZONE 0 // hardcoded!!!
-#define VALUES_TIME_FORMAT 1
-#define VALUES_DATE_FORMAT 2
-#define VALUES_CNV_LANGUAGES 3
-#define VALUES_APP_LANGUAGES 4
-#define VALUES_NEWMSG_LANGUAGES 5
+#define VALUES_TIME_FORMAT 0
+#define VALUES_DATE_FORMAT 1
+#define VALUES_CNV_LANGUAGES 2
+#define VALUES_APP_LANGUAGES 3
+#define VALUES_NEWMSG_LANGUAGES 4
 
 @interface SettingsValuesListTableVC : UITableViewController
 

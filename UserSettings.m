@@ -39,18 +39,6 @@
     [[NSUserDefaults standardUserDefaults] setValue:format forKey:[self userSpecKey:SETTINGS_TIMEFORMAT]];
 }
 
-+(NSString*) getTimeZone{
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSString* result = [defaults objectForKey:[self userSpecKey:SETTINGS_TIMEZONE]];
-    if (!result){
-        return [NSTimeZone defaultTimeZone].name;
-    }
-    return result;
-}
-+(void) setTimeZone:(NSString*)timezone{
-    [[NSUserDefaults standardUserDefaults] setValue:timezone forKey:[self userSpecKey:SETTINGS_TIMEZONE]];
-}
-
 + (BOOL) getSaveCredentials{
     return (BOOL)[[NSUserDefaults standardUserDefaults] boolForKey:[self userSpecKey:SETTINGS_SAVECREDENTIALS]];
 }

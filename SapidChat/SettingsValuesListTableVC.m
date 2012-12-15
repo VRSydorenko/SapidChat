@@ -28,24 +28,21 @@
     [super viewDidLoad];
     
     switch (self.valuesMode) {
-        case 0: // time zones
-            values = [NSTimeZone knownTimeZoneNames];
-            break;
-        case 1: // time formats
+        case VALUES_TIME_FORMAT:
             values = [[NSArray alloc] initWithObjects:@"HH:mm", @"hh:mm", @"hh:mm a", nil];
             break;
-        case 2: // date formats
+        case VALUES_DATE_FORMAT:
             values = [[NSArray alloc] initWithObjects:@"YYYY-MM-dd E", @"YYYY.MM.dd", @"YYYY-MM-dd", @"MM.dd E", @"dd.MM.YYYY", @"E dd.MM.YYYY", @"E dd.MM", @"dd.MM", nil];
             break;
-        case 3: // languages
+        case VALUES_CNV_LANGUAGES: 
             msgLanguages = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
             // languages are loaded directly to the table
             break;
-        case 4: // app languages
+        case VALUES_APP_LANGUAGES:
             values = [[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%d", RUSSIAN],
                                                       [NSString stringWithFormat:@"%d", ENGLISH], nil];
             break;
-        case 5: // new messages languages
+        case VALUES_NEWMSG_LANGUAGES:
             values = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
             break;
     }
@@ -89,14 +86,6 @@
                 }
                 break;
             }
-            case VALUES_TIME_ZONE:{
-                NSString* value = (NSString*)[values objectAtIndex:indexPath.row];
-                if ([[UserSettings getTimeZone] isEqualToString:value]){
-                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-                }
-                cell.textLabel.text = value;
-                break;
-            }
             case VALUES_CNV_LANGUAGES:{
                 int row = indexPath.row;
                 cell.textLabel.text = [Utils getLanguageName:row needSelfName:NO];
@@ -138,9 +127,6 @@
     switch (self.valuesMode) {
         case VALUES_TIME_FORMAT:
             [UserSettings setTimeFormat:selectedValue];
-            break;
-        case VALUES_TIME_ZONE:
-            [UserSettings setTimeZone:selectedValue];
             break;
         case VALUES_DATE_FORMAT:
             [UserSettings setDateFormat:selectedValue];

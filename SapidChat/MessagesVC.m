@@ -56,16 +56,20 @@
     me = [UserSettings getEmail];
     self.tabelMessages.dataSource = self;
     self.tabelMessages.delegate = self;
-    self.title = [self getCollocutor];
+    
     replyMode = ![[self getCollocutor] isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR];
     if (!replyMode){
         // disable action sheet for 'awaiting reply' messages until it is possible to delete messages from the bank
         self.navigationItem.rightBarButtonItem = nil;
+        
+        self.title = [Lang LOC_MESSAGES_CELL_WAIT_FOR_REPLY];
+    } else {
+        self.title = [DataManager loadUser:[self getCollocutor]].nickname;
     }
     
     [self setupActionSheets];
     
-    self.buttonReply.title = replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE];;
+    self.buttonReply.title = replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE];
     
     [DataManager resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
 	// Do any additional setup after loading the view.

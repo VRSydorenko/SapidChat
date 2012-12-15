@@ -133,8 +133,8 @@
         result = [self retrieveUser:&user withEmail:email];
         if (result == OK){
             if ([password isEqualToString:[AmazonKeyChainWrapper getValueFromKeyChain:user.email]]){
-                [UserSettings setEmail:email];
-                [AmazonKeyChainWrapper storeValueInKeyChain:password forKey:email];
+                [UserSettings setEmail:[email lowercaseString]];
+                [AmazonKeyChainWrapper storeValueInKeyChain:password forKey:[email lowercaseString]];
                 [[self getDbManager] saveUser:user];
                 [self setNewMessageLanguageFromUserLanguages:user.languages];
             } else {
@@ -145,11 +145,9 @@
     return result;
 }
 
-+(ErrorCodes) sendIntrigueTo:(NSString*)email{
-    ErrorCodes result = OK;
-    
++(ErrorCodes) sendIntrigueTo:(NSString*)email withOptionalText:(NSString*)text{
     SESContent *messageBody = [[SESContent alloc] init];
-    messageBody.data = @"Message body";
+    messageBody.data = text;
         
     SESContent *subject = [[SESContent alloc] init];
     subject.data = @"This is subject";
@@ -169,16 +167,25 @@
     emailRequest.destination = destination;
     emailRequest.message = message;
     
-    SESSendEmailResponse *response = nil;
-    @try{
-        AmazonSESClient *ses = [AmazonClientManager ses];
-        response = [ses sendEmail:emailRequest];
-    }
-    @catch (NSException* ex) {
-        result = AMAZON_SERVICE_ERROR;
-        NSLog(@"%@", ex);
-    }
+    Message* msg = [[Message alloc] init];
+    msg.from = [UserSettings getEmail];
+    msg.to = email;
+    msg.text = @"Hi!! This is an intrigue message! Lets be friends! :)";
+    msg.type = MSG_INTRIGUE;
+    msg.when = [[NSDate date] timeIntervalSinceReferenceDate];
     
+    ErrorCodes result = [self sendMessageToCollocutor:msg];
+    if (result == OK){
+        SESSendEmailResponse *response = nil;
+        @try{
+            AmazonSESClient *ses = [AmazonClientManager ses];
+            response = [ses sendEmail:emailRequest];
+        }
+        @catch (NSException* ex) {
+            result = AMAZON_SERVICE_ERROR;
+            NSLog(@"%@", ex);
+        }
+    }
     return result;
 }
 

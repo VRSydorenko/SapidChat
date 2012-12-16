@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IntroVC.h"
 
-@interface FirstLaunchNavController : UINavigationController
+@interface FirstLaunchNavController : UINavigationController<IntroScreenDelegate>
 
 @property UIViewController* rootViewController;
 
--(void) exit;
 
 @end

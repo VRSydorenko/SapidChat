@@ -65,6 +65,7 @@
 -(void)localize{
     [LocalizationUtils setTitle:[Lang LOC_LOGIN_BTN_LOGIN] forButton:self.btnGo];
     [LocalizationUtils setTitle:[Lang LOC_LOGIN_BTN_REGISTRATION] forButton:self.btnRegister];
+    [LocalizationUtils setTitle:[Lang LOC_LOGIN_BTN_FORGOTPASSWORD] forButton:self.btnForgotPass];
 }
 
 - (void)viewDidUnload

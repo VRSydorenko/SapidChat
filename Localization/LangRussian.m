@@ -27,8 +27,7 @@
 // first launch
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE{ return @"Язык приложения";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT{ return @"Далее";}
-+(NSString*) LOC_FIRSTLAUNCH_BTN_GO{ return @"Вперед!";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_WELCOME{ return @"Добро пожаловать!\rЗдесь вы найдете интересное общение! Итрига - залог интереса, который достигается тремя простыми действиями.";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_WELCOME{ return @"Добро пожаловать в SapidChat!\rЗдесь вы найдете интересное общение и итригу! Это очень просто!";}
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_COMPOSE{ return @"Вы создаете сообщение и оно помещается в общую очередь сообщений.";}
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_PICKITUP{ return @"Кто-то случайным образом выбирает ваше сообщение и отвечает на него!";}
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_COMMUNICATE{ return @"Завязывается общение!";}
@@ -50,6 +49,7 @@
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Вход";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Регистрация";}
++(NSString*) LOC_LOGIN_BTN_FORGOTPASSWORD {return @"Забыли пароль?";}
 +(NSString*) LOC_LOGIN_TXT_LOGIN_PLACEHOLDER    {return @"Email";}
 +(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER {return @"Пароль";}
 // info screen

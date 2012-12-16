@@ -27,8 +27,7 @@
 // first launch
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE{ return @"Application language";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT{ return @"Next";}
-+(NSString*) LOC_FIRSTLAUNCH_BTN_GO{ return @"Go!";}
-+(NSString*) LOC_FIRSTLAUNCH_LABEL_WELCOME{ return @"Welcome to SapidChat!";}
++(NSString*) LOC_FIRSTLAUNCH_LABEL_WELCOME{ return @"Welcome to SapidChat!\rHere you will find a sapid communication and intrigue! It is so easy!";}
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_COMPOSE{ return @"Compose a message and place it to a common message queue.";}
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_PICKITUP{ return @"Somebody picks it randomly up and replies!";}
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_COMMUNICATE{ return @"Communicate!";}
@@ -50,6 +49,7 @@
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Login";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Registration";}
++(NSString*) LOC_LOGIN_BTN_FORGOTPASSWORD {return @"Forgot password?";}
 +(NSString*) LOC_LOGIN_TXT_LOGIN_PLACEHOLDER    {return @"Email";}
 +(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER {return @"Password";}
 // info screen

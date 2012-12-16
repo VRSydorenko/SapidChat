@@ -65,4 +65,11 @@
     [LocalizationUtils setTitle:[Lang LOC_FIRSTLAUNCH_BTN_NEXT] forButton:self.btnNext];
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"SegueFirstLaunchToIntro"]){
+        IntroVC* introVC = (IntroVC*)segue.destinationViewController;
+        introVC.delegate = (FirstLaunchNavController*)self.navigationController;
+    }
+}
+
 @end

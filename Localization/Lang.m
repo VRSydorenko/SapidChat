@@ -44,7 +44,6 @@
 // first launch
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE{ return [[self AppLanguage] LOC_FIRSTLAUNCH_APPLANGUAGE];}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT{ return [[self AppLanguage] LOC_FIRSTLAUNCH_BTN_NEXT];}
-+(NSString*) LOC_FIRSTLAUNCH_BTN_GO{ return [[self AppLanguage] LOC_FIRSTLAUNCH_BTN_GO];}
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_WELCOME{ return [[self AppLanguage] LOC_FIRSTLAUNCH_LABEL_WELCOME];}
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_COMPOSE{ return [[self AppLanguage] LOC_FIRSTLAUNCH_LABEL_COMPOSE];}
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_PICKITUP{ return [[self AppLanguage] LOC_FIRSTLAUNCH_LABEL_PICKITUP];}
@@ -67,6 +66,7 @@
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return [[self AppLanguage] LOC_LOGIN_BTN_LOGIN];}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return [[self AppLanguage] LOC_LOGIN_BTN_REGISTRATION];}
++(NSString*) LOC_LOGIN_BTN_FORGOTPASSWORD{return [[self AppLanguage] LOC_LOGIN_BTN_FORGOTPASSWORD];}
 +(NSString*) LOC_LOGIN_TXT_LOGIN_PLACEHOLDER {return [[self AppLanguage] LOC_LOGIN_TXT_LOGIN_PLACEHOLDER];}
 +(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER{return [[self AppLanguage] LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER];}
 // info screen

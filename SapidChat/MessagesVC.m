@@ -17,6 +17,7 @@
 #import "MessageBottomCell.h"
 #import "MessageMiddleCell.h"
 #import "MessageTopCell.h"
+#import "MessageImageCell.h"
 
 @interface MessagesVC (){
     NSArray *messages;
@@ -203,15 +204,26 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3; // top, middle, bottom
+    Message* msg = (Message*)[messages objectAtIndex:section];
+    int num = 2; // at least top and bottom
+    if (msg.text.length > 0){
+        num++;
+    }
+    if (msg.attachmentName.length > 0){
+        num++;
+    }
+    if (num == 2){
+        NSLog(@"Error! MessagesVC:numberOfRowsInSection: only 2 (top and bottom)");
+    }
+    return num;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
     bool incoming = [msg.to isEqualToString:me];
-    switch (indexPath.row) {
-        case 0:{ // top
+    switch ([self getCellTypeByIndexPath:indexPath]) {
+        case CELL_TOP:{
             MessageTopCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageTopCell"];
             if (cell){
                 cell.labelTime.font = timeAndDistanceFont;
@@ -226,55 +238,86 @@
                 cell.labelDistance.text = distanceText;
                 
                 UIImage* bgImg = [self getTopMessageCellImageBkg:msg.type incoming:incoming];
-                if (bgImg){
-                    cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
-                }
+                cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
             }
             return cell;
         }
-        case 1:{ // middle
+        case CELL_TEXT:{
             MessageMiddleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageMiddleCell"];
             if (cell){
                 cell.labelMessage.font = messageFont;
                 cell.labelMessage.text = msg.text;
                 
                 UIImage* bgImg = [self getMidMessageCellImageBkg:msg.type incoming:incoming];
-                if (bgImg){
-                    cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
-                }
-                
+                cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
             }
             return cell;
         }
-        case 2:{ // bottom
+        case CELL_IMAGE:{
+            MessageImageCell* imgCell = [tableView dequeueReusableCellWithIdentifier:@"MessageImageCell"];
+            if (imgCell){
+                if ([UserSettings premiumUnlocked]){
+                    if (msg.attachmentName.length){
+                        if (msg.attachmentData.length){
+                            imgCell.imageView.image = [[UIImage alloc] initWithData:msg.attachmentData];
+                            imgCell.labelInfoText.hidden = YES;
+                        } else {
+                            imgCell.labelInfoText.text = @"Tap to load image";
+                        }
+                    }
+                } else {
+                    imgCell.imageView.image = [UIImage imageNamed:@"msgs_image_accessdenied.jpg"];
+                    imgCell.labelInfoText.text = @"Not available in lite mode";
+                }
+                UIImage* bgImg = [self getMidMessageCellImageBkg:msg.type incoming:incoming];
+                imgCell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
+            }
+            return imgCell;
+        }
+        case CELL_BOTTOM:{
             MessageBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageBottomCell"];
             if (cell){
                 UIImage* bgImg = [self getBottomMessageCellImageBkg:msg.type incoming:incoming];
-                if (bgImg){
-                    cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
-                }
-                
+                cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
+                return cell;
             }
-            return cell;
         }
     }
-    
     return [[UITableViewCell alloc] init];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat height = 5;
+    switch ([self getCellTypeByIndexPath:indexPath]) {
+        case CELL_TOP:
+            return CELL_MESSAGE_TOP_HEIGHT;
+        case CELL_TEXT:{
+            Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
+            return [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + CELL_MESSAGE_TOPBOTTOM_PADDING;
+        }
+        case CELL_IMAGE:
+            return 65.0;
+        case CELL_BOTTOM:
+            return CELL_MESSAGE_BOTTOM_HEIGHT;
+    }
+}
+
+-(CellTypes) getCellTypeByIndexPath:(NSIndexPath*)indexPath{
     if (indexPath.row == 0){ // top message cell
-        height = CELL_MESSAGE_TOP_HEIGHT;
+        return CELL_TOP;
     }
-    if (indexPath.row == 1){ // middle message cell
-        Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
-        height = [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + CELL_MESSAGE_TOPBOTTOM_PADDING;
+    
+    Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
+    if (indexPath.row == 1 && msg.text.length > 0){ // must be a text cell
+        return CELL_TEXT;
     }
-    if (indexPath.row == 2){ // bottom message cell
-        height = CELL_MESSAGE_BOTTOM_HEIGHT;
+    if (indexPath.row == 1 && msg.attachmentName.length > 0){ // must be an image cell
+        return CELL_IMAGE;
     }
-    return height;
+    if (indexPath.row == 2 && msg.attachmentName.length > 0 && msg.text.length > 0){
+        return CELL_IMAGE;
+    }
+    
+    return CELL_BOTTOM;
 }
 
 - (UIImage*) getTopMessageCellImageBkg:(int)msgType incoming:(bool)incoming{

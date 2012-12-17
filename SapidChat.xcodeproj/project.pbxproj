@@ -63,6 +63,8 @@
 		7FC9881B1610BEC200AB04D5 /* Lang.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881A1610BEC200AB04D5 /* Lang.m */; };
 		7FC9881E1610C31600AB04D5 /* LangEnglish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881D1610C31600AB04D5 /* LangEnglish.m */; };
 		7FC988211610C32600AB04D5 /* LangRussian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988201610C32600AB04D5 /* LangRussian.m */; };
+		7FCA47B0167FB1D900CDD379 /* MessageImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA47AF167FB1D900CDD379 /* MessageImageCell.m */; };
+		7FCA47B3167FCA4000CDD379 /* msgs_image_accessdenied.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA47B2167FCA4000CDD379 /* msgs_image_accessdenied.jpg */; };
 		7FCB2A8A1621B498000EDB0B /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FCB2A891621B498000EDB0B /* AWSiOSSDK.framework */; };
 		7FCBF689160F291300A2A2E2 /* RegistrationNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */; };
 		7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */; };
@@ -244,6 +246,9 @@
 		7FC9881D1610C31600AB04D5 /* LangEnglish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangEnglish.m; path = Localization/LangEnglish.m; sourceTree = "<group>"; };
 		7FC9881F1610C32600AB04D5 /* LangRussian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangRussian.h; path = Localization/LangRussian.h; sourceTree = "<group>"; };
 		7FC988201610C32600AB04D5 /* LangRussian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangRussian.m; path = Localization/LangRussian.m; sourceTree = "<group>"; };
+		7FCA47AE167FB1D900CDD379 /* MessageImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageImageCell.h; path = TableCells/MessageImageCell.h; sourceTree = "<group>"; };
+		7FCA47AF167FB1D900CDD379 /* MessageImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageImageCell.m; path = TableCells/MessageImageCell.m; sourceTree = "<group>"; };
+		7FCA47B2167FCA4000CDD379 /* msgs_image_accessdenied.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = msgs_image_accessdenied.jpg; path = Images/msgs_image_accessdenied.jpg; sourceTree = "<group>"; };
 		7FCB2A891621B498000EDB0B /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSiOSSDK.framework; sourceTree = "<group>"; };
 		7FCBF680160F291300A2A2E2 /* RegistrationNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationNavController.h; path = User/RegistrationNavController.h; sourceTree = "<group>"; };
 		7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationNavController.m; path = User/RegistrationNavController.m; sourceTree = "<group>"; };
@@ -403,6 +408,7 @@
 		7F3BA58716768E030021F951 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7FCA47B2167FCA4000CDD379 /* msgs_image_accessdenied.jpg */,
 				7FFC2898167CFB280078EB90 /* msg_in_intrigue_bottom.png */,
 				7FFC2899167CFB280078EB90 /* msg_in_intrigue_bottom@2x.png */,
 				7FFC289A167CFB280078EB90 /* msg_in_intrigue_mid.png */,
@@ -596,6 +602,8 @@
 				7FC21DDD16739C0C0093612C /* MessageBottomCell.m */,
 				7FEC29C4167672C8002DBE3A /* AboutProFeatureCell.h */,
 				7FEC29C5167672C8002DBE3A /* AboutProFeatureCell.m */,
+				7FCA47AE167FB1D900CDD379 /* MessageImageCell.h */,
+				7FCA47AF167FB1D900CDD379 /* MessageImageCell.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -819,6 +827,7 @@
 				7FDA84D1167E47A6001986FB /* intro_compose.jpg in Resources */,
 				7FDA84D2167E47A6001986FB /* intro_pickup.jpg in Resources */,
 				7FDA84D3167E47A6001986FB /* intro_welcome.jpg in Resources */,
+				7FCA47B3167FCA4000CDD379 /* msgs_image_accessdenied.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -923,6 +932,7 @@
 				7FEC29C216766940002DBE3A /* InfoAboutProVC.m in Sources */,
 				7FEC29C6167672C8002DBE3A /* AboutProFeatureCell.m in Sources */,
 				7FDA84CA167E3599001986FB /* IntroVC.m in Sources */,
+				7FCA47B0167FB1D900CDD379 /* MessageImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -614,16 +614,18 @@
     if (![message.from isEqualToString:[UserSettings getEmail]]){
         return ERROR;
     }
-    
+    NSString* attName = message.attachmentName;
     int timestamp =  [Utils toGlobalTimestamp:message.when];
     
     NSMutableDictionary* msgDic = [[NSMutableDictionary alloc] init];
-    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.text] forKey:DBFIELD_MSGS_TEXT];
+    if (message.text && message.text.length > 0){
+        [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.text] forKey:DBFIELD_MSGS_TEXT];
+    }
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.from] forKey:DBFIELD_MSGS_FROM];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.to] forKey:DBFIELD_MSGS_TO];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", message.type]] forKey:DBFIELD_MSGS_TYPE];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
-    if (message.attachmentName && message.attachmentName.length > 0){
+    if (attName.length > 0){
         [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.attachmentName] forKey:DBFIELD_MSGS_ATT];
     }
     

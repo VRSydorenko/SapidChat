@@ -22,6 +22,13 @@
 #define HEADER_HEIGHT 17.0f
 #define DAY_LAST_FOOTER_HEIGHT 7.0f;
 
+typedef enum CellTypes{
+    CELL_TOP,
+    CELL_TEXT,
+    CELL_IMAGE,
+    CELL_BOTTOM
+} CellTypes;
+
 @interface MessagesVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 
 @property Dialog *dialog;

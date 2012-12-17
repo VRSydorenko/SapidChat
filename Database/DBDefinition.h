@@ -13,6 +13,7 @@
 #define DBTYPE_TEXT @"text"
 #define DBTYPE_REAL @"real"
 #define DBTYPE_BOOL @"boolean"
+#define DBTYPE_BLOB @"blob"
 
 #define F_ID @"f_id"
 
@@ -32,6 +33,8 @@
 #define F_TYPE @"f_type"
 #define F_LATD @"f_latitude"
 #define F_LOND @"f_longitude"
+#define F_ATTNAME @"f_att_name"
+#define F_ATTDATA @"f_att_data"
 #define F_UNREAD @"f_unread"
 #define F_INITIAL_TIMESTAMP @"f_initial_timestamp"
 

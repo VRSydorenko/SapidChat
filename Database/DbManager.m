@@ -174,11 +174,21 @@
 
 -(void) saveMessage:(Message*)msg{ // user specific method
     BOOL isNew = [[UserSettings getEmail] isEqualToString:msg.to];
-    NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, \"%@\", %d, %.10f, %.10f, %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.text, msg.type, msg.latitude, msg.longitude, isNew];
+    BOOL isDataPresent = msg.attachmentData && msg.attachmentData.length > 0;
+    NSString* insertSQL;
+    if (isDataPresent){
+        insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, \"%@\", %d, %.10f, %.10f, \"%@\", ?, %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, F_ATTNAME, F_ATTDATA, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.text, msg.type, msg.latitude, msg.longitude, msg.attachmentName, isNew];
+    } else {
+        insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, \"%@\", %d, %.10f, %.10f, \"%@\", %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, F_ATTNAME, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.text, msg.type, msg.latitude, msg.longitude, msg.attachmentName, isNew];
+    }
     const char *insert_stmt = [insertSQL UTF8String];
     
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(sapidDb, insert_stmt, -1, &statement, NULL) == SQLITE_OK){
+        if (isDataPresent){
+            // important!!! 1 - number of `?` in the statement corresponds to blob column in the DB 
+            sqlite3_bind_blob(statement, 1, [msg.attachmentData bytes], [msg.attachmentData length], SQLITE_TRANSIENT);
+        }
         if (sqlite3_step(statement) == SQLITE_DONE){
         } else {
             NSLog(@"Error saving message into the database");
@@ -205,7 +215,7 @@
 
 -(NSArray*) loadMessagesWithCondition:(NSString*)condition{ // user specific method
     NSString* cond = condition.length > 0 ? [NSString stringWithFormat:@" AND %@", condition] : @"";
-    NSString *querySQL = [NSString stringWithFormat: @"SELECT %@, %@, %@, %@, %@, %@, %@ FROM %@ WHERE %@=\"%@\" %@", F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, T_MSGS, F_AUTHOR, [UserSettings getEmail], cond];
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT %@, %@, %@, %@, %@, %@, %@, %@, %@ FROM %@ WHERE %@=\"%@\" %@", F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, F_ATTNAME, F_ATTDATA, T_MSGS, F_AUTHOR, [UserSettings getEmail], cond];
     const char *query_stmt = [querySQL UTF8String];
     
     NSMutableArray* msgs = [[NSMutableArray alloc] init];
@@ -235,6 +245,12 @@
             
             NSString *longitudeField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 6)];
             msg.latitude = longitudeField.doubleValue;
+            
+            NSString *attachmentField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 7)];
+            msg.attachmentName = attachmentField;
+            
+            int len = sqlite3_column_bytes(statement, 8);
+            msg.attachmentData = [[NSData alloc] initWithBytes:sqlite3_column_blob(statement, 8) length:len];
             
             [msgs addObject:msg];
         }

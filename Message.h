@@ -17,6 +17,8 @@
 @property (nonatomic) int type;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
+@property (nonatomic) NSData* attachmentData;
+@property (nonatomic) NSString* attachmentName;
 // initial messages are timestamps of first messages in the current dialog
 @property (nonatomic) int initial_message_global_timestamp;
 

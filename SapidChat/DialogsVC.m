@@ -106,7 +106,7 @@
         NSString* stringCollocutor = dialog.collocutor ? dialog.collocutor : [UserSettings getEmail];
         cell.labelCollocutor.text = [stringCollocutor isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR] ? [Lang LOC_MESSAGES_CELL_WAIT_FOR_REPLY] : stringCollocutor;
         Message *msg = (Message*)[[dialog getSortedMessages] lastObject];
-        cell.infoMessage.text = msg.text;
+        cell.infoMessage.text = msg.text.length > 0 ? msg.text : msg.attachmentName.length > 0 ? @"A message with attachment" : @"ERROR";
     }
     
     return cell;

@@ -75,6 +75,7 @@ typedef enum MessageTypes{ // !!! Don't change the numbers !!!
 #define DBFIELD_MSGS_TYPE @"type"
 #define DBFIELD_MSGS_LATD @"latd" // latitude
 #define DBFIELD_MSGS_LOND @"lond" // longitude
+#define DBFIELD_MSGS_ATT @"att"   // attachment filename
 
 #define DBTABLE_MSGS_BANK @"t_msgs_bank"
 #define DBFIELD_MSGS_BANK_LANG @"lang"

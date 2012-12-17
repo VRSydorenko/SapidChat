@@ -26,10 +26,12 @@
 @implementation ComposeVC
 @synthesize textMessage;
 @synthesize spinner;
+@synthesize imageView;
 @synthesize buttonLanguage;
 @synthesize labelTitle;
 @synthesize btnSend;
 @synthesize btnCancel;
+@synthesize btnAttachData;
 
 @synthesize initialMsgGlobalTimstamp;
 @synthesize collocutor;
@@ -57,6 +59,8 @@
     [self setLabelTitle:nil];
     [self setBtnSend:nil];
     [self setBtnCancel:nil];
+    [self setBtnAttachData:nil];
+    [self setImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -67,23 +71,33 @@
 }
 
 - (IBAction)sendPressed:(id)sender {
+    if ([UserSettings premiumUnlocked]
+        && self.textMessage.text.length == 0
+        && self.imageView.image){
+        [self AskToSendOnlyImage];
+    } else {
+        [self sendMessage];
+    }
+}
+
+-(void) sendMessage{
     if (!isSending){
         isSending = YES;
-        
+            
         [self.spinner startAnimating];
-    
+            
         dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
         dispatch_async(refreshQueue, ^{
             Message* msg = [self prepareMessage];
             ErrorCodes msgSent = [DataManager sendMessage:msg];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.spinner stopAnimating];
-                    if (msgSent == OK){
+                if (msgSent == OK){
                         [self.composeHandler composeCompleted:msg];
                         [self dismissModalViewControllerAnimated:YES];
-                    } else{
-                        
-                    }
+                } else{
+                
+                }
                 isSending = NO;
             });
         });
@@ -97,6 +111,53 @@
 
 - (IBAction)languagePressed:(id)sender {
     [SettingsManager callNewMessagesLanguageScreenOverViewController:self];
+}
+
+- (IBAction)attachDataPressed:(id)sender {
+    NSString* title = @"New image";
+    NSString* cancel = @"Cancel";
+    NSString* takePhoto = @"Take a photo";
+    NSString* cameraRoll = @"Camera roll";
+    //NSString* claim = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM];
+    UIActionSheet *pickImageActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:nil otherButtonTitles:takePhoto, cameraRoll, nil];
+    [pickImageActionSheet showInView:self.view];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker
+        didFinishPickingImage:(UIImage *)image
+        editingInfo:(NSDictionary *)editingInfo{
+    
+    //imageView.image = [editingInfo objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [self.imageView setImage:image];
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+-(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+	picker.delegate = self;
+    
+	if(buttonIndex == 0) { // take photo
+		picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+	} else { // camera roll
+		picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+	}
+    
+	[self presentModalViewController:picker animated:YES];
+}
+
+-(void) AskToSendOnlyImage{
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Send imahe w/o a text?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1){
+        [self sendMessage];
+    }
 }
 
 - (void)msgLangControllerToDismiss:(NewMsgLanguageVC *)msgLangController{
@@ -119,6 +180,10 @@
     
     msg.latitude = navCon.latitude;
     msg.longitude = navCon.longitude;
+    
+    if (self.imageView.image){
+        msg.attachmentData = UIImagePNGRepresentation(self.imageView.image);
+    }
     
     msg.initial_message_global_timestamp = initialMsgGlobalTimstamp;
     return msg;

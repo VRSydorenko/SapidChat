@@ -113,6 +113,7 @@
 }
 
 +(bool) premiumUnlocked{
+    return YES;
     return [[NSUserDefaults standardUserDefaults] boolForKey:PURCHASE_PREMIUM_UNLOCKED];
 }
 +(void) setPremiumUnlocked{

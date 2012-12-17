@@ -316,7 +316,7 @@
 }
 
 +(ErrorCodes)sendMessage:(Message*)message{
-    if (message.text.length == 0){
+    if (message.text.length == 0 && !message.attachmentData){
         return TEXT_NOT_SPECIFIED;
     }
     if (!message.to){
@@ -553,13 +553,23 @@
     if (![msg.from isEqualToString:[UserSettings getEmail]]){
         return ERROR;
     }
+    NSString* attName = msg.attachmentName;
+    if (msg.text.length == 0 && attName.length == 0){
+        return ERROR;
+    }
     
     int timestamp =  [Utils toGlobalTimestamp:msg.when];
     msg.when = timestamp;
     
     NSMutableDictionary* msgDic = [[NSMutableDictionary alloc] init];
-    [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.text] forKey:DBFIELD_MSGS_TEXT];
+    if (msg.text && msg.text.length > 0){
+        [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.text] forKey:DBFIELD_MSGS_TEXT];
+    }
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.from] forKey:DBFIELD_MSGS_FROM];
+    
+    if (attName.length > 0){
+        [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:attName] forKey:DBFIELD_MSGS_ATT];
+    }
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", msg.type]] forKey:DBFIELD_MSGS_TYPE];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
     
@@ -613,7 +623,9 @@
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.to] forKey:DBFIELD_MSGS_TO];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", message.type]] forKey:DBFIELD_MSGS_TYPE];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
-    
+    if (message.attachmentName && message.attachmentName.length > 0){
+        [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:message.attachmentName] forKey:DBFIELD_MSGS_ATT];
+    }
     
     // TODO: do it in a batch!
     @try {
@@ -740,6 +752,9 @@
     }
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", msg.type]] forKey:DBFIELD_MSGS_TYPE];
     [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", timestamp]] forKey:DBFIELD_MSGS_WHEN];
+    if (msg.attachmentName && msg.attachmentName.length > 0){
+        [msgDic setObject:[[DynamoDBAttributeValue alloc] initWithS:msg.attachmentName] forKey:DBFIELD_MSGS_ATT];
+    }
     
     @try {
         DynamoDBPutItemRequest *request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_MSGS_RECEIVED andItem:msgDic];

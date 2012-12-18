@@ -199,7 +199,7 @@
     if ([lastMsgs containsObject:[NSNumber numberWithInt:section]]){
             return DAY_LAST_FOOTER_HEIGHT;
         }
-    return 1;
+    return DEFAULT_FOOTER_HEIGHT;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -257,17 +257,18 @@
             MessageImageCell* imgCell = [tableView dequeueReusableCellWithIdentifier:@"MessageImageCell"];
             if (imgCell){
                 if ([UserSettings premiumUnlocked]){
-                    if (msg.attachmentName.length){
+                    //if (msg.attachmentName.length){
                         if (msg.attachmentData.length){
-                            imgCell.imageView.image = [[UIImage alloc] initWithData:msg.attachmentData];
+                            imgCell.imgView.image = [[UIImage alloc] initWithData:msg.attachmentData];
                             imgCell.labelInfoText.hidden = YES;
                         } else {
+                            imgCell.imgView.image = [UIImage imageNamed:@"msgs_image_placeholder.png"];
                             imgCell.labelInfoText.text = @"Tap to load image";
                         }
-                    }
+                    //}
                 } else {
-                    imgCell.imageView.image = [UIImage imageNamed:@"msgs_image_accessdenied.jpg"];
-                    imgCell.labelInfoText.text = @"Not available in lite mode";
+                    imgCell.imgView.image = [UIImage imageNamed:@"msgs_image_accessdenied.png"];
+                    imgCell.labelInfoText.text = @"Images are available in Pro mode";
                 }
                 UIImage* bgImg = [self getMidMessageCellImageBkg:msg.type incoming:incoming];
                 imgCell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
@@ -295,10 +296,13 @@
             return [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + CELL_MESSAGE_TOPBOTTOM_PADDING;
         }
         case CELL_IMAGE:
-            return 65.0;
+            return CELL_MESSAGE_IMAGE_HEIGHT;
         case CELL_BOTTOM:
             return CELL_MESSAGE_BOTTOM_HEIGHT;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 -(CellTypes) getCellTypeByIndexPath:(NSIndexPath*)indexPath{

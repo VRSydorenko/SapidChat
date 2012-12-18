@@ -10,7 +10,7 @@
 
 @interface MessageImageCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIImageView *imgView;
 @property (strong, nonatomic) IBOutlet UILabel *labelInfoText;
 
 @end

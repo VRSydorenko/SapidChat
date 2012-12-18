@@ -12,6 +12,7 @@
 
 #define FONT_TIME_DISTANCE_SIZE 11.0f
 #define CELL_MESSAGE_TOP_HEIGHT 20.0f
+#define CELL_MESSAGE_IMAGE_HEIGHT 50.0f;
 #define CELL_MESSAGE_BOTTOM_HEIGHT 10.0f
 
 #define FONT_MSG_SIZE 14.0f
@@ -20,7 +21,8 @@
 
 #define FONT_SECTIONHEADER_SIZE 11.0f
 #define HEADER_HEIGHT 17.0f
-#define DAY_LAST_FOOTER_HEIGHT 7.0f;
+#define DAY_LAST_FOOTER_HEIGHT 10.0f;
+#define DEFAULT_FOOTER_HEIGHT 4.0f;
 
 typedef enum CellTypes{
     CELL_TOP,
@@ -29,7 +31,11 @@ typedef enum CellTypes{
     CELL_BOTTOM
 } CellTypes;
 
-@interface MessagesVC : UIViewController<UITableViewDataSource, UITableViewDelegate, ComposeNewMessageResponseDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
+@interface MessagesVC : UIViewController<UITableViewDataSource,
+                                         UITableViewDelegate,
+                                         ComposeNewMessageResponseDelegate,
+                                         UIActionSheetDelegate,
+                                         UIAlertViewDelegate>
 
 @property Dialog *dialog;
 @property (strong, nonatomic) IBOutlet UITableView *tabelMessages;

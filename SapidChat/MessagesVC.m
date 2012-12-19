@@ -21,6 +21,7 @@
 
 @interface MessagesVC (){
     NSArray *messages;
+    NSMutableDictionary *selectedCells;
     
     // indexes of first and last messages within a day
     NSArray* firstMsgs;
@@ -48,7 +49,9 @@
 {
     [super viewDidLoad];
     
-    boundingSize = CGSizeMake(CELL_MESSAGE_WIDTH, CGFLOAT_MAX); // 240 is the width of the message's UILabel
+    selectedCells = [[NSMutableDictionary alloc] init];
+    
+    boundingSize = CGSizeMake(CELL_MSG_WIDTH, CGFLOAT_MAX); // 240 is the width of the message's UILabel
     messageFont = [UIFont fontWithName:@"Helvetica" size:FONT_MSG_SIZE];
     timeAndDistanceFont = [UIFont fontWithName:@"Helvetica" size:FONT_TIME_DISTANCE_SIZE];
     
@@ -135,9 +138,10 @@
 -(void) updateMessages{
     messages = [self.dialog getSortedMessages];
     
+    Message* msg;
     NSDictionary* datesRowCount = [[NSMutableDictionary alloc] init];
     for (int i = 0; i<messages.count; i++) {
-        Message* msg = (Message*)[messages objectAtIndex:i];
+        msg = (Message*)[messages objectAtIndex:i];
         NSDate* localDate = [Utils toLocalDate:msg.when];
         NSString* date = [Utils dateToString:localDate];
         id objForKey = [datesRowCount objectForKey:date];
@@ -200,6 +204,31 @@
             return DAY_LAST_FOOTER_HEIGHT;
         }
     return DEFAULT_FOOTER_HEIGHT;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch ([self getCellTypeByIndexPath:indexPath]) {
+        case CELL_TOP:
+            return CELL_MSG_TOP_HEIGHT;
+        case CELL_TEXT:{
+            Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
+            return [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + CELL_MSG_TOPBOTTOM_PADDING;
+        }
+        case CELL_IMAGE:{
+            Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
+            if ([self cellIsSelected:indexPath] && msg.attachmentData.length > 0){
+                UIImage *img = [UIImage imageWithData:msg.attachmentData];
+                if (img.size.height >= img.size.width){
+                    return CELL_MSG_IMG_PORTRAIT_HEIGHT;
+                } else{
+                    return CELL_MSG_IMG_LANDSCAPE_HEIGHT;
+                }
+            }
+            return CELL_MSG_IMG_PLACEHOLDER_HEIGHT;
+        }
+        case CELL_BOTTOM:
+            return CELL_MSG_BOTTOM_HEIGHT;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -287,22 +316,53 @@
     return [[UITableViewCell alloc] init];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch ([self getCellTypeByIndexPath:indexPath]) {
-        case CELL_TOP:
-            return CELL_MESSAGE_TOP_HEIGHT;
-        case CELL_TEXT:{
-            Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
-            return [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + CELL_MESSAGE_TOPBOTTOM_PADDING;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([self getCellTypeByIndexPath:indexPath] == CELL_IMAGE){
+        Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
+        if (msg.attachmentData.length > 0){
+            [self handleCellExpandation:indexPath];
+        } else if ([UserSettings premiumUnlocked]){
+            // load img
+        } else {
+            // more about pro
         }
-        case CELL_IMAGE:
-            return CELL_MESSAGE_IMAGE_HEIGHT;
-        case CELL_BOTTOM:
-            return CELL_MESSAGE_BOTTOM_HEIGHT;
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (BOOL) cellIsSelected:(NSIndexPath *)indexPath {
+	NSNumber *selectedIndex = [selectedCells objectForKey:indexPath];
+	return selectedIndex == nil ? NO : [selectedIndex boolValue];
+}
+
+-(void) handleCellExpandation:(NSIndexPath *)indexPath{
+	[self.tabelMessages deselectRowAtIndexPath:indexPath animated:YES];
+	
+	BOOL isSelected = ![self cellIsSelected:indexPath];
+	
+	NSNumber *selectedIndex = [NSNumber numberWithBool:isSelected];
+	[selectedCells setObject:selectedIndex forKey:indexPath];
+    
+	[self.tabelMessages beginUpdates];
+	[self.tabelMessages endUpdates];
+}
+
+-(void)attachmentDataUpdatedForName:(NSString*)attachmentName data:(NSData*)attachmentData{
+    Message* msg;
+    for (int i = 0; i<messages.count; i++) {
+        msg = (Message*)[messages objectAtIndex:i];
+        if ([msg.attachmentName isEqualToString:attachmentName]){
+            if (attachmentData && attachmentData.length > 0){
+                msg.attachmentData = attachmentData;
+            } else {
+                // TODO: implement
+                // error dowloading data
+            }
+            // TODO: defining a row carefully
+            int rowIndex = msg.text.length > 0 ? 2 : 1;
+            [self.tabelMessages reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:rowIndex inSection:i]] withRowAnimation:UITableViewRowAnimationNone];
+            break;
+        }
+    }
 }
 
 -(CellTypes) getCellTypeByIndexPath:(NSIndexPath*)indexPath{

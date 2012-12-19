@@ -182,7 +182,7 @@
     msg.longitude = navCon.longitude;
     
     if (self.imageView.image){
-        msg.attachmentData = UIImagePNGRepresentation(self.imageView.image);
+        msg.attachmentData = [Utils compressImage:self.imageView.image];
     }
     
     msg.initial_message_global_timestamp = initialMsgGlobalTimstamp;

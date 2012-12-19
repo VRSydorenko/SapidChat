@@ -54,6 +54,9 @@ typedef enum MessageTypes{ // !!! Don't change the numbers !!!
     MSG_INTRIGUE    = 2,
 } MessageTypes;
 
+// s3
+#define ATTACHMENTS_BUCKET_NAME @"sapid-chat-images"
+
 // database
 
 #define DBTABLE_USERS @"t_users"

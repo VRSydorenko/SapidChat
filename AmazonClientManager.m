@@ -21,6 +21,7 @@
 
 static AmazonDynamoDBClient *ddb = nil;
 static AmazonSESClient      *ses = nil;
+static AmazonS3Client       *s3  = nil;
 static AmazonTVMClient      *tvm = nil;
 
 @implementation AmazonClientManager
@@ -35,6 +36,12 @@ static AmazonTVMClient      *tvm = nil;
 {
     [AmazonClientManager validateCredentials];
     return ses;
+}
+
++(AmazonS3Client*)s3
+{
+    [AmazonClientManager validateCredentials];
+    return s3;
 }
 
 +(AmazonTVMClient*)tvm
@@ -93,6 +100,9 @@ static AmazonTVMClient      *tvm = nil;
     
     [ses release];
     ses = [[AmazonSESClient alloc] initWithCredentials:credentials];
+    
+    [s3 release];
+    s3 = [[AmazonS3Client alloc] initWithCredentials:credentials];
 }
 
 +(void)wipeAllCredentials

@@ -41,7 +41,7 @@
         self.attachmentData.length == 0){
         return @"";
     }
-    return [NSString stringWithFormat:@"%@_%d", self.from, self.when];
+    return [[NSString stringWithFormat:@"%@_%d", self.from, self.when] stringByReplacingOccurrencesOfString:@"@" withString:@"_at_"];
 }
 
 @end

@@ -32,6 +32,7 @@
 		7F2F4B94166D503000074681 /* BuyOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B93166D503000074681 /* BuyOptionCell.m */; };
 		7F44FC3715F2267E007C0387 /* ComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F44FC3615F2267E007C0387 /* ComposeVC.m */; };
 		7F5079501613728900067338 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F50794F1613728800067338 /* libsqlite3.0.dylib */; };
+		7F74D4041682749800B692BB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74D4031682749800B692BB /* SystemConfiguration.framework */; };
 		7F78801B1610DABE00BDD517 /* FirstLaunchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F78801A1610DABE00BDD517 /* FirstLaunchNavController.m */; };
 		7F7880221610DC5F00BDD517 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7880211610DC5F00BDD517 /* FirstLaunch.storyboard */; };
 		7F7880251610DE5500BDD517 /* AppLanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7880241610DE5500BDD517 /* AppLanguageVC.m */; };
@@ -194,6 +195,7 @@
 		7F44FC3515F2267E007C0387 /* ComposeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeVC.h; sourceTree = "<group>"; };
 		7F44FC3615F2267E007C0387 /* ComposeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeVC.m; sourceTree = "<group>"; };
 		7F50794F1613728800067338 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		7F74D4031682749800B692BB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7F7880191610DABE00BDD517 /* FirstLaunchNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstLaunchNavController.h; path = FirstLaunch/FirstLaunchNavController.h; sourceTree = "<group>"; };
 		7F78801A1610DABE00BDD517 /* FirstLaunchNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstLaunchNavController.m; path = FirstLaunch/FirstLaunchNavController.m; sourceTree = "<group>"; };
 		7F7880211610DC5F00BDD517 /* FirstLaunch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FirstLaunch.storyboard; path = FirstLaunch/FirstLaunch.storyboard; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F74D4041682749800B692BB /* SystemConfiguration.framework in Frameworks */,
 				7FDD5D9A16729631003090FC /* CoreLocation.framework in Frameworks */,
 				7F5079501613728900067338 /* libsqlite3.0.dylib in Frameworks */,
 				7F11FEB3159E658E002F5982 /* Security.framework in Frameworks */,
@@ -492,6 +495,7 @@
 		7FAF7604159E4FE300D37D7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F74D4031682749800B692BB /* SystemConfiguration.framework */,
 				7FDD5D9916729631003090FC /* CoreLocation.framework */,
 				7FCB2A891621B498000EDB0B /* AWSiOSSDK.framework */,
 				7F50794F1613728800067338 /* libsqlite3.0.dylib */,

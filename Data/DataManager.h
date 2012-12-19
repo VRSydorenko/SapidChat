@@ -13,6 +13,8 @@
 #import "AppDelegate.h"
 #import "PurchaseManager.h"
 
+
+
 @interface DataManager : NSObject{
 }
 
@@ -39,6 +41,8 @@
 +(ErrorCodes) updateOwnNick:(NSString*)nick; // in AWS
 +(void) updateOwnNickInDb:(NSString*)nick; // local db
 +(ErrorCodes) updateOwnPassword:(NSString*)pass; // in AWS
+
++(void) requestAttachmentData:(NSString*)attachmentName delegate:(id<AttachmentDataUpdateDelegate>)delegate;
 
 +(int) getRegularPoststampsCount;
 +(int) getRegularPoststampsFromLocalBuffer;

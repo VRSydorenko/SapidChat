@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Viktor Sydorenko. All rights reserved.
 //
 
+#import <AWSiOSSDK/S3/S3GetObjectResponse.h>
+#import <AWSiOSSDK/S3/S3GetObjectRequest.h>
 #import "DbManager.h"
 #import "DBDefinition.h"
 #import "sqlite3.h"
@@ -15,6 +17,8 @@
 @implementation DbManager{
     sqlite3 *sapidDb;
 }
+
+@synthesize attachmentUpdateDelegate = _attachmentUpdateDelegate;
 
 -(id) init{
     self = [super init];
@@ -148,6 +152,28 @@
         {
         } else {
             NSLog(@"Error updating nick");
+            NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
+        }
+    }
+    sqlite3_finalize(statement);
+}
+
+-(void)updateAttachmentData:(NSData*)data forName:(NSString*)attachmentName{ // user specific method
+    if (data.length == 0){
+        NSLog(@"DbManager: updating attachment data with empty name");
+        return;
+    }
+    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = ? WHERE %@ = %@ AND %@ = \"%@\"", T_MSGS, F_ATTDATA, F_ATTNAME, attachmentName, F_AUTHOR, [UserSettings getEmail]];
+    const char *query_stmt = [querySQL UTF8String];
+    
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(sapidDb, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+    {
+        sqlite3_bind_blob(statement, 1, [data bytes], [data length], SQLITE_TRANSIENT);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+        } else {
+            NSLog(@"Error updating attachment data");
             NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
         }
     }
@@ -409,5 +435,22 @@
     sqlite3_finalize(statement);
 }
 
-
+// used for attachment downloads
+-(void)request:(AmazonServiceRequest *)request didCompleteWithResponse:(AmazonServiceResponse *)response{
+    if ([request isKindOfClass:[S3GetObjectRequest class]]){
+        S3GetObjectRequest* s3Request = (S3GetObjectRequest*)request;
+        [self updateAttachmentData:response.body forName:s3Request.key];
+        // TODO: handle case when update in ilocal db failed
+        [self.attachmentUpdateDelegate attachmentDataUpdatedForName:s3Request.key data:response.body];
+        self.attachmentUpdateDelegate = nil; // only one request in a time now
+    }
+    NSLog(@"AWS Service Request completed");
+}
+-(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception{
+    if ([request isKindOfClass:[S3GetObjectRequest class]]){
+        [self.attachmentUpdateDelegate attachmentDataUpdatedForName:((S3GetObjectRequest*)request).key data:nil];
+        self.attachmentUpdateDelegate = nil; // only one request in a time now
+    }
+    NSLog(@"AWS Service Request failed: %@", exception);
+}
 @end

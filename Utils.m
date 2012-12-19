@@ -16,6 +16,7 @@
 #import "LangRussian.h"
 #import "LangEnglish.h"
 
+
 @implementation Utils
 
 +(ErrorCodes) validateEmail:(NSString*)email{
@@ -124,6 +125,30 @@
 
 +(bool) getIfMetricMeasurementSystem{
     return [[[NSLocale currentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
+}
+
++(bool)isWifiAvailable
+{
+    
+ //   Reachability *r = [Reachability reachabilityForLocalWiFi];
+   // return !( [r currentReachabilityStatus] == NotReachable);
+    return YES;
+}
+
++(NSData*) compressImage:(UIImage*)image{
+    CGFloat compression = 0.9f;
+    CGFloat maxCompression = 0.1f;
+    int maxFileSize = 50*1024;
+    
+    NSData *compressedData = UIImageJPEGRepresentation(image, compression);
+    
+    while (compressedData.length > maxFileSize && compression > maxCompression)
+    {
+        compression -= 0.1;
+        compressedData = UIImageJPEGRepresentation(image, compression);
+    }
+    
+    return compressedData;
 }
 
 @end

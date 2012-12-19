@@ -7,12 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AWSiOSSDK/AmazonServiceRequest.h>
 #import "User.h"
 #import "Message.h"
 
 #define USER_LANGS_SEPARATOR @","
 
-@interface DbManager : NSObject
+@protocol AttachmentDataUpdateDelegate
+
+-(void)attachmentDataUpdatedForName:(NSString*)attachmentName data:(NSData*)attachmentData;
+
+@end
+
+@interface DbManager : NSObject<AmazonServiceRequestDelegate>
+
+@property id<AttachmentDataUpdateDelegate> attachmentUpdateDelegate;
 
 -(id) init;
 
@@ -36,5 +45,8 @@
 -(void) addRegularPoststamps:(int)count;
 -(int) getRegularPoststampsFromLocalBuffer;
 -(void) addRegularPoststampsToLocalBuffer:(int)count;
+
+-(void)request:(AmazonServiceRequest *)request didCompleteWithResponse:(AmazonServiceResponse *)response;
+-(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception;
 
 @end

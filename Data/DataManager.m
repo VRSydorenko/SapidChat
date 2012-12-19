@@ -103,7 +103,7 @@
         NSMutableDictionary* userDic = [[NSMutableDictionary alloc] init];
         
         [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:user.email] forKey:DBFIELD_USERS_EMAIL];
-        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:password] forKey:DBFIELD_USERS_PASSWORD];// TODO: crypt pass
+        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:password] forKey:DBFIELD_USERS_PASSWORD];
         [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:user.nickname] forKey:DBFIELD_USERS_NICKNAME];
         NSMutableArray* langs = [[NSMutableArray alloc] init];
         for (NSNumber* lang in user.languages) {
@@ -472,6 +472,39 @@
     return OK;
 }
 
++(ErrorCodes)upload:(NSData*)dataToUpload inBucket:(NSString*)bucket forKey:(NSString*)key
+{
+    bool using3G = ![Utils isWifiAvailable];
+    
+    @try {	
+        S3PutObjectRequest *por = [[S3PutObjectRequest alloc] initWithKey:key inBucket:bucket];
+        
+        // The S3UploadInputStream was deprecated after the release of iOS6.
+        S3UploadInputStream *stream = [S3UploadInputStream inputStreamWithData:dataToUpload];  
+        if (using3G) {
+            stream.delay = 0.2; // In seconds
+            stream.packetSize = 16; // Number of 1K blocks
+        }
+        
+        por.contentType = @"image/jpeg";
+        por.data = dataToUpload;
+        //por.stream = stream;
+        // sync call on purpose
+        // por.delegate =
+        
+        [[AmazonClientManager s3] putObject:por];
+    }
+    @catch (AmazonServiceException *exception) {
+        NSLog(@"Upload Failed, Reason: %@", exception);
+        return AMAZON_SERVICE_ERROR;
+    }
+    return OK;
+}
+
++(void) requestAttachmentData:(NSString*)attachmentName delegate:(id<AttachmentDataUpdateDelegate>)delegate{
+    
+}
+
 +(int) getRegularPoststampsCount{
     return [[self getDbManager] getRegularPoststampsCount];
 }
@@ -598,6 +631,9 @@
         response = [[AmazonClientManager ddb] putItem:request];
         if (!response){
             return AMAZON_SERVICE_ERROR;
+        }
+        if (msg.attachmentData.length > 0){
+            [self upload:msg.attachmentData inBucket:ATTACHMENTS_BUCKET_NAME forKey:msg.attachmentName];
         }
     }
     @catch (NSException *exception) {

@@ -19,6 +19,7 @@
 }
 
 +(void) saveUser:(User*)user;
++(void) deleteUser:(NSString*)user;
 +(User*) loadUser:(NSString*)email;
 +(User*) getCurrentUser;
 +(void) setMsgLanguagesForCurrentUser:(NSArray*)langs;

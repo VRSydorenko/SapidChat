@@ -22,6 +22,7 @@
 @interface MessagesVC (){
     NSArray *messages;
     NSMutableDictionary *selectedCells;
+    NSMutableArray *errorCells;
     
     // indexes of first and last messages within a day
     NSArray* firstMsgs;
@@ -50,6 +51,7 @@
     [super viewDidLoad];
     
     selectedCells = [[NSMutableDictionary alloc] init];
+    errorCells = [[NSMutableArray alloc] init];
     
     boundingSize = CGSizeMake(CELL_MSG_WIDTH, CGFLOAT_MAX); // 240 is the width of the message's UILabel
     messageFont = [UIFont fontWithName:@"Helvetica" size:FONT_MSG_SIZE];
@@ -112,7 +114,7 @@
     switch (buttonIndex) {
         case 0: // delete
         {
-            [self AskToConfirmDeletion];
+            [self askToConfirmDeletion];
             break;
         }
         case 1: // claim
@@ -284,23 +286,28 @@
         }
         case CELL_IMAGE:{
             MessageImageCell* imgCell = [tableView dequeueReusableCellWithIdentifier:@"MessageImageCell"];
+            NSString* infoString = @"";
             if (imgCell){
                 if ([UserSettings premiumUnlocked]){
-                    //if (msg.attachmentName.length){
-                        if (msg.attachmentData.length){
-                            imgCell.imgView.image = [[UIImage alloc] initWithData:msg.attachmentData];
-                            imgCell.labelInfoText.hidden = YES;
+                    if (msg.attachmentData.length){
+                        imgCell.imgView.image = [[UIImage alloc] initWithData:msg.attachmentData];
+                        infoString = @"";
+                    } else {
+                        imgCell.imgView.image = [UIImage imageNamed:@"msgs_image_placeholder.png"];
+                        if ([errorCells containsObject:indexPath]){
+                            infoString = @"Error loading image :(";
                         } else {
-                            imgCell.imgView.image = [UIImage imageNamed:@"msgs_image_placeholder.png"];
-                            imgCell.labelInfoText.text = @"Tap to load image";
+                            infoString = @"Tap to load image";
                         }
-                    //}
+                    }
                 } else {
                     imgCell.imgView.image = [UIImage imageNamed:@"msgs_image_accessdenied.png"];
-                    imgCell.labelInfoText.text = @"Images are available in Pro mode";
+                    infoString = @"Images are available in Pro mode";
                 }
                 UIImage* bgImg = [self getMidMessageCellImageBkg:msg.type incoming:incoming];
                 imgCell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
+                
+                imgCell.labelInfoText.text = infoString;
             }
             return imgCell;
         }
@@ -322,7 +329,11 @@
         if (msg.attachmentData.length > 0){
             [self handleCellExpandation:indexPath];
         } else if ([UserSettings premiumUnlocked]){
-            // load img
+            MessageImageCell* cell = (MessageImageCell*)[tableView cellForRowAtIndexPath:indexPath];
+            // TODO: change image to something indicating loading
+            [cell.activityIndicator startAnimating];
+            cell.labelInfoText.text = @"Loading...";
+            [DataManager requestAttachmentData:msg.attachmentName delegate:self];
         } else {
             // more about pro
         }
@@ -351,15 +362,19 @@
     for (int i = 0; i<messages.count; i++) {
         msg = (Message*)[messages objectAtIndex:i];
         if ([msg.attachmentName isEqualToString:attachmentName]){
-            if (attachmentData && attachmentData.length > 0){
+            // TODO: defining a row carefully
+            int rowIndex = msg.text.length > 0 ? 2 : 1;
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:rowIndex inSection:i];
+            MessageImageCell* cell = (MessageImageCell*)[self.tabelMessages cellForRowAtIndexPath:indexPath];
+            if ([UIImage imageWithData:attachmentData]){
                 msg.attachmentData = attachmentData;
             } else {
                 // TODO: implement
                 // error dowloading data
+                [errorCells addObject:indexPath];
             }
-            // TODO: defining a row carefully
-            int rowIndex = msg.text.length > 0 ? 2 : 1;
-            [self.tabelMessages reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:rowIndex inSection:i]] withRowAnimation:UITableViewRowAnimationNone];
+            [cell.activityIndicator stopAnimating];
+            [self.tabelMessages reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
             break;
         }
     }
@@ -497,7 +512,7 @@
     }
 }
 
--(void) AskToConfirmDeletion{
+-(void) askToConfirmDeletion{
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@""/*[Lang LOC_MESSAGES_ALERT_DELETION_TITLE]*/ message:[Lang LOC_MESSAGES_ALERT_DELETION_QUESTION] delegate:self cancelButtonTitle:[Lang LOC_MESSAGES_ALERT_DELETION_CANCEL] otherButtonTitles:[Lang LOC_MESSAGES_ALERT_DELETION_OK], nil];
     [alert show];
 }
@@ -505,14 +520,16 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1){
         bool ok = YES;
+        NSString* collocutor = [self getCollocutor];
         for (Message* message in messages) {
             if ([DataManager deleteMessage:message] != OK){
                 ok = NO;
                 break;
             }
         }
-        if (ok){
+        if (ok && collocutor.length > 0){
             //[self.tabelMessages reloadData];
+            [DataManager deleteUser:collocutor];
             [self.navigationController popViewControllerAnimated:YES];
         }
     }

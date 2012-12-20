@@ -11,6 +11,7 @@
 @interface MessageImageCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UILabel *labelInfoText;
 
 @end

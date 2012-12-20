@@ -24,7 +24,6 @@
 +(BOOL) user:(User*)one isEqualTo:(User*)two;
 
 +(bool) getIfMetricMeasurementSystem;
-+(bool)isWifiAvailable;
 
 +(NSData*) compressImage:(UIImage*)imageData;
 @end

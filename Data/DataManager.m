@@ -54,6 +54,10 @@
     [[self getDbManager] saveUser:user];
 }
 
++(void) deleteUser:(NSString*)user{
+    [[self getDbManager] deleteUser:user];
+}
+
 +(void) updateOwnNickInDb:(NSString*)nick{
     [[self getDbManager] updateOwnNick:nick];
 }
@@ -474,25 +478,15 @@
 
 +(ErrorCodes)upload:(NSData*)dataToUpload inBucket:(NSString*)bucket forKey:(NSString*)key
 {
-    bool using3G = ![Utils isWifiAvailable];
-    
     @try {	
-        S3PutObjectRequest *por = [[S3PutObjectRequest alloc] initWithKey:key inBucket:bucket];
+        S3PutObjectRequest *putObjectRequest = [[S3PutObjectRequest alloc] initWithKey:key inBucket:bucket];
         
-        // The S3UploadInputStream was deprecated after the release of iOS6.
-        S3UploadInputStream *stream = [S3UploadInputStream inputStreamWithData:dataToUpload];  
-        if (using3G) {
-            stream.delay = 0.2; // In seconds
-            stream.packetSize = 16; // Number of 1K blocks
-        }
-        
-        por.contentType = @"image/jpeg";
-        por.data = dataToUpload;
-        //por.stream = stream;
+        putObjectRequest.contentType = @"image/jpeg";
+        putObjectRequest.data = dataToUpload;
         // sync call on purpose
         // por.delegate =
         
-        [[AmazonClientManager s3] putObject:por];
+        [[AmazonClientManager s3] putObject:putObjectRequest];
     }
     @catch (AmazonServiceException *exception) {
         NSLog(@"Upload Failed, Reason: %@", exception);
@@ -502,7 +496,17 @@
 }
 
 +(void) requestAttachmentData:(NSString*)attachmentName delegate:(id<AttachmentDataUpdateDelegate>)delegate{
-    
+    S3GetObjectRequest* getObjectRequest = [[S3GetObjectRequest alloc] initWithKey:attachmentName withBucket:ATTACHMENTS_BUCKET_NAME];
+    getObjectRequest.delegate = [self getDbManager];
+        
+    [self getDbManager].attachmentUpdateDelegate = delegate;
+
+    @try {
+        [[AmazonClientManager s3] getObject:getObjectRequest];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Error requesting attachment. Info: %@", exception);
+    }
 }
 
 +(int) getRegularPoststampsCount{
@@ -696,6 +700,9 @@
     }
     @catch (NSException *exception) {
         return AMAZON_SERVICE_ERROR;
+    }
+    if (message.attachmentData.length > 0){
+        [self upload:message.attachmentData inBucket:ATTACHMENTS_BUCKET_NAME forKey:message.attachmentName];
     }
     
     message.when = timestamp; 

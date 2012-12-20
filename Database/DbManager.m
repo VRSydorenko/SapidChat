@@ -106,6 +106,21 @@
     sqlite3_finalize(statement);
 }
 
+-(void) deleteUser:(NSString*)user{ // user specific method
+    NSString *deleteSQL = [NSString stringWithFormat:@"DELETE FROM %@ WHERE %@ = \"%@\" AND %@ = \"%@\"",T_USERS, F_EMAIL, user, F_AUTHOR, [UserSettings getEmail]];
+    const char *delete_stmt = [deleteSQL UTF8String];
+    
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(sapidDb, delete_stmt, -1, &statement, NULL) == SQLITE_OK){
+        if (sqlite3_step(statement) == SQLITE_DONE){
+        } else {
+            NSLog(@"Error deleting user from database");
+            NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
+        }
+    }
+    sqlite3_finalize(statement);
+}
+
 -(User*) loadUser:(NSString*)email{ // user specific method
     NSString *querySQL = [NSString stringWithFormat: @"SELECT %@, %@ FROM %@ WHERE %@=\"%@\" AND %@=\"%@\"", F_NICK, F_LANGS, T_USERS, F_AUTHOR, [UserSettings getEmail], F_EMAIL, email];
     const char *query_stmt = [querySQL UTF8String];
@@ -163,7 +178,7 @@
         NSLog(@"DbManager: updating attachment data with empty name");
         return;
     }
-    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = ? WHERE %@ = %@ AND %@ = \"%@\"", T_MSGS, F_ATTDATA, F_ATTNAME, attachmentName, F_AUTHOR, [UserSettings getEmail]];
+    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = ? WHERE %@ = \"%@\" AND %@ = \"%@\"", T_MSGS, F_ATTDATA, F_ATTNAME, attachmentName, F_AUTHOR, [UserSettings getEmail]];
     const char *query_stmt = [querySQL UTF8String];
     
     sqlite3_stmt *statement;
@@ -176,6 +191,8 @@
             NSLog(@"Error updating attachment data");
             NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
         }
+    } else {
+        NSLog(@"Error preparing statement. %s", sqlite3_errmsg(sapidDb));
     }
     sqlite3_finalize(statement);
 }
@@ -437,10 +454,12 @@
 
 // used for attachment downloads
 -(void)request:(AmazonServiceRequest *)request didCompleteWithResponse:(AmazonServiceResponse *)response{
-    if ([request isKindOfClass:[S3GetObjectRequest class]]){
+    if ([request isKindOfClass:S3GetObjectRequest.class] && [response isKindOfClass:S3GetObjectResponse.class]){
         S3GetObjectRequest* s3Request = (S3GetObjectRequest*)request;
-        [self updateAttachmentData:response.body forName:s3Request.key];
-        // TODO: handle case when update in ilocal db failed
+        if ([UIImage imageWithData:response.body]){
+            [self updateAttachmentData:response.body forName:s3Request.key];
+            // TODO: handle case when update in ilocal db failed
+        }
         [self.attachmentUpdateDelegate attachmentDataUpdatedForName:s3Request.key data:response.body];
         self.attachmentUpdateDelegate = nil; // only one request in a time now
     }

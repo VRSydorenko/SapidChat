@@ -29,6 +29,7 @@
 -(void) close;
 
 -(void) saveUser:(User*)user;
+-(void) deleteUser:(NSString*)user;
 -(User*) loadUser:(NSString*)email;
 -(void)updateOwnNick:(NSString*)nick;
 -(void) setMsgLanguages:(NSArray*)languages forUser:(NSString*)email;

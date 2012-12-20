@@ -127,14 +127,6 @@
     return [[[NSLocale currentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
 }
 
-+(bool)isWifiAvailable
-{
-    
- //   Reachability *r = [Reachability reachabilityForLocalWiFi];
-   // return !( [r currentReachabilityStatus] == NotReachable);
-    return YES;
-}
-
 +(NSData*) compressImage:(UIImage*)image{
     CGFloat compression = 0.9f;
     CGFloat maxCompression = 0.1f;

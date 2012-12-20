@@ -41,7 +41,7 @@
     [super viewDidLoad];
 	isSending = NO;
     if (self.collocutor.length > 0){
-        self.labelTitle.title = self.collocutor;
+        self.labelTitle.title = [DataManager loadUser:collocutor].nickname;
         self.buttonLanguage.hidden = YES;
     } else {
         self.labelTitle.title = [Lang LOC_COMPOSE_TITLE];
@@ -74,7 +74,7 @@
     if ([UserSettings premiumUnlocked]
         && self.textMessage.text.length == 0
         && self.imageView.image){
-        [self AskToSendOnlyImage];
+        [self askToSendOnlyImage];
     } else {
         [self sendMessage];
     }
@@ -149,7 +149,7 @@
 	[self presentModalViewController:picker animated:YES];
 }
 
--(void) AskToSendOnlyImage{
+-(void) askToSendOnlyImage{
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Send imahe w/o a text?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     [alert show];
 }

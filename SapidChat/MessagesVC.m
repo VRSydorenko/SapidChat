@@ -295,14 +295,14 @@
                     } else {
                         imgCell.imgView.image = [UIImage imageNamed:@"msgs_image_placeholder.png"];
                         if ([errorCells containsObject:indexPath]){
-                            infoString = @"Error loading image :(";
+                            infoString = [Lang LOC_MESSAGES_CELL_ERROR_LOADING_IMAGE];
                         } else {
-                            infoString = @"Tap to load image";
+                            infoString = [Lang LOC_MESSAGES_CELL_TAPTOLOAD_IMAGE];
                         }
                     }
                 } else {
                     imgCell.imgView.image = [UIImage imageNamed:@"msgs_image_accessdenied.png"];
-                    infoString = @"Images are available in Pro mode";
+                    infoString = [Lang LOC_MESSAGES_CELL_IMAGES_ARE_IN_PRO_MODE];
                 }
                 UIImage* bgImg = [self getMidMessageCellImageBkg:msg.type incoming:incoming];
                 imgCell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
@@ -332,7 +332,7 @@
             MessageImageCell* cell = (MessageImageCell*)[tableView cellForRowAtIndexPath:indexPath];
             // TODO: change image to something indicating loading
             [cell.activityIndicator startAnimating];
-            cell.labelInfoText.text = @"Loading...";
+            cell.labelInfoText.text = [Lang LOC_MESSAGES_CELL_LOADING];
             [DataManager requestAttachmentData:msg.attachmentName delegate:self];
         } else {
             // more about pro
@@ -466,7 +466,7 @@
             if (miles > 0){
                 feets = (int)feets % 5280;
             }
-            NSString* text_f =  [Lang LOC_MESSAGES_CELL_DISTANCE_FOOTS];
+            NSString* text_f =  [Lang LOC_MESSAGES_CELL_DISTANCE_FEETS];
             if (miles > 0){
                 NSString* text_m = [Lang LOC_MESSAGES_CELL_DISTANCE_MILES];
                 return [NSString stringWithFormat:@"%d%@ %d%@", miles, text_m, (int)feets, text_f];

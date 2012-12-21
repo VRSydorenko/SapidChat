@@ -15,7 +15,7 @@
 // info
 +(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return @"Distance to collocutor";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{
-    return [NSString stringWithFormat:@"When you receive a message you see a distance between you and the collocutor.\rIt is interesting who you a talking to, they can be close to you or in thousand %@ away.", [Utils getIfMetricMeasurementSystem] ? @"kilometers" : @"miles"];
+    return [NSString stringWithFormat:@"When you receive a message you see a distance between you and the collocutor.\rIt is interesting who you a talking to, they can be close to you or in thousand %@ away.\rNote: the distance is shown when location options is available for SapidChat on your and on your collocutor's device.", [Utils getIfMetricMeasurementSystem] ? @"kilometers" : @"miles"];
 }
 // about screen
 +(NSString*) LOC_ABOUT_SCREEN_TITLE{ return @"About the app";}
@@ -83,6 +83,10 @@
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Sending...";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL{return @"Email";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Your message (optional)";}
++(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Hi there!\rIt was me who sent you the intrigue message ;)";}
++(NSString*) LOC_INTRIGUE_MAIL_SUBJECT{return @"Somebody wants to intrigue you in Sapid Chat";}
++(NSString*) LOC_INTRIGUE_MAIL_CONTENT_DEFAULT{return @"Mail content default";}
++(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM{return @"Mail content custom %@";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Compose";}
@@ -94,7 +98,11 @@
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"km";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"m";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_MILES{return @"m";}
-+(NSString*) LOC_MESSAGES_CELL_DISTANCE_FOOTS{return @"f";}
++(NSString*) LOC_MESSAGES_CELL_DISTANCE_FEETS{return @"f";}
++(NSString*) LOC_MESSAGES_CELL_ERROR_LOADING_IMAGE{return @"Error loading image :(";}
++(NSString*) LOC_MESSAGES_CELL_TAPTOLOAD_IMAGE;{return @"Tap to load image";}
++(NSString*) LOC_MESSAGES_CELL_IMAGES_ARE_IN_PRO_MODE{return @"Images are available in full version";}
++(NSString*) LOC_MESSAGES_CELL_LOADING{return @"Loading...";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Reply";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Compose one more";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE{return @"Dialog actions";}
@@ -110,7 +118,11 @@
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"New message";}
 +(NSString*) LOC_COMPOSE_BTN_SEND{return @"Send";}
-+(NSString*) LOC_COMPOSE_BTN_CANCEL{return @"Cancel";}
++(NSString*) LOC_COMPOSE_BTN_ATTACH_IMG{return @"Attach image";}
++(NSString*) LOC_COMPOSE_ACTSHEET_TITLE_PICKFROM{return @"Source:";}
++(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA{return @"Take a photo";}
++(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA_ROLL{return @"Camera roll";}
++(NSString*) LOC_COMPOSE_ACTSHEET_CANCEL{return @"Cancel";}
 // settings
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS{return @"Settings";}
 // section date & time

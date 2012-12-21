@@ -17,7 +17,7 @@
 
 @interface ComposeVC (){
     bool isSending;
-    //NSString* currentMessageText;
+    bool isImageSet;
     MainNavController* navCon;
 }
 
@@ -30,7 +30,6 @@
 @synthesize buttonLanguage;
 @synthesize labelTitle;
 @synthesize btnSend;
-@synthesize btnCancel;
 @synthesize btnAttachData;
 
 @synthesize initialMsgGlobalTimstamp;
@@ -40,15 +39,22 @@
 {
     [super viewDidLoad];
 	isSending = NO;
+    isImageSet = NO;
     if (self.collocutor.length > 0){
-        self.labelTitle.title = [DataManager loadUser:collocutor].nickname;
+        self.labelTitle.text = [DataManager loadUser:collocutor].nickname;
         self.buttonLanguage.hidden = YES;
     } else {
-        self.labelTitle.title = [Lang LOC_COMPOSE_TITLE];
+        self.labelTitle.text = [Lang LOC_COMPOSE_TITLE];
         [self updateLanguageText];
     }
+    
     [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_SEND] forButton:self.btnSend];
-    [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_CANCEL] forButton:self.btnCancel];
+    [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_ATTACH_IMG] forButton:self.btnAttachData];
+    if ([UserSettings premiumUnlocked]){
+        self.labelInfoText.hidden = YES;
+    } else {
+        self.labelInfoText.text = [Lang LOC_MESSAGES_CELL_IMAGES_ARE_IN_PRO_MODE];
+    }
 }
 
 - (void)viewDidUnload
@@ -58,7 +64,6 @@
     [self setButtonLanguage:nil];
     [self setLabelTitle:nil];
     [self setBtnSend:nil];
-    [self setBtnCancel:nil];
     [self setBtnAttachData:nil];
     [self setImageView:nil];
     [super viewDidUnload];
@@ -114,11 +119,11 @@
 }
 
 - (IBAction)attachDataPressed:(id)sender {
-    NSString* title = @"New image";
-    NSString* cancel = @"Cancel";
-    NSString* takePhoto = @"Take a photo";
-    NSString* cameraRoll = @"Camera roll";
-    //NSString* claim = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM];
+    [self.textMessage resignFirstResponder];
+    NSString* title = [Lang LOC_COMPOSE_ACTSHEET_TITLE_PICKFROM];
+    NSString* cancel = [Lang LOC_COMPOSE_ACTSHEET_CANCEL];
+    NSString* takePhoto = [Lang LOC_COMPOSE_ACTSHEET_CAMERA];
+    NSString* cameraRoll = [Lang LOC_COMPOSE_ACTSHEET_CAMERA_ROLL];
     UIActionSheet *pickImageActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:nil otherButtonTitles:takePhoto, cameraRoll, nil];
     [pickImageActionSheet showInView:self.view];
 }
@@ -128,11 +133,13 @@
         editingInfo:(NSDictionary *)editingInfo{
     
     //imageView.image = [editingInfo objectForKey:@"UIImagePickerControllerOriginalImage"];
+    isImageSet = YES;
     [self.imageView setImage:image];
     [picker dismissModalViewControllerAnimated:YES];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    isImageSet = NO || isImageSet;
     [picker dismissModalViewControllerAnimated:YES];
 }
 
@@ -181,7 +188,7 @@
     msg.latitude = navCon.latitude;
     msg.longitude = navCon.longitude;
     
-    if (self.imageView.image){
+    if (isImageSet){
         msg.attachmentData = [Utils compressImage:self.imageView.image];
     }
     

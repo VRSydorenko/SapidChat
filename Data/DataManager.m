@@ -15,6 +15,7 @@
 #import "Message.h"
 #import "Dialog.h"
 #import "AmazonKeyChainWrapper.h"
+#import "Lang.h"
 
 @interface DataManager()
 
@@ -151,14 +152,14 @@
 
 +(ErrorCodes) sendIntrigueTo:(NSString*)email withOptionalText:(NSString*)text{
     SESContent *messageBody = [[SESContent alloc] init];
-    messageBody.data = text;
-        
-    SESContent *subject = [[SESContent alloc] init];
-    subject.data = @"This is subject";
+    messageBody.data = text.length > 0 ? [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_CUSTOM], text] : [Lang LOC_INTRIGUE_MAIL_CONTENT_DEFAULT];
         
     SESBody *body = [[SESBody alloc] init];
-    body.text = messageBody;
-        
+    body.html = messageBody;
+    
+    SESContent *subject = [[SESContent alloc] init];
+    subject.data = [Lang LOC_INTRIGUE_MAIL_SUBJECT];
+    
     SESMessage *message = [[SESMessage alloc] init];
     message.subject = subject;
     message.body    = body;
@@ -167,14 +168,14 @@
     [destination.toAddresses addObject:email];
     
     SESSendEmailRequest *emailRequest = [[SESSendEmailRequest alloc] init];
-    emailRequest.source = @"viktor.sydorenko@gmail.com";
+    emailRequest.source = @"viktor.sydorenko@gmail.com";//[UserSettings getEmail];
     emailRequest.destination = destination;
     emailRequest.message = message;
     
     Message* msg = [[Message alloc] init];
     msg.from = [UserSettings getEmail];
     msg.to = email;
-    msg.text = @"Hi!! This is an intrigue message! Lets be friends! :)";
+    msg.text = [Lang LOC_INTRIGUE_COLLOCUTOR_MESSAGE];
     msg.type = MSG_INTRIGUE;
     msg.when = [[NSDate date] timeIntervalSinceReferenceDate];
     
@@ -188,6 +189,14 @@
         @catch (NSException* ex) {
             result = AMAZON_SERVICE_ERROR;
             NSLog(@"%@", ex);
+        }
+        
+        // now send custom message to AWS
+        if (text.length > 0){
+            msg.text = text;
+            msg.type = MSG_REGULAR;
+            msg.when = [[NSDate date] timeIntervalSinceReferenceDate];
+            [self sendMessageToCollocutor:msg];
         }
     }
     return result;

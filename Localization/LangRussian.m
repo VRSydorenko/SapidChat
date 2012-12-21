@@ -83,6 +83,34 @@
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Отправка...";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL{return @"Email";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Ваше сообщение (не обязательно)";}
++(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Привет!\rЭто я отправил тебе то интригующее сообщение на почту ;)";}
++(NSString*) LOC_INTRIGUE_MAIL_SUBJECT{return @"Кто-то хочет заинтриговать вас в Sapid Chat";}
++(NSString*) LOC_INTRIGUE_MAIL_CONTENT_DEFAULT{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], @"", @""];}
++(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMMSG_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE]];}
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_TEMPL{return @"Здравствуйте!<br>\
+    <br>\
+    Кто-то, кто знает адрес вашей электронной почты, хочет вам что-то сказать и анонимно приглашает пообщаться в Sapid Chat!<br>\
+    <br>\
+    Sapid Chat - это приложение для интересного общения. В нем есть опция, с помощью которой можно анонимно пригласить знакомого человека пообщаться, зная адрес его электронной почты.<br>\
+    Это письмо - не спам! Кто-то вручную ввел адрес вашей электронной почты чтобы заинтриговать и позвать пообщаться в Sapid Chat.<br>\
+    %@\
+    <br>\
+    Если вам интересно узнать кто вас так интригует, то вы можете зайти в Sapid Chat и узнать, кто же из знакомых отправил вам это приглашение. А может, наоборот, кто-то хочет познакомиться и узнал ваш email чтобы заинтриговать вас таким вот образом ;)<br>\
+    Важно: если вы не зарегистрированы в Sapid Chat, то для того чтобы увидеть отправленное вам сообщение в программе, вам нужно при регистрации указать именно этот ваш адрес электронной почты.<br>\
+    <br>\
+    Что еще вы можете сделать:<br>\
+    - если вам не интересно узнать кто вас приглашает к общению, вы можете, конечно, просто проигнорировать это письмо. Жаль, конечно, что в таком случае кто-то так и не дождется от вас никакого ответа.<br>\
+    - если вы все же хотите сообщить приглашающему, что вам это не интересно, то ответьте на это письмо, указав в теме \"NO\" и мы сообщим этому человеку, что вы не хотите как-либо реагировать.<br>\
+    - если вы больше никогда не хотите получать подобные письма от Sapid Chat в будущем, ответьте на это письмо указав в теме письма \"NEVER\". В таком случае мы заблокируем отправку приглашений на ваш адрес и если кто-либо захочет в будущем вас заинтриговать, сделать это уже не получится.<br>\
+    %@Примечание: обработка вашего ответного письма может занять некоторое время.<br>\
+    <br>\
+    Sapid Chat желает вам хорошего настроения и интересного общения!<br>\
+    sapidchat.com<br>\
+    info@sapidchat.com";}
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTOMMSG_TEMPL{return @"<br>\
+    Этот человек также добавил к этому приглашению следующее сообщение:<br>\
+    <i>\" %@ \"</i><br>";}
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE{return @"- если вам кажется, что дополнительное сообщение, которое было добавлено к этому приглашению носит [blah blah blah] характер, то, пожалуйста, ответьте на это письмо, указав в теме \"CENSORED\". В таком случае мы рассмотрим этот текст и при подтверждении ваших подозрений, заблокируем пользователя. В таком случае приносим извинения за подобное сообщение.<br>";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Разместить";}
@@ -94,7 +122,11 @@
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"км";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"м";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_MILES{return @"м";}
-+(NSString*) LOC_MESSAGES_CELL_DISTANCE_FOOTS{return @"ф";}
++(NSString*) LOC_MESSAGES_CELL_DISTANCE_FEETS{return @"ф";}
++(NSString*) LOC_MESSAGES_CELL_ERROR_LOADING_IMAGE{return @"Ошибка загрузки изображения :(";}
++(NSString*) LOC_MESSAGES_CELL_TAPTOLOAD_IMAGE{return @"Нажмите для загрузки изображения";}
++(NSString*) LOC_MESSAGES_CELL_IMAGES_ARE_IN_PRO_MODE{return @"Изображения доступны в полной версии";}
++(NSString*) LOC_MESSAGES_CELL_LOADING{return @"Загрузка...";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_REPLY {return @"Ответить";}
 +(NSString*) LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE {return @"Разместить еще";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE{return @"Действия над диалогом";}
@@ -110,7 +142,11 @@
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"Новое сообщение";}
 +(NSString*) LOC_COMPOSE_BTN_SEND{return @"Отправить";}
-+(NSString*) LOC_COMPOSE_BTN_CANCEL{return @"Отмена";}
++(NSString*) LOC_COMPOSE_BTN_ATTACH_IMG{return @"Добавить фото";}
++(NSString*) LOC_COMPOSE_ACTSHEET_TITLE_PICKFROM{return @"Источник:";}
++(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA{return @"Сделать фото";}
++(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA_ROLL{return @"Выбрать из галереи";}
++(NSString*) LOC_COMPOSE_ACTSHEET_CANCEL{return @"Отмена";}
 // settings
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS {return @"Настройки";}
 // section date & time

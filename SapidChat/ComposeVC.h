@@ -26,9 +26,9 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIButton *buttonLanguage;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *labelTitle;
+@property (strong, nonatomic) IBOutlet UILabel *labelTitle;
+@property (strong, nonatomic) IBOutlet UILabel *labelInfoText;
 @property (strong, nonatomic) IBOutlet UIButton *btnSend;
-@property (strong, nonatomic) IBOutlet UIButton *btnCancel;
 @property (strong, nonatomic) IBOutlet UIButton *btnAttachData;
 
 // for sending message to collocutor

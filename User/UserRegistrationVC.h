@@ -24,9 +24,11 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *btnClose;
 @property (strong, nonatomic) IBOutlet UILabel *labelSaveCreds;
 @property (strong, nonatomic) IBOutlet UITextView *txtSelectLangs;
+@property (strong, nonatomic) IBOutlet UIButton *btnCancel;
 
 
 - (IBAction)cancelPressed:(id)sender;
+- (IBAction)backPressed:(id)sender;
 - (IBAction)nextPressed:(id)sender;
 - (IBAction)textDidEndOnExit:(id)sender;
 

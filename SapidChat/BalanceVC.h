@@ -11,5 +11,6 @@
 @interface BalanceVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableContent;
+- (IBAction)segmentPicked:(id)sender;
 
 @end

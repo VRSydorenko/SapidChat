@@ -11,7 +11,7 @@
 #import "DbModel.h"
 #import "Message.h"
 #import "DataManager.h"
-#import "Data/User.h"
+#import "User.h"
 #import "Utils.h"
 #import "AmazonKeyChainWrapper.h"
 

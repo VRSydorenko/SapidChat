@@ -53,6 +53,7 @@
     if ([UserSettings premiumUnlocked]){
         self.labelInfoText.hidden = YES;
     } else {
+        self.btnAttachData.hidden = YES;
         self.labelInfoText.text = [Lang LOC_MESSAGES_CELL_IMAGES_ARE_IN_PRO_MODE];
     }
 }

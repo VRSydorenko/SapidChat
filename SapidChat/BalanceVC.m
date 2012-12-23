@@ -60,6 +60,7 @@
                 case 0:{
                     CurrentProModeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellProOrNotPro"];
                     cell.labelProMode.text = [self getCurrentProModeCellText];
+                    cell.imageCurrentVersion.image = [self getCurrentProModeCellImage];
                     return  cell;
                 }
                 case 1:{
@@ -143,13 +144,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0){
-        return 35; // first row. Will be with image later
+        return 46; // first row, with image
     }
     return 35;
 }
 
 -(NSString*) getCurrentProModeCellText{
     return [UserSettings premiumUnlocked] ? [Lang LOC_BALANCE_PRO_YES] : [Lang LOC_BALANCE_PRO_NO];
+}
+
+-(UIImage*) getCurrentProModeCellImage{
+    NSString* imageName = [UserSettings premiumUnlocked] ? @"current_mode_pro.png" : @"current_mode_notpro.png";
+    return [UIImage imageNamed:imageName];
 }
 
 -(NSString*) getQuantifierStringForAmount:(int)amount{
@@ -167,4 +173,14 @@
     return text;
 }
 
+- (IBAction)segmentPicked:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl*)sender;
+    if (segmentedControl.selectedSegmentIndex == 0){
+        if ([PurchaseManager makeItPro] == OK){
+            [self.tableContent reloadData];
+        }
+    } else if ([PurchaseManager restorePurchase] == OK){
+        [self.tableContent reloadData];
+    }
+}
 @end

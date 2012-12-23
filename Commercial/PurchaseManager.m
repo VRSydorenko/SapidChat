@@ -32,7 +32,7 @@
 +(void) finishRegularPoststampsSpending:(int)amount{
     int bufferedPoststamps = [DataManager getRegularPoststampsFromLocalBuffer];
     if (bufferedPoststamps < amount){
-        NSLog(@"payment functionality sucks :( shouldn't has came here");
+        NSLog(@"My payment functionality sucks :( shouldn't has came here");
     }
     [DataManager addRegularPoststampsToLocalBuffer: -amount];
 }
@@ -50,13 +50,6 @@
 +(ErrorCodes) restorePurchase{
     [UserSettings setPremiumUnlocked];
     return OK;
-}
-
-// private methods
-
-+(ErrorCodes) synchronizeWithAWS{
-    ErrorCodes result = OK;
-    return result;
 }
 
 @end

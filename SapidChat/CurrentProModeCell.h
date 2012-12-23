@@ -11,4 +11,5 @@
 @interface CurrentProModeCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *labelProMode;
+@property (strong, nonatomic) IBOutlet UIImageView *imageCurrentVersion;
 @end

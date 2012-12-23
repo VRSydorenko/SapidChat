@@ -539,9 +539,18 @@
 
 +(NSArray*)loadAllMessages{
     // load and save new messages
+    NSString* me = [UserSettings getEmail];
+    User *collocutor = nil;
     NSMutableArray* messages = [[NSMutableArray alloc] initWithArray:[self loadNewMessages]];
     for (Message* newMsg in messages) {
         [self saveMessage:newMsg];
+        // if this in an income message and the user is not saved in the local db yet - save them
+        if (![newMsg.from isEqualToString:me]){
+            if ([self retrieveUser:&collocutor withEmail:newMsg.from] == OK){
+                [self saveUser:collocutor];
+                collocutor = nil;
+            }
+        }
     }
     
     // return messages from the local store

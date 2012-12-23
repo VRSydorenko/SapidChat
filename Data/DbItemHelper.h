@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Message.h"
-#import "Data/User.h"
+#import "User.h"
 
 @interface DbItemHelper : NSObject
 

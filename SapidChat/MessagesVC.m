@@ -262,7 +262,7 @@
                 cell.labelTime.text = [Utils timeToString:localTime];
                 
                 NSString* distanceText = @"";
-                if (incoming){
+                if (incoming && [UserSettings premiumUnlocked]){
                     cell.labelDistance.font = timeAndDistanceFont;
                     distanceText = [self getDistanceStringForLatitude:msg.latitude andLongitude:msg.longitude];
                 }

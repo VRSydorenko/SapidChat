@@ -75,10 +75,6 @@
 }
 
 -(void) setLocalizableValues{
-    if (!self.btnClose){
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[Lang LOC_REGISTATOR_BTN_CANCEL] style:UIBarButtonItemStylePlain target:self action:@selector(cancelPressed:)];
-    }
-
     if (self.btnNext){
         [LocalizationUtils setTitle:[Lang LOC_REGISTATOR_BTN_NEXT] forButton:self.btnNext];
     }
@@ -110,6 +106,11 @@
 
 - (IBAction)cancelPressed:(id)sender {
     [navController cancel];
+}
+
+- (IBAction)backPressed:(id)sender{
+    [self saveControlsData];
+    [navController popViewControllerAnimated:YES];
 }
 
 - (IBAction)nextPressed:(UIBarButtonItem *)sender {

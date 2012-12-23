@@ -15,8 +15,11 @@
 // info
 +(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return @"Distance to collocutor";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{
-    return [NSString stringWithFormat:@"When you receive a message you see a distance between you and the collocutor.\rIt is interesting who you a talking to, they can be close to you or in thousand %@ away.\rNote: the distance is shown when location options is available for SapidChat on your and on your collocutor's device.", [Utils getIfMetricMeasurementSystem] ? @"kilometers" : @"miles"];
+    return [NSString stringWithFormat:@"When you receive a message you see a distance between you and the collocutor.\rIt is interesting who you a talking to, they can be close to you or in thousand %@ away.", [Utils getIfMetricMeasurementSystem] ? @"kilometers" : @"miles"];
 }
++(NSString*) LOC_INFO_FEATURE_NOTE_DISTANCE{ return @"Note: the distance is shown when location options is available for SapidChat on your and on your collocutor's device";}
++(NSString*) LOC_INFO_FEATURE_TITLE_IMAGE{ return @"Images in messages";}
++(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"As it's said it's always better one time to see than a hundred times to hear. With this feature you can attach images to your messages and view images in messages you receive.";}
 // about screen
 +(NSString*) LOC_ABOUT_SCREEN_TITLE{ return @"About the app";}
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Viktor Sydorenko";}

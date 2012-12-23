@@ -17,6 +17,9 @@
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{
     return [NSString stringWithFormat:@"Когда вы получаете входящее сообщение, вы видите расстояние от вас до собеседника.\rИнтересно, с кем вы общаетесь. Ваш собеседник может быть рядом, а может быть и за тысячи %@ от вас.", [Utils getIfMetricMeasurementSystem] ? @"километров" : @"миль"];
 }
++(NSString*) LOC_INFO_FEATURE_NOTE_DISTANCE{ return @"Примечание: расстояние отображается если определение местоположения разрешено для Sapid Chat как на вашем устройстве так и на устройстве вашего собесденика.";}
++(NSString*) LOC_INFO_FEATURE_TITLE_IMAGE{ return @"Изображения в сообщениях";}
++(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"Как говорится лучше один раз увидеть, чем сто раз услышать. С этой возможностью вы сможете отсылать и просматривать изображения в сообщениях.";}
 // about screen
 +(NSString*) LOC_ABOUT_SCREEN_TITLE{ return @"О приложении";}
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Виктор Сидоренко";}

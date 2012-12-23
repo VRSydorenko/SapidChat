@@ -69,6 +69,7 @@
 		7FCBF68B160F291300A2A2E2 /* UserRegistration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */; };
 		7FCBF68C160F291300A2A2E2 /* UserRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */; };
 		7FCBF68D160F291300A2A2E2 /* UserRegistrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF688160F291300A2A2E2 /* UserRegistrator.m */; };
+		7FCCE05A16878A1C00CD032B /* feature_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCCE05916878A1C00CD032B /* feature_images.png */; };
 		7FD64D2F1613511D00BE8551 /* DbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D2E1613511D00BE8551 /* DbManager.m */; };
 		7FD64D321613522B00BE8551 /* DBDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D311613522B00BE8551 /* DBDefinition.m */; };
 		7FD64D3516135AEC00BE8551 /* DbTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D3416135AEC00BE8551 /* DbTable.m */; };
@@ -258,6 +259,7 @@
 		7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegistrationVC.m; path = User/UserRegistrationVC.m; sourceTree = "<group>"; };
 		7FCBF687160F291300A2A2E2 /* UserRegistrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRegistrator.h; path = User/UserRegistrator.h; sourceTree = "<group>"; };
 		7FCBF688160F291300A2A2E2 /* UserRegistrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegistrator.m; path = User/UserRegistrator.m; sourceTree = "<group>"; };
+		7FCCE05916878A1C00CD032B /* feature_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = feature_images.png; path = Images/feature_images.png; sourceTree = "<group>"; };
 		7FD64D2D1613511D00BE8551 /* DbManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbManager.h; path = Database/DbManager.h; sourceTree = "<group>"; };
 		7FD64D2E1613511D00BE8551 /* DbManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbManager.m; path = Database/DbManager.m; sourceTree = "<group>"; };
 		7FD64D301613522B00BE8551 /* DBDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBDefinition.h; path = Database/DBDefinition.h; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 		7F3BA58716768E030021F951 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7FCCE05916878A1C00CD032B /* feature_images.png */,
 				7FF74BDC168130F6005142C5 /* msgs_image_placeholder.png */,
 				7FF74BDA16812706005142C5 /* msgs_image_accessdenied.png */,
 				7FFC2898167CFB280078EB90 /* msg_in_intrigue_bottom.png */,
@@ -466,6 +469,7 @@
 		7FAF75F6159E4FE300D37D7D = {
 			isa = PBXGroup;
 			children = (
+				7FE76A6116851B9100803459 /* CustomControls */,
 				7FE5BA251651541300B807B1 /* Commercial */,
 				7FEF2F4E164B0D34003C8745 /* Settings */,
 				7FD64D2B16134DB100BE8551 /* Database */,
@@ -704,6 +708,13 @@
 			name = Commercial;
 			sourceTree = "<group>";
 		};
+		7FE76A6116851B9100803459 /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CustomControls;
+			sourceTree = "<group>";
+		};
 		7FEF2F4E164B0D34003C8745 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,6 +845,7 @@
 				7FDA84D3167E47A6001986FB /* intro_welcome.jpg in Resources */,
 				7FF74BDB16812706005142C5 /* msgs_image_accessdenied.png in Resources */,
 				7FF74BDD168130F6005142C5 /* msgs_image_placeholder.png in Resources */,
+				7FCCE05A16878A1C00CD032B /* feature_images.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

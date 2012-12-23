@@ -147,13 +147,24 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
 	picker.delegate = self;
     
+    bool sourceExists = NO;
 	if(buttonIndex == 0) { // take photo
-		picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            sourceExists = YES;
+        }
 	} else { // camera roll
-		picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
+            picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            sourceExists = YES;
+        }
 	}
     
-	[self presentModalViewController:picker animated:YES];
+    if (sourceExists){
+        [self presentModalViewController:picker animated:YES];
+    } else {
+        [self showImageSourceNotAvailable];
+    }
 }
 
 -(void) askToSendOnlyImage{
@@ -165,6 +176,10 @@
     if (buttonIndex == 1){
         [self sendMessage];
     }
+}
+
+-(void)showImageSourceNotAvailable{
+    [[[UIAlertView alloc] initWithTitle:@"" message:[Lang LOC_COMPOSE_ALERT_SOURCE_UNAVAILABLE] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
 }
 
 - (void)msgLangControllerToDismiss:(NewMsgLanguageVC *)msgLangController{

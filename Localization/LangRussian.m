@@ -150,6 +150,7 @@
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA{return @"Сделать фото";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA_ROLL{return @"Выбрать из галереи";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CANCEL{return @"Отмена";}
++(NSString*) LOC_COMPOSE_ALERT_SOURCE_UNAVAILABLE{return @"К сожалению, данный источник изображений не доступен на этом устройстве.";}
 // settings
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS {return @"Настройки";}
 // section date & time

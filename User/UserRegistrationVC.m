@@ -280,6 +280,7 @@
             isRegistering = NO;
         });
     });
+    //dispatch_release(regQueue);
 }
 
 

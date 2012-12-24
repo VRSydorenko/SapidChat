@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2488" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1468"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="" modalTransitionStyle="flipHorizontal" id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -107,16 +105,16 @@
                         <outlet property="labelServiceMessage" destination="lev-W7-oyv" id="gJK-Bs-wpE"/>
                         <outlet property="textEmail" destination="uZy-kd-bnW" id="cKQ-ge-k6E"/>
                         <outlet property="textPassword" destination="zRf-bi-An2" id="4Vx-o6-DgB"/>
-                        <segue destination="5rv-sM-JVL" identifier="SegueLoginToMain" kind="modal" modalTransitionStyle="flipHorizontal" id="3Xd-K4-zeI"/>
+                        <segue destination="5rv-sM-JVL" kind="modal" identifier="SegueLoginToMain" modalTransitionStyle="flipHorizontal" id="3Xd-K4-zeI"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1542" y="218"/>
         </scene>
         <!--MainVC - Sapid Chat-->
         <scene sceneID="2oE-Pd-0uy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L0f-uN-XUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="SlS-hk-tqo" customClass="MainVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xDC-uR-dDy">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -228,7 +226,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xw8-yB-cVj" identifier="SegueMainToAbout" kind="push" id="oaQ-14-2Dz"/>
+                                    <segue destination="xw8-yB-cVj" kind="push" identifier="SegueMainToAbout" id="oaQ-14-2Dz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zT7-zW-gv2">
@@ -243,7 +241,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jaP-Nf-8Rd" identifier="SegueMainToSettings" kind="push" id="seH-da-IOv"/>
+                                    <segue destination="jaP-Nf-8Rd" kind="push" identifier="SegueMainToSettings" id="seH-da-IOv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -260,18 +258,18 @@
                         <outlet property="btnLogout" destination="hp4-HC-m67" id="c4F-FW-lUn"/>
                         <outlet property="btnSettings" destination="zT7-zW-gv2" id="kpm-MM-cRi"/>
                         <outlet property="tableMain" destination="qRv-18-DRt" id="5WF-xg-lmw"/>
-                        <segue destination="sb8-cz-GpM" identifier="SegueMainToDialogs" kind="push" id="Pqb-If-2yd"/>
-                        <segue destination="KfH-nn-bWU" identifier="SegueMainToIntrigue" kind="push" id="YZz-8O-dPy"/>
-                        <segue destination="N4x-Oe-Xfb" identifier="SegueMainToBalance" kind="push" id="CNE-5a-ZYh"/>
+                        <segue destination="sb8-cz-GpM" kind="push" identifier="SegueMainToDialogs" id="Pqb-If-2yd"/>
+                        <segue destination="KfH-nn-bWU" kind="push" identifier="SegueMainToIntrigue" id="YZz-8O-dPy"/>
+                        <segue destination="N4x-Oe-Xfb" kind="push" identifier="SegueMainToBalance" id="CNE-5a-ZYh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L0f-uN-XUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-968" y="-437"/>
         </scene>
         <!--AboutVC-->
         <scene sceneID="YMY-5d-IQm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o2i-LF-xmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="" id="xw8-yB-cVj" customClass="AboutVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1wC-ov-Qry">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -328,13 +326,13 @@
                         <outlet property="tableAbout" destination="OWY-NI-JgW" id="Ziq-1o-JMB"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o2i-LF-xmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-968" y="-1076"/>
         </scene>
         <!--DialogsVC - Messages-->
         <scene sceneID="St8-r4-3JV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W88-ZR-Ozj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="sb8-cz-GpM" customClass="DialogsVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Qx-8c-o5y">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -449,17 +447,17 @@ Place a message?</string>
                         <outlet property="btnPick" destination="H7w-ss-68t" id="2cl-gF-j8z"/>
                         <outlet property="spinnerPick" destination="oo7-h9-9JD" id="hEL-vV-ejN"/>
                         <outlet property="tableDialogs" destination="hDL-sG-y0O" id="6W3-Tc-2MX"/>
-                        <segue destination="dDO-1s-p1P" identifier="SegueDialogsToDialog" kind="push" id="4gH-r1-YbD"/>
-                        <segue destination="p1h-7f-rCv" identifier="SegueDialogsToCompose" kind="modal" modalTransitionStyle="coverVertical" id="nTz-gt-Agf"/>
+                        <segue destination="dDO-1s-p1P" kind="push" identifier="SegueDialogsToDialog" id="4gH-r1-YbD"/>
+                        <segue destination="p1h-7f-rCv" kind="modal" identifier="SegueDialogsToCompose" modalTransitionStyle="coverVertical" id="nTz-gt-Agf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W88-ZR-Ozj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-436" y="-819"/>
         </scene>
         <!--MessagesVC-->
         <scene sceneID="TVC-zA-4wb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rIL-0Q-Rpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dDO-1s-p1P" customClass="MessagesVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sdD-sn-IzU">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -563,17 +561,21 @@ Place a message?</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Og5-9x-Jaw">
-                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Reply" id="DaY-iS-6w2">
-                                        <connections>
-                                            <action selector="replyPressed:" destination="dDO-1s-p1P" id="e5P-3R-W2k"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sAj-XA-3zL">
+                                <rect key="frame" x="20" y="380" width="126" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="replyPressed:" destination="dDO-1s-p1P" eventType="touchUpInside" id="G5c-Qz-8nv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -587,18 +589,18 @@ Place a message?</string>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="buttonReply" destination="DaY-iS-6w2" id="u75-qa-BFZ"/>
+                        <outlet property="buttonReply" destination="sAj-XA-3zL" id="mEx-gC-zOm"/>
                         <outlet property="tabelMessages" destination="heG-4m-64o" id="3Hg-a6-tVg"/>
-                        <segue destination="p1h-7f-rCv" identifier="SegueDialogToCompose" kind="modal" modalTransitionStyle="coverVertical" id="8wf-yh-Ir8"/>
+                        <segue destination="p1h-7f-rCv" kind="modal" identifier="SegueDialogToCompose" modalTransitionStyle="coverVertical" id="8wf-yh-Ir8"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rIL-0Q-Rpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="103" y="-1169"/>
         </scene>
         <!--Restore PassVC-->
         <scene sceneID="dQG-2U-Y9H">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HmH-JC-4c3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0Zu-aZ-2m6" customClass="RestorePassVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mdb-Zb-7Ui">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -669,13 +671,13 @@ Place a message?</string>
                         <outlet property="textEmail" destination="EHt-Ig-AW5" id="03D-oR-acZ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HmH-JC-4c3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1875" y="-437"/>
         </scene>
         <!--Main Nav Controller-->
         <scene sceneID="Jbb-el-Xot">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yeY-j6-Rjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="" definesPresentationContext="YES" id="5rv-sM-JVL" customClass="MainNavController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="cNm-jt-xXh"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="WED-JT-O1C">
@@ -689,13 +691,13 @@ Place a message?</string>
                         <segue destination="SlS-hk-tqo" kind="relationship" relationship="rootViewController" id="Ohq-vT-1K0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yeY-j6-Rjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1414" y="-437"/>
         </scene>
         <!--Settings TableVC - Settings-->
         <scene sceneID="YX1-EG-oP6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aHv-gQ-it3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="jaP-Nf-8Rd" customClass="SettingsTableVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="G8b-br-rEa">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -808,7 +810,7 @@ Place a message?</string>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="qul-SO-qwd" identifier="SegueSettingsToChangePass" kind="push" id="xbc-RZ-UKn"/>
+                                            <segue destination="qul-SO-qwd" kind="push" identifier="SegueSettingsToChangePass" id="xbc-RZ-UKn"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="x2F-EJ-xUa">
@@ -941,16 +943,16 @@ Place a message?</string>
                         <outlet property="loc_Langs_Conversation" destination="8ZN-jL-5xJ" id="0F4-h7-Xvl"/>
                         <outlet property="loc_Langs_NewMessages" destination="u9R-Aa-lw9" id="JCu-vJ-cgF"/>
                         <outlet property="switchSaveCreds" destination="b6f-w3-OBl" id="9SQ-UE-t4S"/>
-                        <segue destination="MIo-0l-CyJ" identifier="SegueSettingsToValuesList" kind="push" id="bQu-gV-C1X"/>
+                        <segue destination="MIo-0l-CyJ" kind="push" identifier="SegueSettingsToValuesList" id="bQu-gV-C1X"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHv-gQ-it3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-968" y="218"/>
         </scene>
         <!--IntrigueVC-->
         <scene sceneID="2Ut-qJ-42E">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ng7-ho-9jv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="KfH-nn-bWU" customClass="IntrigueVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T6u-2K-Fk7">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -1010,7 +1012,7 @@ Place a message?</string>
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lqz-xK-aIy" identifier="SegueIntrigueToInfo" kind="push" id="cgZ-K5-dYE"/>
+                                    <segue destination="lqz-xK-aIy" kind="push" identifier="SegueIntrigueToInfo" id="cgZ-K5-dYE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="conditions &amp; balance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="agF-sC-GcL">
@@ -1043,13 +1045,13 @@ Place a message?</string>
                         <outlet property="textMsg" destination="IdY-vu-b1Q" id="PoV-e3-nfG"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ng7-ho-9jv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-436" y="-197"/>
         </scene>
         <!--InfoVC-->
         <scene sceneID="Mla-y5-Bz5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cuC-wO-FBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="lqz-xK-aIy" customClass="InfoVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OM1-z1-8Zm">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -1070,13 +1072,13 @@ Place a message?</string>
                         <outlet property="textInfo" destination="T0H-9f-n0a" id="aPD-pT-d8O"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cuC-wO-FBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="571" y="-197"/>
         </scene>
         <!--Info About ProVC-->
         <scene sceneID="uaA-mx-Ksj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Da-Xy-oyq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="84U-vX-TIm" customClass="InfoAboutProVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vhH-nw-nDX">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -1131,13 +1133,13 @@ Place a message?</string>
                         <outlet property="tabelFeatures" destination="Rdq-f6-KwP" id="5ZW-uA-g4c"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Da-Xy-oyq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="571" y="424"/>
         </scene>
         <!--BalanceVC - Balance-->
         <scene sceneID="Y8j-8C-zER">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d9K-s1-Vpb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="N4x-Oe-Xfb" customClass="BalanceVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jh2-zq-5V4">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -1193,7 +1195,7 @@ Place a message?</string>
                                         </view>
                                         <connections>
                                             <outlet property="labelReadAboutPro" destination="i58-61-voL" id="IoW-zG-Yph"/>
-                                            <segue destination="84U-vX-TIm" identifier="SegueBalanceToAboutPro" kind="push" id="vt5-Kh-MOj"/>
+                                            <segue destination="84U-vX-TIm" kind="push" identifier="SegueBalanceToAboutPro" id="vt5-Kh-MOj"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellMakeItPro" id="XCX-Wq-2uJ" customClass="MakeItProCell">
@@ -1289,13 +1291,13 @@ Place a message?</string>
                         <outlet property="tableContent" destination="EJD-lG-k7w" id="sVq-zo-T54"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d9K-s1-Vpb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="103" y="84"/>
         </scene>
         <!--Settings Values List TableVC-->
         <scene sceneID="EtE-ym-NnR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aXU-n2-29V" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="MIo-0l-CyJ" customClass="SettingsValuesListTableVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Fpm-1v-vNu">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -1353,13 +1355,13 @@ Place a message?</string>
                     </tableView>
                     <navigationItem key="navigationItem" id="cET-uI-hYb"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aXU-n2-29V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-436" y="424"/>
         </scene>
         <!--Settings Change PassVC-->
         <scene sceneID="cs4-AH-EcP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jjT-e9-w4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="qul-SO-qwd" customClass="SettingsChangePassVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tun-vM-J1A">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -1422,13 +1424,13 @@ Place a message?</string>
                         <outlet property="spinner" destination="saP-Gg-fjV" id="hXZ-NS-ZsW"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jjT-e9-w4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="39" y="734"/>
         </scene>
         <!--ComposeVC-->
         <scene sceneID="Vml-Vs-UZJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tpu-5D-EHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="p1h-7f-rCv" customClass="ComposeVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K4d-Nn-Eii">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -1538,6 +1540,7 @@ Place a message?</string>
                         <outlet property="textMessage" destination="giO-GS-qw1" id="kMs-Pl-TNc"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tpu-5D-EHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="103" y="-579"/>
         </scene>
@@ -1545,6 +1548,249 @@ Place a message?</string>
     <resources>
         <image name="msgs_image_placeholder.png" width="48" height="48"/>
     </resources>
+    <classes>
+        <class className="AboutProFeatureCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutProFeatureCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="labelDescription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AboutVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableAbout" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BalanceVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BalanceVC.h"/>
+            <relationships>
+                <relationship kind="action" name="segmentPicked:"/>
+                <relationship kind="outlet" name="tableContent" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BuyOptionCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuyOptionCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="labelPercentageOff" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelPrice" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelQuantity" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ComposeVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ComposeVC.h"/>
+            <relationships>
+                <relationship kind="action" name="attachDataPressed:"/>
+                <relationship kind="action" name="cancelPressed:"/>
+                <relationship kind="action" name="languagePressed:"/>
+                <relationship kind="action" name="sendPressed:"/>
+                <relationship kind="outlet" name="btnAttachData" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonLanguage" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="labelInfoText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="textMessage" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="CurrentBalanceCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentBalanceCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="labelCurrentBalance" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CurrentProModeCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentProModeCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageCurrentVersion" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="labelProMode" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DialogCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DialogCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="infoMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelCollocutor" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DialogsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DialogsVC.h"/>
+            <relationships>
+                <relationship kind="action" name="composePressed:"/>
+                <relationship kind="action" name="pickPressed:"/>
+                <relationship kind="action" name="refreshPressed:"/>
+                <relationship kind="outlet" name="btnCompose" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnPick" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="spinnerPick" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="tableDialogs" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="InfoAboutProVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoAboutProVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tabelFeatures" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="InfoCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="btnHideCell" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textNoMessageToPickUp" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="InfoVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="textInfo" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="IntrigueVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IntrigueVC.h"/>
+            <relationships>
+                <relationship kind="action" name="didEndOnExit:"/>
+                <relationship kind="action" name="sendPressed:"/>
+                <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="indicatorSend" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="labelConditions" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelEnterEmail" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelServiceMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textMsg" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MainCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="labelMessagesInfoMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MainNavController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavController.h"/>
+        </class>
+        <class className="MainVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainVC.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutPressed:"/>
+                <relationship kind="action" name="refreshPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnLogout" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnSettings" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableMain" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MakeItProCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MakeItProCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="segmentedControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="MessageBottomCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessageBottomCell.h"/>
+        </class>
+        <class className="MessageImageCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessageImageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="imgView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="labelInfoText" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MessageMiddleCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessageMiddleCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="labelMessage" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MessageTopCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessageTopCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="labelDistance" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTime" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MessagesVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MessagesVC.h"/>
+            <relationships>
+                <relationship kind="action" name="actionPressed:"/>
+                <relationship kind="action" name="replyPressed:"/>
+                <relationship kind="outlet" name="buttonReply" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tabelMessages" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ReadAboutProCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReadAboutProCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="labelReadAboutPro" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RestorePassVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RestorePassVC.h"/>
+            <relationships>
+                <relationship kind="action" name="btnGoPressed:"/>
+                <relationship kind="action" name="cancelPressed:"/>
+                <relationship kind="action" name="didEndOnExit:" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="btnCancel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnGo" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="labelInstruction" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelServiceMsg" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SettingsChangePassVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsChangePassVC.h"/>
+            <relationships>
+                <relationship kind="action" name="btnChangePassPressed:"/>
+                <relationship kind="outlet" name="btnChangePass" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="editCurrentPass" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="editNewPass" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="editNewPassConfirm" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="labelServiceMsg" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="SettingsTableVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsTableVC.h"/>
+            <relationships>
+                <relationship kind="action" name="switchSaveCreds:" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="labelAppLanguage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelCnvLanguages" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelDateFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelNewMsgLanguage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelNickname" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTimeFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loc_Acc_Nickname" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loc_Acc_Password" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loc_Acc_SaveCreds" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loc_DateTime_DateFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loc_DateTime_TimeFormat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loc_DateTime_Timezone" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loc_Langs_Application" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loc_Langs_Conversation" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loc_Langs_NewMessages" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="switchSaveCreds" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="SettingsValuesListTableVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsValuesListTableVC.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didEndOnExit:" candidateClass="UITextField"/>
+                <relationship kind="action" name="goPressed:"/>
+                <relationship kind="action" name="registerPressed:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="btnForgotPass" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnGo" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnRegister" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="labelServiceMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textPassword" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

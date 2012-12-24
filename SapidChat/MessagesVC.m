@@ -75,7 +75,11 @@
     
     [self setupActionSheets];
     
-    self.buttonReply.title = replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE];
+    if ([[self getCollocutor] isEqualToString:SYSTEM_USER]){
+        self.buttonReply.hidden = YES;
+    } else {
+        [LocalizationUtils setTitle:replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE] forButton:self.buttonReply];
+    }
     
     [DataManager resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
 }

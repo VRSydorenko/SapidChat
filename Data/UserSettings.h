@@ -10,6 +10,7 @@
 #import "Message.h"
 
 #define SYS_HAS_LAUNCHED @"sys_has_launched"
+#define SYS_HAS_LOGGED_USER_ @"has_logged_" // prefis string
 
 #define PURCHASE_PREMIUM_UNLOCKED @"purchase_premium_unlocked"
 
@@ -45,6 +46,9 @@
 
 +(int) getNewMessagesLanguage;
 +(void) setNewMessagesLanguage:(int) language;
+
++(bool) hasLoggedIn:(NSString*)user;
++(void) setHasLoggedIn:(NSString*)user;
 
 +(bool) hasLaunched;
 +(void) setHasLaunched;

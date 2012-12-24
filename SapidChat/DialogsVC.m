@@ -104,7 +104,7 @@
     if (cell){
         Dialog *dialog = [navController.dialogs objectAtIndex:dialogIndexToLookFor];
         NSString* stringCollocutor = dialog.collocutor ? dialog.collocutor : [UserSettings getEmail];
-        cell.labelCollocutor.text = [stringCollocutor isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR] ? [Lang LOC_MESSAGES_CELL_WAIT_FOR_REPLY] : stringCollocutor;
+        cell.labelCollocutor.text = [stringCollocutor isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR] ? [Lang LOC_MESSAGES_CELL_WAIT_FOR_REPLY] : [DataManager loadUser:stringCollocutor].nickname;
         Message *msg = (Message*)[[dialog getSortedMessages] lastObject];
         cell.infoMessage.text = msg.text.length > 0 ? msg.text : msg.attachmentName.length > 0 ? @"A message with attachment" : @"ERROR";
     }
@@ -150,7 +150,7 @@
             self.navigationItem.rightBarButtonItem = sender;
         });
     });
-    //dispatch_release(refreshQueue);
+    dispatch_release(refreshQueue);
 }
 
 - (IBAction)pickPressed:(id)sender {
@@ -175,7 +175,7 @@
                 isPicking = NO;
             });
         });
-        //dispatch_release(refreshQueue);
+        dispatch_release(refreshQueue);
     }
 }
 

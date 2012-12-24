@@ -121,7 +121,7 @@
             isLoggingIn = NO;
         });
     });
-    //dispatch_release(logginQueue);
+    dispatch_release(logginQueue);
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

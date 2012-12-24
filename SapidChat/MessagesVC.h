@@ -43,7 +43,7 @@ typedef enum CellTypes{
 
 @property Dialog *dialog;
 @property (strong, nonatomic) IBOutlet UITableView *tabelMessages;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *buttonReply;
+@property (strong, nonatomic) IBOutlet UIButton *buttonReply;
 - (IBAction)replyPressed:(id)sender;
 - (IBAction)actionPressed:(id)sender;
 

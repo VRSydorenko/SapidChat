@@ -31,6 +31,12 @@
 
 // universal
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
+// system messages
++(NSString*) LOC_SYS_MSG_WELCOME{ return [[self AppLanguage] LOC_SYS_MSG_WELCOME];}
++(NSString*) LOC_SYS_MSG_INCOME_LOOK{ return [[self AppLanguage] LOC_SYS_MSG_INCOME_LOOK];}
++(NSString*) LOC_SYS_MSG_OUTGOING_LOOK{ return [[self AppLanguage] LOC_SYS_MSG_OUTGOING_LOOK];}
++(NSString*) LOC_SYS_MSG_INTRIGUE_LOOK{ return [[self AppLanguage] LOC_SYS_MSG_INTRIGUE_LOOK];}
++(NSString*) LOC_SYS_MSG_SYSTEM_LOOK{ return [[self AppLanguage] LOC_SYS_MSG_SYSTEM_LOOK];}
 // info
 +(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return [[self AppLanguage] LOC_INFO_FEATURE_TITLE_DISTANCE];}
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{ return [[self AppLanguage] LOC_INFO_FEATURE_DESCR_DISTANCE];}

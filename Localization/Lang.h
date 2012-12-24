@@ -11,6 +11,12 @@
 @protocol Language
 // universal
 +(NSString*) LOC_UNI_APP_NAME;
+// system messages
++(NSString*) LOC_SYS_MSG_WELCOME;
++(NSString*) LOC_SYS_MSG_INCOME_LOOK;
++(NSString*) LOC_SYS_MSG_OUTGOING_LOOK;
++(NSString*) LOC_SYS_MSG_INTRIGUE_LOOK;
++(NSString*) LOC_SYS_MSG_SYSTEM_LOOK;
 // info
 +(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE;
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE;

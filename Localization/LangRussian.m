@@ -12,6 +12,12 @@
 
 // universal
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
+// system messages
++(NSString*) LOC_SYS_MSG_WELCOME{return @"Добро пожаловать в Sapid Chat!\rНадеемся, вам понравится общаться и знакомиться с новыми людьми и интриговать своих друзей.";}
++(NSString*) LOC_SYS_MSG_INCOME_LOOK{return @"Таким образом будут выглядеть входящие сообщения.";}
++(NSString*) LOC_SYS_MSG_OUTGOING_LOOK{return @"Отправленные вами сообщения будут выглядть так как это.";}
++(NSString*) LOC_SYS_MSG_INTRIGUE_LOOK{return @"Интригующие сообщения будут иметь вот такой вид.";}
++(NSString*) LOC_SYS_MSG_SYSTEM_LOOK{return @"Обратите внимание, что системные сообщение от Sapid Chat будут выглядеть настоящим образом и отличаться от других типов сообщений.\r\rПриятного времяпровождения с Sapid Chat!";}
 // info
 +(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return @"Расстояние до собеседника";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{

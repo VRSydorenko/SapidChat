@@ -92,16 +92,19 @@
 }
 
 +(int) getNewMessagesLanguage{
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    int result = (int)[defaults integerForKey:SETTINGS_SAVED_NEWMSG_LANG];
-    if (!result){
-        return -1; // no language set as default for new messages
-    }
-    return result;
+    return (int)[[NSUserDefaults standardUserDefaults] integerForKey:SETTINGS_SAVED_NEWMSG_LANG];
 }
 
 +(void) setNewMessagesLanguage:(int) language{
     [[NSUserDefaults standardUserDefaults] setInteger:language forKey:SETTINGS_SAVED_NEWMSG_LANG];
+}
+
++(bool) hasLoggedIn:(NSString*)user{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@%@", SYS_HAS_LOGGED_USER_, user]];
+}
+
++(void) setHasLoggedIn:(NSString*)user{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[NSString stringWithFormat:@"%@%@", SYS_HAS_LOGGED_USER_, user]];
 }
 
 +(bool) hasLaunched{

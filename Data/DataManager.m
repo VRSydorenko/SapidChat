@@ -132,16 +132,22 @@
 }
 
 +(ErrorCodes)login:(NSString*)email password:(NSString*)password{
-    ErrorCodes result = [Utils validateEmail:email];
+    NSString* lowEmail = [email lowercaseString];
+    ErrorCodes result = [Utils validateEmail:lowEmail];
     if (result == OK){
         User* user = nil;
-        result = [self retrieveUser:&user withEmail:email];
+        result = [self retrieveUser:&user withEmail:lowEmail];
         if (result == OK){
             if ([password isEqualToString:[AmazonKeyChainWrapper getValueFromKeyChain:user.email]]){
-                [UserSettings setEmail:[email lowercaseString]];
-                [AmazonKeyChainWrapper storeValueInKeyChain:password forKey:[email lowercaseString]];
+                [UserSettings setEmail:lowEmail];
+                [AmazonKeyChainWrapper storeValueInKeyChain:password forKey:lowEmail];
                 [[self getDbManager] saveUser:user];
                 [self setNewMessageLanguageFromUserLanguages:user.languages];
+                if (![UserSettings hasLoggedIn:lowEmail]){
+                    [self insertSystemUser];
+                    [self insertInitialMessagesToUser:lowEmail];
+                    [UserSettings setHasLoggedIn:lowEmail];
+                }
             } else {
                 result = WRONG_PASSWORD;
             }
@@ -907,6 +913,49 @@
      return ERROR;
      }*/    
     return OK;
+}
+
++(void) insertInitialMessagesToUser:(NSString*)user{
+    int when = [[NSDate date] timeIntervalSinceReferenceDate];
+    
+    Message* initialMsg = [[Message alloc] init];
+    initialMsg.from = SYSTEM_USER;
+    initialMsg.to = user;
+
+    initialMsg.type = MSG_SYSTEM;
+    initialMsg.text = [Lang LOC_SYS_MSG_WELCOME];
+    initialMsg.when = when;
+    [[self getDbManager] saveMessage:initialMsg];
+    
+    initialMsg.type = MSG_REGULAR;
+    initialMsg.text = [Lang LOC_SYS_MSG_INCOME_LOOK];
+    initialMsg.when = when++;
+    [[self getDbManager] saveMessage:initialMsg];
+    
+    initialMsg.to = SYSTEM_USER;
+    initialMsg.from = user;
+    initialMsg.text = [Lang LOC_SYS_MSG_OUTGOING_LOOK];
+    initialMsg.when = when++;
+    [[self getDbManager] saveMessage:initialMsg];
+    
+    initialMsg.from = SYSTEM_USER;
+    initialMsg.to = user;
+    initialMsg.type = MSG_INTRIGUE;
+    initialMsg.text = [Lang LOC_SYS_MSG_INTRIGUE_LOOK];
+    initialMsg.when = when++;
+    [[self getDbManager] saveMessage:initialMsg];
+    
+    initialMsg.type = MSG_SYSTEM;
+    initialMsg.text = [Lang LOC_SYS_MSG_SYSTEM_LOOK];
+    initialMsg.when = when++;
+    [[self getDbManager] saveMessage:initialMsg];
+}
+
++(void) insertSystemUser{
+    User* sys = [[User alloc] init];
+    sys.email = SYSTEM_USER;
+    sys.nickname = [Lang LOC_UNI_APP_NAME];
+    [[self getDbManager] saveUser:sys];
 }
 
 @end

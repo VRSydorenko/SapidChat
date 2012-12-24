@@ -82,7 +82,7 @@
             isChangingPass = NO;
         });
     });
-    dispatch_release(changePassQueue);
+    //dispatch_release(changePassQueue);
 }
 
 -(ErrorCodes) validate{

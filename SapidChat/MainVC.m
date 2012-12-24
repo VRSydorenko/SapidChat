@@ -127,7 +127,7 @@
             self.navigationItem.rightBarButtonItem = sender;
         });
     });
-    dispatch_release(refreshQueue);
+    //dispatch_release(refreshQueue);
 }
 
 - (IBAction)logoutPressed:(id)sender {

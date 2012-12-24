@@ -150,7 +150,7 @@
             self.navigationItem.rightBarButtonItem = sender;
         });
     });
-    dispatch_release(refreshQueue);
+    //dispatch_release(refreshQueue);
 }
 
 - (IBAction)pickPressed:(id)sender {
@@ -175,7 +175,7 @@
                 isPicking = NO;
             });
         });
-        dispatch_release(refreshQueue);
+        //dispatch_release(refreshQueue);
     }
 }
 

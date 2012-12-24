@@ -74,11 +74,11 @@
     CGFloat height = 0;
     switch (indexPath.section) {
         case 0:{
-            height = [[Lang LOC_INFO_FEATURE_DESCR_DISTANCE] sizeWithFont:descrFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + 110.0f; // 100 - height of title label + padding
+            height = [[Lang LOC_INFO_FEATURE_DESCR_DISTANCE] sizeWithFont:descrFont constrainedToSize:boundingSize lineBreakMode:NSLineBreakByWordWrapping].height + 110.0f; // 100 - height of title label + padding
             break;
         }
         case 1:{
-            height = [[Lang LOC_INFO_FEATURE_DESCR_IMAGE] sizeWithFont:descrFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + 110.0f; // 100 - height of title label + padding
+            height = [[Lang LOC_INFO_FEATURE_DESCR_IMAGE] sizeWithFont:descrFont constrainedToSize:boundingSize lineBreakMode:NSLineBreakByWordWrapping].height + 110.0f; // 100 - height of title label + padding
             break;
         }
     }

@@ -100,19 +100,19 @@
                 [self.spinner stopAnimating];
                 if (msgSent == OK){
                         [self.composeHandler composeCompleted:msg];
-                        [self dismissModalViewControllerAnimated:YES];
+                    [self dismissViewControllerAnimated:YES completion:nil];
                 } else{
                 
                 }
                 isSending = NO;
             });
         });
-        dispatch_release(refreshQueue);
+        //dispatch_release(refreshQueue);
     }
 }
 
 - (IBAction)cancelPressed:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)languagePressed:(id)sender {
@@ -141,7 +141,7 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     isImageSet = NO || isImageSet;
-    [picker dismissModalViewControllerAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
@@ -162,7 +162,7 @@
 	}
     
     if (sourceExists){
-        [self presentModalViewController:picker animated:YES];
+        [self presentViewController:picker animated:YES completion:nil];
     } else {
         [self showImageSourceNotAvailable];
     }
@@ -185,7 +185,7 @@
 
 - (void)msgLangControllerToDismiss:(NewMsgLanguageVC *)msgLangController{
     [self updateLanguageText];
-    [msgLangController dismissModalViewControllerAnimated:YES];
+    [msgLangController dismissViewControllerAnimated:YES completion:nil];
 }
 
 // MainNavController is used for retrieving location coordinates

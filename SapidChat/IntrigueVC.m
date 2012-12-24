@@ -85,7 +85,7 @@
                 isSending = NO;
             });
         });
-        dispatch_release(refreshQueue);
+        //dispatch_release(refreshQueue);
     }
 }
 

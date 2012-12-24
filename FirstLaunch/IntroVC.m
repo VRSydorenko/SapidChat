@@ -89,7 +89,7 @@
         
         UILabel *labelView = [[UILabel alloc] initWithFrame:labelRect];
         labelView.font = textFront;
-        labelView.lineBreakMode = UILineBreakModeWordWrap;
+        labelView.lineBreakMode = NSLineBreakByWordWrapping;
         labelView.numberOfLines = 0;
         
         switch (i) {

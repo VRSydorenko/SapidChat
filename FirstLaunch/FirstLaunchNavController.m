@@ -17,7 +17,7 @@
 @synthesize rootViewController = _rootViewController;
 
 - (void) introCloseButtonPressed{
-    [self presentModalViewController:self.rootViewController animated:YES];
+    [self presentViewController:self.rootViewController animated:YES completion:nil];
 }
 
 @end

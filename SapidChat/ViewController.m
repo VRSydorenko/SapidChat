@@ -121,7 +121,7 @@
             isLoggingIn = NO;
         });
     });
-    dispatch_release(logginQueue);
+    //dispatch_release(logginQueue);
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -144,7 +144,7 @@
     [UserSettings setEmail:@""];
     // also might be good to remove the password from the Keychain
     [UserSettings setSaveCredentials:NO];
-    [navController dismissModalViewControllerAnimated:YES];
+    [navController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

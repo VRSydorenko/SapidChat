@@ -15,7 +15,7 @@
 + (void) callNewMessagesLanguageScreenOverViewController:(UIViewController<NewMsgLanguagesSettingsDelegate>*)controller{
     NewMsgLanguagesNavCon *vc = [[UIStoryboard storyboardWithName:@"Settings" bundle:nil] instantiateViewControllerWithIdentifier:@"ScreenNewMsgLanguagesNavigation"];
     vc.handler = controller;
-    [controller presentModalViewController:vc animated:YES];
+    [controller presentViewController:vc animated:YES completion:nil];
 }
 
 @end

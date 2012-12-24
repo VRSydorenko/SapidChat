@@ -13,6 +13,7 @@
 @interface Utils : NSObject
 
 +(ErrorCodes) validateEmail:(NSString*)email;
++(bool) isNicknameValid:(NSString*)nick;
 +(NSArray*) buildDialogsOfMsgs:(NSArray*)messages;
 +(NSString*) getErrorDescription:(ErrorCodes)error;
 +(NSString*) getLanguageName:(int)langCode needSelfName:(bool)selfName;

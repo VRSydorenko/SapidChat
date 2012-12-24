@@ -78,7 +78,6 @@
     self.buttonReply.title = replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE];
     
     [DataManager resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
@@ -186,7 +185,7 @@
         UILabel* labelHeader = [[UILabel alloc] initWithFrame:headerRect];
         [labelHeader setFont:[UIFont fontWithName:@"Helvetica-Bold" size:FONT_SECTIONHEADER_SIZE]];
         labelHeader.textColor = [UIColor lightGrayColor];
-        labelHeader.textAlignment = UITextAlignmentCenter;
+        labelHeader.textAlignment = NSTextAlignmentCenter;
         NSDate* localDate = [Utils toLocalDate:((Message*)[messages objectAtIndex:section]).when];// !!!
         labelHeader.text = [Utils dateToString:localDate];
         return labelHeader;
@@ -214,7 +213,7 @@
             return CELL_MSG_TOP_HEIGHT;
         case CELL_TEXT:{
             Message* msg = (Message*)[messages objectAtIndex:indexPath.section];
-            return [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap].height + CELL_MSG_TOPBOTTOM_PADDING;
+            return [msg.text sizeWithFont:messageFont constrainedToSize:boundingSize lineBreakMode:NSLineBreakByWordWrapping].height + CELL_MSG_TOPBOTTOM_PADDING;
         }
         case CELL_IMAGE:{
             Message* msg = (Message*)[messages objectAtIndex:indexPath.section];

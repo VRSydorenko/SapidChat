@@ -48,6 +48,7 @@
 +(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Since the communication here is anonymous it would be good to specify a nickname in order for distinguish between interlocutors";}
 +(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Choose languages you can text on";}
 +(NSString*) LOC_REGISTATOR_ERR_EMPTYNICK{return @"Nick not specified";}
++(NSString*) LOC_REGISTATOR_ERR_INVALIDNICK{return @"You cannot use this nickname";}
 +(NSString*) LOC_REGISTATOR_ERR_NOLANGS_SELECTED{return @"No languages selected";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Login";}

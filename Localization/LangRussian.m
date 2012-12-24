@@ -48,6 +48,7 @@
 +(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Поскольку общение здесь анонимное, то было бы хорошо придумать себе ник чтобы было удобно различать собеседников";}
 +(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Выберите языки, на которых вы можете вести переписку";}
 +(NSString*) LOC_REGISTATOR_ERR_EMPTYNICK{return @"Не указан ник";}
++(NSString*) LOC_REGISTATOR_ERR_INVALIDNICK{return @"Вы не можете использовать данный ник";}
 +(NSString*) LOC_REGISTATOR_ERR_NOLANGS_SELECTED{return @"Не выбрано ни одного языка";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Вход";}

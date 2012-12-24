@@ -28,6 +28,12 @@
     return [emailTest evaluateWithObject:email] ? OK : INVALID_EMAIL;
 }
 
++(bool) isNicknameValid:(NSString*)nick{
+    NSString* lowercaseNick = [nick lowercaseString];
+    return !([lowercaseNick isEqualToString:@"sapid chat"]
+             || [lowercaseNick isEqualToString:@"sapidchat"]);
+}
+
 +(NSArray*) buildDialogsOfMsgs:(NSArray*)messages{
     NSString* user = [UserSettings getEmail];
     NSMutableArray* result = [[NSMutableArray alloc] init];

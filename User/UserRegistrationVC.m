@@ -143,6 +143,9 @@
         if (self.textNick.text.length == 0){
             self.labelServiseMessage.text = [Lang LOC_REGISTATOR_ERR_EMPTYNICK];
             return;
+        } else if (![Utils isNicknameValid:self.textNick.text]){
+            self.labelServiseMessage.text = [Lang LOC_REGISTATOR_ERR_INVALIDNICK];
+            return;
         }
         nextSegueId = SEGUE_NICK_TO_LANGS;
     }

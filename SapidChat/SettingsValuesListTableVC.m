@@ -11,6 +11,7 @@
 #import "Utils.h"
 #import "User.h"
 #import "DataManager.h"
+#import "Lang.h"
 
 @interface SettingsValuesListTableVC (){
     NSArray* values;
@@ -34,16 +35,22 @@
         case VALUES_DATE_FORMAT:
             values = [[NSArray alloc] initWithObjects:@"YYYY-MM-dd E", @"YYYY.MM.dd", @"YYYY-MM-dd", @"MM.dd E", @"dd.MM.YYYY", @"E dd.MM.YYYY", @"E dd.MM", @"dd.MM", nil];
             break;
-        case VALUES_CNV_LANGUAGES: 
+        case VALUES_CNV_LANGUAGES: {
             msgLanguages = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
             // languages are loaded directly to the table
+            self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION];
+        }
             break;
-        case VALUES_APP_LANGUAGES:
+        case VALUES_APP_LANGUAGES:{
             values = [[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%d", RUSSIAN],
                                                       [NSString stringWithFormat:@"%d", ENGLISH], nil];
-            break;
-        case VALUES_NEWMSG_LANGUAGES:
+            self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION];
+        }
+        break;
+        case VALUES_NEWMSG_LANGUAGES:{
             values = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
+            self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES];
+        }
             break;
     }
 }

@@ -50,12 +50,21 @@
     
     [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_SEND] forButton:self.btnSend];
     [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_ATTACH_IMG] forButton:self.btnAttachData];
+}
+
+-(void) viewWillAppear:(BOOL)animated{
     if ([UserSettings premiumUnlocked]){
+        self.btnAttachData.enabled = YES;
         self.labelInfoText.hidden = YES;
+        self.btnProInfo.hidden = YES;
     } else {
-        self.btnAttachData.hidden = YES;
+        self.btnAttachData.enabled = NO;
         self.labelInfoText.text = [Lang LOC_MESSAGES_CELL_IMAGES_ARE_IN_PRO_MODE];
     }
+}
+
+- (BOOL)shouldAutorotate {
+    return NO;
 }
 
 - (void)viewDidUnload
@@ -67,6 +76,7 @@
     [self setBtnSend:nil];
     [self setBtnAttachData:nil];
     [self setImageView:nil];
+    [self setBtnProInfo:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -77,11 +87,7 @@
 }
 
 - (IBAction)sendPressed:(id)sender {
-    if ([UserSettings premiumUnlocked]
-        && self.textMessage.text.length == 0
-        && self.imageView.image){
-        [self askToSendOnlyImage];
-    } else {
+    if (self.textMessage.text.length > 0 || isImageSet){
         [self sendMessage];
     }
 }
@@ -91,12 +97,14 @@
         isSending = YES;
             
         [self.spinner startAnimating];
+        self.labelInfoText.text = [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS];
             
         dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
         dispatch_async(refreshQueue, ^{
             Message* msg = [self prepareMessage];
             ErrorCodes msgSent = [DataManager sendMessage:msg];
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.labelInfoText.text = [Utils getErrorDescription:msgSent];
                 [self.spinner stopAnimating];
                 if (msgSent == OK){
                         [self.composeHandler composeCompleted:msg];
@@ -136,7 +144,7 @@
     //imageView.image = [editingInfo objectForKey:@"UIImagePickerControllerOriginalImage"];
     isImageSet = YES;
     [self.imageView setImage:image];
-    [picker dismissModalViewControllerAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
@@ -145,6 +153,10 @@
 }
 
 -(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 2){ // cancel button
+        return;
+    }
+    
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
 	picker.delegate = self;
     
@@ -165,17 +177,6 @@
         [self presentViewController:picker animated:YES completion:nil];
     } else {
         [self showImageSourceNotAvailable];
-    }
-}
-
--(void) askToSendOnlyImage{
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Send imahe w/o a text?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-    [alert show];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 1){
-        [self sendMessage];
     }
 }
 

@@ -49,7 +49,6 @@
 +(NSString*) LOC_REGISTATOR_BTN_BACK { return @"Назад";}
 +(NSString*) LOC_REGISTATOR_FIELD_EMAIL { return @"Эл. почта";}
 +(NSString*) LOC_REGISTATOR_FIELD_PASSWORD { return @"Пароль";}
-+(NSString*) LOC_REGISTATOR_SWITCH_SAVECREDS { return @"Сохранить пароль";}
 +(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Ник";}
 +(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Поскольку общение здесь анонимное, то было бы хорошо придумать себе ник чтобы было удобно различать собеседников";}
 +(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Выберите языки, на которых вы можете вести переписку";}
@@ -90,11 +89,26 @@
 +(NSString*) LOC_INTRIGUE_LABEL_CONDITIONS{return @"Отправка: %d %@; У вас: %d";}
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Заинтриговать!";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Отправлено";}
++(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK{return @"Отправлено на ваш email";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Отправка...";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL{return @"Email";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Ваше сообщение (не обязательно)";}
 +(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Привет!\rЭто я отправил тебе то интригующее сообщение на почту ;)";}
 +(NSString*) LOC_INTRIGUE_MAIL_SUBJECT{return @"Кто-то хочет заинтриговать вас в Sapid Chat";}
++(NSString*) LOC_INTRIGUE_MAIL_CONTENT_YOURSELF{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL], @"%@", [self LOC_INTRIGUE_COLLOCUTOR_MESSAGE], @""];}
++(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM_YOURSELF{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL], @"%@", [self LOC_INTRIGUE_COLLOCUTOR_MESSAGE], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMYOURSELF_TEMPL]];}
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL{return @"Хотите заинтриговать сами себя? Ну что ж, в таком случае мы вам расскажем что именно происходит при отправке интригующего письма.<br>\
+    о) Ваш адресат получит письмо следующего содержания:\"<br>\
+    %@<br>\
+    \"<br>\
+    о)Когда человек после прочтения вашего письма откроет Sapid Chat, то он увидит сообщение следующего содержания, отправленного от имени вашей учетной записи:\"<br>\
+    %@<br>\
+    \"<br>\
+    %@Вот так вот, а после отправки нужно будет подождать и надеяться, что это затронет интерес человека и он зайдет в Sapid Chat пообщаться с вами.<br>Интересного вам общения,<br>\
+    Sapid Chat";}
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTOMYOURSELF_TEMPL{return @"<br>\
+    о) а также еще одно, которое вы укзали в качестве дополнительного послания:<br>\
+    %@ \"<br>";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_DEFAULT{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], @"", @""];}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMMSG_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE]];}
 +(NSString*) internal_INTRIGUE_MAIL_CONTENT_TEMPL{return @"Здравствуйте!<br>\
@@ -127,7 +141,7 @@
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Вытянуть";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"В ожидании ответа...";}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"Пока что нет сообщений";}
-+(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"Сейчас нету сообщения на вашем языке(ах) для выборки.";}
++(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"Сейчас нету новых сообщений на вашем языке для выборки.";}
 +(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return @"Скрыть";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"км";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"м";}
@@ -192,7 +206,8 @@
 +(NSString*) LOC_BALANCE_PRO_NO{return @"Ограниченная версия!";}
 +(NSString*) LOC_BALANCE_PRO_YES{return @"Полная версия!";}
 +(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Преимущества полной версии";}
-+(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Перейти на Pro";}
++(NSString*) LOC_BALANCE_WHAT_IN_PRO_TITLE{return @"Преимущества";}
++(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Полная версия";}
 +(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Восстановить покупку";}
 +(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return @"Ваш баланс";}
 +(NSString*) LOC_BALANCE_POSTSTAMPS_1{return @"почтовая марка";}
@@ -219,7 +234,7 @@
 // separate settings
 +(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_TEXT_PICKLANGFROMKNOWN{ return @"Из языков, что вы знаете, выберите язык для нового сообщения";}
 +(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_TO_LANGS_YOU_KNOW{ return @"К языкам, что я знаю...";}
-+(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_CANCEL{return @"Отмена";}
++(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_CANCEL{return @"Назад";}
 +(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_TEXT{ return @"Выберите языки, на которых вы можете общаться";}
 +(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK {return @"Назад";}
 

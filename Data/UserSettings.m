@@ -47,7 +47,7 @@
 }
 
 +(NSString*) getEmail{
-    return (NSString*)[[NSUserDefaults standardUserDefaults] objectForKey:CURRENTLY_LOGGED_EMAIL];
+    return [(NSString*)[[NSUserDefaults standardUserDefaults] objectForKey:CURRENTLY_LOGGED_EMAIL] lowercaseString];
 }
 +(void) setEmail:(NSString*)email{
     [[NSUserDefaults standardUserDefaults] setValue:email forKey:CURRENTLY_LOGGED_EMAIL];

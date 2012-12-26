@@ -225,8 +225,8 @@
         insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, \"%@\", %d, %.10f, %.10f, \"%@\", %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, F_ATTNAME, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.text, msg.type, msg.latitude, msg.longitude, msg.attachmentName, isNew];
     }
     const char *insert_stmt = [insertSQL UTF8String];
-    
-    sqlite3_stmt *statement;
+
+    sqlite3_stmt *statement;    
     if (sqlite3_prepare_v2(sapidDb, insert_stmt, -1, &statement, NULL) == SQLITE_OK){
         if (isDataPresent){
             // important!!! 1 - number of `?` in the statement corresponds to blob column in the DB 
@@ -287,7 +287,7 @@
             msg.latitude = latitudeField.doubleValue;
             
             NSString *longitudeField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 6)];
-            msg.latitude = longitudeField.doubleValue;
+            msg.longitude = longitudeField.doubleValue;
             
             NSString *attachmentField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 7)];
             msg.attachmentName = attachmentField;

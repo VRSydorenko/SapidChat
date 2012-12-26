@@ -32,13 +32,15 @@
 @synthesize btnRegister;
 @synthesize btnForgotPass;
 
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     [UserSettings setHasLaunched];
-    
-    [self localize];
     
     isLoggingIn = NO;
     isAfterRegistration = NO;
@@ -50,6 +52,12 @@
         isAfterRegistration = NO;
         return;
     }
+    
+    [self localize];
+    
+    [self.textEmail resignFirstResponder];
+    [self.textPassword resignFirstResponder];
+    
     self.textEmail.placeholder = [Lang LOC_LOGIN_TXT_LOGIN_PLACEHOLDER];
     self.textPassword.placeholder = [Lang LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER];
     

@@ -29,7 +29,24 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     languages = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
+    
+    [self updateNewMessagesLanguageSelection];
+    
     [self.tableLanguages reloadData];
+}
+
+-(void) updateNewMessagesLanguageSelection{
+    bool langIsSet = NO;
+    for (int i = 0; i < languages.count; i++) {
+        if ([UserSettings getNewMessagesLanguage] == [[languages objectAtIndex:i] intValue]){
+            [UserSettings setNewMessagesLanguage:[[languages objectAtIndex:i] intValue]];
+            langIsSet = YES;
+            break;
+        }
+    }
+    if (!langIsSet){
+        [UserSettings setNewMessagesLanguage:[[languages objectAtIndex:0] intValue]];
+    }
 }
 
 - (void)viewDidLoad

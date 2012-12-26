@@ -32,7 +32,6 @@
 @implementation UserRegistrationVC
 @synthesize textEmail;
 @synthesize textPassword;
-@synthesize switchSaveCreds;
 @synthesize textNick;
 @synthesize txtSpecifyNick;
 @synthesize labelServiseMessage;
@@ -41,7 +40,6 @@
 @synthesize btnNext;
 @synthesize btnRegister;
 @synthesize btnClose;
-@synthesize labelSaveCreds;
 @synthesize txtSelectLangs;
 
 - (void)viewDidLoad
@@ -90,9 +88,6 @@
     if (self.textPassword){
         self.textPassword.placeholder = [Lang LOC_REGISTATOR_FIELD_PASSWORD];
     }
-    if (self.labelSaveCreds){
-        [LocalizationUtils setText:[Lang LOC_REGISTATOR_SWITCH_SAVECREDS] forLabel:self.labelSaveCreds];
-    }
     if (self.txtSpecifyNick){
         self.txtSpecifyNick.text = [Lang LOC_REGISTATOR_TEXT_SPECIFYNICK];
     }
@@ -137,7 +132,6 @@
             self.labelServiseMessage.text = [Utils getErrorDescription:PASSWORD_TOO_SHORT];
             return;
         }
-        [UserSettings setSaveCredentials:self.switchSaveCreds.on];
     }
     if (self.textNick){
         if (self.textNick.text.length == 0){
@@ -173,7 +167,6 @@
 - (void)viewDidUnload {
     [self setTextEmail:nil];
     [self setTextPassword:nil];
-    [self setSwitchSaveCreds:nil];
     [self setTextNick:nil];
     [self setLabelServiseMessage:nil];
     [self setSpinner:nil];
@@ -181,7 +174,6 @@
     [self setBtnNext:nil];
     [self setBtnRegister:nil];
     [self setBtnClose:nil];
-    [self setLabelSaveCreds:nil];
     [self setTxtSelectLangs:nil];
     [self setTxtSpecifyNick:nil];
     [super viewDidUnload];
@@ -195,9 +187,6 @@
     }
     if (self.textPassword && navController.password.length > 0){
         self.textPassword.text = navController.password;
-    }
-    if (self.switchSaveCreds){
-        self.switchSaveCreds.on = navController.saveCreds;
     }
     if (self.textNick && navController.nickname){
         self.textNick.text = navController.nickname;
@@ -215,9 +204,6 @@
     }
     if (self.textPassword){
         navController.password = self.textPassword.text;
-    }
-    if (self.switchSaveCreds){
-        navController.saveCreds = self.switchSaveCreds.on;
     }
     if (self.textNick){
         navController.nickname = self.textNick.text;

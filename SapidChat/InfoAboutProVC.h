@@ -11,5 +11,7 @@
 @interface InfoAboutProVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tabelFeatures;
+@property (strong, nonatomic) IBOutlet UILabel *textTitle;
+- (IBAction)closePressed:(id)sender;
 
 @end

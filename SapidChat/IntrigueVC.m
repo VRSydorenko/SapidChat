@@ -13,6 +13,7 @@
 #import "DataManager.h"
 #import "Utils.h"
 #import "InfoVC.h"
+#import "UserSettings.h"
 
 @interface IntrigueVC (){
     bool isSending;
@@ -58,13 +59,14 @@
 }
 
 - (IBAction)sendPressed:(id)sender {
-    NSString* email = self.textEmail.text;
+    NSString* email = [self.textEmail.text lowercaseString];
     ErrorCodes emailValidationError = [Utils validateEmail:email];
     if (emailValidationError != OK){
        self.labelServiceMessage.text = [Utils getErrorDescription:emailValidationError];
     } else if (!isSending){
         isSending = YES;
         [self.textEmail resignFirstResponder];
+        [self.textMsg resignFirstResponder];
         [self.indicatorSend startAnimating];
         self.labelServiceMessage.text = [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS];
         
@@ -79,8 +81,11 @@
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.indicatorSend stopAnimating];
-                NSString* resultString = errorCode == OK ? [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_OK] : [Utils getErrorDescription:errorCode];
-                self.labelServiceMessage.text = resultString;
+                if (errorCode == OK){
+                    self.labelServiceMessage.text = [email isEqualToString:[UserSettings getEmail]] ? [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK] : [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_OK];
+                } else {
+                    self.labelServiceMessage.text = [Utils getErrorDescription:errorCode];
+                }
                 [self updateConoditionsLabel];
                 isSending = NO;
             });

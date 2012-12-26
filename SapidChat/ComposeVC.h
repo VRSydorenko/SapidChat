@@ -30,6 +30,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelInfoText;
 @property (strong, nonatomic) IBOutlet UIButton *btnSend;
 @property (strong, nonatomic) IBOutlet UIButton *btnAttachData;
+@property (strong, nonatomic) IBOutlet UIButton *btnProInfo;
 
 // for sending message to collocutor
 @property (nonatomic) int initialMsgGlobalTimstamp;

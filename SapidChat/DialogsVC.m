@@ -75,9 +75,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (navController.dialogs.count == 0){
-        return 1; // for "No data" message
+//        return 1; // for "No data" message
     }
-    return navController.dialogs.count + (isNothingToPickUp ? 1 : 0); // if there are already some dialogs but no messages to pick up: plus one cell for such message
+    return navController.dialogs.count + (isNothingToPickUp ? 1 : 0) + (noEntries ? 1 : 0); // if there are already some dialogs but no messages to pick up: plus one cell for such message AND the same with a case where there are no entries
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -91,6 +91,7 @@
         }
         return cell;
     }
+    
     if (navController.dialogs.count == 0) { // if no data - return one cell-message
         UITableViewCell *cell = [[UITableViewCell alloc] init];
         cell.textLabel.text = [Lang LOC_MESSAGES_CELL_NO_RECORDS];
@@ -100,7 +101,7 @@
     
     noEntries = NO;
     DialogCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DialogCell"];
-    int dialogIndexToLookFor = indexPath.row + (isNothingToPickUp ? -1 : 0); // if the InfoCell is shown we need to shift indexes one step back for not to have NSRangeException
+    int dialogIndexToLookFor = indexPath.row + (isNothingToPickUp ? -1 : 0) + (noEntries ? -1 : 0); // if the InfoCell is shown we need to shift indexes one step back for not to have NSRangeException and the same for the case where there are no entries
     if (cell){
         Dialog *dialog = [navController.dialogs objectAtIndex:dialogIndexToLookFor];
         NSString* stringCollocutor = dialog.collocutor ? dialog.collocutor : [UserSettings getEmail];

@@ -24,6 +24,8 @@
 {
     [super viewDidLoad];
     
+    self.textTitle.text = [Lang LOC_BALANCE_WHAT_IN_PRO_TITLE];
+    
     boundingSize = CGSizeMake(240.0f, CGFLOAT_MAX); // 260 is the width of UILabel
     descrFont = [UIFont fontWithName:@"Helvetica" size:13.0f];
     
@@ -33,6 +35,7 @@
 
 - (void)viewDidUnload
 {
+    [self setTextTitle:nil];
     [super viewDidUnload];
 }
 
@@ -93,4 +96,7 @@
     return 2;
 }
 
+- (IBAction)closePressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

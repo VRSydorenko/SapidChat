@@ -22,8 +22,6 @@
 +(NSDate*)toLocalDate:(int)globalTimestamp;
 +(int)toGlobalTimestamp:(int)localTimestamp;
 
-+(BOOL) user:(User*)one isEqualTo:(User*)two;
-
 +(bool) getIfMetricMeasurementSystem;
 
 +(NSData*) compressImage:(UIImage*)imageData;

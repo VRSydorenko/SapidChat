@@ -143,11 +143,6 @@
                 [AmazonKeyChainWrapper storeValueInKeyChain:password forKey:lowEmail];
                 [[self getDbManager] saveUser:user];
                 [self setNewMessageLanguageFromUserLanguages:user.languages];
-                if (![UserSettings hasLoggedIn:lowEmail]){
-                    [self insertSystemUser];
-                    [self insertInitialMessagesToUser:lowEmail];
-                    [UserSettings setHasLoggedIn:lowEmail];
-                }
             } else {
                 result = WRONG_PASSWORD;
             }
@@ -157,8 +152,15 @@
 }
 
 +(ErrorCodes) sendIntrigueTo:(NSString*)email withOptionalText:(NSString*)text{
+    bool toYourself = [email isEqualToString:[UserSettings getEmail]];
+   NSString* content = text.length > 0 ? [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_CUSTOM], text] : [Lang LOC_INTRIGUE_MAIL_CONTENT_DEFAULT];
+    if (toYourself){
+        NSString* contentYourself = text.length > 0 ? [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_CUSTOM_YOURSELF], content, text] : [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_YOURSELF], content];
+        content = contentYourself;
+    }
+    
     SESContent *messageBody = [[SESContent alloc] init];
-    messageBody.data = text.length > 0 ? [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_CUSTOM], text] : [Lang LOC_INTRIGUE_MAIL_CONTENT_DEFAULT];
+    messageBody.data = content;
         
     SESBody *body = [[SESBody alloc] init];
     body.html = messageBody;
@@ -174,7 +176,7 @@
     [destination.toAddresses addObject:email];
     
     SESSendEmailRequest *emailRequest = [[SESSendEmailRequest alloc] init];
-    emailRequest.source = @"viktor.sydorenko@gmail.com";//[UserSettings getEmail];
+    emailRequest.source = @"viktor.sydorenko@gmail.com";//SYSTEM_INTRIGUE_USER;
     emailRequest.destination = destination;
     emailRequest.message = message;
     
@@ -185,7 +187,7 @@
     msg.type = MSG_INTRIGUE;
     msg.when = [[NSDate date] timeIntervalSinceReferenceDate];
     
-    ErrorCodes result = [self sendMessageToCollocutor:msg];
+    ErrorCodes result = toYourself ? OK : [self sendMessageToCollocutor:msg]; // will not send to the same address no need to check it here
     if (result == OK){
         SESSendEmailResponse *response = nil;
         @try{
@@ -198,7 +200,7 @@
         }
         
         // now send custom message to AWS
-        if (text.length > 0){
+        if (!toYourself && text.length > 0){
             msg.text = text;
             msg.type = MSG_REGULAR;
             msg.when = [[NSDate date] timeIntervalSinceReferenceDate];
@@ -559,6 +561,13 @@
         }
     }
     
+    // insert system messages after loading all new from AWS
+    if (![UserSettings hasLoggedIn:me]){
+        [self insertSystemUser];
+        [self insertInitialMessagesToUser:me];
+        [UserSettings setHasLoggedIn:me];
+    }
+    
     // return messages from the local store
     return [[self getDbManager] loadMessagesWithCondition:@""];
 }
@@ -676,6 +685,9 @@
 
 +(ErrorCodes) sendMessageToCollocutor:(Message*)message{
     if (![message.from isEqualToString:[UserSettings getEmail]]){
+        return ERROR;
+    }
+    if ([message.to isEqualToString:[UserSettings getEmail]]){
         return ERROR;
     }
     NSString* attName = message.attachmentName;
@@ -911,7 +923,7 @@
     }*/
     /*if ([response attributesValueForKey:DBFIELD_MSGS_TO].s != msg.to){
      return ERROR;
-     }*/    
+     }*/
     return OK;
 }
 

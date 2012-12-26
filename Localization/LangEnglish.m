@@ -49,7 +49,6 @@
 +(NSString*) LOC_REGISTATOR_BTN_BACK { return @"Back";}
 +(NSString*) LOC_REGISTATOR_FIELD_EMAIL { return @"E-mail";}
 +(NSString*) LOC_REGISTATOR_FIELD_PASSWORD { return @"Password";}
-+(NSString*) LOC_REGISTATOR_SWITCH_SAVECREDS { return @"Save password";}
 +(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Nickname";}
 +(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Since the communication here is anonymous it would be good to specify a nickname in order for distinguish between interlocutors";}
 +(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Choose languages you can text on";}
@@ -90,11 +89,14 @@
 +(NSString*) LOC_INTRIGUE_LABEL_CONDITIONS{return @"Sending: %d %@; You have: %d";}
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Make intrigued!";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Sent";}
++(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK{return @"Sent to your email address";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Sending...";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL{return @"Email";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Your message (optional)";}
 +(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Hi there!\rIt was me who sent you the intrigue message ;)";}
 +(NSString*) LOC_INTRIGUE_MAIL_SUBJECT{return @"Somebody wants to intrigue you in Sapid Chat";}
++(NSString*) LOC_INTRIGUE_MAIL_CONTENT_YOURSELF{return @"Mail content yourself %@ %@";}
++(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM_YOURSELF{return @"custom yourself %@ %@ %@";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_DEFAULT{return @"Mail content default";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM{return @"Mail content custom %@";}
 // messages screen
@@ -168,6 +170,7 @@
 +(NSString*) LOC_BALANCE_PRO_NO{return @"Limited version!";}
 +(NSString*) LOC_BALANCE_PRO_YES{return @"Pro version!";}
 +(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Advantages of the Pro";}
++(NSString*) LOC_BALANCE_WHAT_IN_PRO_TITLE{return @"Advantages";}
 +(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Make it Pro";}
 +(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Restore purchase";}
 +(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return @"Your balance";}
@@ -195,7 +198,7 @@
 // separate settings
 +(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_TEXT_PICKLANGFROMKNOWN{ return @"Choose from the languages you know one for the new message";}
 +(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_TO_LANGS_YOU_KNOW{ return @"To the languages I know...";}
-+(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_CANCEL{return @"Cancel";}
++(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_CANCEL{return @"Back";}
 +(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_TEXT{ return @"Select languages you can communicate in";}
 +(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK {return @"Back";}
 

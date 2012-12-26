@@ -32,6 +32,10 @@
     [locationMgr setDesiredAccuracy:kCLLocationAccuracyBest];
 }
 
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
 -(void) startMonitoringLocation{
     if (!locationMgr){
         [self initLocationManager];

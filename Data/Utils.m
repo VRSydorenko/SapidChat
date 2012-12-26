@@ -79,7 +79,7 @@
         case PASSWORDS_NOT_MATCH:   return [Lang LOC_ERRORCODE_PASSWORDS_NOT_MATCH];
         case PASSWORD_NOT_SPECIFIED:   return [Lang LOC_ERRORCODE_PASSWORD_NOT_SPECIFIED];
         default:
-            return @"Error without description.";
+            return @"Error...";
     }
 }
 
@@ -123,12 +123,6 @@
     return localTimestamp;// - [NSTimeZone systemTimeZone].secondsFromGMT;
 }
 
-+(BOOL) user:(User*)one isEqualTo:(User*)two{
-    return [one.email isEqualToString:two.email] &&
-    [one.nickname isEqualToString:two.nickname] &&
-    [one.languages isEqualToArray:two.languages];
-}
-
 +(bool) getIfMetricMeasurementSystem{
     return [[[NSLocale currentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
 }
@@ -136,11 +130,11 @@
 +(NSData*) compressImage:(UIImage*)image{
     CGFloat compression = 0.9f;
     CGFloat maxCompression = 0.1f;
-    int maxFileSize = 50*1024;
+    int maxFileSize = 100*1024;
     
     NSData *compressedData = UIImageJPEGRepresentation(image, compression);
     
-    while (compressedData.length > maxFileSize && compression > maxCompression)
+    while (compressedData.length > maxFileSize && compression >= maxCompression)
     {
         compression -= 0.1;
         compressedData = UIImageJPEGRepresentation(image, compression);

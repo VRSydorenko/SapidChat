@@ -79,7 +79,6 @@
 +(NSString*) LOC_RESTORE_TXT_EMAIL_PLACEHOLDER{return @"Email";}
 +(NSString*) LOC_RESTORE_LABEL_INSTRUCTION{return @"Please enter email you registered with:";}
 +(NSString*) LOC_RESTORE_BTN_GO{return @"Send password";}
-+(NSString*) LOC_RESTORE_BTN_CANCEL{return @"Cancel";}
 +(NSString*) LOC_RESTORE_ALERT_STATE{return @"The password has been sent to the entered email address";}
 +(NSString*) LOC_RESTORE_ALERT_BTN_OK{return @"Close";}
 // intrigue sell screen

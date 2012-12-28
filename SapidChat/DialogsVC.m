@@ -49,7 +49,6 @@
     self.tableDialogs.dataSource = self;
     self.tableDialogs.delegate = self;
     selectedDialog = nil;
-    //[self refreshPressed:self.navigationItem.rightBarButtonItem];
 }
 
 - (void)viewDidUnload
@@ -58,6 +57,8 @@
     [self setSpinnerPick:nil];
     [self setBtnPick:nil];
     [self setBtnCompose:nil];
+    selectedDialog = nil;
+    navController = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

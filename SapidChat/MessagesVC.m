@@ -31,7 +31,7 @@
     NSString* me;
     bool replyMode;
     UIActionSheet *replyModeActionSheet;
-    UIActionSheet *aloneModeActionSheet;
+    //UIActionSheet *aloneModeActionSheet;
     
     // dimensions
     UIFont* messageFont;
@@ -88,6 +88,15 @@
 {
     [self setTabelMessages:nil];
     [self setButtonReply:nil];
+    messages = nil;
+    selectedCells = nil;
+    errorCells = nil;
+    firstMsgs = nil;
+    lastMsgs = nil;
+    me = nil;
+    replyModeActionSheet = nil;
+    messageFont = nil;
+    timeAndDistanceFont = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -511,7 +520,7 @@
     if (replyMode){
         [replyModeActionSheet showInView:self.view];
     } else {
-        [aloneModeActionSheet showInView:self.view];
+        //[aloneModeActionSheet showInView:self.view];
     }
 }
 

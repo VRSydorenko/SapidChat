@@ -13,7 +13,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelInstruction;
 @property (strong, nonatomic) IBOutlet UILabel *labelServiceMsg;
 @property (strong, nonatomic) IBOutlet UIButton *btnGo;
-@property (strong, nonatomic) IBOutlet UIButton *btnCancel;
 @property (strong, nonatomic) IBOutlet UITextField *textEmail;
 - (IBAction)btnGoPressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;

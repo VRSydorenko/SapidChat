@@ -176,6 +176,8 @@
     [self setBtnClose:nil];
     [self setTxtSelectLangs:nil];
     [self setTxtSpecifyNick:nil];
+    navController = nil;
+    user = nil;
     [super viewDidUnload];
 }
 

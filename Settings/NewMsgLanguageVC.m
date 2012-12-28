@@ -66,6 +66,7 @@
     [self setBtnToLangsIKnow:nil];
     [self setTextNewMsgLangs:nil];
     [self setBtnCancel:nil];
+    languages = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

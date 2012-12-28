@@ -35,14 +35,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0){return 0;}
     return section == 3 ? 3 : 1; // 3 rows only for localization section
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        return [tableView dequeueReusableCellWithIdentifier:@"AboutAppMainCell"];
+    if (indexPath.section == 0){
+    //    return 0;
     }
-    
     UITableViewCell *cell;
     if (indexPath.section == 3){
         cell = [tableView dequeueReusableCellWithIdentifier:@"LocalizationCell"];
@@ -84,9 +84,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0){
-        return 124.0f;
-    }
+    if (indexPath.section == 0){ return 0; }
     return 30;
 }
 
@@ -102,9 +100,24 @@
     return @"";
 }
 
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 0){
+        return [tableView dequeueReusableCellWithIdentifier:@"AboutAppMainCell"];
+    }
+    return nil;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0){
+        return 124.0;
+    }
+    return 30;
+}
+
 - (void)viewDidUnload
 {
     [self setTableAbout:nil];
+    personFont = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

@@ -96,7 +96,6 @@
 +(NSString*) LOC_RESTORE_TXT_EMAIL_PLACEHOLDER{return [[self AppLanguage] LOC_RESTORE_TXT_EMAIL_PLACEHOLDER];}
 +(NSString*) LOC_RESTORE_LABEL_INSTRUCTION{return [[self AppLanguage] LOC_RESTORE_LABEL_INSTRUCTION];}
 +(NSString*) LOC_RESTORE_BTN_GO{return [[self AppLanguage] LOC_RESTORE_BTN_GO];}
-+(NSString*) LOC_RESTORE_BTN_CANCEL{return [[self AppLanguage] LOC_RESTORE_BTN_CANCEL];}
 +(NSString*) LOC_RESTORE_ALERT_STATE{return [[self AppLanguage] LOC_RESTORE_ALERT_STATE];}
 +(NSString*) LOC_RESTORE_ALERT_BTN_OK{return [[self AppLanguage] LOC_RESTORE_ALERT_BTN_OK];}
 // intrigue sell screen

@@ -44,6 +44,7 @@
     [self setTableLanguages:nil];
     [self setTextLangsIKnow:nil];
     [self setBtnBack:nil];
+    languages = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

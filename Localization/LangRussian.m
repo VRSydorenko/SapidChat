@@ -53,7 +53,7 @@
 +(NSString*) LOC_REGISTATOR_FIELD_PASSWORD { return @"Пароль";}
 +(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Ник";}
 +(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Поскольку общение здесь анонимное, то было бы хорошо придумать себе ник чтобы было возможно различать собеседников";}
-+(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Выберите языки, на которых вы можете вести переписку";}
++(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Выберите языки, на которых вы можете общаться";}
 +(NSString*) LOC_REGISTATOR_ERR_EMPTYNICK{return @"Не указан ник";}
 +(NSString*) LOC_REGISTATOR_ERR_INVALIDNICK{return @"Вы не можете использовать данный ник";}
 +(NSString*) LOC_REGISTATOR_ERR_NOLANGS_SELECTED{return @"Не выбрано ни одного языка";}
@@ -79,7 +79,6 @@
 +(NSString*) LOC_RESTORE_TXT_EMAIL_PLACEHOLDER{return @"Email";}
 +(NSString*) LOC_RESTORE_LABEL_INSTRUCTION{return @"Введите email, указанный при регистрации:";}
 +(NSString*) LOC_RESTORE_BTN_GO{return @"Выслать пароль";}
-+(NSString*) LOC_RESTORE_BTN_CANCEL{return @"Отмена";}
 +(NSString*) LOC_RESTORE_ALERT_STATE{return @"Пароль отправлен по указанному адресу";}
 +(NSString*) LOC_RESTORE_ALERT_BTN_OK{return @"Закрыть";}
 // intrigue sell screen

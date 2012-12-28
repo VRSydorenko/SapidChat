@@ -36,6 +36,8 @@
 - (void)viewDidUnload
 {
     [self setTextTitle:nil];
+    [self setTabelFeatures:nil];
+    descrFont = nil;
     [super viewDidUnload];
 }
 

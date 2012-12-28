@@ -19,6 +19,7 @@
     bool isSending;
     bool isImageSet;
     MainNavController* navCon;
+    UIImagePickerController *imagePicker;
 }
 
 @end
@@ -47,6 +48,10 @@
         self.labelTitle.text = [Lang LOC_COMPOSE_TITLE];
         [self updateLanguageText];
     }
+    
+    imagePicker = [[UIImagePickerController alloc] init];
+
+	imagePicker.delegate = self;
     
     [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_SEND] forButton:self.btnSend];
     [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_ATTACH_IMG] forButton:self.btnAttachData];
@@ -77,6 +82,8 @@
     [self setBtnAttachData:nil];
     [self setImageView:nil];
     [self setBtnProInfo:nil];
+    navCon = nil;
+    imagePicker = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -143,7 +150,11 @@
     
     //imageView.image = [editingInfo objectForKey:@"UIImagePickerControllerOriginalImage"];
     isImageSet = YES;
-    [self.imageView setImage:image];
+    
+    CGSize newSize = CGSizeMake(2*self.imageView.bounds.size.width, 2*self.imageView.bounds.size.height);
+    UIImage *newImage = [Utils imageWithImage:image scaledToSizeWithSameAspectRatio:newSize];
+    [self.imageView setImage:newImage];
+    
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -157,24 +168,21 @@
         return;
     }
     
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-	picker.delegate = self;
-    
     bool sourceExists = NO;
 	if(buttonIndex == 0) { // take photo
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
             sourceExists = YES;
         }
 	} else { // camera roll
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
-            picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
             sourceExists = YES;
         }
 	}
     
     if (sourceExists){
-        [self presentViewController:picker animated:YES completion:nil];
+        [self presentViewController:imagePicker animated:YES completion:nil];
     } else {
         [self showImageSourceNotAvailable];
     }

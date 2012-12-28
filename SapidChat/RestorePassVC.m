@@ -21,7 +21,6 @@
 @synthesize labelInstruction;
 @synthesize labelServiceMsg;
 @synthesize btnGo;
-@synthesize btnCancel;
 @synthesize textEmail;
 
 - (void)viewDidLoad
@@ -30,7 +29,6 @@
     self.labelInstruction.text = [Lang LOC_RESTORE_LABEL_INSTRUCTION];
 	self.textEmail.placeholder = [Lang LOC_LOGIN_TXT_LOGIN_PLACEHOLDER];
     [LocalizationUtils setTitle:[Lang LOC_RESTORE_BTN_GO] forButton:self.btnGo];
-    [LocalizationUtils setTitle:[Lang LOC_RESTORE_BTN_CANCEL] forButton:self.btnCancel];
 }
 
 - (void)viewDidUnload
@@ -39,7 +37,6 @@
     [self setLabelServiceMsg:nil];
     [self setBtnGo:nil];
     [self setTextEmail:nil];
-    [self setBtnCancel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -63,7 +60,7 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    [self cancelPressed:self.btnCancel];
+    [self cancelPressed:nil];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{

@@ -25,4 +25,5 @@
 +(bool) getIfMetricMeasurementSystem;
 
 +(NSData*) compressImage:(UIImage*)imageData;
++ (UIImage*)imageWithImage:(UIImage*)sourceImage scaledToSizeWithSameAspectRatio:(CGSize)targetSize;
 @end

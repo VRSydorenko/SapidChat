@@ -55,6 +55,12 @@
     }
 }
 
+-(void) viewDidUnload{
+    values = nil;
+    msgLanguages = nil;
+    [super viewDidUnload];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.valuesMode == VALUES_CNV_LANGUAGES){

@@ -164,6 +164,8 @@
             UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
             if(cell.accessoryType == UITableViewCellAccessoryNone){
                 [UserSettings setAppLanguage:selectedValue.intValue];
+                self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES];
+                
                 [self.tableView reloadData];
             }
         break;

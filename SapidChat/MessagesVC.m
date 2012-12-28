@@ -261,7 +261,7 @@
             MessageTopCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageTopCell"];
             if (cell){
                 cell.labelTime.font = timeAndDistanceFont;
-                NSDate* localTime = [Utils toLocalDate:msg.when];// !!!
+                NSDate* localTime = [Utils toLocalDate:msg.when];
                 cell.labelTime.text = [Utils timeToString:localTime];
                 
                 NSString* distanceText = @"";

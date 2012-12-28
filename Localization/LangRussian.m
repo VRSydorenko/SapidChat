@@ -12,6 +12,8 @@
 
 // universal
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
++(NSString*) LOC_UNI_CANCEL{return @"Отмена";}
++(NSString*) LOC_UNI_OK{return @"OK";}
 // system messages
 +(NSString*) LOC_SYS_MSG_WELCOME{return @"Добро пожаловать в Sapid Chat!\rНадеемся, вам понравится общаться и знакомиться с новыми людьми и интриговать своих друзей.";}
 +(NSString*) LOC_SYS_MSG_INCOME_LOOK{return @"Таким образом будут выглядеть входящие сообщения.";}
@@ -50,7 +52,7 @@
 +(NSString*) LOC_REGISTATOR_FIELD_EMAIL { return @"Эл. почта";}
 +(NSString*) LOC_REGISTATOR_FIELD_PASSWORD { return @"Пароль";}
 +(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Ник";}
-+(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Поскольку общение здесь анонимное, то было бы хорошо придумать себе ник чтобы было удобно различать собеседников";}
++(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Поскольку общение здесь анонимное, то было бы хорошо придумать себе ник чтобы было возможно различать собеседников";}
 +(NSString*) LOC_REGISTATOR_LABEL_SELECT_LANGS { return @"Выберите языки, на которых вы можете вести переписку";}
 +(NSString*) LOC_REGISTATOR_ERR_EMPTYNICK{return @"Не указан ник";}
 +(NSString*) LOC_REGISTATOR_ERR_INVALIDNICK{return @"Вы не можете использовать данный ник";}
@@ -70,7 +72,6 @@
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"Новых сообщений нет";}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Интрига";}
 +(NSString*) LOC_MAIN_CELL_BALANCE {return @"Ваш баланс";}
-+(NSString*) LOC_MAIN_BUTTON_SETTINGS {return @"Настройки";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Выйти";}
 +(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{ return @"Забыли пароль?";}
 // restore pass screen
@@ -92,7 +93,7 @@
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK{return @"Отправлено на ваш email";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Отправка...";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL{return @"Email";}
-+(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Ваше сообщение (не обязательно)";}
++(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Дополнительное сообщение (не обязательно)";}
 +(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Привет!\rЭто я отправил тебе то интригующее сообщение на почту ;)";}
 +(NSString*) LOC_INTRIGUE_MAIL_SUBJECT{return @"Кто-то хочет заинтриговать вас в Sapid Chat";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_YOURSELF{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL], @"%@", [self LOC_INTRIGUE_COLLOCUTOR_MESSAGE], @""];}
@@ -142,7 +143,6 @@
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"В ожидании ответа...";}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"Пока что нет сообщений";}
 +(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"Сейчас нету новых сообщений на вашем языке для выборки.";}
-+(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return @"Скрыть";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"км";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"м";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_MILES{return @"м";}

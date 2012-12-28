@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface MainVC : UIViewController<UITableViewDataSource,
+                                     UITableViewDelegate,
+                                     UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *btnLogout;
-@property (strong, nonatomic) IBOutlet UIButton *btnSettings;
 @property (strong, nonatomic) IBOutlet UITableView *tableMain;
 - (IBAction)refreshPressed:(UIBarButtonItem *)sender;
 - (IBAction)logoutPressed:(id)sender;

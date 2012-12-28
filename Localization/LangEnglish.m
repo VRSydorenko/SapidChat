@@ -12,6 +12,8 @@
 
 // universal
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
++(NSString*) LOC_UNI_CANCEL{return @"Cancel";}
++(NSString*) LOC_UNI_OK{return @"OK";}
 // system messages
 +(NSString*) LOC_SYS_MSG_WELCOME{return @"Welcome to SapidChat!\rWe hope you will have a great time talking to new people and intriguing your friends!";}
 +(NSString*) LOC_SYS_MSG_INCOME_LOOK{return @"This is what incoming messages will look like.";}
@@ -47,7 +49,7 @@
 +(NSString*) LOC_REGISTATOR_BTN_REGISTER { return @"Create account!";}
 +(NSString*) LOC_REGISTATOR_BTN_CLOSE { return @"Done!";}
 +(NSString*) LOC_REGISTATOR_BTN_BACK { return @"Back";}
-+(NSString*) LOC_REGISTATOR_FIELD_EMAIL { return @"E-mail";}
++(NSString*) LOC_REGISTATOR_FIELD_EMAIL { return @"Email";}
 +(NSString*) LOC_REGISTATOR_FIELD_PASSWORD { return @"Password";}
 +(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Nickname";}
 +(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Since the communication here is anonymous it would be good to specify a nickname in order for distinguish between interlocutors";}
@@ -70,7 +72,6 @@
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"No new messages";}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Intrigue";}
 +(NSString*) LOC_MAIN_CELL_BALANCE {return @"Your balance";}
-+(NSString*) LOC_MAIN_BUTTON_SETTINGS {return @"Settings";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Log out";}
 +(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{ return @"Forgot password?";}
 // restore pass screen
@@ -92,7 +93,7 @@
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK{return @"Sent to your email address";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Sending...";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL{return @"Email";}
-+(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Your message (optional)";}
++(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Additional message (optional)";}
 +(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Hi there!\rIt was me who sent you the intrigue message ;)";}
 +(NSString*) LOC_INTRIGUE_MAIL_SUBJECT{return @"Somebody wants to intrigue you in Sapid Chat";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_YOURSELF{return @"Mail content yourself %@ %@";}
@@ -106,7 +107,6 @@
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"Awaiting reply...";}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"No records to display yet";}
 +(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"There are currently no messages in your language(s) to pick up.";}
-+(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return @"Hide";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"km";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"m";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_MILES{return @"m";}

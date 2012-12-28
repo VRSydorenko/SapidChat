@@ -31,6 +31,8 @@
 
 // universal
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
++(NSString*) LOC_UNI_CANCEL{return [[self AppLanguage] LOC_UNI_CANCEL];}
++(NSString*) LOC_UNI_OK{return [[self AppLanguage] LOC_UNI_OK];}
 // system messages
 +(NSString*) LOC_SYS_MSG_WELCOME{ return [[self AppLanguage] LOC_SYS_MSG_WELCOME];}
 +(NSString*) LOC_SYS_MSG_INCOME_LOOK{ return [[self AppLanguage] LOC_SYS_MSG_INCOME_LOOK];}
@@ -87,7 +89,6 @@
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES{return [[self AppLanguage] LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES];}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE{return [[self AppLanguage] LOC_MAIN_CELL_INTRIGUE];}
 +(NSString*) LOC_MAIN_CELL_BALANCE{return [[self AppLanguage] LOC_MAIN_CELL_BALANCE];}
-+(NSString*) LOC_MAIN_BUTTON_SETTINGS{return [[self AppLanguage] LOC_MAIN_BUTTON_SETTINGS];}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return [[self AppLanguage] LOC_MAIN_BUTTON_LOGOUT];}
 +(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{return [[self AppLanguage] LOC_MAIN_BUTTON_FORGOTPASS];}
 // restore pass screen
@@ -124,7 +125,6 @@
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return [[self AppLanguage] LOC_MESSAGES_CELL_WAIT_FOR_REPLY];}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return [[self AppLanguage] LOC_MESSAGES_CELL_NO_RECORDS];}
 +(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return [[self AppLanguage] LOC_MESSAGES_CELL_NO_MSG_TOPICKUP];}
-+(NSString*) LOC_MESSAGES_CELL_BTN_HIDE{return [[self AppLanguage] LOC_MESSAGES_CELL_BTN_HIDE];}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return [[self AppLanguage] LOC_MESSAGES_CELL_DISTANCE_KILOMETERS];}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return [[self AppLanguage] LOC_MESSAGES_CELL_DISTANCE_METERS];}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_MILES{return [[self AppLanguage] LOC_MESSAGES_CELL_DISTANCE_MILES];}

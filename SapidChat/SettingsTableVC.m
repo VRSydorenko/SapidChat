@@ -47,10 +47,10 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    [self.tableView beginUpdates];
     [self updateLabelValues];
     [self updateLocalizableValues];
-    [self.tableView endUpdates];
+    
+    [self.tableView reloadData];
 }
 
 -(void) updateLabelValues{

@@ -86,7 +86,6 @@
         InfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell"];
         if (cell){
             cell.textNoMessageToPickUp.text = [Lang LOC_MESSAGES_CELL_NO_MSG_TOPICKUP];
-            [LocalizationUtils setTitle:[Lang LOC_MESSAGES_CELL_BTN_HIDE] forButton:cell.btnHideCell];
             cell.handler = self;
         }
         return cell;

@@ -19,7 +19,6 @@
 
 @implementation MainVC
 @synthesize btnLogout;
-@synthesize btnSettings;
 @synthesize tableMain;
 
 - (void)viewDidLoad
@@ -33,8 +32,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.title = [Lang LOC_UNI_APP_NAME];
-    [LocalizationUtils setTitle:[Lang LOC_MAIN_BUTTON_LOGOUT] forButton:self.btnLogout];
-    [LocalizationUtils setTitle:[Lang LOC_MAIN_BUTTON_SETTINGS] forButton:self.btnSettings];
     [self.tableMain reloadData];
 }
 
@@ -42,7 +39,6 @@
 {
     [self setTableMain:nil];
     [self setBtnLogout:nil];
-    [self setBtnSettings:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -131,7 +127,14 @@
 }
 
 - (IBAction)logoutPressed:(id)sender {
-    [((MainNavController*)self.navigationController).logoutHandler controllerToLogout:self.navigationController];
+    UIActionSheet *logoutActionSheet = [[UIActionSheet alloc] initWithTitle:[Lang LOC_UNI_APP_NAME] delegate:self cancelButtonTitle:[Lang LOC_UNI_CANCEL] destructiveButtonTitle:[Lang LOC_MAIN_BUTTON_LOGOUT] otherButtonTitles:nil];
+    [logoutActionSheet showInView:self.view];
+}
+
+-(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){ // logout button
+        [((MainNavController*)self.navigationController).logoutHandler controllerToLogout:self.navigationController];
+    }
 }
 
 @end

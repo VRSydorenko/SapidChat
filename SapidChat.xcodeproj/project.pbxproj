@@ -53,6 +53,8 @@
 		7FAF7633159E4FE500D37D7D /* SapidChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAF7632159E4FE500D37D7D /* SapidChatTests.m */; };
 		7FB3FB9315D9786F00EE91F1 /* SettingsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3FB9215D9786F00EE91F1 /* SettingsTableVC.m */; };
 		7FB3FB9B15D97CF000EE91F1 /* SettingsValuesListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3FB9A15D97CF000EE91F1 /* SettingsValuesListTableVC.m */; };
+		7FB8BF61168FA008007EC50D /* SapidInfoBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8BF60168FA008007EC50D /* SapidInfoBarView.m */; };
+		7FB8BF64168FA0AC007EC50D /* SapidInfoBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8BF63168FA0AC007EC50D /* SapidInfoBarManager.m */; };
 		7FBF28B115D2DBAC00F04B99 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF28B015D2DBAC00F04B99 /* MainVC.m */; };
 		7FBF28B515D2DCCA00F04B99 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF28B415D2DCCA00F04B99 /* MainCell.m */; };
 		7FBF622C15D69E9200A34CDB /* MessagesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF622B15D69E9100A34CDB /* MessagesVC.m */; };
@@ -84,8 +86,6 @@
 		7FD64D3B16135F2700BE8551 /* DbForeignKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD64D3A16135F2700BE8551 /* DbForeignKey.m */; };
 		7FD6A1F6168E36F400CDBA02 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD6A1F5168E36F400CDBA02 /* Icon.png */; };
 		7FD6A1F8168E36F700CDBA02 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD6A1F7168E36F700CDBA02 /* Icon@2x.png */; };
-		7FD6A215168E6D7600CDBA02 /* JBInfoBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD6A212168E6D7600CDBA02 /* JBInfoBar.m */; };
-		7FD6A216168E6D7600CDBA02 /* JBInfoBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD6A214168E6D7600CDBA02 /* JBInfoBarManager.m */; };
 		7FDA84CA167E3599001986FB /* IntroVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDA84C9167E3599001986FB /* IntroVC.m */; };
 		7FDA84D0167E47A6001986FB /* intro_communicate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FDA84CC167E47A6001986FB /* intro_communicate.jpg */; };
 		7FDA84D1167E47A6001986FB /* intro_compose.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FDA84CD167E47A6001986FB /* intro_compose.jpg */; };
@@ -241,6 +241,10 @@
 		7FB3FB9215D9786F00EE91F1 /* SettingsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableVC.m; sourceTree = "<group>"; };
 		7FB3FB9915D97CF000EE91F1 /* SettingsValuesListTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsValuesListTableVC.h; sourceTree = "<group>"; };
 		7FB3FB9A15D97CF000EE91F1 /* SettingsValuesListTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsValuesListTableVC.m; sourceTree = "<group>"; };
+		7FB8BF5F168FA008007EC50D /* SapidInfoBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SapidInfoBarView.h; path = CustomControls/SapidInfoBar/SapidInfoBarView.h; sourceTree = "<group>"; };
+		7FB8BF60168FA008007EC50D /* SapidInfoBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SapidInfoBarView.m; path = CustomControls/SapidInfoBar/SapidInfoBarView.m; sourceTree = "<group>"; };
+		7FB8BF62168FA0AC007EC50D /* SapidInfoBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SapidInfoBarManager.h; path = CustomControls/SapidInfoBar/SapidInfoBarManager.h; sourceTree = "<group>"; };
+		7FB8BF63168FA0AC007EC50D /* SapidInfoBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SapidInfoBarManager.m; path = CustomControls/SapidInfoBar/SapidInfoBarManager.m; sourceTree = "<group>"; };
 		7FBF28AF15D2DBAC00F04B99 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		7FBF28B015D2DBAC00F04B99 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		7FBF28B315D2DCCA00F04B99 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
@@ -296,10 +300,6 @@
 		7FD64D3A16135F2700BE8551 /* DbForeignKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbForeignKey.m; path = Database/DbForeignKey.m; sourceTree = "<group>"; };
 		7FD6A1F5168E36F400CDBA02 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		7FD6A1F7168E36F700CDBA02 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		7FD6A211168E6D7600CDBA02 /* JBInfoBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBInfoBar.h; path = CustomControls/InfoBar/JBInfoBar.h; sourceTree = "<group>"; };
-		7FD6A212168E6D7600CDBA02 /* JBInfoBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JBInfoBar.m; path = CustomControls/InfoBar/JBInfoBar.m; sourceTree = "<group>"; };
-		7FD6A213168E6D7600CDBA02 /* JBInfoBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBInfoBarManager.h; path = CustomControls/InfoBar/JBInfoBarManager.h; sourceTree = "<group>"; };
-		7FD6A214168E6D7600CDBA02 /* JBInfoBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JBInfoBarManager.m; path = CustomControls/InfoBar/JBInfoBarManager.m; sourceTree = "<group>"; };
 		7FDA84C8167E3599001986FB /* IntroVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroVC.h; path = FirstLaunch/IntroVC.h; sourceTree = "<group>"; };
 		7FDA84C9167E3599001986FB /* IntroVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntroVC.m; path = FirstLaunch/IntroVC.m; sourceTree = "<group>"; };
 		7FDA84CC167E47A6001986FB /* intro_communicate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = intro_communicate.jpg; path = FirstLaunch/Images/intro_communicate.jpg; sourceTree = "<group>"; };
@@ -620,6 +620,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7FB8BF5E168F9FD1007EC50D /* SapidInfoBar */ = {
+			isa = PBXGroup;
+			children = (
+				7FB8BF5F168FA008007EC50D /* SapidInfoBarView.h */,
+				7FB8BF60168FA008007EC50D /* SapidInfoBarView.m */,
+				7FB8BF62168FA0AC007EC50D /* SapidInfoBarManager.h */,
+				7FB8BF63168FA0AC007EC50D /* SapidInfoBarManager.m */,
+			);
+			name = SapidInfoBar;
+			sourceTree = "<group>";
+		};
 		7FBF622515D69D8800A34CDB /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -697,17 +708,6 @@
 			name = Database;
 			sourceTree = "<group>";
 		};
-		7FD6A20F168E6D4400CDBA02 /* InfoBar */ = {
-			isa = PBXGroup;
-			children = (
-				7FD6A211168E6D7600CDBA02 /* JBInfoBar.h */,
-				7FD6A212168E6D7600CDBA02 /* JBInfoBar.m */,
-				7FD6A213168E6D7600CDBA02 /* JBInfoBarManager.h */,
-				7FD6A214168E6D7600CDBA02 /* JBInfoBarManager.m */,
-			);
-			name = InfoBar;
-			sourceTree = "<group>";
-		};
 		7FDA84CB167E3BA0001986FB /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,7 +756,7 @@
 		7FE76A6116851B9100803459 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
-				7FD6A20F168E6D4400CDBA02 /* InfoBar */,
+				7FB8BF5E168F9FD1007EC50D /* SapidInfoBar */,
 			);
 			name = CustomControls;
 			sourceTree = "<group>";
@@ -1007,8 +1007,8 @@
 				7FD5F3511687C49A00334D36 /* Message.m in Sources */,
 				7FD5F3521687C49A00334D36 /* UserSettings.m in Sources */,
 				7FD5F3531687C49A00334D36 /* Utils.m in Sources */,
-				7FD6A215168E6D7600CDBA02 /* JBInfoBar.m in Sources */,
-				7FD6A216168E6D7600CDBA02 /* JBInfoBarManager.m in Sources */,
+				7FB8BF61168FA008007EC50D /* SapidInfoBarView.m in Sources */,
+				7FB8BF64168FA0AC007EC50D /* SapidInfoBarManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -105,7 +105,7 @@
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Pick new";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"Awaiting reply...";}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"No records to display yet";}
-+(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"There are currently no messages in your language(s) to pick up.";}
++(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"There are currently no messages in your language(s) to pick up";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"km";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"m";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_MILES{return @"m";}

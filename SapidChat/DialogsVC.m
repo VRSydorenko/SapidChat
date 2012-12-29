@@ -16,7 +16,7 @@
 #import "UserSettings.h"
 #import "Lang.h"
 #import "LocalizationUtils.h"
-#import "JBInfoBarManager.h"
+#import "SapidInfoBarManager.h"
 
 @interface DialogsVC (){
     MainNavController* navController;
@@ -36,11 +36,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Add the infoBar
-    CGRect rect = CGRectMake(0, self.view.frame.origin.y + self.navigationController.navigationBar.frame.size.height, 320, 40);
-    [[JBInfoBarManager sharedManager] initInfoBarWithFrame:rect];
-    [self.navigationController.view insertSubview:[[JBInfoBarManager sharedManager] infoBar] belowSubview:self.navigationController.navigationBar];
     
     self.title = [Lang LOC_MESSAGES_TITLE];
     self.btnPick.title = [Lang LOC_MESSAGES_BTN_PICKNEW];
@@ -155,7 +150,7 @@
                 if (pickResult == OK){
                     [self.tableDialogs reloadData];
                 } else if (pickResult == SYSTEM_NO_MESSAGES_TO_PICKUP){
-                    [self showInfoBarWithMessage:[Lang LOC_MESSAGES_CELL_NO_MSG_TOPICKUP]];
+                    [self showInfoBarWithNeutralMessage:[Lang LOC_MESSAGES_CELL_NO_MSG_TOPICKUP]];
                 }
                 [self.spinnerPick stopAnimating];
                 isPicking = NO;
@@ -173,7 +168,7 @@
     [self refreshPressed:self.navigationItem.rightBarButtonItem];
 }
 
-- (void)showInfoBarWithMessage:(NSString*)text {
-    [[JBInfoBarManager sharedManager] showInfoBarWithMessage:text forDuration:2.0];
+- (void)showInfoBarWithNeutralMessage:(NSString*)text {
+    [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:text withMood:NEUTRAL];
 }
 @end

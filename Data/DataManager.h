@@ -31,7 +31,8 @@
 +(ErrorCodes) sendIntrigueTo:(NSString*)email withOptionalText:(NSString*)text;
 +(ErrorCodes) restorePassword:(NSString*)email;
 
-+(NSArray*) getDialogs;
++(NSArray*) getAllDialogs;
++(NSArray*) getSavedDialogs;
 +(int) getUnreadMessagesCount;
 +(void) resetUnreadMessagesCountForCollocutor:(NSString*)email;
 

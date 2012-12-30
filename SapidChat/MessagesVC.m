@@ -101,6 +101,10 @@
     // Release any retained subviews of the main view.
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [self.tabelMessages reloadData];
+}
+
 -(void) setupActionSheets{
     NSString* title = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE];
     NSString* cancel = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL];

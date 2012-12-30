@@ -461,7 +461,7 @@
             // TODO: handle case when update in ilocal db failed
         }
         [self.attachmentUpdateDelegate attachmentDataUpdatedForName:s3Request.key data:response.body];
-        self.attachmentUpdateDelegate = nil; // only one request in a time now
+        //self.attachmentUpdateDelegate = nil; // only one request in a time now
     }
     NSLog(@"AWS Service Request completed");
 }

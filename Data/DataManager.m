@@ -332,9 +332,14 @@
     return OK;
 }
 
-+(NSArray*) getDialogs{
++(NSArray*) getAllDialogs{
     return [Utils buildDialogsOfMsgs:[self loadAllMessages]];
 }
+
++(NSArray*) getSavedDialogs{
+    return [Utils buildDialogsOfMsgs:[[self getDbManager] loadMessagesWithCondition:@""]];
+}
+
 
 +(ErrorCodes)sendMessage:(Message*)message{
     if (message.text.length == 0 && !message.attachmentData){

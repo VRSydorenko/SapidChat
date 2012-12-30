@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     [NSTimeZone resetSystemTimeZone];
-    [DataManager getDialogs];
+
     self.tableMain.dataSource = self;
     self.tableMain.delegate = self;
 }
@@ -117,7 +117,7 @@
     
     dispatch_queue_t refreshQueue = dispatch_queue_create("refresh Queue", NULL);
     dispatch_async(refreshQueue, ^{
-        ((MainNavController*)self.navigationController).dialogs = [DataManager getDialogs];
+        ((MainNavController*)self.navigationController).dialogs = [DataManager getAllDialogs];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableMain reloadData];
             self.navigationItem.rightBarButtonItem = sender;

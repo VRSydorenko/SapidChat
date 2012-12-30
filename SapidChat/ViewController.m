@@ -45,6 +45,8 @@
     isLoggingIn = NO;
     isAfterRegistration = NO;
     self.textPassword.delegate = self;
+    
+    //self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"BackgroundGreen.png"]];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -118,6 +120,9 @@
     dispatch_queue_t logginQueue = dispatch_queue_create("login queue", NULL);
     dispatch_async(logginQueue, ^{
         ErrorCodes logginResult = [DataManager login:self.textEmail.text password:self.textPassword.text];
+        if (logginResult == OK){
+            [DataManager getAllDialogs];
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             if (logginResult == OK){
                 self.labelServiceMessage.text = @"";

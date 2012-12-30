@@ -126,7 +126,7 @@
     
     dispatch_queue_t refreshQueue = dispatch_queue_create("refresh Queue", NULL);
     dispatch_async(refreshQueue, ^{
-        navController.dialogs = [DataManager getDialogs];
+        navController.dialogs = [DataManager getAllDialogs];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableDialogs reloadData];
             self.navigationItem.rightBarButtonItem = sender;
@@ -144,7 +144,7 @@
         dispatch_async(refreshQueue, ^{
             ErrorCodes pickResult = [DataManager pickNewMessage];
             if (pickResult == OK){
-                navController.dialogs = [DataManager getDialogs];
+                navController.dialogs = [DataManager getAllDialogs];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (pickResult == OK){

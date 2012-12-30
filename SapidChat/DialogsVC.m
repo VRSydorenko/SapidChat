@@ -57,11 +57,11 @@
     selectedDialog = nil;
     navController = nil;
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
--(void) viewDidAppear:(BOOL)animated{
-    [self refreshPressed:self.navigationItem.rightBarButtonItem];// TODO: remove this extra update!!! load only saved messages
+-(void) viewWillAppear:(BOOL)animated{
+    navController.dialogs = [DataManager getSavedDialogs];
+    [self.tableDialogs reloadData];
 }
 
 -(void) viewWillDisappear:(BOOL)animated{

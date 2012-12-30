@@ -70,7 +70,6 @@
 }
 
 -(void) viewDidLoad{
-    // Add the infoBar
     [[SapidInfoBarManager sharedManager] initInfoBarWithTopViewFrame:self.navigationBar.frame andHeight:40];
     [self.view insertSubview:[[SapidInfoBarManager sharedManager] infoBar] belowSubview:self.navigationBar];
 }

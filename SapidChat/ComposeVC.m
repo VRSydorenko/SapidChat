@@ -104,7 +104,6 @@
         isSending = YES;
             
         [self.spinner startAnimating];
-        self.labelInfoText.text = [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS];
             
         dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
         dispatch_async(refreshQueue, ^{

@@ -90,7 +90,6 @@
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Make intrigued!";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Sent";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK{return @"Sent to your email address";}
-+(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Sending...";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL{return @"Email";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Additional message (optional)";}
 +(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Hi there!\rIt was me who sent you the intrigue message ;)";}

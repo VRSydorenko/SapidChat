@@ -14,6 +14,7 @@
 #import "Utils.h"
 #import "InfoVC.h"
 #import "UserSettings.h"
+#import "SapidInfoBarManager.h"
 
 @interface IntrigueVC (){
     bool isSending;
@@ -24,7 +25,6 @@
 
 @implementation IntrigueVC
 @synthesize labelEnterEmail;
-@synthesize labelServiceMessage;
 @synthesize labelConditions;
 @synthesize textEmail;
 @synthesize textMsg;
@@ -52,7 +52,6 @@
     [self setTextEmail:nil];
     [self setBtnSend:nil];
     [self setIndicatorSend:nil];
-    [self setLabelServiceMessage:nil];
     [self setLabelConditions:nil];
     [self setTextMsg:nil];
     [super viewDidUnload];
@@ -62,13 +61,12 @@
     NSString* email = [self.textEmail.text lowercaseString];
     ErrorCodes emailValidationError = [Utils validateEmail:email];
     if (emailValidationError != OK){
-       self.labelServiceMessage.text = [Utils getErrorDescription:emailValidationError];
+        [self showInfoBarWithError:[Utils getErrorDescription:emailValidationError]];
     } else if (!isSending){
         isSending = YES;
         [self.textEmail resignFirstResponder];
         [self.textMsg resignFirstResponder];
         [self.indicatorSend startAnimating];
-        self.labelServiceMessage.text = [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS];
         
         dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
         dispatch_async(refreshQueue, ^{
@@ -82,9 +80,9 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.indicatorSend stopAnimating];
                 if (errorCode == OK){
-                    self.labelServiceMessage.text = [email isEqualToString:[UserSettings getEmail]] ? [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK] : [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_OK];
+                    [self showInfoBarWithSuccess:[email isEqualToString:[UserSettings getEmail]] ? [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK] : [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_OK]];
                 } else {
-                    self.labelServiceMessage.text = [Utils getErrorDescription:errorCode];
+                    [self showInfoBarWithError:[Utils getErrorDescription:errorCode]];
                 }
                 [self updateConoditionsLabel];
                 isSending = NO;
@@ -108,6 +106,14 @@
         infoVC.title = [Lang LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE];
         infoVC.infoString = [Lang LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE];
     }
+}
+
+-(void) showInfoBarWithError:(NSString*)errorText{
+    [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:errorText withMood:NEGATIVE];
+}
+
+-(void) showInfoBarWithSuccess:(NSString*)successText{
+    [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:successText withMood:POSITIVE];
 }
 
 @end

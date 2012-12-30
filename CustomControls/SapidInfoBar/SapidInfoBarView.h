@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define ANIMATION_DURATION 0.5
+#define ANIMATION_DURATION 0.3
 
 @interface SapidInfoBarView : UIView
 

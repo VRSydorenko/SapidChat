@@ -40,6 +40,9 @@ static SapidInfoBarManager *sharedSapidInfoBarManager = nil;
 }
 
 - (void)showInfoBarWithMessage:(NSString *)message withMood:(MessageMoodTypes)mood{
+    if (!self.infoBar){
+        return;
+    }
     switch (mood) {
         case POSITIVE:
             [self.infoBar showPositiveMessage:message];

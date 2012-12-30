@@ -90,7 +90,6 @@
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Заинтриговать!";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Отправлено";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK{return @"Отправлено на ваш email";}
-+(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_INPROGRESS{return @"Отправка...";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL{return @"Email";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Дополнительное сообщение (не обязательно)";}
 +(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Привет!\rЭто я отправил тебе то интригующее сообщение на почту ;)";}

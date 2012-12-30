@@ -39,19 +39,19 @@
             msgLanguages = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
             // languages are loaded directly to the table
             self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION];
-        }
             break;
+        }
         case VALUES_APP_LANGUAGES:{
             values = [[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%d", RUSSIAN],
                                                       [NSString stringWithFormat:@"%d", ENGLISH], nil];
             self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION];
+            break;
         }
-        break;
         case VALUES_NEWMSG_LANGUAGES:{
             values = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
             self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES];
-        }
             break;
+        }
     }
 }
 
@@ -77,7 +77,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell){
         cell.accessoryType = UITableViewCellAccessoryNone;
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         switch (self.valuesMode) {
             case VALUES_TIME_FORMAT:{
                 NSString* value = (NSString*)[values objectAtIndex:indexPath.row];
@@ -127,6 +127,7 @@
                 if ([UserSettings getAppLanguage] == lang){
                     cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 }
+                break;
             }
         }
     }
@@ -170,11 +171,11 @@
             UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
             if(cell.accessoryType == UITableViewCellAccessoryNone){
                 [UserSettings setAppLanguage:selectedValue.intValue];
-                self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES];
+                self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION];
                 
                 [self.tableView reloadData];
             }
-        break;
+            break;
         }
     }
     

@@ -7,7 +7,6 @@
 //
 
 #import "SapidInfoBarView.h"
-#import "SapidLabel.h"
 
 @implementation SapidInfoBarView {
     CGPoint hiddenCP;

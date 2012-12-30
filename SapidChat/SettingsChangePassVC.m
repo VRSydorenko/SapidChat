@@ -14,6 +14,7 @@
 #import "UserSettings.h"
 #import "Utils.h"
 #import "DataManager.h"
+#import "SapidInfoBarManager.h"
 
 @interface SettingsChangePassVC (){
     bool isChangingPass;
@@ -23,7 +24,6 @@
 
 @implementation SettingsChangePassVC
 @synthesize btnChangePass;
-@synthesize labelServiceMsg;
 @synthesize editCurrentPass;
 @synthesize editNewPass;
 @synthesize editNewPassConfirm;
@@ -46,7 +46,6 @@
     [self setEditNewPass:nil];
     [self setEditNewPassConfirm:nil];
     [self setBtnChangePass:nil];
-    [self setLabelServiceMsg:nil];
     [self setSpinner:nil];
     [super viewDidUnload];
 }
@@ -54,7 +53,7 @@
 - (IBAction)btnChangePassPressed:(id)sender {
     ErrorCodes passValidated = [self validate];
     if (passValidated != OK){
-        self.labelServiceMsg.text = [Utils getErrorDescription:passValidated];
+        [self showInfoBarWithError:[Utils getErrorDescription:passValidated]];
     } else {
         [self changePasAsync];
     }
@@ -62,7 +61,6 @@
 
 -(void) changePasAsync{
     isChangingPass = YES;
-    self.labelServiceMsg.text = @"";
     self.navigationItem.hidesBackButton = YES;
     [self.spinner startAnimating];
     
@@ -71,11 +69,10 @@
         ErrorCodes result = [DataManager updateOwnPassword:self.editNewPass.text];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (result == OK){
-                self.labelServiceMsg.text = @"";
                 [AmazonKeyChainWrapper storeValueInKeyChain:self.editNewPass.text forKey:[UserSettings getEmail]];
                 [self ShowResultAndDismiss];
             } else {
-                self.labelServiceMsg.text = [Utils getErrorDescription:result];
+                [self showInfoBarWithError:[Utils getErrorDescription:result]];
             }
             [self.spinner stopAnimating];
             self.navigationItem.hidesBackButton = NO;
@@ -83,6 +80,10 @@
         });
     });
     dispatch_release(changePassQueue);
+}
+
+-(void) showInfoBarWithError:(NSString*)errorText{
+    [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:errorText withMood:NEGATIVE];
 }
 
 -(ErrorCodes) validate{

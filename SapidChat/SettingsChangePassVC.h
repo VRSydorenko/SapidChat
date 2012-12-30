@@ -10,7 +10,6 @@
 
 @interface SettingsChangePassVC : UIViewController<UIAlertViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UILabel *labelServiceMsg;
 @property (strong, nonatomic) IBOutlet UITextField *editCurrentPass;
 @property (strong, nonatomic) IBOutlet UITextField *editNewPass;
 @property (strong, nonatomic) IBOutlet UITextField *editNewPassConfirm;

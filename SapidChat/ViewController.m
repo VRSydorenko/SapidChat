@@ -24,6 +24,8 @@
 @end
 
 @implementation ViewController
+
+@synthesize dismissOnLogin = _dismissOnLogin;
 @synthesize activityIndicator;
 @synthesize textEmail;
 @synthesize textPassword;
@@ -63,13 +65,8 @@
     self.textEmail.placeholder = [Lang LOC_LOGIN_TXT_LOGIN_PLACEHOLDER];
     self.textPassword.placeholder = [Lang LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER];
     
-    if ([UserSettings getSaveCredentials]){
-        self.textEmail.text = [UserSettings getEmail];
-        self.textPassword.text = [AmazonKeyChainWrapper getValueFromKeyChain:[UserSettings getEmail]];
-    } else {
-        self.textEmail.text = @"";
-        self.textPassword.text = @"";
-    }
+    self.textEmail.text = @"";
+    self.textPassword.text = @"";
 }
 
 -(void)localize{
@@ -126,7 +123,11 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (logginResult == OK){
                 self.labelServiceMessage.text = @"";
-                [self performSegueWithIdentifier:@"SegueLoginToMain" sender:self];
+                if (self.dismissOnLogin){
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                } else {
+                    [self performSegueWithIdentifier:@"SegueLoginToMain" sender:self];
+                }
             } else {
                 self.labelServiceMessage.text = [Utils getErrorDescription:logginResult];
             }
@@ -137,13 +138,6 @@
     dispatch_release(logginQueue);
 }
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"SegueLoginToMain"]){
-        MainNavController* navCon = (MainNavController*)segue.destinationViewController;
-        navCon.logoutHandler = self;
-    }
-}
-
 -(void) controllerToDismiss:(RegistrationNavController *)regController whichRegisteredTheUser:(User *)user{
     if (user){
         self.textEmail.text = user.email;
@@ -151,13 +145,6 @@
         isAfterRegistration = YES; // to prevent resetting fields in ViewWillAppear
     }
     [regController dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void) controllerToLogout:(UINavigationController *)navController{
-    [UserSettings setEmail:@""];
-    // also might be good to remove the password from the Keychain
-    [UserSettings setSaveCredentials:NO];
-    [navController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

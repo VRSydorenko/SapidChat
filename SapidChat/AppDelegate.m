@@ -18,9 +18,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.dbManager = [[DbManager alloc] init];
+    
+    ViewController* vc = (ViewController*)self.window.rootViewController;
+    if (vc){
+        vc.dismissOnLogin = NO;
+    }
+    
     // Override point for customization after application launch.
     if (![UserSettings hasLaunched]){
         FirstLaunchNavController* navcon = [[UIStoryboard storyboardWithName:@"FirstLaunch" bundle:nil] instantiateViewControllerWithIdentifier:@"SceneFirstLaunch"];
+        navcon.rootViewController = self.window.rootViewController;
+        self.window.rootViewController = navcon;
+    } else if (![[UserSettings getEmail] isEqualToString:@""] &&
+        ![[AmazonKeyChainWrapper getValueFromKeyChain:[UserSettings getEmail]] isEqualToString:@""]){
+        MainNavController* navcon = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SceneMain"];
         navcon.rootViewController = self.window.rootViewController;
         self.window.rootViewController = navcon;
     }

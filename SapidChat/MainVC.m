@@ -13,6 +13,8 @@
 #import "MainNavController.h"
 #import "Lang.h"
 #import "LocalizationUtils.h"
+#import "ViewController.h"
+#import "Utils.h"
 
 @interface MainVC ()
 @end
@@ -25,6 +27,8 @@
 {
     [super viewDidLoad];
     [NSTimeZone resetSystemTimeZone];
+    
+    [Utils setBackgroundFromPatternForView:self.view];
 
     self.tableMain.dataSource = self;
     self.tableMain.delegate = self;
@@ -133,7 +137,17 @@
 
 -(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0){ // logout button
-        [((MainNavController*)self.navigationController).logoutHandler controllerToLogout:self.navigationController];
+        // remove saved credentials
+        [AmazonKeyChainWrapper storeValueInKeyChain:@"" forKey:[UserSettings getEmail]];
+        [UserSettings setEmail:@""];
+        
+        MainNavController* navcon = (MainNavController*)self.navigationController;
+        ViewController* rootVC = (ViewController*)navcon.rootViewController;
+        if (!rootVC){
+            rootVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SceneRoot"];
+        }
+        rootVC.dismissOnLogin = YES;
+        [self presentViewController:rootVC animated:YES completion:nil];
     }
 }
 

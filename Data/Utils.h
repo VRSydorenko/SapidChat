@@ -23,6 +23,7 @@
 +(int)toGlobalTimestamp:(int)localTimestamp;
 
 +(bool) getIfMetricMeasurementSystem;
++(void) setBackgroundFromPatternForView:(UIView*)view;
 
 +(NSData*) compressImage:(UIImage*)imageData;
 + (UIImage*)imageWithImage:(UIImage*)sourceImage scaledToSizeWithSameAspectRatio:(CGSize)targetSize;

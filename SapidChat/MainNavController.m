@@ -18,12 +18,11 @@
     CLLocationManager *locationMgr;
 }
 
+@synthesize rootViewController = _rootViewController;
 @synthesize dialogs = _dialogs;
 @synthesize lastUpdate = _lastUpdate;
 @synthesize latitude = _latitude;
 @synthesize longitude = _longitude;
-
-@synthesize logoutHandler = _logoutHandler;
 
 -(void) initLocationManager{
     self.latitude = 0;
@@ -79,7 +78,6 @@
 -(void) viewDidUnload{
     [self setDialogs:nil];
     [self setLastUpdate:nil];
-    [self setLogoutHandler:nil];
 }
 
 @end

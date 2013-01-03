@@ -20,10 +20,8 @@
 #define SETTINGS_DATEFORMAT @"defs_dateFormat"
 #define SETTINGS_TIMEFORMAT @"defs_timeFormat"
 #define SETTINGS_MEASURE_SYS @"defs_measure_sys"
-#define SETTINGS_SAVECREDENTIALS @"defs_saveCredentials"
 #define CURRENTLY_LOGGED_EMAIL @"defs_savedEmail"
 
-#define SETTINGS_SAVED_CRED_PASS @"defs_savedPass"
 #define SETTINGS_SAVED_NEWMSG_LANG @"defs_savedNewMsgLang"
 #define SETTINGS_SAVED_APP_LANG @"defs_savedAppLang"
 
@@ -33,9 +31,6 @@
 
 +(NSString*) getTimeFormat;
 +(void) setTimeFormat:(NSString*)format;
-
-+(BOOL) getSaveCredentials;
-+(void) setSaveCredentials:(BOOL)save;
 
 +(NSString*) getEmail;
 +(void) setEmail:(NSString*)email;

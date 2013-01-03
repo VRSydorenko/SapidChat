@@ -144,7 +144,6 @@
 +(NSString*) LOC_SETTINGS_SECTIONHEADER_ACCOUNT {return @"Account";}
 +(NSString*) LOC_SETTINGS_SECTION_ACCOUNT_NICKNAME {return @"Nickname";}
 +(NSString*) LOC_SETTINGS_SECTION_ACCOUNT_PASSWORD {return @"Password";}
-+(NSString*) LOC_SETTINGS_SECTION_ACCOUNT_SAVECREDS {return @"Save credentials";}
 +(NSString*) LOC_SETTINGS_SECTIONHEADER_LANGUAGES {return @"Languages";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION {return @"Conversations";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"New messages";}

@@ -10,8 +10,9 @@
 #import "UserRegistrator.h"
 #import "MainNavController.h"
 
-@interface ViewController : UIViewController <UserRegistrationDelegate, LogoutDelegate, UITextFieldDelegate>
+@interface ViewController : UIViewController <UserRegistrationDelegate, UITextFieldDelegate>
 
+@property BOOL dismissOnLogin;
 @property (strong, nonatomic) IBOutlet UITextField *textEmail;
 @property (strong, nonatomic) IBOutlet UITextField *textPassword;
 @property (strong, nonatomic) IBOutlet UILabel *labelServiceMessage;

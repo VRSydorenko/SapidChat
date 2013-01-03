@@ -39,26 +39,11 @@
     [[NSUserDefaults standardUserDefaults] setValue:format forKey:[self userSpecKey:SETTINGS_TIMEFORMAT]];
 }
 
-+ (BOOL) getSaveCredentials{
-    return (BOOL)[[NSUserDefaults standardUserDefaults] boolForKey:[self userSpecKey:SETTINGS_SAVECREDENTIALS]];
-}
-+ (void) setSaveCredentials:(BOOL)save{
-    [[NSUserDefaults standardUserDefaults] setBool:save forKey:[self userSpecKey:SETTINGS_SAVECREDENTIALS]];
-}
-
 +(NSString*) getEmail{
     return [(NSString*)[[NSUserDefaults standardUserDefaults] objectForKey:CURRENTLY_LOGGED_EMAIL] lowercaseString];
 }
 +(void) setEmail:(NSString*)email{
     [[NSUserDefaults standardUserDefaults] setValue:email forKey:CURRENTLY_LOGGED_EMAIL];
-}
-
-+(NSString*) getPassword{
-    return (NSString*)[[NSUserDefaults standardUserDefaults] objectForKey:[self userSpecKey:SETTINGS_SAVED_CRED_PASS]];
-}
-
-+(void) setPassword:(NSString*)password{
-    [[NSUserDefaults standardUserDefaults] setValue:password forKey:[self userSpecKey:SETTINGS_SAVED_CRED_PASS]];
 }
 
 +(int) getUnreadMessagesCountForCollocutor:(NSString*)collocutor{

@@ -127,6 +127,10 @@
     return [[[NSLocale currentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
 }
 
++(void) setBackgroundFromPatternForView:(UIView*)view{
+    view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screenBackground.png"]];
+}
+
 +(NSData*) compressImage:(UIImage*)image{
     CGFloat compression = 0.9f;
     CGFloat maxCompression = 0.1f;

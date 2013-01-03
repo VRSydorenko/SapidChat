@@ -11,19 +11,13 @@
 
 @class MainNavController;
 
-@protocol LogoutDelegate
-@required
-- (void) controllerToLogout:(UINavigationController*)navController;
-@end
-
 @interface MainNavController : UINavigationController <CLLocationManagerDelegate>
 
+@property UIViewController* rootViewController;
 @property NSArray* dialogs;
 @property NSDate* lastUpdate;
 @property double latitude;
 @property double longitude;
-
-@property (assign) id<LogoutDelegate> logoutHandler;
 
 -(void) startMonitoringLocation;
 -(void) stopMonitoringLocation;

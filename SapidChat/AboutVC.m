@@ -23,7 +23,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+	 
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"screenBackground.png"]];
+    
     self.title = [Lang LOC_ABOUT_SCREEN_TITLE];
     personFont = [UIFont fontWithName:@"Helvetica" size:14.0f];
     self.tableAbout.dataSource = self;

@@ -39,6 +39,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [Utils setBackgroundFromPatternForView:self.view];
+    
 	isSending = NO;
     isImageSet = NO;
     if (self.collocutor.length > 0){

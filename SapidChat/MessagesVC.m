@@ -50,6 +50,8 @@
 {
     [super viewDidLoad];
     
+    [Utils setBackgroundFromPatternForView:self.view];
+    
     selectedCells = [[NSMutableDictionary alloc] init];
     errorCells = [[NSMutableArray alloc] init];
     

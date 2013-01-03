@@ -16,6 +16,7 @@
 #import "CurrentBalanceCell.h"
 #import "DataManager.h"
 #import "BuyOptionCell.h"
+#import "Utils.h"
 
 @interface BalanceVC ()
 
@@ -26,6 +27,8 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    [Utils setBackgroundFromPatternForView:self.view];
     
     self.title = [Lang LOC_BALANCE_SCREEN_TITLE];
     self.tableContent.dataSource = self;

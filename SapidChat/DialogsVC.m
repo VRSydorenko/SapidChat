@@ -17,6 +17,7 @@
 #import "Lang.h"
 #import "LocalizationUtils.h"
 #import "SapidInfoBarManager.h"
+#import "Utils.h"
 
 @interface DialogsVC (){
     MainNavController* navController;
@@ -37,6 +38,7 @@
 {
     [super viewDidLoad];
     
+    [Utils setBackgroundFromPatternForView:self.view];
     self.title = [Lang LOC_MESSAGES_TITLE];
     self.btnPick.title = [Lang LOC_MESSAGES_BTN_PICKNEW];
     self.btnCompose.title = [Lang LOC_MESSAGES_BTN_COMPOSE];

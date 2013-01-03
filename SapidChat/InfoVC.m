@@ -7,6 +7,7 @@
 //
 
 #import "InfoVC.h"
+#import "Utils.h"
 
 @interface InfoVC ()
 
@@ -19,6 +20,9 @@
 
 -(void) viewDidLoad{
     [super viewDidLoad];
+    
+    [Utils setBackgroundFromPatternForView:self.view];
+    
     self.textInfo.text = self.infoString;
 }
 

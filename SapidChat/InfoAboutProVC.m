@@ -9,6 +9,7 @@
 #import "InfoAboutProVC.h"
 #import "AboutProFeatureCell.h"
 #import "Lang.h"
+#import "Utils.h"
 
 @interface InfoAboutProVC (){
     UIFont *descrFont;
@@ -23,6 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [Utils setBackgroundFromPatternForView:self.view];
     
     self.textTitle.text = [Lang LOC_BALANCE_WHAT_IN_PRO_TITLE];
     

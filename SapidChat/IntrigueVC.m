@@ -34,6 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [Utils setBackgroundFromPatternForView:self.view];
 
     intriguePrice = 1;
     

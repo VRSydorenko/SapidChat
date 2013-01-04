@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *textPassword;
 @property (weak, nonatomic) IBOutlet UITextField *textNick;
 @property (strong, nonatomic) IBOutlet UITextView *txtSpecifyNick;
-@property (strong, nonatomic) IBOutlet UILabel *labelServiseMessage;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UITableView *tableLanguages;
 @property (strong, nonatomic) IBOutlet UIButton *btnNext;
@@ -26,7 +25,6 @@
 
 
 - (IBAction)cancelPressed:(id)sender;
-- (IBAction)backPressed:(id)sender;
 - (IBAction)nextPressed:(id)sender;
 - (IBAction)textDidEndOnExit:(id)sender;
 

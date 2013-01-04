@@ -8,7 +8,8 @@
 
 #import "RegistrationNavController.h"
 #import "User.h"
-
+#import "Lang.h"
+#import "SapidInfoBarManager.h"
 
 @interface RegistrationNavController ()
 
@@ -19,7 +20,6 @@
 
 @synthesize email = _email;
 @synthesize password = _password;
-@synthesize saveCreds;
 @synthesize nickname = _nickname;
 @synthesize selectedLanguages = _selectedLanguages;
 
@@ -27,6 +27,12 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"barGreenBackground.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    [[SapidInfoBarManager sharedManager] initInfoBarWithTopViewFrame:self.navigationBar.frame andHeight:40];
+    [self.view insertSubview:[[SapidInfoBarManager sharedManager] infoBar] belowSubview:self.navigationBar];
+    
     self.currentSegue = nil;
     self.selectedLanguages = [[NSMutableArray alloc] init];
 }

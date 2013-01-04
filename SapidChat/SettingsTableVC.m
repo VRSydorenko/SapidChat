@@ -36,6 +36,10 @@
 @synthesize loc_Langs_Application;
 @synthesize loc_Langs_NewMessages;
 
+-(void) viewDidLoad{
+    [Utils setBackgroundFromPatternForView:self.tableView];
+}
+
 -(void) viewWillAppear:(BOOL)animated{
     [self updateLabelValues];
     [self updateLocalizableValues];

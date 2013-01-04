@@ -22,7 +22,6 @@
 
 @property (nonatomic) NSString* email;
 @property (nonatomic) NSString* password;
-@property (nonatomic) BOOL saveCreds;
 @property (nonatomic) NSString* nickname;
 @property (nonatomic) NSMutableArray* selectedLanguages;
 

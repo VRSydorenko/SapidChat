@@ -15,6 +15,7 @@
 #import "Lang.h"
 #import "LocalizationUtils.h"
 #import "UserSettings.h"
+#import "SapidInfoBarManager.h"
 
 @interface UserRegistrationVC (){
     RegistrationNavController* navController;
@@ -34,7 +35,6 @@
 @synthesize textPassword;
 @synthesize textNick;
 @synthesize txtSpecifyNick;
-@synthesize labelServiseMessage;
 @synthesize spinner;
 @synthesize tableLanguages;
 @synthesize btnNext;
@@ -45,13 +45,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     navController = (RegistrationNavController*)self.navigationController;
+    self.title = [Lang LOC_REGISTATOR_TITLE];
     if (self.btnClose){ // last segue!
         user = [navController composeUser];
         [self registerAsync];
         self.navigationItem.hidesBackButton = YES;
-        [self.navigationController setNavigationBarHidden:YES];
     } else {
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[Lang LOC_REGISTATOR_BTN_BACK] style:UIBarButtonItemStylePlain target:nil action:nil];
         [self initControlsData];
     }
     [self setLocalizableValues];
@@ -61,12 +63,7 @@
     SEGUE_LANGS_TO_FINISH = @"SegueLangsToFinish";
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    self.navigationItem.title = @"";
-}
-
 -(void) viewWillDisappear:(BOOL)animated{
-    self.navigationItem.title = [Lang LOC_REGISTATOR_BTN_BACK];
     if ([navController.viewControllers indexOfObject:self] == NSNotFound){ // back button
         [self saveControlsData];
     }
@@ -103,42 +100,37 @@
     [navController cancel];
 }
 
-- (IBAction)backPressed:(id)sender{
-    [self saveControlsData];
-    [navController popViewControllerAnimated:YES];
-}
-
 - (IBAction)nextPressed:(UIBarButtonItem *)sender {
     NSString *nextSegueId = nil;
     if (self.textEmail){ // now is initial screen
         nextSegueId = SEGUE_EMAIL_TO_NICK;
         if (self.textEmail.text.length == 0){
-            self.labelServiseMessage.text = [Utils getErrorDescription:EMAIL_NOT_SPECIFIED];
+            [self showInfoBarWithError:[Utils getErrorDescription:EMAIL_NOT_SPECIFIED]];
             return;
         }
         if ([Utils validateEmail:self.textEmail.text] != OK){
-            self.labelServiseMessage.text = [Utils getErrorDescription:INVALID_EMAIL];
+            [self showInfoBarWithError:[Utils getErrorDescription:INVALID_EMAIL]];
             return;
         }
         if ([DataManager existsUserWithEmail:self.textEmail.text]){
-            self.labelServiseMessage.text = [Utils getErrorDescription:USER_EXISTS];
+            [self showInfoBarWithError:[Utils getErrorDescription:USER_EXISTS]];
             return;
         }
         if (self.textPassword.text.length  == 0){
-            self.labelServiseMessage.text = [Utils getErrorDescription:PASSWORD_NOT_SPECIFIED];
+            [self showInfoBarWithError:[Utils getErrorDescription:PASSWORD_NOT_SPECIFIED]];
             return;
         }
         if (self.textPassword.text.length < MINIMUM_PASSWORD_LENGTH){
-            self.labelServiseMessage.text = [Utils getErrorDescription:PASSWORD_TOO_SHORT];
+            [self showInfoBarWithError:[Utils getErrorDescription:PASSWORD_TOO_SHORT]];
             return;
         }
     }
     if (self.textNick){
         if (self.textNick.text.length == 0){
-            self.labelServiseMessage.text = [Lang LOC_REGISTATOR_ERR_EMPTYNICK];
+            [self showInfoBarWithError:[Lang LOC_REGISTATOR_ERR_EMPTYNICK]];
             return;
         } else if (![Utils isNicknameValid:self.textNick.text]){
-            self.labelServiseMessage.text = [Lang LOC_REGISTATOR_ERR_INVALIDNICK];
+            [self showInfoBarWithError:[Lang LOC_REGISTATOR_ERR_INVALIDNICK]];
             return;
         }
         nextSegueId = SEGUE_NICK_TO_LANGS;
@@ -146,7 +138,7 @@
     if (self.tableLanguages){ // now is languages screen
         nextSegueId = SEGUE_LANGS_TO_FINISH;
         if (navController.selectedLanguages.count == 0){
-            self.labelServiseMessage.text = [Lang LOC_REGISTATOR_ERR_NOLANGS_SELECTED];
+            [self showInfoBarWithError:[Lang LOC_REGISTATOR_ERR_NOLANGS_SELECTED]];
             return;
         }
     }
@@ -154,7 +146,6 @@
     if (self.btnClose){ // last segue reached. We are done.
         [navController.handler controllerToDismiss:navController whichRegisteredTheUser: registered ? user : nil];
     } else {
-        self.labelServiseMessage.text = @"";
         [self saveControlsData];
         [self performSegueWithIdentifier:nextSegueId sender:self];
     }
@@ -168,7 +159,6 @@
     [self setTextEmail:nil];
     [self setTextPassword:nil];
     [self setTextNick:nil];
-    [self setLabelServiseMessage:nil];
     [self setSpinner:nil];
     [self setTableLanguages:nil];
     [self setBtnNext:nil];
@@ -247,7 +237,6 @@
 
 -(void) registerAsync{
     isRegistering = YES;
-    self.labelServiseMessage.text = @"";
     [self.spinner startAnimating];
     
     dispatch_queue_t regQueue = dispatch_queue_create("registration queue", NULL);
@@ -256,21 +245,21 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (errCode == OK){
                 registered = YES;
-                if (navController.saveCreds){
-                    [UserSettings setEmail:navController.email];
-                }
                 [AmazonKeyChainWrapper storeValueInKeyChain:navController.password forKey:user.email];
-                self.labelServiseMessage.text = [Utils getErrorDescription:OK];
+                [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:[Utils getErrorDescription:OK] withMood:POSITIVE];
             } else {
-                self.labelServiseMessage.text = [Utils getErrorDescription:registered];
+                [self showInfoBarWithError:[Utils getErrorDescription:registered]];
+                
             }
             [self.spinner stopAnimating];
             isRegistering = NO;
         });
     });
-    //dispatch_release(regQueue);
+    dispatch_release(regQueue);
 }
 
-
+-(void) showInfoBarWithError:(NSString*)errorText{
+    [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:errorText withMood:NEGATIVE];
+}
 
 @end

@@ -47,8 +47,6 @@
     isLoggingIn = NO;
     isAfterRegistration = NO;
     self.textPassword.delegate = self;
-    
-    //self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"BackgroundGreen.png"]];
 }
 
 -(void) viewWillAppear:(BOOL)animated{

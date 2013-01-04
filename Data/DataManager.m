@@ -151,16 +151,21 @@
     return result;
 }
 
-+(ErrorCodes) sendIntrigueTo:(NSString*)email withOptionalText:(NSString*)text{
-    bool toYourself = [email isEqualToString:[UserSettings getEmail]];
-   NSString* content = text.length > 0 ? [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_CUSTOM], text] : [Lang LOC_INTRIGUE_MAIL_CONTENT_DEFAULT];
-    if (toYourself){
-        NSString* contentYourself = text.length > 0 ? [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_CUSTOM_YOURSELF], content, text] : [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_YOURSELF], content];
++(NSString*) prepareIntrigueHtmlContentTo:(NSString*)email withOptionText:(NSString*)text{
+    NSString* escapeHTML1 = [text stringByReplacingOccurrencesOfString:@"<" withString:@"&lt"];
+    NSString* escapeHTML = [escapeHTML1 stringByReplacingOccurrencesOfString:@">" withString:@"&gt"];
+    NSString* content = escapeHTML.length > 0 ? [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_CUSTOM], escapeHTML] : [Lang LOC_INTRIGUE_MAIL_CONTENT_DEFAULT];
+    if ([email isEqualToString:[UserSettings getEmail]]){
+        NSString* contentYourself = escapeHTML.length > 0 ? [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_CUSTOM_YOURSELF], content, escapeHTML] : [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_YOURSELF], content];
         content = contentYourself;
     }
     
+    return [NSString stringWithFormat:@"<html><head><meta http-equiv=\"Content-Type\"content=\"text/html; charset=UTF-8\"/></head><body style=\"font-family:Arial;font-size:11pt;\">%@</body></html>", content];
+}
+
++(ErrorCodes) sendIntrigueTo:(NSString*)email withOptionalText:(NSString*)text{
     SESContent *messageBody = [[SESContent alloc] init];
-    messageBody.data = content;
+    messageBody.data = [self prepareIntrigueHtmlContentTo:email withOptionText:text];
         
     SESBody *body = [[SESBody alloc] init];
     body.html = messageBody;
@@ -176,7 +181,7 @@
     [destination.toAddresses addObject:email];
     
     SESSendEmailRequest *emailRequest = [[SESSendEmailRequest alloc] init];
-    emailRequest.source = @"viktor.sydorenko@gmail.com";//SYSTEM_INTRIGUE_USER;
+    emailRequest.source = SYSTEM_INTRIGUE_USER;
     emailRequest.destination = destination;
     emailRequest.message = message;
     
@@ -187,6 +192,7 @@
     msg.type = MSG_INTRIGUE;
     msg.when = [[NSDate date] timeIntervalSinceReferenceDate];
     
+    bool toYourself = [email isEqualToString:[UserSettings getEmail]];
     ErrorCodes result = toYourself ? OK : [self sendMessageToCollocutor:msg]; // will not send to the same address no need to check it here
     if (result == OK){
         SESSendEmailResponse *response = nil;

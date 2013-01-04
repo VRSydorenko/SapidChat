@@ -71,7 +71,7 @@
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d новых сообщений";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"Новых сообщений нет";}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Интрига";}
-+(NSString*) LOC_MAIN_CELL_BALANCE {return @"Ваш баланс";}
++(NSString*) LOC_MAIN_CELL_BALANCE {return @"Кабинет";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Выйти";}
 +(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{ return @"Забыли пароль?";}
 // restore pass screen
@@ -96,44 +96,62 @@
 +(NSString*) LOC_INTRIGUE_MAIL_SUBJECT{return @"Кто-то хочет заинтриговать вас в Sapid Chat";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_YOURSELF{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL], @"%@", [self LOC_INTRIGUE_COLLOCUTOR_MESSAGE], @""];}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM_YOURSELF{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL], @"%@", [self LOC_INTRIGUE_COLLOCUTOR_MESSAGE], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMYOURSELF_TEMPL]];}
-+(NSString*) internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL{return @"Хотите заинтриговать сами себя? Ну что ж, в таком случае мы вам расскажем что именно происходит при отправке интригующего письма.<br>\
-    о) Ваш адресат получит письмо следующего содержания:\"<br>\
-    %@<br>\
-    \"<br>\
-    о)Когда человек после прочтения вашего письма откроет Sapid Chat, то он увидит сообщение следующего содержания, отправленного от имени вашей учетной записи:\"<br>\
-    %@<br>\
-    \"<br>\
-    %@Вот так вот, а после отправки нужно будет подождать и надеяться, что это затронет интерес человека и он зайдет в Sapid Chat пообщаться с вами.<br>Интересного вам общения,<br>\
-    Sapid Chat";}
-+(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTOMYOURSELF_TEMPL{return @"<br>\
-    о) а также еще одно, которое вы укзали в качестве дополнительного послания:<br>\
-    %@ \"<br>";}
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL{return @"Хотите заинтриговать сами себя? Ну что ж, в таком случае мы вам расскажем, что именно происходит при отправке интригующего письма.\
+    <ul type=\"Circle\">\
+    <li>\
+    <p>Ваш адресат получит письмо следующего содержания:</p>\
+    %@\
+    <br/>\
+    </li>\
+    <li>Когда человек после прочтения вашего письма откроет Sapid Chat, то он увидит сообщение следующего содержания, отправленное от имени вашей учетной записи:\
+    <div style=\"background:#F7E8C3;padding:10px;border: solid 1px gray;font-size:11pt;\">\
+    %@\
+    </div>\
+    %@\
+    </li>\
+    </ul>\
+    Вот так вот, а после отправки нужно будет подождать и надеяться, что это затронет интерес человека и он зайдет в Sapid Chat пообщаться с вами.\
+    <p>Интересного вам общения!\
+    <br/>Sapid Chat</p><hr></br>";}
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTOMYOURSELF_TEMPL{return @"А также еще одно, которое вы указали в качестве дополнительного:\
+    <div style=\"background:#F7E8C3;padding:10px;border: solid 1px gray;font-size:11pt;\">\
+    %@\
+    </div>";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_DEFAULT{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], @"", @""];}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMMSG_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE]];}
-+(NSString*) internal_INTRIGUE_MAIL_CONTENT_TEMPL{return @"Здравствуйте!<br>\
-    <br>\
-    Кто-то, кто знает адрес вашей электронной почты, хочет вам что-то сказать и анонимно приглашает пообщаться в Sapid Chat!<br>\
-    <br>\
-    Sapid Chat - это приложение для интересного общения. В нем есть опция, с помощью которой можно анонимно пригласить знакомого человека пообщаться, зная адрес его электронной почты.<br>\
-    Это письмо - не спам! Кто-то вручную ввел адрес вашей электронной почты чтобы заинтриговать и позвать пообщаться в Sapid Chat.<br>\
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_TEMPL{return @"<div style=\"background:#F7E8C3;padding:10px;border: solid 1px gray;font-size:11pt;font-family:Verdana;\">\
+    <h4>Здравствуйте!</h4>\
+    <p>Кто-то, кто знает адрес вашей электронной почты, хочет вам что-то сказать и анонимно приглашает пообщаться в Sapid Chat!</p>\
+    <p>Sapid Chat - это приложение для интересного общения. В нем есть опция, с помощью которой можно анонимно пригласить знакомого человека пообщаться, зная адрес его электронной почты.\
+    <br/><font color=\"red\"><strong>Это письмо - не спам!</strong></font> Кто-то вручную ввел адрес вашей электронной почты чтобы заинтриговать и позвать пообщаться в Sapid Chat.</p>\
     %@\
-    <br>\
-    Если вам интересно узнать кто вас так интригует, то вы можете зайти в Sapid Chat и узнать, кто же из знакомых отправил вам это приглашение. А может, наоборот, кто-то хочет познакомиться и узнал ваш email чтобы заинтриговать вас таким вот образом ;)<br>\
-    Важно: если вы не зарегистрированы в Sapid Chat, то для того чтобы увидеть отправленное вам сообщение в программе, вам нужно при регистрации указать именно этот ваш адрес электронной почты.<br>\
-    <br>\
-    Что еще вы можете сделать:<br>\
-    - если вам не интересно узнать кто вас приглашает к общению, вы можете, конечно, просто проигнорировать это письмо. Жаль, конечно, что в таком случае кто-то так и не дождется от вас никакого ответа.<br>\
-    - если вы все же хотите сообщить приглашающему, что вам это не интересно, то ответьте на это письмо, указав в теме \"NO\" и мы сообщим этому человеку, что вы не хотите как-либо реагировать.<br>\
-    - если вы больше никогда не хотите получать подобные письма от Sapid Chat в будущем, ответьте на это письмо указав в теме письма \"NEVER\". В таком случае мы заблокируем отправку приглашений на ваш адрес и если кто-либо захочет в будущем вас заинтриговать, сделать это уже не получится.<br>\
-    %@Примечание: обработка вашего ответного письма может занять некоторое время.<br>\
-    <br>\
-    Sapid Chat желает вам хорошего настроения и интересного общения!<br>\
-    sapidchat.com<br>\
-    info@sapidchat.com";}
-+(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTOMMSG_TEMPL{return @"<br>\
-    Этот человек также добавил к этому приглашению следующее сообщение:<br>\
-    <i>\" %@ \"</i><br>";}
-+(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE{return @"- если вам кажется, что дополнительное сообщение, которое было добавлено к этому приглашению носит [blah blah blah] характер, то, пожалуйста, ответьте на это письмо, указав в теме \"CENSORED\". В таком случае мы рассмотрим этот текст и при подтверждении ваших подозрений, заблокируем пользователя. В таком случае приносим извинения за подобное сообщение.<br>";}
+    <p><font color=\"green\"><strong>Если вам интересно узнать кто вас так интригует</strong></font>, то вы можете зайти в Sapid Chat и узнать, кто же из знакомых отправил вам это приглашение. А может, наоборот, кто-то хочет познакомиться и узнал ваш email чтобы заинтриговать вас таким вот образом ;)</p>\
+    <p><strong>Важно!</strong> Для того чтобы увидеть отправленное вам сообщение в программе, вам нужно при регистрации указать именно этот ваш адрес электронной почты.</p>\
+    <p>Sapid Chat желает вам хорошего настроения и интересного общения!\
+    <br/><a href=\"http://sapidchat.com/\">sapidchat.com</a>\
+    <br/><a href=\"mailto:intrigue@sapidchat.com\">intrigue@sapidchat.com</a></p>\
+    <hr/>\
+    <font style=\"font-size:9pt;\">\
+    Что еще вы можете сделать:\
+    <br/>\
+    <ul>\
+    <li>если вам не интересно узнать кто вас приглашает к общению, вы можете, конечно, просто проигнорировать это письмо. Жаль, конечно, что в таком случае кто-то так и не дождется от вас никакого ответа.\
+    </li>\
+    <li>если вы все же хотите сообщить приглашающему, что вам это не интересно, то ответьте на это письмо, указав в теме \"NO\" и мы сообщим этому человеку, что вы не хотите как-либо реагировать.\
+    </li>\
+    <li>если вы больше никогда не хотите получать подобные письма от Sapid Chat в будущем, ответьте на это письмо указав в теме письма \"NEVER\". В таком случае мы заблокируем отправку приглашений на ваш адрес и если кто-либо захочет в будущем вас заинтриговать - сделать это уже не получится.\
+    </li>\
+    %@\
+    </ul>\
+    Примечание: обработка вашего ответного письма может занять некоторое время.\
+    </font>\
+    </div>";}
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTOMMSG_TEMPL{return @"<p>Этот человек также добавил к этому приглашению следующее сообщение:</p>\
+    <div style=\"background:#FFFAF0;padding:10px;border: solid 1px gray;font-size:11pt;\">\
+    %@\
+    </div>";}
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE{return @"<li>если вам кажется, что дополнительное сообщение, которое было добавлено к этому приглашению носит [blah blah blah] характер, то, пожалуйста, ответьте на это письмо, указав в теме \"CENSORED\". В таком случае мы рассмотрим этот текст и заблокируем пользователя. В таком случае приносим извинения за подобное сообщение.\
+    </li>";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
 +(NSString*) LOC_MESSAGES_BTN_COMPOSE {return @"Разместить";}
@@ -199,7 +217,7 @@
 +(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK{return @"OK";}
 
 // screen balance
-+(NSString*) LOC_BALANCE_SCREEN_TITLE{return @"Баланс";}
++(NSString*) LOC_BALANCE_SCREEN_TITLE{return @"Кабинет";}
 +(NSString*) LOC_BALANCE_PRO_NO{return @"Ограниченная версия!";}
 +(NSString*) LOC_BALANCE_PRO_YES{return @"Полная версия!";}
 +(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Преимущества полной версии";}

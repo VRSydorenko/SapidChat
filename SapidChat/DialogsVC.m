@@ -92,7 +92,16 @@
     if (cell){
         Dialog *dialog = [navController.dialogs objectAtIndex:indexPath.row];
         NSString* stringCollocutor = dialog.collocutor ? dialog.collocutor : [UserSettings getEmail];
-        cell.labelCollocutor.text = [stringCollocutor isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR] ? [Lang LOC_MESSAGES_CELL_WAIT_FOR_REPLY] : [DataManager loadUser:stringCollocutor].nickname;
+        if ([stringCollocutor isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR]){
+            cell.labelCollocutor.text =  [Lang LOC_MESSAGES_CELL_WAIT_FOR_REPLY];
+        } else {
+            User* collocutor = [DataManager loadUser:stringCollocutor];
+            if (collocutor){
+                cell.labelCollocutor.text = collocutor.nickname;
+            } else {
+                cell.labelCollocutor.text = stringCollocutor;
+            }
+        }
         Message *msg = (Message*)[[dialog getSortedMessages] lastObject];
         cell.infoMessage.text = msg.text.length > 0 ? msg.text : msg.attachmentName.length > 0 ? @"A message with attachment" : @"ERROR";
     }

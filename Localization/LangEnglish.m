@@ -71,7 +71,7 @@
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d new messages";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"No new messages";}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Intrigue";}
-+(NSString*) LOC_MAIN_CELL_BALANCE {return @"Your balance";}
++(NSString*) LOC_MAIN_CELL_BALANCE {return @"Cabinet";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Log out";}
 +(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{ return @"Forgot password?";}
 // restore pass screen
@@ -163,7 +163,7 @@
 +(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK{return @"OK";}
 
 // screen balance
-+(NSString*) LOC_BALANCE_SCREEN_TITLE{return @"Balance";}
++(NSString*) LOC_BALANCE_SCREEN_TITLE{return @"Cabinet";}
 +(NSString*) LOC_BALANCE_PRO_NO{return @"Limited version!";}
 +(NSString*) LOC_BALANCE_PRO_YES{return @"Pro version!";}
 +(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Advantages of the Pro";}

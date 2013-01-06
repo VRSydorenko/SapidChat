@@ -27,5 +27,6 @@
 - (IBAction)cancelPressed:(id)sender;
 - (IBAction)nextPressed:(id)sender;
 - (IBAction)textDidEndOnExit:(id)sender;
+- (IBAction)editingChanged:(id)sender;
 
 @end

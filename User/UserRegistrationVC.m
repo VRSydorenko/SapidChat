@@ -21,6 +21,7 @@
     RegistrationNavController* navController;
     BOOL isRegistering;
     BOOL registered;
+    BOOL emailChecked;
     User* user;
     
     NSString* SEGUE_EMAIL_TO_NICK;
@@ -45,7 +46,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     navController = (RegistrationNavController*)self.navigationController;
     self.title = [Lang LOC_REGISTATOR_TITLE];
     if (self.btnClose){ // last segue!
@@ -105,32 +106,34 @@
     if (self.textEmail){ // now is initial screen
         nextSegueId = SEGUE_EMAIL_TO_NICK;
         if (self.textEmail.text.length == 0){
-            [self showInfoBarWithError:[Utils getErrorDescription:EMAIL_NOT_SPECIFIED]];
+            [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:EMAIL_NOT_SPECIFIED]];
             return;
         }
         if ([Utils validateEmail:self.textEmail.text] != OK){
-            [self showInfoBarWithError:[Utils getErrorDescription:INVALID_EMAIL]];
-            return;
-        }
-        if ([DataManager existsUserWithEmail:self.textEmail.text]){
-            [self showInfoBarWithError:[Utils getErrorDescription:USER_EXISTS]];
+            [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:INVALID_EMAIL]];
             return;
         }
         if (self.textPassword.text.length  == 0){
-            [self showInfoBarWithError:[Utils getErrorDescription:PASSWORD_NOT_SPECIFIED]];
+            [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:PASSWORD_NOT_SPECIFIED]];
             return;
         }
         if (self.textPassword.text.length < MINIMUM_PASSWORD_LENGTH){
-            [self showInfoBarWithError:[Utils getErrorDescription:PASSWORD_TOO_SHORT]];
+            [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:PASSWORD_TOO_SHORT]];
             return;
         }
+        if (!emailChecked && [DataManager existsUserWithEmail:self.textEmail.text]){
+            [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:USER_EXISTS]];
+            emailChecked = NO;
+            return;
+        }
+        emailChecked = YES;
     }
     if (self.textNick){
         if (self.textNick.text.length == 0){
-            [self showInfoBarWithError:[Lang LOC_REGISTATOR_ERR_EMPTYNICK]];
+            [navController showInfoBarWithNegativeMessage:[Lang LOC_REGISTATOR_ERR_EMPTYNICK]];
             return;
         } else if (![Utils isNicknameValid:self.textNick.text]){
-            [self showInfoBarWithError:[Lang LOC_REGISTATOR_ERR_INVALIDNICK]];
+            [navController showInfoBarWithNegativeMessage:[Lang LOC_REGISTATOR_ERR_INVALIDNICK]];
             return;
         }
         nextSegueId = SEGUE_NICK_TO_LANGS;
@@ -138,7 +141,7 @@
     if (self.tableLanguages){ // now is languages screen
         nextSegueId = SEGUE_LANGS_TO_FINISH;
         if (navController.selectedLanguages.count == 0){
-            [self showInfoBarWithError:[Lang LOC_REGISTATOR_ERR_NOLANGS_SELECTED]];
+            [navController showInfoBarWithNegativeMessage:[Lang LOC_REGISTATOR_ERR_NOLANGS_SELECTED]];
             return;
         }
     }
@@ -153,6 +156,14 @@
 
 - (IBAction)textDidEndOnExit:(id)sender {
     [sender resignFirstResponder];
+}
+
+- (IBAction)editingChanged:(id)sender {
+    emailChecked = NO;
+}
+
+- (IBAction)tryAgainPressed:(id)sender {
+    [navController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewDidUnload {
@@ -246,20 +257,15 @@
             if (errCode == OK){
                 registered = YES;
                 [AmazonKeyChainWrapper storeValueInKeyChain:navController.password forKey:user.email];
-                [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:[Utils getErrorDescription:OK] withMood:POSITIVE];
+                [navController showInfoBarWithPositiveMessage:[Utils getErrorDescription:errCode]];
             } else {
-                [self showInfoBarWithError:[Utils getErrorDescription:registered]];
-                
+                [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:errCode]];
             }
             [self.spinner stopAnimating];
             isRegistering = NO;
         });
     });
     dispatch_release(regQueue);
-}
-
--(void) showInfoBarWithError:(NSString*)errorText{
-    [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:errorText withMood:NEGATIVE];
 }
 
 @end

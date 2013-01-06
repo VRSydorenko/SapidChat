@@ -103,7 +103,7 @@
             }
         }
         Message *msg = (Message*)[[dialog getSortedMessages] lastObject];
-        cell.infoMessage.text = msg.text.length > 0 ? msg.text : msg.attachmentName.length > 0 ? @"A message with attachment" : @"ERROR";
+        cell.infoMessage.text = msg.text.length > 0 ? msg.text : msg.attachmentName.length > 0 ? [Lang LOC_MESSAGES_CELL_MSG_WITH_ATTACHMENT] : @"ERROR";
     }
     
     return cell;
@@ -161,7 +161,7 @@
                 if (pickResult == OK){
                     [self.tableDialogs reloadData];
                 } else if (pickResult == SYSTEM_NO_MESSAGES_TO_PICKUP){
-                    [self showInfoBarWithNeutralMessage:[Lang LOC_MESSAGES_CELL_NO_MSG_TOPICKUP]];
+                    [navController showInfoBarWithNeutralMessage:[Lang LOC_MESSAGES_CELL_NO_MSG_TOPICKUP]];
                 }
                 [self.spinnerPick stopAnimating];
                 isPicking = NO;
@@ -179,7 +179,4 @@
     [self refreshPressed:self.navigationItem.rightBarButtonItem];
 }
 
-- (void)showInfoBarWithNeutralMessage:(NSString*)text {
-    [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:text withMood:NEUTRAL];
-}
 @end

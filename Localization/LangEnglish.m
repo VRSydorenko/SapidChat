@@ -104,6 +104,7 @@
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Pick new";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"Awaiting reply...";}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"No records to display yet";}
++(NSString*) LOC_MESSAGES_CELL_MSG_WITH_ATTACHMENT{return @"A message with attachment";}
 +(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"There are currently no messages in your language(s) to pick up";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"km";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"m";}
@@ -169,7 +170,8 @@
 +(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Advantages of the Pro";}
 +(NSString*) LOC_BALANCE_WHAT_IN_PRO_TITLE{return @"Advantages";}
 +(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Make it Pro";}
-+(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Restore purchase";}
++(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Restore";}
++(NSString*) LOC_BALANCE_HEADER_APP{return @"Application";}
 +(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return @"Your balance";}
 +(NSString*) LOC_BALANCE_POSTSTAMPS_1{return @"poststamp";}
 +(NSString*) LOC_BALANCE_POSTSTAMPS_3{return @"poststamps";}

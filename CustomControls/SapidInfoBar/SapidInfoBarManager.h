@@ -19,8 +19,6 @@ typedef enum MessageMoodTypes{
 
 @property (strong, nonatomic) SapidInfoBarView *infoBar;
 
-+ (SapidInfoBarManager*)sharedManager;
-
 - (void)initInfoBarWithTopViewFrame:(CGRect)frame andHeight:(CGFloat)height;
 - (void)showInfoBarWithMessage:(NSString *)message withMood:(MessageMoodTypes)mood;
 

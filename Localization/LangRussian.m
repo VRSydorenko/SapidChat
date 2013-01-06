@@ -103,7 +103,7 @@
     %@\
     <br/>\
     </li>\
-    <li>Когда человек после прочтения вашего письма откроет Sapid Chat, то он увидит сообщение следующего содержания, отправленное от имени вашей учетной записи:\
+    <li>Когда человек после прочтения вашего письма откроет Sapid Chat, то он увидит следующее сообщение, отправленное от имени вашей учетной записи:\
     <div style=\"background:#F7E8C3;padding:10px;border: solid 1px gray;font-size:11pt;\">\
     %@\
     </div>\
@@ -150,7 +150,7 @@
     <div style=\"background:#FFFAF0;padding:10px;border: solid 1px gray;font-size:11pt;\">\
     %@\
     </div>";}
-+(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE{return @"<li>если вам кажется, что дополнительное сообщение, которое было добавлено к этому приглашению носит [blah blah blah] характер, то, пожалуйста, ответьте на это письмо, указав в теме \"CENSORED\". В таком случае мы рассмотрим этот текст и заблокируем пользователя. В таком случае приносим извинения за подобное сообщение.\
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE{return @"<li>если вам кажется, что дополнительное сообщение, которое было добавлено к этому приглашению носит [blah blah blah] характер, то, пожалуйста, ответьте на это письмо, указав в теме \"CENSORED\". Мы рассмотрим этот текст и заблокируем пользователя. В таком случае приносим извинения за подобное сообщение.\
     </li>";}
 // messages screen
 +(NSString*) LOC_MESSAGES_TITLE {return [self LOC_MAIN_CELL_MESSAGES];}
@@ -158,6 +158,7 @@
 +(NSString*) LOC_MESSAGES_BTN_PICKNEW {return @"Вытянуть";}
 +(NSString*) LOC_MESSAGES_CELL_WAIT_FOR_REPLY {return @"В ожидании ответа...";}
 +(NSString*) LOC_MESSAGES_CELL_NO_RECORDS{return @"Пока что нет сообщений";}
++(NSString*) LOC_MESSAGES_CELL_MSG_WITH_ATTACHMENT{return @"Сообщение с изображением";}
 +(NSString*) LOC_MESSAGES_CELL_NO_MSG_TOPICKUP{return @"Сейчас нету новых сообщений на вашем языке для выборки";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_KILOMETERS{return @"км";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"м";}
@@ -223,7 +224,8 @@
 +(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Преимущества полной версии";}
 +(NSString*) LOC_BALANCE_WHAT_IN_PRO_TITLE{return @"Преимущества";}
 +(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Полная версия";}
-+(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Восстановить покупку";}
++(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Восстановить";}
++(NSString*) LOC_BALANCE_HEADER_APP{return @"Приложение";}
 +(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return @"Ваш баланс";}
 +(NSString*) LOC_BALANCE_POSTSTAMPS_1{return @"почтовая марка";}
 +(NSString*) LOC_BALANCE_POSTSTAMPS_3{return @"почтовых марки";}

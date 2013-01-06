@@ -15,6 +15,7 @@
 @end
 
 @implementation MainNavController{
+    SapidInfoBarManager *infoManager;
     CLLocationManager *locationMgr;
 }
 
@@ -71,8 +72,23 @@
 -(void) viewDidLoad{
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"barGreenBackground.png"] forBarMetrics:UIBarMetricsDefault];
     
-    [[SapidInfoBarManager sharedManager] initInfoBarWithTopViewFrame:self.navigationBar.frame andHeight:40];
-    [self.view insertSubview:[[SapidInfoBarManager sharedManager] infoBar] belowSubview:self.navigationBar];
+    infoManager = [[SapidInfoBarManager alloc] init];
+    if (infoManager){
+        [infoManager initInfoBarWithTopViewFrame:self.navigationBar.frame andHeight:40];
+        [self.view insertSubview:infoManager.infoBar belowSubview:self.navigationBar];
+    }
+}
+
+- (void)showInfoBarWithNegativeMessage:(NSString*)text {
+    [infoManager showInfoBarWithMessage:text withMood:NEGATIVE];
+}
+
+- (void)showInfoBarWithNeutralMessage:(NSString*)text {
+    [infoManager showInfoBarWithMessage:text withMood:NEUTRAL];
+}
+
+- (void)showInfoBarWithPositiveMessage:(NSString*)text {
+    [infoManager showInfoBarWithMessage:text withMood:POSITIVE];
 }
 
 -(void) viewDidUnload{

@@ -23,4 +23,8 @@
 -(void) stopMonitoringLocation;
 -(double)calcDistanceTo:(double)latd longitude:(double)lond;
 
+- (void)showInfoBarWithNegativeMessage:(NSString*)text;
+- (void)showInfoBarWithNeutralMessage:(NSString*)text;
+- (void)showInfoBarWithPositiveMessage:(NSString*)text;
+
 @end

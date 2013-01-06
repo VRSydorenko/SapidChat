@@ -62,7 +62,7 @@
                 break;
             }
             case 1:{
-                person = @"Benjamin Sell";
+                person = @"Peter Burkimsher";
                 lang = [Utils getLanguageName:ENGLISH needSelfName:NO];
                 break;
             }

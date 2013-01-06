@@ -30,4 +30,7 @@
 
 -(User*) composeUser;
 
+- (void)showInfoBarWithNegativeMessage:(NSString*)text;
+- (void)showInfoBarWithPositiveMessage:(NSString*)text;
+
 @end

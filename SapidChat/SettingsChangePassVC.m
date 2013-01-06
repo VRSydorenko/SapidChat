@@ -15,6 +15,7 @@
 #import "Utils.h"
 #import "DataManager.h"
 #import "SapidInfoBarManager.h"
+#import "MainNavController.h"
 
 @interface SettingsChangePassVC (){
     bool isChangingPass;
@@ -53,7 +54,7 @@
 - (IBAction)btnChangePassPressed:(id)sender {
     ErrorCodes passValidated = [self validate];
     if (passValidated != OK){
-        [self showInfoBarWithError:[Utils getErrorDescription:passValidated]];
+        [(MainNavController*)self.navigationController showInfoBarWithNegativeMessage:[Utils getErrorDescription:passValidated]];
     } else {
         [self changePasAsync];
     }
@@ -72,7 +73,7 @@
                 [AmazonKeyChainWrapper storeValueInKeyChain:self.editNewPass.text forKey:[UserSettings getEmail]];
                 [self ShowResultAndDismiss];
             } else {
-                [self showInfoBarWithError:[Utils getErrorDescription:result]];
+                [(MainNavController*)self.navigationController showInfoBarWithNegativeMessage:[Utils getErrorDescription:result]];
             }
             [self.spinner stopAnimating];
             self.navigationItem.hidesBackButton = NO;
@@ -80,10 +81,6 @@
         });
     });
     dispatch_release(changePassQueue);
-}
-
--(void) showInfoBarWithError:(NSString*)errorText{
-    [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:errorText withMood:NEGATIVE];
 }
 
 -(ErrorCodes) validate{

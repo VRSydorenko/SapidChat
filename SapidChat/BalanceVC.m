@@ -101,30 +101,10 @@
     return [[UITableViewCell alloc] init];
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    if (section == 0){
-        return nil;
-    }
-    
-   
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 20)];
-    headerView.backgroundColor = [UIColor brownColor];//colorWithRed:145 green:10 blue:65 alpha:100];
-    
-    int leftMargin = 10;
-     int height = 20;
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(leftMargin, 0, tableView.bounds.size.width - 2 * leftMargin, height)];
-    label.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
-    label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor colorWithRed:255 green:223 blue:0 alpha:100];
-    label.font = [UIFont boldSystemFontOfSize:14];
-    
-    [headerView addSubview:label];
-    return headerView;
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
+        case 0:
+            return [Lang LOC_BALANCE_HEADER_APP];
         case 1:
             return [Lang LOC_BALANCE_HEADER_YOUR_BALANCE];
         case 2:
@@ -133,23 +113,11 @@
     return @"";
 }
 
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return section == 0 ? 0.0 : 30.0;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0:
             break;
     }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0 && indexPath.row == 0){
-        return 46; // first row, with image
-    }
-    return 35;
 }
 
 -(NSString*) getCurrentProModeCellText{

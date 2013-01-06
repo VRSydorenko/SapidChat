@@ -15,8 +15,10 @@
 #import "InfoVC.h"
 #import "UserSettings.h"
 #import "SapidInfoBarManager.h"
+#import "MainNavController.h"
 
 @interface IntrigueVC (){
+    MainNavController* navController;
     bool isSending;
     int intriguePrice;
 }
@@ -34,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    navController = (MainNavController*)self.navigationController;
     
     [Utils setBackgroundFromPatternForView:self.view];
 
@@ -63,7 +67,7 @@
     NSString* email = [self.textEmail.text lowercaseString];
     ErrorCodes emailValidationError = [Utils validateEmail:email];
     if (emailValidationError != OK){
-        [self showInfoBarWithError:[Utils getErrorDescription:emailValidationError]];
+        [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:emailValidationError]];
     } else if (!isSending){
         isSending = YES;
         [self.textEmail resignFirstResponder];
@@ -82,9 +86,9 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.indicatorSend stopAnimating];
                 if (errorCode == OK){
-                    [self showInfoBarWithSuccess:[email isEqualToString:[UserSettings getEmail]] ? [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK] : [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_OK]];
+                    [navController showInfoBarWithPositiveMessage:[email isEqualToString:[UserSettings getEmail]] ? [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK] : [Lang LOC_INTRIGUE_SERVICEMSG_SENDING_OK]];
                 } else {
-                    [self showInfoBarWithError:[Utils getErrorDescription:errorCode]];
+                    [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:errorCode]];
                 }
                 [self updateConoditionsLabel];
                 isSending = NO;
@@ -108,14 +112,6 @@
         infoVC.title = [Lang LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE];
         infoVC.infoString = [Lang LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE];
     }
-}
-
--(void) showInfoBarWithError:(NSString*)errorText{
-    [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:errorText withMood:NEGATIVE];
-}
-
--(void) showInfoBarWithSuccess:(NSString*)successText{
-    [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:successText withMood:POSITIVE];
 }
 
 @end

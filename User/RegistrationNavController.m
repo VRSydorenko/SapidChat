@@ -11,7 +11,9 @@
 #import "Lang.h"
 #import "SapidInfoBarManager.h"
 
-@interface RegistrationNavController ()
+@interface RegistrationNavController (){
+    SapidInfoBarManager *infoManager;
+}
 
 @end
 @implementation RegistrationNavController
@@ -30,8 +32,11 @@
     
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"barGreenBackground.png"] forBarMetrics:UIBarMetricsDefault];
     
-    [[SapidInfoBarManager sharedManager] initInfoBarWithTopViewFrame:self.navigationBar.frame andHeight:40];
-    [self.view insertSubview:[[SapidInfoBarManager sharedManager] infoBar] belowSubview:self.navigationBar];
+    infoManager = [[SapidInfoBarManager alloc] init];
+    if (infoManager){
+        [infoManager initInfoBarWithTopViewFrame:self.navigationBar.frame andHeight:40];
+        [self.view insertSubview:infoManager.infoBar belowSubview:self.navigationBar];
+    }
     
     self.currentSegue = nil;
     self.selectedLanguages = [[NSMutableArray alloc] init];
@@ -51,6 +56,21 @@
         return result;
     }
     return nil;
+}
+
+- (void)showInfoBarWithNegativeMessage:(NSString*)text{
+    [infoManager showInfoBarWithMessage:text withMood:NEGATIVE];
+}
+- (void)showInfoBarWithPositiveMessage:(NSString*)text{
+        [infoManager showInfoBarWithMessage:text withMood:POSITIVE];
+}
+
+-(void) dealloc{
+    self.email = nil;
+    self.password = nil;
+    self.nickname = nil;
+    self.selectedLanguages = nil;
+    infoManager = nil;
 }
 
 @end

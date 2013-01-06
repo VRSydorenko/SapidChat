@@ -8,8 +8,6 @@
 
 #import "SapidInfoBarManager.h"
 
-static SapidInfoBarManager *sharedSapidInfoBarManager = nil;
-
 @implementation SapidInfoBarManager
 
 @synthesize infoBar = _infoBar;
@@ -23,9 +21,6 @@ static SapidInfoBarManager *sharedSapidInfoBarManager = nil;
     }
     return self;
 }
-
-#pragma mark -
-#pragma mark Manager
 
 - (void)initInfoBarWithTopViewFrame:(CGRect)frame andHeight:(CGFloat)height {
     if (self.infoBar) {
@@ -56,27 +51,8 @@ static SapidInfoBarManager *sharedSapidInfoBarManager = nil;
     }
 }
 
-#pragma mark Singleton
-
-+ (SapidInfoBarManager *)sharedManager
-{
-    @synchronized(self) {
-        if (sharedSapidInfoBarManager == nil) {
-            sharedSapidInfoBarManager = [[super alloc] init];
-        }
-    }
-    return sharedSapidInfoBarManager;
-}
-
-+ (id)allocWithZone:(NSZone *)zone
-{
-    @synchronized(self) {
-        if (sharedSapidInfoBarManager == nil) {
-            sharedSapidInfoBarManager = [super allocWithZone:zone];
-            return sharedSapidInfoBarManager;
-        }
-    }
-    return nil;
+-(void) dealloc{
+    self.infoBar = nil;
 }
 
 @end

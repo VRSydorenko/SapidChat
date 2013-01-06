@@ -16,6 +16,7 @@
 
 @interface RestorePassVC (){
     bool isSendingPass;
+    SapidInfoBarManager* infoBarManager;
 }
 
 @end
@@ -35,8 +36,9 @@
     self.labelTitle.text = [Lang LOC_RESTORE_SCREEN_TITLE];
     [LocalizationUtils setTitle:[Lang LOC_RESTORE_BTN_GO] forButton:self.btnGo];
     
-    [[SapidInfoBarManager sharedManager] initInfoBarWithTopViewFrame:self.toolbarPlaceholder.frame andHeight:40];
-    [self.view insertSubview:[[SapidInfoBarManager sharedManager] infoBar] belowSubview:self.toolbarPlaceholder];
+    infoBarManager = [[SapidInfoBarManager alloc] init];
+    [infoBarManager initInfoBarWithTopViewFrame:self.toolbarPlaceholder.frame andHeight:40];
+    [self.view insertSubview:infoBarManager.infoBar belowSubview:self.toolbarPlaceholder];
 }
 
 - (void)viewDidUnload
@@ -64,7 +66,7 @@
                 if (sent == OK){
                     [self showResultAndDismiss];
                 } else {
-                    [self showInfoBarWithError:[Utils getErrorDescription:sent]];
+                    [infoBarManager showInfoBarWithMessage:[Utils getErrorDescription:sent] withMood:NEGATIVE];
                 }
                 [self.spinner stopAnimating];
                 isSendingPass = NO;
@@ -96,10 +98,6 @@
 
 - (IBAction)didEndOnExit:(UITextField *)sender{
     [sender resignFirstResponder];
-}
-
--(void) showInfoBarWithError:(NSString*)errorText{
-    [[SapidInfoBarManager sharedManager] showInfoBarWithMessage:errorText withMood:NEGATIVE];
 }
 
 @end

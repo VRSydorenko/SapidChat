@@ -15,6 +15,7 @@
 #import "LocalizationUtils.h"
 #import "ViewController.h"
 #import "Utils.h"
+#import "SapidInfoBarManager.h"
 
 @interface MainVC ()
 @end

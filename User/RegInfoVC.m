@@ -21,6 +21,8 @@
 -(void) viewDidLoad{
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+    
     [Utils setBackgroundFromPatternForView:self.view];
     
     self.textInfo.text = self.infoString;
@@ -30,6 +32,10 @@
 {
     [self setTextInfo:nil];
     [super viewDidUnload];
+}
+
+-(void) backPressed{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

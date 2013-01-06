@@ -30,18 +30,21 @@
 {
     [super viewDidLoad];
     
-    //[self.navBar setBackgroundImage:[UIImage imageNamed:@"barGreenBackground.png"] forBarMetrics:UIBarMetricsDefault];
+    self.fakeNavBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barGreenBackground.png"]];
     
     isSendingPass = NO;
     
+    self.labelTitle.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    self.labelTitle.shadowOffset = CGSizeMake(0, -1.0);
+    self.labelTitle.text = [Lang LOC_RESTORE_SCREEN_TITLE];
+    
     self.labelInstruction.text = [Lang LOC_RESTORE_LABEL_INSTRUCTION];
 	self.textEmail.placeholder = [Lang LOC_LOGIN_TXT_LOGIN_PLACEHOLDER];
-    //self.navItem.title = [Lang LOC_RESTORE_SCREEN_TITLE];
     [LocalizationUtils setTitle:[Lang LOC_RESTORE_BTN_GO] forButton:self.btnGo];
     
-    //infoBarManager = [[SapidInfoBarManager alloc] init];
-    //[infoBarManager initInfoBarWithTopViewFrame:self.navBar.frame andHeight:40];
-    //[self.view insertSubview:infoBarManager.infoBar belowSubview:self.navBar];
+    infoBarManager = [[SapidInfoBarManager alloc] init];
+    [infoBarManager initInfoBarWithTopViewFrame:self.fakeNavBar.frame andHeight:40];
+    [self.view insertSubview:infoBarManager.infoBar belowSubview:self.fakeNavBar];
 }
 
 - (void)viewDidUnload
@@ -50,6 +53,8 @@
     [self setBtnGo:nil];
     [self setTextEmail:nil];
     [self setSpinner:nil];
+    [self setFakeNavBar:nil];
+    [self setLabelTitle:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

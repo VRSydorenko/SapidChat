@@ -131,6 +131,7 @@
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA_ROLL{return @"Camera roll";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CANCEL{return @"Cancel";}
 +(NSString*) LOC_COMPOSE_ALERT_SOURCE_UNAVAILABLE{return @"The image source is unfortunately unabvailable on this device";}
++(NSString*) LOC_COMPOSE_INFOMSG_MESSAGE_IS_EMPTY{return @"Neither text nor image to send";}
 // settings
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS{return @"Settings";}
 // section date & time

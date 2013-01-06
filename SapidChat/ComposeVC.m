@@ -100,6 +100,8 @@
     self.textMessage.text = [Utils trimWhitespaces:self.textMessage.text];
     if (self.textMessage.text.length > 0 || isImageSet){
         [self sendMessage];
+    } else {
+        [navCon showInfoBarWithNeutralMessage:[Lang LOC_COMPOSE_INFOMSG_MESSAGE_IS_EMPTY]];
     }
 }
 
@@ -114,12 +116,13 @@
             Message* msg = [self prepareMessage];
             ErrorCodes msgSent = [DataManager sendMessage:msg];
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.labelInfoText.text = [Utils getErrorDescription:msgSent];
-                [self.spinner stopAnimating];
+                [self.spinner performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:NO];
+                //[self.spinner stopAnimating];
                 if (msgSent == OK){
-                        [self.composeHandler composeCompleted:msg];
-                    //[self dismissViewControllerAnimated:YES completion:nil];
-                    [self backPressed];
+                    [self performSelectorOnMainThread:@selector(composeCompletedWithMessage:) withObject:msg waitUntilDone:NO];
+                    //[self.composeHandler composeCompleted:msg];
+                    [self performSelectorOnMainThread:@selector(backPressed) withObject:nil waitUntilDone:NO];
+                    //[self backPressed];
                 } else{
                 
                 }
@@ -128,6 +131,10 @@
         });
         dispatch_release(refreshQueue);
     }
+}
+
+-(void) composeCompletedWithMessage:(Message*)msg{
+    [self.composeHandler composeCompleted:msg];
 }
 
 - (void)backPressed{

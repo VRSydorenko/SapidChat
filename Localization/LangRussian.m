@@ -115,7 +115,8 @@
     </div>";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_DEFAULT{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], @"", @""];}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMMSG_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE]];}
-+(NSString*) internal_INTRIGUE_MAIL_CONTENT_TEMPL{return @"<div style=\"background:#F7E8C3;padding:10px;border: solid 1px gray;font-size:11pt;font-family:Verdana;\">\
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_TEMPL{return @"<div style=\"background:#F7E8C3;padding:10px;border: solid 1px gray;font-family:Verdana;\">\
+    <font style=\"font-size:10pt;\">\
     <h4>Здравствуйте!</h4>\
     <p>Кто-то, кто знает адрес вашей электронной почты, хочет вам что-то сказать и анонимно приглашает пообщаться в Sapid Chat!</p>\
     <p>Sapid Chat - это приложение для интересного общения. В нем есть опция, с помощью которой можно анонимно пригласить знакомого человека пообщаться, зная адрес его электронной почты.\
@@ -126,6 +127,7 @@
     <p>Sapid Chat желает вам хорошего настроения и интересного общения!\
     <br/><a href=\"http://sapidchat.com/\">sapidchat.com</a>\
     <br/><a href=\"mailto:intrigue@sapidchat.com\">intrigue@sapidchat.com</a></p>\
+    </font>\
     <hr/>\
     <font style=\"font-size:9pt;\">\
     Что еще вы можете сделать:\
@@ -185,6 +187,7 @@
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA_ROLL{return @"Выбрать из галереи";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CANCEL{return @"Отмена";}
 +(NSString*) LOC_COMPOSE_ALERT_SOURCE_UNAVAILABLE{return @"К сожалению, данный источник изображений не доступен на этом устройстве.";}
++(NSString*) LOC_COMPOSE_INFOMSG_MESSAGE_IS_EMPTY{return @"Нечего отправлять. Ни текст ни фото не выбрано.";}
 // settings
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS {return @"Настройки";}
 // section date & time

@@ -13,6 +13,7 @@
 #import "sqlite3.h"
 #import "Message.h"
 #import "UserSettings.h"
+#import "DbModel.h"
 
 @implementation DbManager{
     sqlite3 *sapidDb;
@@ -233,6 +234,11 @@
             sqlite3_bind_blob(statement, 1, [msg.attachmentData bytes], [msg.attachmentData length], SQLITE_TRANSIENT);
         }
         if (sqlite3_step(statement) == SQLITE_DONE){
+            if (msg.type == MSG_SYSTEM){ // save the latest msg tiem for not to fetch it after deletion
+                if (msg.when > [UserSettings getLastReadSystemMessageTimestamp]){
+                    [UserSettings setLastReadSystemMessageTimestamp:msg.when];
+                }
+            }
         } else {
             NSLog(@"Error saving message into the database");
             NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
@@ -321,6 +327,7 @@
 }
 
 -(int) getLastInMessageTimestamp{ // user specific method
+    int result = 0;
     NSString *querySQL = [NSString stringWithFormat: @"SELECT MAX(%@) FROM %@ WHERE %@=\"%@\" AND %@=\"%@\"", F_WHEN, T_MSGS, F_AUTHOR, [UserSettings getEmail], F_TO, [UserSettings getEmail]];
     const char *query_stmt = [querySQL UTF8String];
     
@@ -329,14 +336,33 @@
     {
         if (sqlite3_step(statement) == SQLITE_ROW)
         {
-            return sqlite3_column_int(statement, 0);
+            result = sqlite3_column_int(statement, 0);
         }
     }
     sqlite3_finalize(statement);
-    return 0;
+    return result;
+}
+
+-(int) getMaxInSystemMessageTimestamp{ // user specific method
+    int result = [UserSettings getLastReadSystemMessageTimestamp];
+    
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT MAX(%@) FROM %@ WHERE %@=\"%@\" AND %@=\"%@\" AND %@=\"%@\"", F_WHEN, T_MSGS, F_AUTHOR, [UserSettings getEmail], F_TO, [UserSettings getEmail], F_FROM, SYSTEM_USER];
+    const char *query_stmt = [querySQL UTF8String];
+    
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(sapidDb, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+    {
+        if (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            result = MAX(result, sqlite3_column_int(statement, 0));
+        }
+    }
+    sqlite3_finalize(statement);
+    return result;
 }
 
 -(int) getLastOutMessageTimestamp{ // user specific method
+    int result = 0;
     NSString *querySQL = [NSString stringWithFormat: @"SELECT MAX(%@) FROM %@ WHERE %@=\"%@\" AND %@=\"%@\"", F_WHEN, T_MSGS, F_AUTHOR, [UserSettings getEmail], F_FROM, [UserSettings getEmail]];
     const char *query_stmt = [querySQL UTF8String];
     
@@ -345,11 +371,11 @@
     {
         if (sqlite3_step(statement) == SQLITE_ROW)
         {
-            return sqlite3_column_int(statement, 0);
+            result = sqlite3_column_int(statement, 0);
         }
     }
     sqlite3_finalize(statement);
-    return 0;
+    return result;
 }
 
 -(int) getUnreadMessagesCount{

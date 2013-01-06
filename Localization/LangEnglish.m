@@ -14,12 +14,6 @@
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
 +(NSString*) LOC_UNI_CANCEL{return @"Cancel";}
 +(NSString*) LOC_UNI_OK{return @"OK";}
-// system messages
-+(NSString*) LOC_SYS_MSG_WELCOME{return @"Welcome to SapidChat!\rWe hope you will have a great time talking to new people and intriguing your friends!";}
-+(NSString*) LOC_SYS_MSG_INCOME_LOOK{return @"This is what incoming messages will look like.";}
-+(NSString*) LOC_SYS_MSG_OUTGOING_LOOK{return @"Sent messages will look like this.";}
-+(NSString*) LOC_SYS_MSG_INTRIGUE_LOOK{return @"Intriguing messages will appear among other messages like this one.";}
-+(NSString*) LOC_SYS_MSG_SYSTEM_LOOK{return @"Note that system messages from Sapid Chat will have this appearance which defers to other kind of messages.\r\rEnjoy your Sapid Chat!";}
 // info
 +(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return @"Distance to collocutor";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{

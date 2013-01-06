@@ -84,12 +84,11 @@
     [[NSUserDefaults standardUserDefaults] setInteger:language forKey:SETTINGS_SAVED_NEWMSG_LANG];
 }
 
-+(bool) hasLoggedIn:(NSString*)user{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@%@", SYS_HAS_LOGGED_USER_, user]];
++(int) getLastReadSystemMessageTimestamp{
+    return (int)[[NSUserDefaults standardUserDefaults] integerForKey:[NSString stringWithFormat:@"%@%@", LAST_READ_SYS_MSG_TIME, [UserSettings getEmail]]];
 }
-
-+(void) setHasLoggedIn:(NSString*)user{
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[NSString stringWithFormat:@"%@%@", SYS_HAS_LOGGED_USER_, user]];
++(void) setLastReadSystemMessageTimestamp:(int)timestamp{
+    [[NSUserDefaults standardUserDefaults] setInteger:timestamp forKey:[NSString stringWithFormat:@"%@%@", LAST_READ_SYS_MSG_TIME, [UserSettings getEmail]]];
 }
 
 +(bool) hasLaunched{

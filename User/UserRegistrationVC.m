@@ -57,6 +57,7 @@
     }
     
     if (self.btnClose){ // last segue!
+        self.navigationItem.hidesBackButton = YES;
         user = [navController composeUser];
         [self registerAsync];
     } else {

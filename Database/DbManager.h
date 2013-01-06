@@ -38,6 +38,7 @@
 -(NSArray*) loadMessagesWithCondition:(NSString*)condition;
 -(void)setCollocutor:(NSString*)collocutor forExistingMessage:(int)globalInitialMessagesTimestamp;
 -(int) getLastInMessageTimestamp;
+-(int) getMaxInSystemMessageTimestamp;
 -(int) getLastOutMessageTimestamp;
 -(int) getUnreadMessagesCount;
 -(void) resetUnreadMessagesCountForCollocutor:(NSString*)email;

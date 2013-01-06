@@ -572,13 +572,6 @@
         }
     }
     
-    // insert system messages after loading all new from AWS
-    if (![UserSettings hasLoggedIn:me]){
-        [self insertSystemUser];
-        [self insertInitialMessagesToUser:me];
-        [UserSettings setHasLoggedIn:me];
-    }
-    
     // return messages from the local store
     return [[self getDbManager] loadMessagesWithCondition:@""];
 }
@@ -587,33 +580,41 @@
     NSMutableArray* messages = [[NSMutableArray alloc] init];
     
     DynamoDBAttributeValue* hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[UserSettings getEmail]];
+    DynamoDBAttributeValue* hashKeySysAttr = [[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", [UserSettings getAppLanguage]]];
+    
     DynamoDBAttributeValue* rangeKeyAttrIncome = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", [self getLastInMessageTimestamp]]];
     DynamoDBAttributeValue* rangeKeyAttrOutgoing = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", [self getLastOutMessageTimestamp]]];
-    
+    DynamoDBAttributeValue* rangeKeyAttrSystemLow = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", 1+[[self getDbManager] getMaxInSystemMessageTimestamp]]];
+    DynamoDBAttributeValue* rangeKeyAttrSystemTop = [[DynamoDBAttributeValue alloc] initWithN:@"1000"];
+
     DynamoDBQueryRequest* request;
     DynamoDBQueryResponse* response = nil;
-        
+
     DynamoDBCondition* conditionIn = [[DynamoDBCondition alloc] init];
     conditionIn.comparisonOperator = @"GT";
     [conditionIn addAttributeValueList:rangeKeyAttrIncome];
-    
+
     DynamoDBCondition* conditionOut = [[DynamoDBCondition alloc] init];
     conditionOut.comparisonOperator = @"GT";
     [conditionOut addAttributeValueList:rangeKeyAttrOutgoing];
     
+    DynamoDBCondition* conditionSys = [[DynamoDBCondition alloc] init];
+    conditionSys.comparisonOperator = @"BETWEEN";
+    [conditionSys addAttributeValueList:rangeKeyAttrSystemLow];
+    [conditionSys addAttributeValueList:rangeKeyAttrSystemTop];
+
     @try {
         // sent messages
         request  = [[DynamoDBQueryRequest alloc] initWithTableName:DBTABLE_MSGS_SENT andHashKeyValue:hashKeyAttr];
         request.rangeKeyCondition = conditionOut;
         response = [[AmazonClientManager ddb] query:request];
-        //int consumedUnits = response.consumedCapacityUnits.intValue;
         if (response){
             for (NSDictionary* item in response.items) {
                 [messages addObject:[DbItemHelper prepareMessage:item]];
             }
             response = nil;
         }
-     
+
         // received messages
         request  = [[DynamoDBQueryRequest alloc] initWithTableName:DBTABLE_MSGS_RECEIVED andHashKeyValue:hashKeyAttr];
         request.rangeKeyCondition = conditionIn;
@@ -622,6 +623,20 @@
             for (NSDictionary* item in response.items) {
                 [messages addObject:[DbItemHelper prepareMessage:item]];
             }
+        }
+        
+        // system messages in bank table
+        request  = [[DynamoDBQueryRequest alloc] initWithTableName:DBTABLE_MSGS_BANK andHashKeyValue:hashKeySysAttr];
+        request.rangeKeyCondition = conditionSys;
+        response = [[AmazonClientManager ddb] query:request];
+        if (response){
+            Message *tmpMsg;
+            for (NSDictionary* item in response.items) {
+                tmpMsg = [DbItemHelper prepareMessage:item];
+                tmpMsg.to = [UserSettings getEmail];
+                [messages addObject:tmpMsg];
+            }
+            response = nil;
         }
     }
     @catch (NSException *exception) {
@@ -760,7 +775,7 @@
 
 +(ErrorCodes) getOneMessageFromBank:(NSString*)me inLanguage:(int)lang message:(Message**)pickedUpMsg{
     DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:[NSString stringWithFormat:@"%d", lang]];
-    DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:@"0"];
+    DynamoDBAttributeValue *rangeKeyAttr = [[DynamoDBAttributeValue alloc] initWithN:@"1000"]; // 0 - 1000 reserved for system notifications
     
     DynamoDBQueryRequest* queryRequest = nil;
     DynamoDBQueryResponse* queryResponse = nil;
@@ -936,49 +951,6 @@
      return ERROR;
      }*/
     return OK;
-}
-
-+(void) insertInitialMessagesToUser:(NSString*)user{
-    int when = [[NSDate date] timeIntervalSinceReferenceDate];
-    
-    Message* initialMsg = [[Message alloc] init];
-    initialMsg.from = SYSTEM_USER;
-    initialMsg.to = user;
-
-    initialMsg.type = MSG_SYSTEM;
-    initialMsg.text = [Lang LOC_SYS_MSG_WELCOME];
-    initialMsg.when = when;
-    [[self getDbManager] saveMessage:initialMsg];
-    
-    initialMsg.type = MSG_REGULAR;
-    initialMsg.text = [Lang LOC_SYS_MSG_INCOME_LOOK];
-    initialMsg.when = when++;
-    [[self getDbManager] saveMessage:initialMsg];
-    
-    initialMsg.to = SYSTEM_USER;
-    initialMsg.from = user;
-    initialMsg.text = [Lang LOC_SYS_MSG_OUTGOING_LOOK];
-    initialMsg.when = when++;
-    [[self getDbManager] saveMessage:initialMsg];
-    
-    initialMsg.from = SYSTEM_USER;
-    initialMsg.to = user;
-    initialMsg.type = MSG_INTRIGUE;
-    initialMsg.text = [Lang LOC_SYS_MSG_INTRIGUE_LOOK];
-    initialMsg.when = when++;
-    [[self getDbManager] saveMessage:initialMsg];
-    
-    initialMsg.type = MSG_SYSTEM;
-    initialMsg.text = [Lang LOC_SYS_MSG_SYSTEM_LOOK];
-    initialMsg.when = when++;
-    [[self getDbManager] saveMessage:initialMsg];
-}
-
-+(void) insertSystemUser{
-    User* sys = [[User alloc] init];
-    sys.email = SYSTEM_USER;
-    sys.nickname = [Lang LOC_UNI_APP_NAME];
-    [[self getDbManager] saveUser:sys];
 }
 
 @end

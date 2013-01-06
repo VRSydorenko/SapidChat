@@ -10,7 +10,6 @@
 #import "Message.h"
 
 #define SYS_HAS_LAUNCHED @"sys_has_launched"
-#define SYS_HAS_LOGGED_USER_ @"has_logged_" // prefis string
 
 #define PURCHASE_PREMIUM_UNLOCKED @"purchase_premium_unlocked"
 
@@ -21,6 +20,7 @@
 #define SETTINGS_TIMEFORMAT @"defs_timeFormat"
 #define SETTINGS_MEASURE_SYS @"defs_measure_sys"
 #define CURRENTLY_LOGGED_EMAIL @"defs_savedEmail"
+#define LAST_READ_SYS_MSG_TIME @"defs_savedLastReadSysTime_" // prefix
 
 #define SETTINGS_SAVED_NEWMSG_LANG @"defs_savedNewMsgLang"
 #define SETTINGS_SAVED_APP_LANG @"defs_savedAppLang"
@@ -42,8 +42,8 @@
 +(int) getNewMessagesLanguage;
 +(void) setNewMessagesLanguage:(int) language;
 
-+(bool) hasLoggedIn:(NSString*)user;
-+(void) setHasLoggedIn:(NSString*)user;
++(int) getLastReadSystemMessageTimestamp;
++(void) setLastReadSystemMessageTimestamp:(int)timestamp;
 
 +(bool) hasLaunched;
 +(void) setHasLaunched;

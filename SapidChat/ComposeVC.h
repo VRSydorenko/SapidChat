@@ -26,7 +26,6 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIButton *buttonLanguage;
-@property (strong, nonatomic) IBOutlet UILabel *labelTitle;
 @property (strong, nonatomic) IBOutlet UILabel *labelInfoText;
 @property (strong, nonatomic) IBOutlet UIButton *btnSend;
 @property (strong, nonatomic) IBOutlet UIButton *btnAttachData;
@@ -37,7 +36,6 @@
 @property (nonatomic) NSString* collocutor;
 
 - (IBAction)sendPressed:(id)sender;
-- (IBAction)cancelPressed:(id)sender;
 - (IBAction)languagePressed:(id)sender;
 - (IBAction)attachDataPressed:(id)sender;
 

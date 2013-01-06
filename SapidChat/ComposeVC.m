@@ -29,7 +29,6 @@
 @synthesize spinner;
 @synthesize imageView;
 @synthesize buttonLanguage;
-@synthesize labelTitle;
 @synthesize btnSend;
 @synthesize btnAttachData;
 
@@ -40,15 +39,17 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+    
     [Utils setBackgroundFromPatternForView:self.view];
     
 	isSending = NO;
     isImageSet = NO;
     if (self.collocutor.length > 0){
-        self.labelTitle.text = [DataManager loadUser:collocutor].nickname;
+        self.title = [DataManager loadUser:collocutor].nickname;
         self.buttonLanguage.hidden = YES;
     } else {
-        self.labelTitle.text = [Lang LOC_COMPOSE_TITLE];
+        self.title = [Lang LOC_COMPOSE_TITLE];
         [self updateLanguageText];
     }
     
@@ -80,7 +81,6 @@
     [self setTextMessage:nil];
     [self setSpinner:nil];
     [self setButtonLanguage:nil];
-    [self setLabelTitle:nil];
     [self setBtnSend:nil];
     [self setBtnAttachData:nil];
     [self setImageView:nil];
@@ -118,7 +118,8 @@
                 [self.spinner stopAnimating];
                 if (msgSent == OK){
                         [self.composeHandler composeCompleted:msg];
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    //[self dismissViewControllerAnimated:YES completion:nil];
+                    [self backPressed];
                 } else{
                 
                 }
@@ -129,8 +130,8 @@
     }
 }
 
-- (IBAction)cancelPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)backPressed{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)languagePressed:(id)sender {

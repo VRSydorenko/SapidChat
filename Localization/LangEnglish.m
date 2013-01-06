@@ -57,6 +57,8 @@
 +(NSString*) LOC_REGISTATOR_ERR_EMPTYNICK{return @"Nick not specified";}
 +(NSString*) LOC_REGISTATOR_ERR_INVALIDNICK{return @"You cannot use this nickname";}
 +(NSString*) LOC_REGISTATOR_ERR_NOLANGS_SELECTED{return @"No languages selected";}
++(NSString*) LOC_REGISTATOR_SUCCESS{return @"Completed successfuly!";}
++(NSString*) LOC_REGISTATOR_WHY_EMAIL{return @"Why we need you email....";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Login";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Registration";}

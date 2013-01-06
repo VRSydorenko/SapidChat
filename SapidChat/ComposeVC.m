@@ -97,6 +97,7 @@
 }
 
 - (IBAction)sendPressed:(id)sender {
+    self.textMessage.text = [Utils trimWhitespaces:self.textMessage.text];
     if (self.textMessage.text.length > 0 || isImageSet){
         [self sendMessage];
     }

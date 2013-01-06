@@ -74,6 +74,8 @@
 +(NSString*) LOC_REGISTATOR_ERR_EMPTYNICK{ return [[self AppLanguage] LOC_REGISTATOR_ERR_EMPTYNICK];}
 +(NSString*) LOC_REGISTATOR_ERR_INVALIDNICK{ return [[self AppLanguage] LOC_REGISTATOR_ERR_INVALIDNICK];}
 +(NSString*) LOC_REGISTATOR_ERR_NOLANGS_SELECTED{ return [[self AppLanguage] LOC_REGISTATOR_ERR_NOLANGS_SELECTED];}
++(NSString*) LOC_REGISTATOR_SUCCESS{ return [[self AppLanguage] LOC_REGISTATOR_SUCCESS];}
++(NSString*) LOC_REGISTATOR_WHY_EMAIL{ return [[self AppLanguage] LOC_REGISTATOR_WHY_EMAIL];}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return [[self AppLanguage] LOC_LOGIN_BTN_LOGIN];}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return [[self AppLanguage] LOC_LOGIN_BTN_REGISTRATION];}

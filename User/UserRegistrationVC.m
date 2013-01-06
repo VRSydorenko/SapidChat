@@ -16,6 +16,7 @@
 #import "LocalizationUtils.h"
 #import "UserSettings.h"
 #import "SapidInfoBarManager.h"
+#import "InfoVC.h"
 
 @interface UserRegistrationVC (){
     RegistrationNavController* navController;
@@ -48,11 +49,16 @@
     [super viewDidLoad];
     
     navController = (RegistrationNavController*)self.navigationController;
+    
     self.title = [Lang LOC_REGISTATOR_TITLE];
+    
+    if (!self.textEmail && !self.btnClose){ // if neither the first nor the last segue then no back button
+        self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+    }
+    
     if (self.btnClose){ // last segue!
         user = [navController composeUser];
         [self registerAsync];
-        self.navigationItem.hidesBackButton = YES;
     } else {
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[Lang LOC_REGISTATOR_BTN_BACK] style:UIBarButtonItemStylePlain target:nil action:nil];
         [self initControlsData];
@@ -101,10 +107,15 @@
     [navController cancel];
 }
 
+-(void) backPressed{
+    [navController popViewControllerAnimated:YES];
+}
+
 - (IBAction)nextPressed:(UIBarButtonItem *)sender {
     NSString *nextSegueId = nil;
     if (self.textEmail){ // now is initial screen
         nextSegueId = SEGUE_EMAIL_TO_NICK;
+        self.textEmail.text = [Utils trimWhitespaces:self.textEmail.text];
         if (self.textEmail.text.length == 0){
             [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:EMAIL_NOT_SPECIFIED]];
             return;
@@ -160,10 +171,6 @@
 
 - (IBAction)editingChanged:(id)sender {
     emailChecked = NO;
-}
-
-- (IBAction)tryAgainPressed:(id)sender {
-    [navController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewDidUnload {
@@ -257,7 +264,7 @@
             if (errCode == OK){
                 registered = YES;
                 [AmazonKeyChainWrapper storeValueInKeyChain:navController.password forKey:user.email];
-                [navController showInfoBarWithPositiveMessage:[Utils getErrorDescription:errCode]];
+                [navController showInfoBarWithPositiveMessage:[Lang LOC_REGISTATOR_SUCCESS]];
             } else {
                 [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:errCode]];
             }
@@ -266,6 +273,14 @@
         });
     });
     dispatch_release(regQueue);
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"SegueEmailToInfo"]){
+        InfoVC* infoVC = (InfoVC*)segue.destinationViewController;
+        infoVC.infoString = [Lang LOC_REGISTATOR_WHY_EMAIL];
+        infoVC.title = [Lang LOC_REGISTATOR_FIELD_EMAIL];
+    }
 }
 
 @end

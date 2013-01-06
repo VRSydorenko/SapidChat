@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/DialogsVC.m"
-         timestampString = "379115825.130797"
+         timestampString = "379175776.74294"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162"
+         startingLineNumber = "168"
+         endingLineNumber = "168"
          landmarkName = "-pickPressed:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/DialogsVC.m"
-         timestampString = "379116812.051829"
+         timestampString = "379175776.74294"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "78"
-         endingLineNumber = "78"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/DialogsVC.m"
-         timestampString = "379116812.580669"
+         timestampString = "379175776.74294"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "80"
-         endingLineNumber = "80"
+         startingLineNumber = "86"
+         endingLineNumber = "86"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/DialogsVC.m"
-         timestampString = "379117031.434537"
+         timestampString = "379175776.74294"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "164"
-         endingLineNumber = "164"
+         startingLineNumber = "170"
+         endingLineNumber = "170"
          landmarkName = "-pickPressed:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "User/UserRegistrationVC.m"
-         timestampString = "379124095.872363"
+         timestampString = "379175776.74294"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
          landmarkName = "-editingChanged:"
          landmarkType = "5">
       </FileBreakpoint>

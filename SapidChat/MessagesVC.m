@@ -50,6 +50,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+    
     [Utils setBackgroundFromPatternForView:self.view];
     
     selectedCells = [[NSMutableDictionary alloc] init];
@@ -105,6 +107,10 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [self.tabelMessages reloadData];
+}
+
+-(void) backPressed{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void) setupActionSheets{

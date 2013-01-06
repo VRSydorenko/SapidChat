@@ -29,7 +29,7 @@
         FirstLaunchNavController* navcon = [[UIStoryboard storyboardWithName:@"FirstLaunch" bundle:nil] instantiateViewControllerWithIdentifier:@"SceneFirstLaunch"];
         navcon.rootViewController = self.window.rootViewController;
         self.window.rootViewController = navcon;
-    } else if (![[UserSettings getEmail] isEqualToString:@""] &&
+    } else if ([UserSettings getEmail] && ![[UserSettings getEmail] isEqualToString:@""] &&
         ![[AmazonKeyChainWrapper getValueFromKeyChain:[UserSettings getEmail]] isEqualToString:@""]){
         MainNavController* navcon = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SceneMain"];
         navcon.rootViewController = self.window.rootViewController;

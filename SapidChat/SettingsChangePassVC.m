@@ -35,6 +35,7 @@
     [super viewDidLoad];
     isChangingPass = NO;
     self.title = [Lang LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE];
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
     self.editCurrentPass.placeholder = [Lang LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CURRENT];
     self.editNewPass.placeholder = [Lang LOC_SETTINGS_CHANGEPASS_PLACEHLDR_NEW];
     self.editNewPassConfirm.placeholder = [Lang LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CONFIRM];
@@ -49,6 +50,10 @@
     [self setBtnChangePass:nil];
     [self setSpinner:nil];
     [super viewDidUnload];
+}
+
+-(void) backPressed{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)btnChangePassPressed:(id)sender {

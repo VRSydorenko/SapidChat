@@ -24,12 +24,18 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+    
     [Utils setBackgroundFromPatternForView:self.view];
     
     self.title = [Lang LOC_ABOUT_SCREEN_TITLE];
     personFont = [UIFont fontWithName:@"Helvetica" size:14.0f];
     self.tableAbout.dataSource = self;
     self.tableAbout.delegate = self;
+}
+
+-(void) backPressed{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

@@ -238,4 +238,17 @@
     return newImage; 
 }
 
++(NSString*) trimWhitespaces:(NSString*)string{
+    return [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+}
+
++(UIBarButtonItem*) createBackButtonWithSelectorBackPressedOnTarget:(UIViewController*)viewController{
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *backBtnImage = [UIImage imageNamed:@"backArrow.png"] ;
+    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
+    [backBtn addTarget:viewController action:@selector(backPressed) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(0, 0, 24, 24);
+    return [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+}
+
 @end

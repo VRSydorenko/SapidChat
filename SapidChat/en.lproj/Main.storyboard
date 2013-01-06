@@ -90,7 +90,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0Zu-aZ-2m6" kind="modal" id="L8C-qE-Hji"/>
+                                    <segue destination="0Zu-aZ-2m6" kind="modal" modalTransitionStyle="coverVertical" id="L8C-qE-Hji"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -599,39 +599,32 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="4gL-kB-10d">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wey-B9-vER">
-                                        <rect key="frame" x="284" y="0.0" width="36" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="X">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelPressed:" destination="0Zu-aZ-2m6" eventType="touchUpInside" id="bHV-kc-hdM"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="0r6-cZ-1V7">
-                                        <rect key="frame" x="45" y="7" width="231" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="l13-JC-zxL">
                                 <rect key="frame" x="75" y="136" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xvf-7r-WKf">
+                                <rect key="frame" x="218" y="216" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" image="crossLines.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelPressed" destination="0Zu-aZ-2m6" eventType="touchUpInside" id="m3d-1e-dqI"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" id="Y0T-Be-4NU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="LAz-Bi-AkA"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -639,10 +632,8 @@
                     <connections>
                         <outlet property="btnGo" destination="hl8-EK-mDg" id="A5C-45-75Y"/>
                         <outlet property="labelInstruction" destination="KMg-jT-lN1" id="hkV-FN-dkG"/>
-                        <outlet property="labelTitle" destination="0r6-cZ-1V7" id="pCR-rn-ZPj"/>
                         <outlet property="spinner" destination="l13-JC-zxL" id="q6E-fQ-7ee"/>
                         <outlet property="textEmail" destination="EHt-Ig-AW5" id="03D-oR-acZ"/>
-                        <outlet property="toolbarPlaceholder" destination="4gL-kB-10d" id="2Ne-qc-jTB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HmH-JC-4c3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1519,6 +1510,7 @@
     </scenes>
     <resources>
         <image name="Icon@2x.png" width="114" height="114"/>
+        <image name="crossLines.png" width="32" height="32"/>
         <image name="info.png" width="32" height="32"/>
         <image name="logout.png" width="32" height="32"/>
         <image name="msgs_image_placeholder.png" width="48" height="48"/>
@@ -1699,14 +1691,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RestorePassVC.h"/>
             <relationships>
                 <relationship kind="action" name="btnGoPressed:"/>
-                <relationship kind="action" name="cancelPressed:"/>
+                <relationship kind="action" name="cancelPressed"/>
                 <relationship kind="action" name="didEndOnExit:" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="btnGo" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="labelInstruction" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="toolbarPlaceholder" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="SettingsChangePassVC" superclassName="UIViewController">

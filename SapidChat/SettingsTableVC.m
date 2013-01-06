@@ -37,6 +37,8 @@
 @synthesize loc_Langs_NewMessages;
 
 -(void) viewDidLoad{
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+    
     [Utils setBackgroundFromPatternForView:self.tableView];
 }
 
@@ -45,6 +47,10 @@
     [self updateLocalizableValues];
     
     [self.tableView reloadData];
+}
+
+-(void) backPressed{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void) updateLabelValues{

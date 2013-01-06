@@ -81,6 +81,7 @@
 		7FCCE05A16878A1C00CD032B /* feature_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCCE05916878A1C00CD032B /* feature_images.png */; };
 		7FCCE0611687BABF00CD032B /* current_mode_notpro.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCCE05F1687BABF00CD032B /* current_mode_notpro.png */; };
 		7FCCE0621687BABF00CD032B /* current_mode_pro.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCCE0601687BABF00CD032B /* current_mode_pro.png */; };
+		7FD14AFA1699B4AE00F0C652 /* RegInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD14AF91699B4AE00F0C652 /* RegInfoVC.m */; };
 		7FD5F34E1687C49A00334D36 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5F3431687C49A00334D36 /* AmazonClientManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7FD5F34F1687C49A00334D36 /* DbItemHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5F3451687C49A00334D36 /* DbItemHelper.m */; };
 		7FD5F3501687C49A00334D36 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5F3471687C49A00334D36 /* Dialog.m */; };
@@ -290,6 +291,8 @@
 		7FCCE05916878A1C00CD032B /* feature_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = feature_images.png; path = Images/feature_images.png; sourceTree = "<group>"; };
 		7FCCE05F1687BABF00CD032B /* current_mode_notpro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = current_mode_notpro.png; path = Images/current_mode_notpro.png; sourceTree = "<group>"; };
 		7FCCE0601687BABF00CD032B /* current_mode_pro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = current_mode_pro.png; path = Images/current_mode_pro.png; sourceTree = "<group>"; };
+		7FD14AF81699B4AD00F0C652 /* RegInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegInfoVC.h; path = User/RegInfoVC.h; sourceTree = "<group>"; };
+		7FD14AF91699B4AE00F0C652 /* RegInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegInfoVC.m; path = User/RegInfoVC.m; sourceTree = "<group>"; };
 		7FD5F3421687C49A00334D36 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonClientManager.h; path = Data/AmazonClientManager.h; sourceTree = "<group>"; };
 		7FD5F3431687C49A00334D36 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmazonClientManager.m; path = Data/AmazonClientManager.m; sourceTree = "<group>"; };
 		7FD5F3441687C49A00334D36 /* DbItemHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbItemHelper.h; path = Data/DbItemHelper.h; sourceTree = "<group>"; };
@@ -706,6 +709,8 @@
 		7FCBF67D160F28A300A2A2E2 /* UserRegistrator */ = {
 			isa = PBXGroup;
 			children = (
+				7FD14AF81699B4AD00F0C652 /* RegInfoVC.h */,
+				7FD14AF91699B4AE00F0C652 /* RegInfoVC.m */,
 				7FCBF680160F291300A2A2E2 /* RegistrationNavController.h */,
 				7FCBF681160F291300A2A2E2 /* RegistrationNavController.m */,
 				7FCBF684160F291300A2A2E2 /* UserRegistration.storyboard */,
@@ -1041,6 +1046,7 @@
 				7FD5F3531687C49A00334D36 /* Utils.m in Sources */,
 				7FB8BF61168FA008007EC50D /* SapidInfoBarView.m in Sources */,
 				7FB8BF64168FA0AC007EC50D /* SapidInfoBarManager.m in Sources */,
+				7FD14AFA1699B4AE00F0C652 /* RegInfoVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

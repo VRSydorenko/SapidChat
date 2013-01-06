@@ -29,16 +29,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //[self.navBar setBackgroundImage:[UIImage imageNamed:@"barGreenBackground.png"] forBarMetrics:UIBarMetricsDefault];
+    
     isSendingPass = NO;
     
     self.labelInstruction.text = [Lang LOC_RESTORE_LABEL_INSTRUCTION];
 	self.textEmail.placeholder = [Lang LOC_LOGIN_TXT_LOGIN_PLACEHOLDER];
-    self.labelTitle.text = [Lang LOC_RESTORE_SCREEN_TITLE];
+    //self.navItem.title = [Lang LOC_RESTORE_SCREEN_TITLE];
     [LocalizationUtils setTitle:[Lang LOC_RESTORE_BTN_GO] forButton:self.btnGo];
     
-    infoBarManager = [[SapidInfoBarManager alloc] init];
-    [infoBarManager initInfoBarWithTopViewFrame:self.toolbarPlaceholder.frame andHeight:40];
-    [self.view insertSubview:infoBarManager.infoBar belowSubview:self.toolbarPlaceholder];
+    //infoBarManager = [[SapidInfoBarManager alloc] init];
+    //[infoBarManager initInfoBarWithTopViewFrame:self.navBar.frame andHeight:40];
+    //[self.view insertSubview:infoBarManager.infoBar belowSubview:self.navBar];
 }
 
 - (void)viewDidUnload
@@ -46,8 +49,6 @@
     [self setLabelInstruction:nil];
     [self setBtnGo:nil];
     [self setTextEmail:nil];
-    [self setLabelTitle:nil];
-    [self setToolbarPlaceholder:nil];
     [self setSpinner:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -84,16 +85,16 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    [self cancelPressed:nil];
+    [self cancelPressed];
+}
+
+-(void) cancelPressed{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
     [self btnGoPressed:self.btnGo];
     return YES;
-}
-
-- (IBAction)cancelPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)didEndOnExit:(UITextField *)sender{

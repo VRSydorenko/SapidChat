@@ -88,6 +88,7 @@
 
 - (IBAction)goPressed:(id)sender {
     if (!isLoggingIn){
+        self.textEmail.text = [Utils trimWhitespaces:self.textEmail.text];
         [self.textEmail resignFirstResponder];
         [self.textPassword resignFirstResponder];
         [self loginAsync];
@@ -95,6 +96,7 @@
 }
 
 - (IBAction)registerPressed:(id)sender {
+    self.labelServiceMessage.text = @"";
     [UserRegistrator registerUserOverCurrentViewController:self];
 }
 

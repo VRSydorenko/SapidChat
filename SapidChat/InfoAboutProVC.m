@@ -25,6 +25,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+    
     [Utils setBackgroundFromPatternForView:self.view];
     
     self.textTitle.text = [Lang LOC_BALANCE_WHAT_IN_PRO_TITLE];
@@ -42,6 +44,10 @@
     [self setTabelFeatures:nil];
     descrFont = nil;
     [super viewDidUnload];
+}
+
+-(void) backPressed{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

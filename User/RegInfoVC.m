@@ -6,22 +6,20 @@
 //  Copyright (c) 2012 Viktor Sydorenko. All rights reserved.
 //
 
-#import "InfoVC.h"
+#import "RegInfoVC.h"
 #import "Utils.h"
 
-@interface InfoVC ()
+@interface RegInfoVC ()
 
 @end
 
-@implementation InfoVC
+@implementation RegInfoVC
 
 @synthesize textInfo;
 @synthesize infoString;
 
 -(void) viewDidLoad{
     [super viewDidLoad];
-    
-    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
     
     [Utils setBackgroundFromPatternForView:self.view];
     
@@ -34,8 +32,5 @@
     [super viewDidUnload];
 }
 
--(void) backPressed{
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 @end

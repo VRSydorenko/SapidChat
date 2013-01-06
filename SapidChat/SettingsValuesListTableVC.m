@@ -28,6 +28,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+    
     switch (self.valuesMode) {
         case VALUES_TIME_FORMAT:
             values = [[NSArray alloc] initWithObjects:@"HH:mm", @"hh:mm", @"hh:mm a", nil];
@@ -59,6 +61,10 @@
     values = nil;
     msgLanguages = nil;
     [super viewDidUnload];
+}
+
+-(void) backPressed{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

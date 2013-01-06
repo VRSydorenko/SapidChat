@@ -39,6 +39,8 @@
     
     navController = (MainNavController*)self.navigationController;
     
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+    
     [Utils setBackgroundFromPatternForView:self.view];
 
     intriguePrice = 1;
@@ -63,7 +65,13 @@
     [super viewDidUnload];
 }
 
+-(void) backPressed{
+    [navController popViewControllerAnimated:YES];
+}
+
 - (IBAction)sendPressed:(id)sender {
+    self.textEmail.text = [Utils trimWhitespaces:self.textEmail.text];
+    self.textMsg.text = [Utils trimWhitespaces:self.textMsg.text];
     NSString* email = [self.textEmail.text lowercaseString];
     ErrorCodes emailValidationError = [Utils validateEmail:email];
     if (emailValidationError != OK){

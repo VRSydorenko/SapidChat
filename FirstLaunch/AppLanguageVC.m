@@ -28,10 +28,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     appLangs = [UserSettings getAppSupportedLanguages];
-    [UserSettings setAppLanguage:2];// English by default
+    self.btnNext.hidden = YES;
     self.tableAppLanguages.dataSource = self;
     self.tableAppLanguages.delegate = self;
-    [self localize];
 }
 
 - (void)viewDidUnload
@@ -60,6 +59,7 @@
 {
     [UserSettings setAppLanguage:((NSString*)[appLangs objectAtIndex:indexPath.row]).intValue];
     [self localize];
+    self.btnNext.hidden = NO;
 }
 
 -(void)localize{

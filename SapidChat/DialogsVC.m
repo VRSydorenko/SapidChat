@@ -38,6 +38,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+    
     [Utils setBackgroundFromPatternForView:self.view];
     self.title = [Lang LOC_MESSAGES_TITLE];
     self.btnPick.title = [Lang LOC_MESSAGES_BTN_PICKNEW];
@@ -70,6 +72,10 @@
     if ([navController.viewControllers indexOfObject:self] == NSNotFound){ // back button
         [navController stopMonitoringLocation];
     }
+}
+
+-(void) backPressed{
+    [navController popViewControllerAnimated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

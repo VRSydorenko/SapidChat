@@ -57,6 +57,8 @@
 +(NSString*) LOC_REGISTATOR_ERR_EMPTYNICK{return @"Не указан ник";}
 +(NSString*) LOC_REGISTATOR_ERR_INVALIDNICK{return @"Вы не можете использовать данный ник";}
 +(NSString*) LOC_REGISTATOR_ERR_NOLANGS_SELECTED{return @"Не выбрано ни одного языка";}
++(NSString*) LOC_REGISTATOR_SUCCESS{return @"Завершена успешно!";}
++(NSString*) LOC_REGISTATOR_WHY_EMAIL{return @"Зачем нам нужен ваш имейл....";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Вход";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Регистрация";}

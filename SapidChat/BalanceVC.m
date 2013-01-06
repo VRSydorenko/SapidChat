@@ -28,6 +28,8 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+    
     [Utils setBackgroundFromPatternForView:self.view];
     
     self.title = [Lang LOC_BALANCE_SCREEN_TITLE];
@@ -38,6 +40,10 @@
 - (void)viewDidUnload{
     [self setTableContent:nil];
     [super viewDidUnload];
+}
+
+-(void) backPressed{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

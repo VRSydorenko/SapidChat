@@ -251,7 +251,7 @@
     [destination.toAddresses addObject:email];
     
     SESSendEmailRequest *emailRequest = [[SESSendEmailRequest alloc] init];
-    emailRequest.source = @"viktor.sydorenko@gmail.com";
+    emailRequest.source = SYSTEM_USER;
     emailRequest.destination = destination;
     emailRequest.message = message;
     

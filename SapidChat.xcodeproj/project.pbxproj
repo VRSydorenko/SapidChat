@@ -113,6 +113,16 @@
 		7FE74A8E168D011E00863678 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE74A8A168D011E00863678 /* info@2x.png */; };
 		7FE74A8F168D011E00863678 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE74A8B168D011E00863678 /* settings.png */; };
 		7FE74A90168D011E00863678 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE74A8C168D011E00863678 /* settings@2x.png */; };
+		7FE7ED3E169B648400009C12 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE7ED3D169B648400009C12 /* AudioToolbox.framework */; };
+		7FE7ED4C169B655C00009C12 /* ATMHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7ED40169B655B00009C12 /* ATMHud.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7FE7ED4D169B655C00009C12 /* ATMHudQueueItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7ED43169B655B00009C12 /* ATMHudQueueItem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7FE7ED4E169B655C00009C12 /* ATMHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7ED45169B655B00009C12 /* ATMHudView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7FE7ED4F169B655C00009C12 /* ATMProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7ED47169B655B00009C12 /* ATMProgressLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7FE7ED50169B655C00009C12 /* ATMSoundFX.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7ED49169B655B00009C12 /* ATMSoundFX.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7FE7ED51169B655C00009C12 /* ATMTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7ED4B169B655B00009C12 /* ATMTextLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7FE7ED53169B691100009C12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE7ED52169B691000009C12 /* QuartzCore.framework */; };
+		7FE7ED55169B6F4B00009C12 /* whiteCheckmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE7ED54169B6F4B00009C12 /* whiteCheckmark.png */; };
+		7FE7ED58169B730E00009C12 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7FE7ED57169B730E00009C12 /* pop.wav */; };
 		7FEC29C216766940002DBE3A /* InfoAboutProVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC29C116766940002DBE3A /* InfoAboutProVC.m */; };
 		7FEC29C6167672C8002DBE3A /* AboutProFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC29C5167672C8002DBE3A /* AboutProFeatureCell.m */; };
 		7FEF2F51164B0D6C003C8745 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEF2F50164B0D6C003C8745 /* Settings.storyboard */; };
@@ -343,6 +353,23 @@
 		7FE74A8A168D011E00863678 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info@2x.png"; path = "Images/info@2x.png"; sourceTree = "<group>"; };
 		7FE74A8B168D011E00863678 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = Images/settings.png; sourceTree = "<group>"; };
 		7FE74A8C168D011E00863678 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "Images/settings@2x.png"; sourceTree = "<group>"; };
+		7FE7ED3D169B648400009C12 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7FE7ED3F169B655B00009C12 /* ATMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATMHud.h; path = CustomControls/HUD/ATMHud.h; sourceTree = "<group>"; };
+		7FE7ED40169B655B00009C12 /* ATMHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATMHud.m; path = CustomControls/HUD/ATMHud.m; sourceTree = "<group>"; };
+		7FE7ED41169B655B00009C12 /* ATMHudDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATMHudDelegate.h; path = CustomControls/HUD/ATMHudDelegate.h; sourceTree = "<group>"; };
+		7FE7ED42169B655B00009C12 /* ATMHudQueueItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATMHudQueueItem.h; path = CustomControls/HUD/ATMHudQueueItem.h; sourceTree = "<group>"; };
+		7FE7ED43169B655B00009C12 /* ATMHudQueueItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATMHudQueueItem.m; path = CustomControls/HUD/ATMHudQueueItem.m; sourceTree = "<group>"; };
+		7FE7ED44169B655B00009C12 /* ATMHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATMHudView.h; path = CustomControls/HUD/ATMHudView.h; sourceTree = "<group>"; };
+		7FE7ED45169B655B00009C12 /* ATMHudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATMHudView.m; path = CustomControls/HUD/ATMHudView.m; sourceTree = "<group>"; };
+		7FE7ED46169B655B00009C12 /* ATMProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATMProgressLayer.h; path = CustomControls/HUD/ATMProgressLayer.h; sourceTree = "<group>"; };
+		7FE7ED47169B655B00009C12 /* ATMProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATMProgressLayer.m; path = CustomControls/HUD/ATMProgressLayer.m; sourceTree = "<group>"; };
+		7FE7ED48169B655B00009C12 /* ATMSoundFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATMSoundFX.h; path = CustomControls/HUD/ATMSoundFX.h; sourceTree = "<group>"; };
+		7FE7ED49169B655B00009C12 /* ATMSoundFX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATMSoundFX.m; path = CustomControls/HUD/ATMSoundFX.m; sourceTree = "<group>"; };
+		7FE7ED4A169B655B00009C12 /* ATMTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATMTextLayer.h; path = CustomControls/HUD/ATMTextLayer.h; sourceTree = "<group>"; };
+		7FE7ED4B169B655B00009C12 /* ATMTextLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATMTextLayer.m; path = CustomControls/HUD/ATMTextLayer.m; sourceTree = "<group>"; };
+		7FE7ED52169B691000009C12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7FE7ED54169B6F4B00009C12 /* whiteCheckmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteCheckmark.png; path = Images/whiteCheckmark.png; sourceTree = "<group>"; };
+		7FE7ED57169B730E00009C12 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pop.wav; path = Sounds/pop.wav; sourceTree = "<group>"; };
 		7FEC29C016766940002DBE3A /* InfoAboutProVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAboutProVC.h; sourceTree = "<group>"; };
 		7FEC29C116766940002DBE3A /* InfoAboutProVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAboutProVC.m; sourceTree = "<group>"; };
 		7FEC29C4167672C8002DBE3A /* AboutProFeatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutProFeatureCell.h; path = TableCells/AboutProFeatureCell.h; sourceTree = "<group>"; };
@@ -396,6 +423,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FE7ED53169B691100009C12 /* QuartzCore.framework in Frameworks */,
+				7FE7ED3E169B648400009C12 /* AudioToolbox.framework in Frameworks */,
 				7FDD5D9A16729631003090FC /* CoreLocation.framework in Frameworks */,
 				7F5079501613728900067338 /* libsqlite3.0.dylib in Frameworks */,
 				7F11FEB3159E658E002F5982 /* Security.framework in Frameworks */,
@@ -518,6 +547,7 @@
 		7FAF75F6159E4FE300D37D7D = {
 			isa = PBXGroup;
 			children = (
+				7FE7ED56169B72DB00009C12 /* Sounds */,
 				7FCADB80169788ED00E2E6F5 /* Images */,
 				7FE76A6116851B9100803459 /* CustomControls */,
 				7FE5BA251651541300B807B1 /* Commercial */,
@@ -547,6 +577,8 @@
 		7FAF7604159E4FE300D37D7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7FE7ED52169B691000009C12 /* QuartzCore.framework */,
+				7FE7ED3D169B648400009C12 /* AudioToolbox.framework */,
 				7F74D4031682749800B692BB /* SystemConfiguration.framework */,
 				7FDD5D9916729631003090FC /* CoreLocation.framework */,
 				7FCB2A891621B498000EDB0B /* AWSiOSSDK.framework */,
@@ -694,6 +726,7 @@
 		7FCADB80169788ED00E2E6F5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7FE7ED54169B6F4B00009C12 /* whiteCheckmark.png */,
 				7FCADB821697897100E2E6F5 /* backArrow.png */,
 				7FCADB831697897100E2E6F5 /* barGreenBackground.png */,
 				7FCADB841697897100E2E6F5 /* crossLines.png */,
@@ -787,9 +820,38 @@
 		7FE76A6116851B9100803459 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
+				7FE7ECEF169B562000009C12 /* HUD */,
 				7FB8BF5E168F9FD1007EC50D /* SapidInfoBar */,
 			);
 			name = CustomControls;
+			sourceTree = "<group>";
+		};
+		7FE7ECEF169B562000009C12 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				7FE7ED3F169B655B00009C12 /* ATMHud.h */,
+				7FE7ED40169B655B00009C12 /* ATMHud.m */,
+				7FE7ED41169B655B00009C12 /* ATMHudDelegate.h */,
+				7FE7ED42169B655B00009C12 /* ATMHudQueueItem.h */,
+				7FE7ED43169B655B00009C12 /* ATMHudQueueItem.m */,
+				7FE7ED44169B655B00009C12 /* ATMHudView.h */,
+				7FE7ED45169B655B00009C12 /* ATMHudView.m */,
+				7FE7ED46169B655B00009C12 /* ATMProgressLayer.h */,
+				7FE7ED47169B655B00009C12 /* ATMProgressLayer.m */,
+				7FE7ED48169B655B00009C12 /* ATMSoundFX.h */,
+				7FE7ED49169B655B00009C12 /* ATMSoundFX.m */,
+				7FE7ED4A169B655B00009C12 /* ATMTextLayer.h */,
+				7FE7ED4B169B655B00009C12 /* ATMTextLayer.m */,
+			);
+			name = HUD;
+			sourceTree = "<group>";
+		};
+		7FE7ED56169B72DB00009C12 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				7FE7ED57169B730E00009C12 /* pop.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		7FEF2F4E164B0D34003C8745 /* Settings */ = {
@@ -940,6 +1002,8 @@
 				7FCADB931697897100E2E6F5 /* Icon@2x.png in Resources */,
 				7FCADB941697897100E2E6F5 /* screenBackground.png in Resources */,
 				7FCADB951697897100E2E6F5 /* screenBackground@2x.png in Resources */,
+				7FE7ED55169B6F4B00009C12 /* whiteCheckmark.png in Resources */,
+				7FE7ED58169B730E00009C12 /* pop.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,6 +1111,12 @@
 				7FB8BF61168FA008007EC50D /* SapidInfoBarView.m in Sources */,
 				7FB8BF64168FA0AC007EC50D /* SapidInfoBarManager.m in Sources */,
 				7FD14AFA1699B4AE00F0C652 /* RegInfoVC.m in Sources */,
+				7FE7ED4C169B655C00009C12 /* ATMHud.m in Sources */,
+				7FE7ED4D169B655C00009C12 /* ATMHudQueueItem.m in Sources */,
+				7FE7ED4E169B655C00009C12 /* ATMHudView.m in Sources */,
+				7FE7ED4F169B655C00009C12 /* ATMProgressLayer.m in Sources */,
+				7FE7ED50169B655C00009C12 /* ATMSoundFX.m in Sources */,
+				7FE7ED51169B655C00009C12 /* ATMTextLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

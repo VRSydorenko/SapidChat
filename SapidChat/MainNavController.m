@@ -9,6 +9,7 @@
 #import "MainNavController.h"
 #import "DataManager.h"
 #import "SapidInfoBarManager.h"
+#import "ATMHud.h"
 
 @interface MainNavController ()
 
@@ -20,6 +21,7 @@
 }
 
 @synthesize rootViewController = _rootViewController;
+@synthesize hud = _hud;
 @synthesize dialogs = _dialogs;
 @synthesize lastUpdate = _lastUpdate;
 @synthesize latitude = _latitude;
@@ -77,6 +79,8 @@
         [infoManager initInfoBarWithTopViewFrame:self.navigationBar.frame andHeight:40];
         [self.view insertSubview:infoManager.infoBar belowSubview:self.navigationBar];
     }
+    
+    self.hud = [[ATMHud alloc] init];
 }
 
 - (void)showInfoBarWithNegativeMessage:(NSString*)text {

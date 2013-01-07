@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "ATMHud.h"
 
 @class MainNavController;
 
 @interface MainNavController : UINavigationController <CLLocationManagerDelegate>
 
 @property UIViewController* rootViewController;
+@property ATMHud* hud;
 @property NSArray* dialogs;
 @property NSDate* lastUpdate;
 @property double latitude;

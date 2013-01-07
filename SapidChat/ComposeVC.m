@@ -26,7 +26,6 @@
 
 @implementation ComposeVC
 @synthesize textMessage;
-@synthesize spinner;
 @synthesize imageView;
 @synthesize buttonLanguage;
 @synthesize btnSend;
@@ -54,7 +53,6 @@
     }
     
     imagePicker = [[UIImagePickerController alloc] init];
-
 	imagePicker.delegate = self;
     
     [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_SEND] forButton:self.btnSend];
@@ -79,7 +77,6 @@
 - (void)viewDidUnload
 {
     [self setTextMessage:nil];
-    [self setSpinner:nil];
     [self setButtonLanguage:nil];
     [self setBtnSend:nil];
     [self setBtnAttachData:nil];
@@ -99,6 +96,7 @@
 - (IBAction)sendPressed:(id)sender {
     self.textMessage.text = [Utils trimWhitespaces:self.textMessage.text];
     if (self.textMessage.text.length > 0 || isImageSet){
+        [self.textMessage resignFirstResponder];
         [self sendMessage];
     } else {
         [navCon showInfoBarWithNeutralMessage:[Lang LOC_COMPOSE_INFOMSG_MESSAGE_IS_EMPTY]];
@@ -108,21 +106,21 @@
 -(void) sendMessage{
     if (!isSending){
         isSending = YES;
-            
-        [self.spinner startAnimating];
+        
+        navCon.hud.delegate = self;
+        [self.view addSubview:navCon.hud.view];
+        
+        [navCon.hud setCaption:@"Sending"];
+        [navCon.hud setActivity:YES];
+        [navCon.hud show];
             
         dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
         dispatch_async(refreshQueue, ^{
             Message* msg = [self prepareMessage];
             ErrorCodes msgSent = [DataManager sendMessage:msg];
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.spinner performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:NO];
-                //[self.spinner stopAnimating];
                 if (msgSent == OK){
-                    [self performSelectorOnMainThread:@selector(composeCompletedWithMessage:) withObject:msg waitUntilDone:NO];
-                    //[self.composeHandler composeCompleted:msg];
-                    [self performSelectorOnMainThread:@selector(backPressed) withObject:nil waitUntilDone:NO];
-                    //[self backPressed];
+                    [self composeCompletedWithMessage:msg];
                 } else{
                 
                 }
@@ -135,10 +133,25 @@
 
 -(void) composeCompletedWithMessage:(Message*)msg{
     [self.composeHandler composeCompleted:msg];
+    
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive){
+        [navCon.hud setCaption:@"Sent!"];
+        [navCon.hud setActivity:NO];
+        [navCon.hud setImage:[UIImage imageNamed:@"whiteCheckmark.png"]];
+        [navCon.hud update];
+        [navCon.hud setHideSound:[[NSBundle mainBundle] pathForResource:@"pop" ofType:@"wav"]];
+        [navCon.hud hideAfter:0.4];
+    } else {
+        [self backPressed];
+    }
 }
 
 - (void)backPressed{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)hudDidDisappear:(ATMHud *)_hud{
+    [self backPressed];
 }
 
 - (IBAction)languagePressed:(id)sender {

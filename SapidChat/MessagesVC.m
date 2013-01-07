@@ -543,19 +543,65 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1){
-        bool ok = YES;
-        NSString* collocutor = [self getCollocutor];
+        [self deleteDialog];
+    }
+}
+
+-(void) deleteDialog{
+    NSString* collocutor = [self getCollocutor];
+    
+    MainNavController* navCon = (MainNavController*)self.navigationController;
+    if (![self.view.subviews containsObject:navCon.hud.view]){
+        navCon.hud.delegate = self;
+        [self.view addSubview:navCon.hud.view];
+    }
+    [navCon.hud setCaption:@"Deleting dialog..."];
+    [navCon.hud setProgress:1.0 / messages.count];
+    [navCon.hud show];
+           
+    dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
+    dispatch_async(refreshQueue, ^{
+        BOOL ok = YES;
+        
+        float step = 1.0 / messages.count;
+        float progress = step;
+        
         for (Message* message in messages) {
             if ([DataManager deleteMessage:message] != OK){
                 ok = NO;
                 break;
             }
+            progress += step;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [navCon.hud setProgress:progress];
+            });
         }
-        if (ok && collocutor.length > 0){
-            //[self.tabelMessages reloadData];
-            [DataManager deleteUser:collocutor];
-            [self.navigationController popViewControllerAnimated:YES];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (ok && collocutor.length > 0){
+                [DataManager deleteUser:collocutor];
+                [self deletionCompleted];
+            }
+        });
+    });
+    dispatch_release(refreshQueue);
+}
+
+-(void) deletionCompleted{
+    MainNavController* navCon = (MainNavController*)self.navigationController;
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive){
+        [navCon.hud setProgress:0.0];
+        [navCon.hud setCaption:@"Dialog deleted"];
+        [navCon.hud setActivity:NO];
+        [navCon.hud setImage:[UIImage imageNamed:@"whiteCheckmark.png"]];
+        [navCon.hud update];
+        [navCon.hud setHideSound:[[NSBundle mainBundle] pathForResource:@"pop" ofType:@"wav"]];
+        [navCon.hud hideAfter:0.4];
+    } else {
+        [self backPressed];
     }
+}
+
+- (void)hudDidDisappear:(ATMHud *)_hud{
+    [self backPressed];
 }
 @end

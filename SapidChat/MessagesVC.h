@@ -39,7 +39,8 @@ typedef enum CellTypes{
                                          ComposeNewMessageResponseDelegate,
                                          UIActionSheetDelegate,
                                          UIAlertViewDelegate,
-                                         AttachmentDataUpdateDelegate>
+                                         AttachmentDataUpdateDelegate,
+                                         ATMHudDelegate>
 
 @property Dialog *dialog;
 @property (strong, nonatomic) IBOutlet UITableView *tabelMessages;

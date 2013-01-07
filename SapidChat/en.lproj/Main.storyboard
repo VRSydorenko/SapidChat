@@ -1414,10 +1414,6 @@
                                     <action selector="sendPressed:" destination="p1h-7f-rCv" eventType="touchUpInside" id="znk-LB-XRw"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="B1k-k0-lMl">
-                                <rect key="frame" x="26" y="164" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="tailTruncation" id="NkM-ji-jiT">
                                 <rect key="frame" x="8" y="131" width="69" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
@@ -1485,7 +1481,6 @@
                         <outlet property="buttonLanguage" destination="NkM-ji-jiT" id="X32-rU-0sS"/>
                         <outlet property="imageView" destination="SXF-Fw-Pjl" id="kXI-4c-HVd"/>
                         <outlet property="labelInfoText" destination="A58-T0-zdX" id="DgG-Zb-SkM"/>
-                        <outlet property="spinner" destination="B1k-k0-lMl" id="NiH-Cy-oxs"/>
                         <outlet property="textMessage" destination="giO-GS-qw1" id="kMs-Pl-TNc"/>
                     </connections>
                 </viewController>

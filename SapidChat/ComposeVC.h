@@ -10,6 +10,7 @@
 #import "Message.h"
 #import "NewMsgLanguagesNavCon.h"
 #import "MainNavController.h"
+#import "ATMHudDelegate.h"
 
 @protocol ComposeNewMessageResponseDelegate
 @required
@@ -19,11 +20,11 @@
 @interface ComposeVC : UIViewController<NewMsgLanguagesSettingsDelegate,
                                         UINavigationControllerDelegate,
                                         UIImagePickerControllerDelegate,
-                                        UIActionSheetDelegate>
+                                        UIActionSheetDelegate,
+                                        ATMHudDelegate>
 
 @property (strong, nonatomic) id <ComposeNewMessageResponseDelegate> composeHandler;
 @property (strong, nonatomic) IBOutlet UITextView *textMessage;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIButton *buttonLanguage;
 @property (strong, nonatomic) IBOutlet UILabel *labelInfoText;
@@ -35,6 +36,7 @@
 @property (nonatomic) int initialMsgGlobalTimstamp;
 @property (nonatomic) NSString* collocutor;
 
+- (void)backPressed;
 - (IBAction)sendPressed:(id)sender;
 - (IBAction)languagePressed:(id)sender;
 - (IBAction)attachDataPressed:(id)sender;

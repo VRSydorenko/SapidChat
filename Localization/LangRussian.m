@@ -62,6 +62,7 @@
 // info screen
 +(NSString*) LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE{return @"Об Интриге";}
 +(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE{return @"С помощью этой опции вы можете анонимно пригласить кого-нибудь для общения в Sapid Chat.\rЕсли вам кто-то нравится но вы стесняетесь сказать ему/ей об этом, вы можете заинтриговать ее (или его), пригласив пообщатсья в Sapid Chat, где и впоследствии раскрыть свой секрет.\rЭто только одна из причин, которые подойдуть для использовании данной опции.\rВажно: в настоящее время Sapid Chat существует только на платформе iOS, поэтому, приглашая кого-то пообщаться в Sapid Chat, убедитесь в том, что у нее/него есть iPhone или iPad и поэтому будет возможность ответить на ваше анонимное сообщние в Sapid Chat.";}
++(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE_CONDITIONS{return @"Отправка одного письма интриги стоит одну марку.";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Сообщения";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d новых сообщений";}
@@ -180,6 +181,10 @@
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_OK{return @"Да";}
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"Новое сообщение";}
++(NSString*) LOC_COMPOSE_MSG_SENDING{return @"Отправляем...";}
++(NSString*) LOC_COMPOSE_DLG_DELETING{return @"Удаляем...";}
++(NSString*) LOC_COMPOSE_MSG_OPERATION_SUCCEEDED{return @"Готово!";}
++(NSString*) LOC_COMPOSE_MSG_OPERATION_FAILED{return @"Ошибка!";}
 +(NSString*) LOC_COMPOSE_BTN_SEND{return @"Отправить";}
 +(NSString*) LOC_COMPOSE_BTN_ATTACH_IMG{return @"Добавить фото";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_TITLE_PICKFROM{return @"Источник:";}

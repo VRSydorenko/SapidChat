@@ -18,6 +18,7 @@
 @interface ComposeVC (){
     bool isSending;
     bool isImageSet;
+    bool dontDismiss;
     MainNavController* navCon;
     UIImagePickerController *imagePicker;
 }
@@ -44,6 +45,7 @@
     
 	isSending = NO;
     isImageSet = NO;
+    dontDismiss = NO;
     if (self.collocutor.length > 0){
         self.title = [DataManager loadUser:collocutor].nickname;
         self.buttonLanguage.hidden = YES;
@@ -110,7 +112,7 @@
         navCon.hud.delegate = self;
         [self.view addSubview:navCon.hud.view];
         
-        [navCon.hud setCaption:@"Sending"];
+        [navCon.hud setCaption:[Lang LOC_COMPOSE_MSG_SENDING]];
         [navCon.hud setActivity:YES];
         [navCon.hud show];
             
@@ -120,9 +122,11 @@
             ErrorCodes msgSent = [DataManager sendMessage:msg];
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (msgSent == OK){
+                    dontDismiss = NO;
                     [self composeCompletedWithMessage:msg];
                 } else{
-                
+                    dontDismiss = YES;
+                    [self composeCompletedWithMessage:nil];
                 }
                 isSending = NO;
             });
@@ -132,14 +136,22 @@
 }
 
 -(void) composeCompletedWithMessage:(Message*)msg{
-    [self.composeHandler composeCompleted:msg];
+    if (msg){
+        [self.composeHandler composeCompleted:msg];
+    }
     
+    [navCon.hud setActivity:NO];
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive){
-        [navCon.hud setCaption:@"Sent!"];
-        [navCon.hud setActivity:NO];
-        [navCon.hud setImage:[UIImage imageNamed:@"whiteCheckmark.png"]];
+        if (msg){
+            [navCon.hud setCaption:[Lang LOC_COMPOSE_MSG_OPERATION_SUCCEEDED]];
+            [navCon.hud setImage:[UIImage imageNamed:@"whiteCheckmark.png"]];
+            [navCon.hud setHideSound:[[NSBundle mainBundle] pathForResource:@"pop" ofType:@"wav"]];
+        } else {
+            [navCon.hud setCaption:[Lang LOC_COMPOSE_MSG_OPERATION_FAILED]];
+            //[navCon.hud setImage:[UIImage imageNamed:@"whiteErrorCross.png"]];
+            //[navCon.hud setHideSound:[[NSBundle mainBundle] pathForResource:@"error" ofType:@"wav"]];
+        }
         [navCon.hud update];
-        [navCon.hud setHideSound:[[NSBundle mainBundle] pathForResource:@"pop" ofType:@"wav"]];
         [navCon.hud hideAfter:0.4];
     } else {
         [self backPressed];
@@ -151,7 +163,9 @@
 }
 
 - (void)hudDidDisappear:(ATMHud *)_hud{
-    [self backPressed];
+    if (!dontDismiss){
+        [self backPressed];
+    }
 }
 
 - (IBAction)languagePressed:(id)sender {

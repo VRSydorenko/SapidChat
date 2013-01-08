@@ -115,10 +115,15 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"SegueIntrigueToInfo"]){
-        InfoVC* infoVC = (InfoVC*)[segue destinationViewController];
+    InfoVC* infoVC = (InfoVC*)[segue destinationViewController];
+    if (infoVC){
         infoVC.title = [Lang LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE];
-        infoVC.infoString = [Lang LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE];
+        if ([segue.identifier isEqualToString:@"SegueIntrigueToInfo"]){
+            infoVC.infoString = [Lang LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE];
+        }
+        if ([segue.identifier isEqualToString:@"SegueIntrigueConitionsToInfo"]){
+            infoVC.infoString = [Lang LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE_CONDITIONS];
+        }
     }
 }
 

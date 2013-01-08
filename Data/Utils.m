@@ -251,4 +251,15 @@
     return [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 }
 
++(NSString*) getUserString:(NSString*)userEmail{
+    NSString* result = @"";
+    if ([userEmail isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR]){
+        result =  [Lang LOC_MESSAGES_CELL_WAIT_FOR_REPLY];
+    } else {
+        User* collocutor = [DataManager loadUser:userEmail];
+        return collocutor ? collocutor.nickname : userEmail;
+    }
+    return  result;
+}
+
 @end

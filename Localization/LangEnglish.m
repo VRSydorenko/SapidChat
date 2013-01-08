@@ -62,6 +62,7 @@
 // info screen
 +(NSString*) LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE{return @"About intrigue";}
 +(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE{return @"With Intrigue option you can anonymousely invite somebody to talk in Sapid Chat.\rIf you like somebody and are ashamed to say her/him about it you can make their intrigued by inviting to Sapid Chat and make this secret come true.\r It is just one of many reasons you might have for inviting somebody.\rImportant: currently Sapid Chat is developed only for iOS devices so when making somebody intrigued with this option please be sure your partner has iPhone or iPad and thus will be able to run Sapid Chat and talk to you.";}
++(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE_CONDITIONS{return @"Sending of one intrigue request costs 1 spostamp.";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Messages";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d new messages";}
@@ -124,6 +125,10 @@
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_OK{return @"Yes";}
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"New message";}
++(NSString*) LOC_COMPOSE_MSG_SENDING{return @"Sending...";}
++(NSString*) LOC_COMPOSE_DLG_DELETING{return @"Deleting...";}
++(NSString*) LOC_COMPOSE_MSG_OPERATION_SUCCEEDED{return @"Done!";}
++(NSString*) LOC_COMPOSE_MSG_OPERATION_FAILED{return @"Error!";}
 +(NSString*) LOC_COMPOSE_BTN_SEND{return @"Send";}
 +(NSString*) LOC_COMPOSE_BTN_ATTACH_IMG{return @"Attach image";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_TITLE_PICKFROM{return @"Source:";}

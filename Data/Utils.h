@@ -30,4 +30,7 @@
 
 +(UIBarButtonItem*) createBackButtonWithSelectorBackPressedOnTarget:(UIViewController*)viewController;
 +(NSString*) trimWhitespaces:(NSString*)string;
+
++(NSString*) getUserString:(NSString*)userEmail;
+
 @end

@@ -20,6 +20,7 @@
 #import "MessageImageCell.h"
 
 @interface MessagesVC (){
+    bool dontDismiss;
     NSArray *messages;
     NSMutableDictionary *selectedCells;
     NSMutableArray *errorCells;
@@ -67,23 +68,24 @@
     self.tabelMessages.dataSource = self;
     self.tabelMessages.delegate = self;
     
-    replyMode = ![[self getCollocutor] isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR];
+    NSString* collocutor = [self getCollocutor];
+    
+    replyMode = ![collocutor isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR];
     if (!replyMode){
         // disable action sheet for 'awaiting reply' messages until it is possible to delete messages from the bank
         self.navigationItem.rightBarButtonItem = nil;
-        
-        self.title = [Lang LOC_MESSAGES_CELL_WAIT_FOR_REPLY];
-    } else {
-        self.title = [DataManager loadUser:[self getCollocutor]].nickname;
     }
+    self.title = [Utils getUserString:collocutor];
     
     [self setupActionSheets];
     
-    if ([[self getCollocutor] isEqualToString:SYSTEM_USER]){
+    if ([collocutor isEqualToString:SYSTEM_USER]){
         self.buttonReply.hidden = YES;
     } else {
         [LocalizationUtils setTitle:replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE] forButton:self.buttonReply];
     }
+    
+    dontDismiss = NO;
     
     [DataManager resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
 }
@@ -102,7 +104,6 @@
     messageFont = nil;
     timeAndDistanceFont = nil;
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -555,7 +556,7 @@
         navCon.hud.delegate = self;
         [self.view addSubview:navCon.hud.view];
     }
-    [navCon.hud setCaption:@"Deleting dialog..."];
+    [navCon.hud setCaption:[Lang LOC_COMPOSE_DLG_DELETING]];
     [navCon.hud setProgress:1.0 / messages.count];
     [navCon.hud show];
            
@@ -578,23 +579,33 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             if (ok && collocutor.length > 0){
+                dontDismiss = NO;
                 [DataManager deleteUser:collocutor];
-                [self deletionCompleted];
+                [self deletionCompletedOk:YES];
+            } else {
+                dontDismiss = YES;
+                [self deletionCompletedOk:NO];
             }
         });
     });
     dispatch_release(refreshQueue);
 }
 
--(void) deletionCompleted{
+-(void) deletionCompletedOk:(bool)ok{
     MainNavController* navCon = (MainNavController*)self.navigationController;
+    [navCon.hud setProgress:0.0];
+    [navCon.hud setActivity:NO];
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive){
-        [navCon.hud setProgress:0.0];
-        [navCon.hud setCaption:@"Dialog deleted"];
-        [navCon.hud setActivity:NO];
-        [navCon.hud setImage:[UIImage imageNamed:@"whiteCheckmark.png"]];
+        if (ok){
+            [navCon.hud setCaption:[Lang LOC_COMPOSE_MSG_OPERATION_SUCCEEDED]];
+            [navCon.hud setImage:[UIImage imageNamed:@"whiteCheckmark.png"]];
+            [navCon.hud setHideSound:[[NSBundle mainBundle] pathForResource:@"pop" ofType:@"wav"]];
+        } else {
+            [navCon.hud setCaption:[Lang LOC_COMPOSE_MSG_OPERATION_FAILED]];
+            [navCon.hud setImage:[UIImage imageNamed:@"whiteCross.png"]];
+            //[navCon.hud setHideSound:[[NSBundle mainBundle] pathForResource:@"error" ofType:@"wav"]];
+        }
         [navCon.hud update];
-        [navCon.hud setHideSound:[[NSBundle mainBundle] pathForResource:@"pop" ofType:@"wav"]];
         [navCon.hud hideAfter:0.4];
     } else {
         [self backPressed];
@@ -602,6 +613,8 @@
 }
 
 - (void)hudDidDisappear:(ATMHud *)_hud{
-    [self backPressed];
+    if (!dontDismiss){
+        [self backPressed];
+    }
 }
 @end

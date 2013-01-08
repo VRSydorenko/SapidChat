@@ -141,6 +141,7 @@
         emailChecked = YES;
     }
     if (self.textNick){
+        self.textNick.text = [Utils trimWhitespaces:self.textNick.text];
         if (self.textNick.text.length == 0){
             [navController showInfoBarWithNegativeMessage:[Lang LOC_REGISTATOR_ERR_EMPTYNICK]];
             return;

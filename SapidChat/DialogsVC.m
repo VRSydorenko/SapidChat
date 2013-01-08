@@ -98,16 +98,7 @@
     if (cell){
         Dialog *dialog = [navController.dialogs objectAtIndex:indexPath.row];
         NSString* stringCollocutor = dialog.collocutor ? dialog.collocutor : [UserSettings getEmail];
-        if ([stringCollocutor isEqualToString:SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR]){
-            cell.labelCollocutor.text =  [Lang LOC_MESSAGES_CELL_WAIT_FOR_REPLY];
-        } else {
-            User* collocutor = [DataManager loadUser:stringCollocutor];
-            if (collocutor){
-                cell.labelCollocutor.text = collocutor.nickname;
-            } else {
-                cell.labelCollocutor.text = stringCollocutor;
-            }
-        }
+        cell.labelCollocutor.text = [Utils getUserString:stringCollocutor];
         Message *msg = (Message*)[[dialog getSortedMessages] lastObject];
         cell.infoMessage.text = msg.text.length > 0 ? msg.text : msg.attachmentName.length > 0 ? [Lang LOC_MESSAGES_CELL_MSG_WITH_ATTACHMENT] : @"ERROR";
     }
@@ -146,10 +137,8 @@
         [navController performSelectorOnMainThread:@selector(setDialogs:) withObject:[DataManager getAllDialogs] waitUntilDone:YES];
 //        navController.dialogs = [DataManager getAllDialogs];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableDialogs performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
-            //[self.tableDialogs reloadData];
-            [self.navigationItem performSelectorOnMainThread:@selector(setRightBarButtonItem:) withObject:sender waitUntilDone:YES];
-//            self.navigationItem.rightBarButtonItem = sender;
+            [self.tableDialogs reloadData];
+            self.navigationItem.rightBarButtonItem = sender;
         });
     });
     dispatch_release(refreshQueue);

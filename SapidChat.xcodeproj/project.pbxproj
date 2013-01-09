@@ -61,8 +61,6 @@
 		7FC21DD816739BC40093612C /* MessageTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC21DD716739BC40093612C /* MessageTopCell.m */; };
 		7FC21DDB16739BF20093612C /* MessageMiddleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC21DDA16739BF20093612C /* MessageMiddleCell.m */; };
 		7FC21DDE16739C0C0093612C /* MessageBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC21DDD16739C0C0093612C /* MessageBottomCell.m */; };
-		7FC35CE6169CE10D00A43F44 /* whiteCheckmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC35CE4169CE10D00A43F44 /* whiteCheckmark.png */; };
-		7FC35CE7169CE10D00A43F44 /* whiteCheckmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC35CE5169CE10D00A43F44 /* whiteCheckmark@2x.png */; };
 		7FC9881B1610BEC200AB04D5 /* Lang.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881A1610BEC200AB04D5 /* Lang.m */; };
 		7FC9881E1610C31600AB04D5 /* LangEnglish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881D1610C31600AB04D5 /* LangEnglish.m */; };
 		7FC988211610C32600AB04D5 /* LangRussian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988201610C32600AB04D5 /* LangRussian.m */; };
@@ -84,6 +82,8 @@
 		7FCCE0611687BABF00CD032B /* current_mode_notpro.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCCE05F1687BABF00CD032B /* current_mode_notpro.png */; };
 		7FCCE0621687BABF00CD032B /* current_mode_pro.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCCE0601687BABF00CD032B /* current_mode_pro.png */; };
 		7FD14AFA1699B4AE00F0C652 /* RegInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD14AF91699B4AE00F0C652 /* RegInfoVC.m */; };
+		7FD42D99169DF09400BEE515 /* whiteCheckmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD42D97169DF09400BEE515 /* whiteCheckmark.png */; };
+		7FD42D9A169DF09400BEE515 /* whiteCheckmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD42D98169DF09400BEE515 /* whiteCheckmark@2x.png */; };
 		7FD5F34E1687C49A00334D36 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5F3431687C49A00334D36 /* AmazonClientManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7FD5F34F1687C49A00334D36 /* DbItemHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5F3451687C49A00334D36 /* DbItemHelper.m */; };
 		7FD5F3501687C49A00334D36 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5F3471687C49A00334D36 /* Dialog.m */; };
@@ -274,8 +274,6 @@
 		7FC21DDA16739BF20093612C /* MessageMiddleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageMiddleCell.m; path = TableCells/MessageMiddleCell.m; sourceTree = "<group>"; };
 		7FC21DDC16739C0C0093612C /* MessageBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageBottomCell.h; path = TableCells/MessageBottomCell.h; sourceTree = "<group>"; };
 		7FC21DDD16739C0C0093612C /* MessageBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageBottomCell.m; path = TableCells/MessageBottomCell.m; sourceTree = "<group>"; };
-		7FC35CE4169CE10D00A43F44 /* whiteCheckmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteCheckmark.png; path = Images/whiteCheckmark.png; sourceTree = "<group>"; };
-		7FC35CE5169CE10D00A43F44 /* whiteCheckmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "whiteCheckmark@2x.png"; path = "Images/whiteCheckmark@2x.png"; sourceTree = "<group>"; };
 		7FC988191610BEC200AB04D5 /* Lang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lang.h; path = Localization/Lang.h; sourceTree = "<group>"; };
 		7FC9881A1610BEC200AB04D5 /* Lang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Lang.m; path = Localization/Lang.m; sourceTree = "<group>"; };
 		7FC9881C1610C31600AB04D5 /* LangEnglish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangEnglish.h; path = Localization/LangEnglish.h; sourceTree = "<group>"; };
@@ -305,6 +303,8 @@
 		7FCCE0601687BABF00CD032B /* current_mode_pro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = current_mode_pro.png; path = Images/current_mode_pro.png; sourceTree = "<group>"; };
 		7FD14AF81699B4AD00F0C652 /* RegInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegInfoVC.h; path = User/RegInfoVC.h; sourceTree = "<group>"; };
 		7FD14AF91699B4AE00F0C652 /* RegInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegInfoVC.m; path = User/RegInfoVC.m; sourceTree = "<group>"; };
+		7FD42D97169DF09400BEE515 /* whiteCheckmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteCheckmark.png; path = Images/whiteCheckmark.png; sourceTree = "<group>"; };
+		7FD42D98169DF09400BEE515 /* whiteCheckmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "whiteCheckmark@2x.png"; path = "Images/whiteCheckmark@2x.png"; sourceTree = "<group>"; };
 		7FD5F3421687C49A00334D36 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonClientManager.h; path = Data/AmazonClientManager.h; sourceTree = "<group>"; };
 		7FD5F3431687C49A00334D36 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmazonClientManager.m; path = Data/AmazonClientManager.m; sourceTree = "<group>"; };
 		7FD5F3441687C49A00334D36 /* DbItemHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbItemHelper.h; path = Data/DbItemHelper.h; sourceTree = "<group>"; };
@@ -726,8 +726,8 @@
 		7FCADB80169788ED00E2E6F5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				7FC35CE4169CE10D00A43F44 /* whiteCheckmark.png */,
-				7FC35CE5169CE10D00A43F44 /* whiteCheckmark@2x.png */,
+				7FD42D97169DF09400BEE515 /* whiteCheckmark.png */,
+				7FD42D98169DF09400BEE515 /* whiteCheckmark@2x.png */,
 				7FCADB821697897100E2E6F5 /* backArrow.png */,
 				7FCADB831697897100E2E6F5 /* barGreenBackground.png */,
 				7FCADB841697897100E2E6F5 /* crossLines.png */,
@@ -1004,8 +1004,8 @@
 				7FCADB941697897100E2E6F5 /* screenBackground.png in Resources */,
 				7FCADB951697897100E2E6F5 /* screenBackground@2x.png in Resources */,
 				7FE7ED58169B730E00009C12 /* pop.wav in Resources */,
-				7FC35CE6169CE10D00A43F44 /* whiteCheckmark.png in Resources */,
-				7FC35CE7169CE10D00A43F44 /* whiteCheckmark@2x.png in Resources */,
+				7FD42D99169DF09400BEE515 /* whiteCheckmark.png in Resources */,
+				7FD42D9A169DF09400BEE515 /* whiteCheckmark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

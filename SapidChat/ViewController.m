@@ -42,6 +42,8 @@
 {
     [super viewDidLoad];
     
+    self.fakeNavBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barGreenBackground.png"]];
+    
     [UserSettings setHasLaunched];
     
     isLoggingIn = NO;
@@ -82,6 +84,7 @@
     [self setBtnGo:nil];
     [self setBtnRegister:nil];
     [self setBtnForgotPass:nil];
+    [self setFakeNavBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

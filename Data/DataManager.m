@@ -95,7 +95,18 @@
     DynamoDBAttributeValue* keyAttr = [[DynamoDBAttributeValue alloc] initWithS:[email lowercaseString]];
     DynamoDBKey *key = [[DynamoDBKey alloc] initWithHashKeyElement: keyAttr];
     getItemRequest.key = key;
-    DynamoDBGetItemResponse *response = [[AmazonClientManager ddb] getItem:getItemRequest];
+    DynamoDBGetItemResponse *response = nil;
+    @try {
+        response = [[AmazonClientManager ddb] getItem:getItemRequest];
+    }
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"%@", ex);
+        return NO;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+        return NO;
+    }
     return response.item.count != 0;
 }
 
@@ -124,8 +135,13 @@
         if (!response){
             return AMAZON_SERVICE_ERROR;
         }
-    } @catch (NSException *exception) {
+    }
+    @catch (AmazonServiceException *exception) {
         NSLog(@"SapidChat :: Exception registering user: %@", exception);
+        return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException* exception) {
+        NSLog(@"%@", exception);
         return ERROR;
     }
     return OK;
@@ -160,7 +176,7 @@
         content = contentYourself;
     }
     
-    return [NSString stringWithFormat:@"<html><head><meta http-equiv=\"Content-Type\"content=\"text/html; charset=UTF-8\"/></head><body style=\"font-family:Arial;font-size:11pt;\">%@</body></html>", content];
+    return [NSString stringWithFormat:@"<html><head><meta http-equiv=\"Content-Type\"content=\"text/html; charset=UTF-16\"/></head><body style=\"font-family:Arial;font-size:11pt;background-color:#F7E8C3;\">%@</body></html>", content];
 }
 
 +(ErrorCodes) sendIntrigueTo:(NSString*)email withOptionalText:(NSString*)text{
@@ -200,9 +216,13 @@
             AmazonSESClient *ses = [AmazonClientManager ses];
             response = [ses sendEmail:emailRequest];
         }
-        @catch (NSException* ex) {
-            result = AMAZON_SERVICE_ERROR;
+        @catch (AmazonServiceException* ex) {
             NSLog(@"%@", ex);
+            return AMAZON_SERVICE_ERROR;
+        }
+        @catch (NSException *exception) {
+            NSLog(@"%@", exception);
+            return ERROR;
         }
         
         // now send custom message to AWS
@@ -260,9 +280,13 @@
         AmazonSESClient *ses = [AmazonClientManager ses];
         response = [ses sendEmail:emailRequest];
     }
-    @catch (NSException* ex) {
-        result = AMAZON_SERVICE_ERROR;
+    @catch (AmazonServiceException* ex) {
         NSLog(@"%@", ex);
+        result = AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+        result = ERROR;
     }
     
     return result;
@@ -281,9 +305,13 @@
         response = [[AmazonClientManager ddb] getItem:getItemRequest];
         //
     }
-    @catch (AmazonServiceException *exception) {
-        NSLog(@"%@", exception);
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"%@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+        return ERROR;
     }
     if (!response){
         return AMAZON_SERVICE_ERROR;
@@ -308,9 +336,13 @@
         response = [[AmazonClientManager ddb] getItem:getItemRequest];
         //
     }
-    @catch (AmazonServiceException *exception) {
-        NSLog(@"%@", exception);
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"%@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+        return ERROR;
     }
     if (!response){
         return AMAZON_SERVICE_ERROR;
@@ -437,8 +469,13 @@
         response = [[AmazonClientManager ddb] deleteItem:delRequest];
         [[self getDbManager] deleteMessage:msg.when];
     }
-    @catch (NSException *exception) {
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"%@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+        return ERROR;
     }
     
     if (!response){
@@ -464,8 +501,13 @@
     @try {
         response = [[AmazonClientManager ddb] updateItem:updateRequest];
     }
-    @catch (NSException *exception) {
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"%@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+        return ERROR;
     }
     if (!response){
         return ERROR;
@@ -495,8 +537,13 @@
     @try {
         response = [[AmazonClientManager ddb] updateItem:updateRequest];
     }
-    @catch (NSException *exception) {
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"%@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+        return ERROR;
     }
     if (!response){
         return ERROR;
@@ -516,9 +563,13 @@
         
         [[AmazonClientManager s3] putObject:putObjectRequest];
     }
-    @catch (AmazonServiceException *exception) {
-        NSLog(@"Upload Failed, Reason: %@", exception);
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"%@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Upload failed: %@", exception);
+        return ERROR;
     }
     return OK;
 }
@@ -532,8 +583,11 @@
     @try {
         [[AmazonClientManager s3] getObject:getObjectRequest];
     }
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"Attachment request failed: %@", ex);
+    }
     @catch (NSException *exception) {
-        NSLog(@"Error requesting attachment. Info: %@", exception);
+        NSLog(@"Attachment request failed: %@", exception);
     }
 }
 
@@ -639,8 +693,11 @@
             response = nil;
         }
     }
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"Getting dialogs error: %@", ex);
+    }
     @catch (NSException *exception) {
-        NSLog(@"SapidChat :: Exception getting dialogs: %@", exception);
+        NSLog(@"Getting dialogs error: %@", exception);
     }
     return messages;
 }
@@ -699,8 +756,13 @@
             [self upload:msg.attachmentData inBucket:ATTACHMENTS_BUCKET_NAME forKey:msg.attachmentName];
         }
     }
-    @catch (NSException *exception) {
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"Placing to bank failed: %@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Placing to bank failed: %@", exception);
+        return ERROR;
     }
 
     msg.to = SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR;
@@ -760,8 +822,13 @@
             return AMAZON_SERVICE_ERROR;
         }
     }
-    @catch (NSException *exception) {
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"Sending to collocutor failed: %@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Sending to collocutor failed: %@", exception);
+        return ERROR;
     }
     if (message.attachmentData.length > 0){
         [self upload:message.attachmentData inBucket:ATTACHMENTS_BUCKET_NAME forKey:message.attachmentName];
@@ -829,8 +896,13 @@
     @try{
         response = [[AmazonClientManager ddb] deleteItem:delRequest];
     }
-    @catch(NSException *exception){
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"Deletion from bank failed: %@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Deletion from bank failed: %@", exception);
+        return ERROR;
     }
     if (!response){
         return ERROR;
@@ -870,8 +942,13 @@
             return ERROR;
         }
     }
-    @catch (NSException *exception) {
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"Placing to received failed: %@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Placing to received failed: %@", exception);
+        return ERROR;
     }
     
     return OK;
@@ -895,8 +972,13 @@
     @try {
         response = [[AmazonClientManager ddb] updateItem:updateRequest];
     }
-    @catch (NSException *exception) {
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"%@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+        return ERROR;
     }
     if (!response){
         return ERROR;
@@ -938,8 +1020,13 @@
     @try {
         response = [[AmazonClientManager ddb] updateItem:updateRequest];
     }
-    @catch (NSException *exception) {
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"%@", ex);
         return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+        return ERROR;
     }
     if (!response){
         return ERROR;

@@ -212,6 +212,7 @@
         [labelHeader setFont:[UIFont fontWithName:@"Helvetica-Bold" size:FONT_SECTIONHEADER_SIZE]];
         labelHeader.textColor = [UIColor lightGrayColor];
         labelHeader.textAlignment = NSTextAlignmentCenter;
+        labelHeader.backgroundColor = [UIColor clearColor];
         NSDate* localDate = [Utils toLocalDate:((Message*)[messages objectAtIndex:section]).when];// !!!
         labelHeader.text = [Utils dateToString:localDate];
         return labelHeader;

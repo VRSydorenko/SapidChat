@@ -116,7 +116,7 @@
     </div>";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_DEFAULT{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], @"", @""];}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMMSG_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE]];}
-+(NSString*) internal_INTRIGUE_MAIL_CONTENT_TEMPL{return @"<div style=\"background:#F7E8C3;padding:10px;border: solid 1px gray;font-family:Verdana;\">\
++(NSString*) internal_INTRIGUE_MAIL_CONTENT_TEMPL{return @"<div style=\"padding:10px;border: solid 1px gray;font-family:Verdana;\">\
     <font style=\"font-size:10pt;\">\
     <h4>Здравствуйте!</h4>\
     <p>Кто-то, кто знает адрес вашей электронной почты, хочет вам что-то сказать и анонимно приглашает пообщаться в Sapid Chat!</p>\

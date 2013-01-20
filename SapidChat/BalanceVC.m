@@ -37,7 +37,7 @@
     self.tableContent.delegate = self;
 }
 
-- (void)viewDidUnload{
+- (void)dealloc{
     [self setTableContent:nil];
     [super viewDidUnload];
 }

@@ -28,7 +28,7 @@
     self.textInfo.text = self.infoString;
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setTextInfo:nil];
     [super viewDidUnload];

@@ -47,7 +47,7 @@
     [self.view insertSubview:infoBarManager.infoBar belowSubview:self.fakeNavBar];
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setLabelInstruction:nil];
     [self setBtnGo:nil];

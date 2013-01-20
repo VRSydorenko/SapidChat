@@ -31,6 +31,21 @@
     return self;
 }
 
+-(id) copyWithZone:(NSZone *)zone{
+    Message* copy = [[Message allocWithZone:zone] init];
+    copy.text = self.text;
+    copy.from = self.from;
+    copy.to = self.to;
+    copy.when = self.when;
+    copy.type = self.type;
+    copy.latitude = self.latitude;
+    copy.longitude = self.longitude;
+    copy.attachmentData = self.attachmentData;
+    copy.attachmentName = self.attachmentName;
+    copy.initial_message_global_timestamp = self.initial_message_global_timestamp;
+    return copy;
+}
+
 -(NSString*) attachmentName{
     if (_attachmentName && _attachmentName.length > 0){ // if it has already been initialised (loaded from AWS) then return it
         return _attachmentName;

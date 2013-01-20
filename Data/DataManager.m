@@ -255,7 +255,7 @@
     // user.email is the password
     
     SESContent *messageBody = [[SESContent alloc] init];
-    messageBody.data = [NSString stringWithFormat:@"Hello %@,\r\rYou password: %@", user.nickname, user.email];
+    messageBody.data = [NSString stringWithFormat:[Lang LOC_RESTORE_EMAIL_TEMPL], user.nickname, user.email];
     
     SESContent *subject = [[SESContent alloc] init];
     subject.data = @"Sapid Chat password restore";

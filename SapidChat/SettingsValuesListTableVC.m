@@ -57,7 +57,7 @@
     }
 }
 
--(void) viewDidUnload{
+-(void) dealloc{
     values = nil;
     msgLanguages = nil;
     [super viewDidUnload];

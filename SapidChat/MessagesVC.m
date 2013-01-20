@@ -90,7 +90,7 @@
     [DataManager resetUnreadMessagesCountForCollocutor:self.dialog.collocutor];
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setTabelMessages:nil];
     [self setButtonReply:nil];
@@ -163,19 +163,21 @@
 }
 
 -(void) updateMessages{
-    messages = [self.dialog getSortedMessages];
+    messages = nil;
+    messages = [[NSArray alloc] initWithArray: [self.dialog getSortedMessages] copyItems:YES];
     
     Message* msg;
     NSDictionary* datesRowCount = [[NSMutableDictionary alloc] init];
-    for (int i = 0; i<messages.count; i++) {
+    for (int i = 0; i < messages.count; i++) {
         msg = (Message*)[messages objectAtIndex:i];
         NSDate* localDate = [Utils toLocalDate:msg.when];
+        
         NSString* date = [Utils dateToString:localDate];
         id objForKey = [datesRowCount objectForKey:date];
         if (!objForKey){
             [datesRowCount setValue:[NSNumber numberWithInt:1] forKey:date];
         } else {
-            [datesRowCount setValue:[NSNumber numberWithInt:[objForKey intValue]+ 1] forKey:date];
+            [datesRowCount setValue:[NSNumber numberWithInt:[objForKey intValue]+1] forKey:date];
         }
     }
     
@@ -183,9 +185,11 @@
     [firsts addObject:[NSNumber numberWithInt:0]];
     int ndx = 0;
     for (int i = 0; i < [datesRowCount allValues].count - 1; i++) {
-        ndx += [[[datesRowCount allValues] objectAtIndex:i] intValue];
+        int val = [[[datesRowCount allValues] objectAtIndex:i] intValue];
+        ndx += val;
         [firsts addObject:[NSNumber numberWithInt:ndx]];
     }
+    firstMsgs = nil;
     firstMsgs = [[NSArray alloc] initWithArray:firsts copyItems:YES];
     
     NSMutableArray* lasts = [[NSMutableArray alloc] init];
@@ -198,6 +202,7 @@
         }
         [lasts addObject:[NSNumber numberWithInt:ndx]];
     }
+    lastMsgs = nil;
     lastMsgs = [[NSArray alloc] initWithArray:lasts copyItems:YES];
 }
 

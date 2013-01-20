@@ -39,7 +39,7 @@
     self.tableLanguages.delegate = self;
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setTableLanguages:nil];
     [self setTextLangsIKnow:nil];

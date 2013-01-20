@@ -95,6 +95,7 @@
 +(NSString*) LOC_RESTORE_BTN_GO{return [[self AppLanguage] LOC_RESTORE_BTN_GO];}
 +(NSString*) LOC_RESTORE_ALERT_STATE{return [[self AppLanguage] LOC_RESTORE_ALERT_STATE];}
 +(NSString*) LOC_RESTORE_ALERT_BTN_OK{return [[self AppLanguage] LOC_RESTORE_ALERT_BTN_OK];}
++(NSString*) LOC_RESTORE_EMAIL_TEMPL{return [[self AppLanguage] LOC_RESTORE_EMAIL_TEMPL];}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SCREEN_TITLE{ return [[self AppLanguage] LOC_INTRIGUE_SCREEN_TITLE];}
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{ return [[self AppLanguage] LOC_INTRIGUE_SELL_DESCRIPTION];}

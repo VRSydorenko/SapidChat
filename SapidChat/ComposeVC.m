@@ -76,7 +76,7 @@
     return NO;
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setTextMessage:nil];
     [self setButtonLanguage:nil];

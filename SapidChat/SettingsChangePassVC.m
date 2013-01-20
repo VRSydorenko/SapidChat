@@ -42,7 +42,7 @@
     [LocalizationUtils setTitle:[Lang LOC_SETTINGS_CHANGEPASS_BTN_OK] forButton:self.btnChangePass];
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setEditCurrentPass:nil];
     [self setEditNewPass:nil];

@@ -95,12 +95,9 @@
     [infoManager showInfoBarWithMessage:text withMood:POSITIVE];
 }
 
--(void) viewDidUnload{
+-(void) dealloc{
     [self setDialogs:nil];
     [self setLastUpdate:nil];
-}
-
--(void) dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

@@ -75,7 +75,7 @@
     [LocalizationUtils setTitle:[Lang LOC_LOGIN_BTN_FORGOTPASSWORD] forButton:self.btnForgotPass];
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setTextEmail:nil];
     [self setTextPassword:nil];

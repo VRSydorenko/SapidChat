@@ -52,7 +52,7 @@
     selectedDialog = nil;
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setTableDialogs:nil];
     [self setSpinnerPick:nil];

@@ -175,7 +175,7 @@
     emailChecked = NO;
 }
 
-- (void)viewDidUnload {
+- (void)dealloc {
     [self setTextEmail:nil];
     [self setTextPassword:nil];
     [self setTextNick:nil];

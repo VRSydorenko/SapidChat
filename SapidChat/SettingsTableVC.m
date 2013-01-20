@@ -148,7 +148,7 @@
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:title message:@"" delegate:self cancelButtonTitle:btnCancelText otherButtonTitles:btnOkText, nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     UITextField * alertTextField = [alert textFieldAtIndex:0];
-    alertTextField.keyboardType = UIKeyboardTypeNamePhonePad;
+    alertTextField.keyboardType = UIKeyboardTypeDefault;
     alertTextField.placeholder = placeholder;
     alertTextField.text = currentValue;
     [alert show];
@@ -167,7 +167,7 @@
     }
 }
 
-- (void)viewDidUnload {
+- (void)dealloc {
     [self setLabelTimeFormat:nil];
     [self setLabelDateFormat:nil];
     [self setLabelNickname:nil];

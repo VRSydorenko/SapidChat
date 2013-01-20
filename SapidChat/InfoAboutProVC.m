@@ -38,7 +38,7 @@
     self.tabelFeatures.delegate = self;
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setTextTitle:nil];
     [self setTabelFeatures:nil];

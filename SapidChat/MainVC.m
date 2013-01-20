@@ -40,7 +40,7 @@
     [self.tableMain reloadData];
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setTableMain:nil];
     [self setBtnLogout:nil];

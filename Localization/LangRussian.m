@@ -78,6 +78,7 @@
 +(NSString*) LOC_RESTORE_BTN_GO{return @"Выслать пароль";}
 +(NSString*) LOC_RESTORE_ALERT_STATE{return @"Пароль отправлен по указанному адресу";}
 +(NSString*) LOC_RESTORE_ALERT_BTN_OK{return @"Закрыть";}
++(NSString*) LOC_RESTORE_EMAIL_TEMPL{return @"Здравствуйте, %@!\rВы запросили напоминание вашего пароля и мы с радостью высылаем его вам.\rВаш пароль: %@\rSapid Chat желает вам хорошего настроения и интересного общения!\rhttp://sapidchat.com/\rinfo@sapidchat.com";}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SCREEN_TITLE{return @"Интрига";}
 +(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Тут - описание замечательной опции: отсылки анонимный приглашений на почту!\rПригласите того, кто вам нравится!";}

@@ -30,7 +30,7 @@
     [self setupContent];
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setScrollView:nil];
     [self setPageControl:nil];

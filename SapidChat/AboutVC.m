@@ -122,7 +122,7 @@
     return 30;
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setTableAbout:nil];
     personFont = nil;

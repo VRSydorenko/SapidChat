@@ -54,7 +54,7 @@
     [self updateConoditionsLabel];
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [self setLabelEnterEmail:nil];
     [self setTextEmail:nil];

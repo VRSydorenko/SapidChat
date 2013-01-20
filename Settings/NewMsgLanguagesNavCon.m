@@ -22,7 +22,7 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void)viewDidUnload
+- (void)dealloc
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.

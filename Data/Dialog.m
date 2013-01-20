@@ -41,4 +41,8 @@
     return [[NSArray alloc] initWithArray:messages];
 }
 
+-(void) dealloc{
+    messages = nil;
+}
+
 @end

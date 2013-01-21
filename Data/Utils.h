@@ -25,12 +25,13 @@
 +(bool) getIfMetricMeasurementSystem;
 +(void) setBackgroundFromPatternForView:(UIView*)view;
 
-+(NSData*) compressImage:(UIImage*)imageData;
-+ (UIImage*)imageWithImage:(UIImage*)sourceImage scaledToSizeWithSameAspectRatio:(CGSize)targetSize;
++(NSData*) compressImage:(UIImage*)image;
++(UIImage*)scale:(UIImage*)image proportionalToSize:(CGSize)size;
 
 +(UIBarButtonItem*) createBackButtonWithSelectorBackPressedOnTarget:(UIViewController*)viewController;
 +(NSString*) trimWhitespaces:(NSString*)string;
 
 +(NSString*) getUserString:(NSString*)userEmail;
++(NSDate*) dateWithoutTime:(NSDate*)date;
 
 @end

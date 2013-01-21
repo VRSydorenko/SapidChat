@@ -135,107 +135,56 @@
     CGFloat compression = 0.9f;
     CGFloat maxCompression = 0.1f;
     int maxFileSize = 100*1024;
-    
+
     NSData *compressedData = UIImageJPEGRepresentation(image, compression);
-    
     while (compressedData.length > maxFileSize && compression >= maxCompression)
     {
         compression -= 0.1;
         compressedData = UIImageJPEGRepresentation(image, compression);
     }
-    
     return compressedData;
 }
 
-
-+ (UIImage*)imageWithImage:(UIImage*)sourceImage scaledToSizeWithSameAspectRatio:(CGSize)targetSize
++(UIImage*)scale:(UIImage*)image proportionalToSize:(CGSize)size
 {
-    CGSize imageSize = sourceImage.size;
-    CGFloat width = imageSize.width;
-    CGFloat height = imageSize.height;
-    CGFloat targetWidth = targetSize.width;
-    CGFloat targetHeight = targetSize.height;
-    CGFloat scaleFactor = 0.0;
-    CGFloat scaledWidth = targetWidth;
-    CGFloat scaledHeight = targetHeight;
-    CGPoint thumbnailPoint = CGPointMake(0.0,0.0);
-    
-    if (CGSizeEqualToSize(imageSize, targetSize) == NO) {
-        CGFloat widthFactor = targetWidth / width;
-        CGFloat heightFactor = targetHeight / height;
-        
-        if (widthFactor > heightFactor) {
-            scaleFactor = widthFactor; // scale to fit height
-        }
-        else {
-            scaleFactor = heightFactor; // scale to fit width
-        }
-        
-        scaledWidth  = width * scaleFactor;
-        scaledHeight = height * scaleFactor;
-        
-        // center the image
-        if (widthFactor > heightFactor) {
-            thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;
-        }
-        else if (widthFactor < heightFactor) {
-            thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;
-        }
+    if(image.size.width>image.size.height)
+    {
+        size = CGSizeMake((image.size.width/image.size.height)*size.height, size.height);
+    }
+    else
+    {
+        size = CGSizeMake(size.width, (image.size.height/image.size.width)*size.width);
     }
     
-    CGImageRef imageRef = [sourceImage CGImage];
-    CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
-    CGColorSpaceRef colorSpaceInfo = CGImageGetColorSpace(imageRef);
+    return [self scale:image toSize:size];
+}
+
++(UIImage*)scale:(UIImage*)image toSize:(CGSize)size
+{
+    // Scalling selected image to targeted size
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = CGBitmapContextCreate(NULL, size.width, size.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast);
+    CGContextClearRect(context, CGRectMake(0, 0, size.width, size.height));
     
-    if (bitmapInfo == kCGImageAlphaNone) {
-        bitmapInfo = kCGImageAlphaNoneSkipLast;
+    if(image.imageOrientation == UIImageOrientationRight)
+    {
+        CGContextRotateCTM(context, -M_PI_2);
+        CGContextTranslateCTM(context, -size.height, 0.0f);
+        CGContextDrawImage(context, CGRectMake(0, 0, size.height, size.width), image.CGImage);
     }
+    else
+        CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), image.CGImage);
     
-    CGContextRef bitmap;
+    CGImageRef scaledImage=CGBitmapContextCreateImage(context);
     
-    if (sourceImage.imageOrientation == UIImageOrientationUp || sourceImage.imageOrientation == UIImageOrientationDown) {
-        bitmap = CGBitmapContextCreate(NULL, targetWidth, targetHeight, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
-        
-    } else {
-        bitmap = CGBitmapContextCreate(NULL, targetHeight, targetWidth, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
-        
-    }
+    CGColorSpaceRelease(colorSpace);
+    CGContextRelease(context);
     
-    // In the right or left cases, we need to switch scaledWidth and scaledHeight,
-    // and also the thumbnail point
-    if (sourceImage.imageOrientation == UIImageOrientationLeft) {
-        thumbnailPoint = CGPointMake(thumbnailPoint.y, thumbnailPoint.x);
-        CGFloat oldScaledWidth = scaledWidth;
-        scaledWidth = scaledHeight;
-        scaledHeight = oldScaledWidth;
-        
-        CGContextRotateCTM (bitmap, M_PI_2); // + 90 degrees
-        CGContextTranslateCTM (bitmap, 0, -targetHeight);
-        
-    } else if (sourceImage.imageOrientation == UIImageOrientationRight) {
-        thumbnailPoint = CGPointMake(thumbnailPoint.y, thumbnailPoint.x);
-        CGFloat oldScaledWidth = scaledWidth;
-        scaledWidth = scaledHeight;
-        scaledHeight = oldScaledWidth;
-        
-        CGContextRotateCTM (bitmap, -M_PI_2); // - 90 degrees
-        CGContextTranslateCTM (bitmap, -targetWidth, 0);
-        
-    } else if (sourceImage.imageOrientation == UIImageOrientationUp) {
-        // NOTHING
-    } else if (sourceImage.imageOrientation == UIImageOrientationDown) {
-        CGContextTranslateCTM (bitmap, targetWidth, targetHeight);
-        CGContextRotateCTM (bitmap, -M_PI); // - 180 degrees
-    }
+    UIImage *ret = [UIImage imageWithCGImage: scaledImage];
     
-    CGContextDrawImage(bitmap, CGRectMake(thumbnailPoint.x, thumbnailPoint.y, scaledWidth, scaledHeight), imageRef);
-    CGImageRef ref = CGBitmapContextCreateImage(bitmap);
-    UIImage* newImage = [UIImage imageWithCGImage:ref];
+    CGImageRelease(scaledImage);
     
-    CGContextRelease(bitmap);
-    CGImageRelease(ref);
-    
-    return newImage; 
+    return ret;
 }
 
 +(NSString*) trimWhitespaces:(NSString*)string{
@@ -260,6 +209,13 @@
         return collocutor ? collocutor.nickname : userEmail;
     }
     return  result;
+}
+
++(NSDate*) dateWithoutTime:(NSDate*)date{
+    unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [calendar components:flags fromDate:date];
+    return [calendar dateFromComponents:components];
 }
 
 @end

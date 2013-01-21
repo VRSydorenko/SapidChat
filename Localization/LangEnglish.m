@@ -72,7 +72,7 @@
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Log out";}
 +(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{ return @"Forgot password?";}
 // restore pass screen
-+(NSString*) LOC_RESTORE_SCREEN_TITLE{return @"Restore password";}
++(NSString*) LOC_RESTORE_SCREEN_TITLE{return @"Password restore";}
 +(NSString*) LOC_RESTORE_TXT_EMAIL_PLACEHOLDER{return @"Email";}
 +(NSString*) LOC_RESTORE_LABEL_INSTRUCTION{return @"Please enter email you registered with:";}
 +(NSString*) LOC_RESTORE_BTN_GO{return @"Send password";}
@@ -142,7 +142,6 @@
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS{return @"Settings";}
 // section date & time
 +(NSString*) LOC_SETTINGS_SECTIONHEADER_DATEnTIME {return @"Date & Time";}
-+(NSString*) LOC_SETTINGS_SECTION_DATEnTIME_TIMEZONE {return @"Time zone";}
 +(NSString*) LOC_SETTINGS_SECTION_DATEnTIME_TIMEFORMAT {return @"Time format";}
 +(NSString*) LOC_SETTINGS_SECTION_DATEnTIME_DATEFORMAT {return @"Date format";}
 +(NSString*) LOC_SETTINGS_SECTIONHEADER_ACCOUNT {return @"Account";}

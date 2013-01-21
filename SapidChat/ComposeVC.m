@@ -47,7 +47,7 @@
     isImageSet = NO;
     dontDismiss = NO;
     if (self.collocutor.length > 0){
-        self.title = [DataManager loadUser:collocutor].nickname;
+        self.title = [Utils getUserString:collocutor];
         self.buttonLanguage.hidden = YES;
     } else {
         self.title = [Lang LOC_COMPOSE_TITLE];
@@ -186,11 +186,10 @@
         didFinishPickingImage:(UIImage *)image
         editingInfo:(NSDictionary *)editingInfo{
     
-    //imageView.image = [editingInfo objectForKey:@"UIImagePickerControllerOriginalImage"];
     isImageSet = YES;
     
     CGSize newSize = CGSizeMake(2*self.imageView.bounds.size.width, 2*self.imageView.bounds.size.height);
-    UIImage *newImage = [Utils imageWithImage:image scaledToSizeWithSameAspectRatio:newSize];
+    UIImage *newImage = [Utils scale:image proportionalToSize:newSize];
     [self.imageView setImage:newImage];
     
     [picker dismissViewControllerAnimated:YES completion:nil];

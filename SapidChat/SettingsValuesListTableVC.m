@@ -31,12 +31,16 @@
     self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
     
     switch (self.valuesMode) {
-        case VALUES_TIME_FORMAT:
+        case VALUES_TIME_FORMAT:{
             values = [[NSArray alloc] initWithObjects:@"HH:mm", @"hh:mm", @"hh:mm a", nil];
+            self.title = [Lang LOC_SETTINGS_SECTION_DATEnTIME_TIMEFORMAT];
             break;
-        case VALUES_DATE_FORMAT:
+        }
+        case VALUES_DATE_FORMAT:{
             values = [[NSArray alloc] initWithObjects:@"YYYY-MM-dd E", @"YYYY.MM.dd", @"YYYY-MM-dd", @"MM.dd E", @"dd.MM.YYYY", @"E dd.MM.YYYY", @"E dd.MM", @"dd.MM", nil];
+            self.title = [Lang LOC_SETTINGS_SECTION_DATEnTIME_DATEFORMAT];
             break;
+        }
         case VALUES_CNV_LANGUAGES: {
             msgLanguages = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
             // languages are loaded directly to the table

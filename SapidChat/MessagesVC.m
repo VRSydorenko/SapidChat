@@ -167,12 +167,17 @@
     messages = [[NSArray alloc] initWithArray: [self.dialog getSortedMessages] copyItems:YES];
     
     Message* msg;
+    NSMutableArray* dateKeys = [[NSMutableArray alloc] init];
     NSDictionary* datesRowCount = [[NSMutableDictionary alloc] init];
     for (int i = 0; i < messages.count; i++) {
         msg = (Message*)[messages objectAtIndex:i];
-        NSDate* localDate = [Utils toLocalDate:msg.when];
         
-        NSString* date = [Utils dateToString:localDate];
+        NSDate* dateOnly = [Utils dateWithoutTime:[Utils toLocalDate:msg.when]];
+        if (![dateKeys containsObject:dateOnly]){
+            [dateKeys addObject:dateOnly];
+        }
+        
+        NSString* date = [Utils dateToString:dateOnly];
         id objForKey = [datesRowCount objectForKey:date];
         if (!objForKey){
             [datesRowCount setValue:[NSNumber numberWithInt:1] forKey:date];
@@ -184,8 +189,10 @@
     NSMutableArray* firsts = [[NSMutableArray alloc] init];
     [firsts addObject:[NSNumber numberWithInt:0]];
     int ndx = 0;
-    for (int i = 0; i < [datesRowCount allValues].count - 1; i++) {
-        int val = [[[datesRowCount allValues] objectAtIndex:i] intValue];
+    
+    [dateKeys sortUsingSelector:@selector(compare:)];
+    for (NSDate* nextSortedDate in dateKeys){
+        int val = [[datesRowCount objectForKey:[Utils dateToString:nextSortedDate]] intValue];
         ndx += val;
         [firsts addObject:[NSNumber numberWithInt:ndx]];
     }
@@ -194,11 +201,11 @@
     
     NSMutableArray* lasts = [[NSMutableArray alloc] init];
     ndx = 0;
-    for (int i = 0; i < [datesRowCount allValues].count; i++) {
+    for (NSDate* nextSortedDate in dateKeys){
         if (ndx == 0){
-            ndx = [[[datesRowCount allValues] objectAtIndex:0] intValue] - 1;
+            ndx = [[datesRowCount objectForKey:nextSortedDate] intValue] - 1;
         } else {
-            ndx += [[[datesRowCount allValues] objectAtIndex:i] intValue];
+            ndx += [[datesRowCount objectForKey:nextSortedDate] intValue];
         }
         [lasts addObject:[NSNumber numberWithInt:ndx]];
     }

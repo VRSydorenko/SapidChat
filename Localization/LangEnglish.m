@@ -17,16 +17,16 @@
 // info
 +(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return @"Distance to collocutor";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{
-    return [NSString stringWithFormat:@"When you receive a message you see a distance between you and the collocutor.\rIt is interesting who you a talking to, they can be close to you or in thousand %@ away.", [Utils getIfMetricMeasurementSystem] ? @"kilometers" : @"miles"];
+    return [NSString stringWithFormat:@"You can only guess where your message will settle on the globe after you've sent it but you will see the distance to the one who replies to you! Who knows how far away they are from you... it might be a thousand %@ or just few meters.", [Utils getIfMetricMeasurementSystem] ? @"kilometers" : @"miles"];
 }
 +(NSString*) LOC_INFO_FEATURE_NOTE_DISTANCE{ return @"The distance is shown when location options is available for SapidChat on your and on your collocutor's device";}
 +(NSString*) LOC_INFO_FEATURE_TITLE_IMAGE{ return @"Images in messages";}
-+(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"As it's said it's always better one time to see than a hundred times to hear. With this feature you can attach images to your messages and view images in messages you receive.";}
++(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"Sending images is not a new invention nowadays, but it's easier to send an image in two taps from the chat than asking for their email address and composing a new email.";}
 // about screen
 +(NSString*) LOC_ABOUT_SCREEN_TITLE{ return @"About the app";}
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Viktor Sydorenko";}
-+(NSString*) LOC_ABOUT_DASHA_DESIGNER{ return @"Darya Konopatova";}
-+(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"Idea and development";}
++(NSString*) LOC_ABOUT_DASHA_DESIGNER{ return @"Dmitriy Pohodyaev";}
++(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"Development and decor";}
 +(NSString*) LOC_ABOUT_DESIGN{return @"Graphics";}
 +(NSString*) LOC_ABOUT_LOCALIZATION{return @"Localization";}
 // first launch
@@ -133,7 +133,6 @@
 +(NSString*) LOC_COMPOSE_MSG_OPERATION_SUCCEEDED{return @"Done!";}
 +(NSString*) LOC_COMPOSE_MSG_OPERATION_FAILED{return @"Error!";}
 +(NSString*) LOC_COMPOSE_BTN_SEND{return @"Send";}
-+(NSString*) LOC_COMPOSE_BTN_ATTACH_IMG{return @"Attach image";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_TITLE_PICKFROM{return @"Source:";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA{return @"Take a photo";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA_ROLL{return @"Camera roll";}

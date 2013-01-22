@@ -131,7 +131,7 @@
 }
 
 -(UIImage*) getCurrentProModeCellImage{
-    NSString* imageName = [UserSettings premiumUnlocked] ? @"current_mode_pro.png" : @"current_mode_notpro.png";
+    NSString* imageName = [UserSettings premiumUnlocked] ? @"check.png" : @"exclamation.png";
     return [UIImage imageNamed:imageName];
 }
 

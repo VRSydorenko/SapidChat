@@ -17,16 +17,16 @@
 // info
 +(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return @"Расстояние до собеседника";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{
-    return [NSString stringWithFormat:@"Когда вы получаете входящее сообщение, вы видите расстояние от вас до собеседника.\rИнтересно, с кем вы общаетесь. Ваш собеседник может быть рядом, а может быть и за тысячи %@ от вас.", [Utils getIfMetricMeasurementSystem] ? @"километров" : @"миль"];
+    return [NSString stringWithFormat:@"Вы можете только догадываться о том, где осядет ваше сообщение после того как вы его отправите, но вы сможете видеть расстояние до вашего собеседника! Кто знает как он далеко от вас... может, на расстоянии тысячи %@, а может и всего несокльких метров.", [Utils getIfMetricMeasurementSystem] ? @"километров" : @"миль"];
 }
 +(NSString*) LOC_INFO_FEATURE_NOTE_DISTANCE{ return @"Расстояние отображается если определение местоположения разрешено для Sapid Chat как на вашем устройстве так и на устройстве вашего собесденика.";}
 +(NSString*) LOC_INFO_FEATURE_TITLE_IMAGE{ return @"Изображения в сообщениях";}
-+(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"Как говорится лучше один раз увидеть, чем сто раз услышать. С этой возможностью вы сможете отсылать и просматривать изображения в сообщениях.";}
++(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"Сегодня, конечно, никого не удивить пересылкой изображений, но все равно, легче отправить картинку прямо из чата в два клика чем спрашивать у собеседника адрес email и отправлять письмо.";}
 // about screen
 +(NSString*) LOC_ABOUT_SCREEN_TITLE{ return @"О приложении";}
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Виктор Сидоренко";}
-+(NSString*) LOC_ABOUT_DASHA_DESIGNER{ return @"Дарья Конопатова";}
-+(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"Идея и разработка";}
++(NSString*) LOC_ABOUT_DASHA_DESIGNER{ return @"Дмитрий Походяев";}
++(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"Разработка и оформление";}
 +(NSString*) LOC_ABOUT_DESIGN{return @"Графика";}
 +(NSString*) LOC_ABOUT_LOCALIZATION{return @"Локализация";}
 // first launch
@@ -189,13 +189,12 @@
 +(NSString*) LOC_COMPOSE_MSG_OPERATION_SUCCEEDED{return @"Готово!";}
 +(NSString*) LOC_COMPOSE_MSG_OPERATION_FAILED{return @"Ошибка!";}
 +(NSString*) LOC_COMPOSE_BTN_SEND{return @"Отправить";}
-+(NSString*) LOC_COMPOSE_BTN_ATTACH_IMG{return @"Добавить фото";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_TITLE_PICKFROM{return @"Источник:";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA{return @"Сделать фото";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA_ROLL{return @"Выбрать из галереи";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CANCEL{return @"Отмена";}
 +(NSString*) LOC_COMPOSE_ALERT_SOURCE_UNAVAILABLE{return @"К сожалению, данный источник изображений не доступен на этом устройстве.";}
-+(NSString*) LOC_COMPOSE_INFOMSG_MESSAGE_IS_EMPTY{return @"Нечего отправлять. Ни текст ни фото не выбрано.";}
++(NSString*) LOC_COMPOSE_INFOMSG_MESSAGE_IS_EMPTY{return @"Нечего отправлять. Ни текст ни фото не выбраны.";}
 // settings
 +(NSString*) LOC_SETTINGS_WINDOWTITLE_SETTINGS {return @"Настройки";}
 // section date & time

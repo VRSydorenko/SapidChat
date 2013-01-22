@@ -25,11 +25,13 @@
 {
     [super viewDidLoad];
     
+    self.fakeNavBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barGreenBackground.png"]];
+    
     self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
     
     [Utils setBackgroundFromPatternForView:self.view];
     
-    self.textTitle.text = [Lang LOC_BALANCE_WHAT_IN_PRO_TITLE];
+    self.labelTitle.text = [Lang LOC_BALANCE_WHAT_IN_PRO_TITLE];
     
     boundingSize = CGSizeMake(240.0f, CGFLOAT_MAX); // 260 is the width of UILabel
     descrFont = [UIFont fontWithName:@"Helvetica" size:13.0f];
@@ -40,7 +42,6 @@
 
 - (void)dealloc
 {
-    [self setTextTitle:nil];
     [self setTabelFeatures:nil];
     descrFont = nil;
     [super viewDidUnload];
@@ -109,5 +110,11 @@
 
 - (IBAction)closePressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)viewDidUnload {
+    [self setFakeNavBar:nil];
+    [self setFakeNavBar:nil];
+    [self setLabelTitle:nil];
+    [super viewDidUnload];
 }
 @end

@@ -331,7 +331,7 @@
                         imgCell.imgView.image = [[UIImage alloc] initWithData:msg.attachmentData];
                         infoString = @"";
                     } else {
-                        imgCell.imgView.image = [UIImage imageNamed:@"msgs_image_placeholder.png"];
+                        imgCell.imgView.image = [UIImage imageNamed:@"image.png"];
                         if ([errorCells containsObject:indexPath]){
                             infoString = [Lang LOC_MESSAGES_CELL_ERROR_LOADING_IMAGE];
                         } else {
@@ -339,7 +339,7 @@
                         }
                     }
                 } else {
-                    imgCell.imgView.image = [UIImage imageNamed:@"msgs_image_accessdenied.png"];
+                    imgCell.imgView.image = [UIImage imageNamed:@"lock.png"];
                     infoString = [Lang LOC_MESSAGES_CELL_IMAGES_ARE_IN_PRO_MODE];
                 }
                 UIImage* bgImg = [self getMidMessageCellImageBkg:msg.type incoming:incoming];

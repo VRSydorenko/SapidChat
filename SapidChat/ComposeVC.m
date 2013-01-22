@@ -41,7 +41,7 @@
     
     self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
     
-    [Utils setBackgroundFromPatternForView:self.view];
+    //[Utils setBackgroundFromPatternForView:self.view];
     
 	isSending = NO;
     isImageSet = NO;
@@ -49,6 +49,7 @@
     if (self.collocutor.length > 0){
         self.title = [Utils getUserString:collocutor];
         self.buttonLanguage.hidden = YES;
+        self.buttonLanguageIcon.hidden = YES;
     } else {
         self.title = [Lang LOC_COMPOSE_TITLE];
         [self updateLanguageText];
@@ -58,7 +59,10 @@
 	imagePicker.delegate = self;
     
     [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_SEND] forButton:self.btnSend];
-    [LocalizationUtils setTitle:[Lang LOC_COMPOSE_BTN_ATTACH_IMG] forButton:self.btnAttachData];
+    [self.btnSend sizeToFit];
+    CGRect frame = self.btnSend.frame;
+    frame.origin.x = 320/*display width*/ - 32/*icon*/ - self.btnSend.bounds.size.width;
+    self.btnSend.frame = frame;
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -256,5 +260,9 @@
     
     msg.initial_message_global_timestamp = initialMsgGlobalTimstamp;
     return msg;
+}
+- (void)viewDidUnload {
+    [self setButtonLanguageIcon:nil];
+    [super viewDidUnload];
 }
 @end

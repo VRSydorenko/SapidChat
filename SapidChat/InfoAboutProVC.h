@@ -10,8 +10,9 @@
 
 @interface InfoAboutProVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UIView *fakeNavBar;
 @property (strong, nonatomic) IBOutlet UITableView *tabelFeatures;
-@property (strong, nonatomic) IBOutlet UILabel *textTitle;
+@property (strong, nonatomic) IBOutlet UILabel *labelTitle;
 - (IBAction)closePressed:(id)sender;
 
 @end

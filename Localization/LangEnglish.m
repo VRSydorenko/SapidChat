@@ -19,7 +19,7 @@
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{
     return [NSString stringWithFormat:@"When you receive a message you see a distance between you and the collocutor.\rIt is interesting who you a talking to, they can be close to you or in thousand %@ away.", [Utils getIfMetricMeasurementSystem] ? @"kilometers" : @"miles"];
 }
-+(NSString*) LOC_INFO_FEATURE_NOTE_DISTANCE{ return @"Note: the distance is shown when location options is available for SapidChat on your and on your collocutor's device";}
++(NSString*) LOC_INFO_FEATURE_NOTE_DISTANCE{ return @"The distance is shown when location options is available for SapidChat on your and on your collocutor's device";}
 +(NSString*) LOC_INFO_FEATURE_TITLE_IMAGE{ return @"Images in messages";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"As it's said it's always better one time to see than a hundred times to hear. With this feature you can attach images to your messages and view images in messages you receive.";}
 // about screen
@@ -52,7 +52,10 @@
 +(NSString*) LOC_REGISTATOR_ERR_INVALIDNICK{return @"You cannot use this nickname";}
 +(NSString*) LOC_REGISTATOR_ERR_NOLANGS_SELECTED{return @"No languages selected";}
 +(NSString*) LOC_REGISTATOR_SUCCESS{return @"Completed successfuly!";}
-+(NSString*) LOC_REGISTATOR_WHY_EMAIL{return @"Why we need you email....";}
++(NSString*) LOC_REGISTATOR_WHY_EMAIL{return @"The reasons of using email address as a login to Sapid Chat:\r\
+    - password restore (the password will be sent to your email address in case you forgot it).\r\
+    - the \"Intrigue\" feature (in case somebody knows your email and wants to make you intrigued). About the \"Intrigue\" feature you can read on the app website sapidchat.com or in the \"Intrigue\" section of the app after registration.\r\r\
+    Sapid Chat does not send spam and does not expose your information to third people.";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Login";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Registration";}
@@ -61,8 +64,9 @@
 +(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER {return @"Password";}
 // info screen
 +(NSString*) LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE{return @"About intrigue";}
-+(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE{return @"With Intrigue option you can anonymousely invite somebody to talk in Sapid Chat.\rIf you like somebody and are ashamed to say her/him about it you can make their intrigued by inviting to Sapid Chat and make this secret come true.\r It is just one of many reasons you might have for inviting somebody.\rImportant: currently Sapid Chat is developed only for iOS devices so when making somebody intrigued with this option please be sure your partner has iPhone or iPad and thus will be able to run Sapid Chat and talk to you.";}
-+(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE_CONDITIONS{return @"Sending of one intrigue request costs 1 spostamp.";}
++(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE{return @"With this feature you can anonymously invite somebody to communication. All you need for that is an email of the person you are interested in. Enter the email in corresponding field and hit the \"Make intrigued\" button. After that to the entered email address will be sent an email saying the person that somebody is interested in them and anonymously invites to communication in Sapid Chat. You can optionally add an additional message to the invitation.\r\r\
+    Currently Sapid Chat is developed only for iOS devices so when making somebody intrigued with this option please be sure your partner has iPhone or iPad and thus will be able to run Sapid Chat and talk to you.";}
++(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE_CONDITIONS{return @"Poststamps is an internal currency of Sapid Chat. For sending of one intriguing letter one poststamp is requred. Afetr the registration the user becomes 10 poststamps to their internal account for free. Checking the actual state of the poststamps balance or topping it up can be done in the \"Cabinet\".";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Messages";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d new messages";}
@@ -81,8 +85,6 @@
 +(NSString*) LOC_RESTORE_EMAIL_TEMPL{return @"Hello, %@!\rYou asked to remind you about your password and we are sending it to you.\rYour password: %@\rSapid Chat wishes you an interesting communication!\rhttp://sapidchat.com/\rinfo@sapidchat.com";}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SCREEN_TITLE{return @"Intrigue";}
-+(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Here is a description of the amazing option!\rIt is sending an anonymous email!";}
-+(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return @"Activate";}
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Enter email of whose you want to get intrigued by inviting to the chat:";}
 +(NSString*) LOC_INTRIGUE_LABEL_CONDITIONS{return @"Sending: %d %@; You have: %d";}
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Make intrigued!";}

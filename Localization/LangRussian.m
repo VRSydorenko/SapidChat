@@ -19,7 +19,7 @@
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{
     return [NSString stringWithFormat:@"Когда вы получаете входящее сообщение, вы видите расстояние от вас до собеседника.\rИнтересно, с кем вы общаетесь. Ваш собеседник может быть рядом, а может быть и за тысячи %@ от вас.", [Utils getIfMetricMeasurementSystem] ? @"километров" : @"миль"];
 }
-+(NSString*) LOC_INFO_FEATURE_NOTE_DISTANCE{ return @"Примечание: расстояние отображается если определение местоположения разрешено для Sapid Chat как на вашем устройстве так и на устройстве вашего собесденика.";}
++(NSString*) LOC_INFO_FEATURE_NOTE_DISTANCE{ return @"Расстояние отображается если определение местоположения разрешено для Sapid Chat как на вашем устройстве так и на устройстве вашего собесденика.";}
 +(NSString*) LOC_INFO_FEATURE_TITLE_IMAGE{ return @"Изображения в сообщениях";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"Как говорится лучше один раз увидеть, чем сто раз услышать. С этой возможностью вы сможете отсылать и просматривать изображения в сообщениях.";}
 // about screen
@@ -52,7 +52,10 @@
 +(NSString*) LOC_REGISTATOR_ERR_INVALIDNICK{return @"Вы не можете использовать данный ник";}
 +(NSString*) LOC_REGISTATOR_ERR_NOLANGS_SELECTED{return @"Не выбрано ни одного языка";}
 +(NSString*) LOC_REGISTATOR_SUCCESS{return @"Завершена успешно!";}
-+(NSString*) LOC_REGISTATOR_WHY_EMAIL{return @"Зачем нам нужен ваш имейл....";}
++(NSString*) LOC_REGISTATOR_WHY_EMAIL{return @"В качестве логина в Sapid Chat используется email по следующим причинам:\r\
+    - для восстановления пароля (будет выслан по указанному адресу в случае, если вы его забудете).\r\
+    - для опции \"Интрига\" (если кто-нибудь захочет вас заинтриговать и пригласить анонимно пообщаться в Sapid Chat, зная адрес вашей электронной почты). Об опции \"Интрига\" вы можете прочитать на сайте приложения sapidchat.com или в соответствующем разделе программы после регистрации.\r\r\
+    Sapid Chat не рассылает спам и не передает ваши данные третьим лицам!";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Вход";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Регистрация";}
@@ -61,8 +64,9 @@
 +(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER {return @"Пароль";}
 // info screen
 +(NSString*) LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE{return @"Об Интриге";}
-+(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE{return @"С помощью этой опции вы можете анонимно пригласить кого-нибудь для общения в Sapid Chat.\rЕсли вам кто-то нравится но вы стесняетесь сказать ему/ей об этом, вы можете заинтриговать ее (или его), пригласив пообщатсья в Sapid Chat, где и впоследствии раскрыть свой секрет.\rЭто только одна из причин, которые подойдуть для использовании данной опции.\rВажно: в настоящее время Sapid Chat существует только на платформе iOS, поэтому, приглашая кого-то пообщаться в Sapid Chat, убедитесь в том, что у нее/него есть iPhone или iPad и поэтому будет возможность ответить на ваше анонимное сообщние в Sapid Chat.";}
-+(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE_CONDITIONS{return @"Отправка одного письма интриги стоит одну марку.";}
++(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE{return @"С помощью данной опции вы можете анонимно пригласить кого-то пообщаться. Все, что вам нужно знать - адрес электронной почты интересующего вас человека. Введите этот адрес в соответствующее поле и нажмите кнопку \"Заинтриговать\". После этого по указанному адресу будет отправлено письмо, которое сообщит человеку, что кто-то им заинтересован и анонимно приглашает к переписке в Sapid Chat. По желанию вы также можете добавить к приглашению свое личное сообщение.\r\r\
+    В настоящее время Sapid Chat существует только на платформе iOS, поэтому, приглашая кого-то пообщаться в Sapid Chat, убедитесь в том, что у нее/него есть iPhone или iPad и поэтому будет возможность ответить на ваше анонимное сообщние в Sapid Chat.";}
++(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE_CONDITIONS{return @"Почтовые марки - это внутрення валюта Sapid Chat. Для отправки одного интригующего письма необходима одна почтовая марка. Сразу же после регистрации пользователь бесплатно получает на свой внутренний счет 10 марок. Посмотреть состояние баланса и пополнить его можно в разделе \"Кабинет\".";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Сообщения";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d новых сообщений";}
@@ -81,8 +85,6 @@
 +(NSString*) LOC_RESTORE_EMAIL_TEMPL{return @"Здравствуйте, %@!\rВы запросили напоминание вашего пароля и мы с радостью высылаем его вам.\rВаш пароль: %@\rSapid Chat желает вам хорошего настроения и интересного общения!\rhttp://sapidchat.com/\rinfo@sapidchat.com";}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SCREEN_TITLE{return @"Интрига";}
-+(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{return @"Тут - описание замечательной опции: отсылки анонимный приглашений на почту!\rПригласите того, кто вам нравится!";}
-+(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return @"Активировать";}
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Введите e-mail того, кого хотите заинтриговать, анонимно пригласив пообщаться:";}
 +(NSString*) LOC_INTRIGUE_LABEL_CONDITIONS{return @"Отправка: %d %@; У вас: %d";}
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Заинтриговать!";}

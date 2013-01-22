@@ -189,7 +189,7 @@
     isImageSet = YES;
     
     CGSize newSize = CGSizeMake(2*self.imageView.bounds.size.width, 2*self.imageView.bounds.size.height);
-    UIImage *newImage = [Utils scale:image proportionalToSize:newSize];
+    UIImage *newImage = [Utils image:image byScalingProportionallyToSize:newSize];
     [self.imageView setImage:newImage];
     
     [picker dismissViewControllerAnimated:YES completion:nil];

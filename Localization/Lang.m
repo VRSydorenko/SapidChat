@@ -98,8 +98,6 @@
 +(NSString*) LOC_RESTORE_EMAIL_TEMPL{return [[self AppLanguage] LOC_RESTORE_EMAIL_TEMPL];}
 // intrigue sell screen
 +(NSString*) LOC_INTRIGUE_SCREEN_TITLE{ return [[self AppLanguage] LOC_INTRIGUE_SCREEN_TITLE];}
-+(NSString*) LOC_INTRIGUE_SELL_DESCRIPTION{ return [[self AppLanguage] LOC_INTRIGUE_SELL_DESCRIPTION];}
-+(NSString*) LOC_INTRIGUE_SELL_BTN_ACTIVATE{ return [[self AppLanguage] LOC_INTRIGUE_SELL_BTN_ACTIVATE];}
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return [[self AppLanguage] LOC_INTRIGUE_LABEL_ENTERMAIL];}
 +(NSString*) LOC_INTRIGUE_LABEL_CONDITIONS{return [[self AppLanguage] LOC_INTRIGUE_LABEL_CONDITIONS];}
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return [[self AppLanguage] LOC_INTRIGUE_BTN_SEND];}

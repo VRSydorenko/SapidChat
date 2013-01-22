@@ -26,7 +26,7 @@
 +(void) setBackgroundFromPatternForView:(UIView*)view;
 
 +(NSData*) compressImage:(UIImage*)image;
-+(UIImage*)scale:(UIImage*)image proportionalToSize:(CGSize)size;
++(UIImage*)image:(UIImage*)sourceImage byScalingProportionallyToSize:(CGSize)targetSize;
 
 +(UIBarButtonItem*) createBackButtonWithSelectorBackPressedOnTarget:(UIViewController*)viewController;
 +(NSString*) trimWhitespaces:(NSString*)string;

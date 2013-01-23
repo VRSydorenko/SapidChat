@@ -169,10 +169,10 @@
 // screen balance
 +(NSString*) LOC_BALANCE_SCREEN_TITLE{return @"Cabinet";}
 +(NSString*) LOC_BALANCE_PRO_NO{return @"Limited version!";}
-+(NSString*) LOC_BALANCE_PRO_YES{return @"Pro version!";}
-+(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Advantages of the Pro";}
-+(NSString*) LOC_BALANCE_WHAT_IN_PRO_TITLE{return @"Advantages";}
-+(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Make it Pro";}
++(NSString*) LOC_BALANCE_PRO_YES{return @"Full version!";}
++(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Advantages of Full version";}
++(NSString*) LOC_BALANCE_WHAT_IN_PRO_TITLE{return @"Full version";}
++(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Full version";}
 +(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Restore";}
 +(NSString*) LOC_BALANCE_HEADER_APP{return @"Application";}
 +(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return @"Your balance";}

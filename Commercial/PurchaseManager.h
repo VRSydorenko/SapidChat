@@ -23,6 +23,7 @@
 -(void)userCancelled;
 -(void)purchasesDenied;
 -(void)productsLoaded;
+-(void)actionImpossible;
 @end
 
 @interface PurchaseManager : NSObject<SKProductsRequestDelegate,

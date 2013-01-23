@@ -240,6 +240,7 @@
 +(NSString*) LOC_BALANCE_RESULT_ERROR{return @"Ошибка";}
 +(NSString*) LOC_BALANCE_RESULT_NOTAUTHORIZED{return @"Платежы отключены";}
 +(NSString*) LOC_BALANCE_RESULT_FULL_ACTIVATED{return @"Успешно обновлено!";}
++(NSString*) LOC_BALANCE_RESULT_ACTION_IMPOSSIBLE{return @"В данный момент действие невозможно";}
 
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"Русский";}

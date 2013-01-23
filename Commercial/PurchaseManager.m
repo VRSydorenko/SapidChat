@@ -59,8 +59,12 @@
 
 -(void) makeItPro{
     if ([self canMakePurchases]){
-        SKPayment *payment = [SKPayment paymentWithProduct:productFullVersion];
-        [[SKPaymentQueue defaultQueue] addPayment:payment];
+        if (productFullVersion){
+            SKPayment *payment = [SKPayment paymentWithProduct:productFullVersion];
+            [[SKPaymentQueue defaultQueue] addPayment:payment];
+        } else {
+            [self.delegate actionImpossible];
+        }
     }
 }
 
@@ -70,22 +74,34 @@
 
 -(void) purchasePoststamps10{
     if ([self canMakePurchases]){
-        SKPayment *payment = [SKPayment paymentWithProduct:productPoststamps10];
-        [[SKPaymentQueue defaultQueue] addPayment:payment];
+        if (productPoststamps10){
+            SKPayment *payment = [SKPayment paymentWithProduct:productPoststamps10];
+            [[SKPaymentQueue defaultQueue] addPayment:payment];
+        } else {
+            [self.delegate actionImpossible];
+        }
     }
 }
 
 -(void) purchasePoststamps30{
     if ([self canMakePurchases]){
-        SKPayment *payment = [SKPayment paymentWithProduct:productPoststamps30];
-        [[SKPaymentQueue defaultQueue] addPayment:payment];
+        if (productPoststamps30){
+            SKPayment *payment = [SKPayment paymentWithProduct:productPoststamps30];
+            [[SKPaymentQueue defaultQueue] addPayment:payment];
+        } else {
+            [self.delegate actionImpossible];
+        }
     }
 }
 
 -(void) purchasePoststamps50{
     if ([self canMakePurchases]){
-        SKPayment *payment = [SKPayment paymentWithProduct:productPoststamps50];
-        [[SKPaymentQueue defaultQueue] addPayment:payment];
+        if (productPoststamps50){
+            SKPayment *payment = [SKPayment paymentWithProduct:productPoststamps50];
+            [[SKPaymentQueue defaultQueue] addPayment:payment];
+        } else {
+            [self.delegate actionImpossible];
+        }
     }
 }
 

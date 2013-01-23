@@ -233,4 +233,10 @@
     [self.tableContent reloadData];
 }
 
+-(void) actionImpossible{
+    [navController showInfoBarWithNeutralMessage:[Lang LOC_BALANCE_RESULT_ACTION_IMPOSSIBLE]];
+    operationInProgress = NO;
+    [self.tableContent reloadData];
+}
+
 @end

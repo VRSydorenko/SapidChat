@@ -185,6 +185,7 @@
 +(NSString*) LOC_BALANCE_RESULT_ERROR{return @"Error ocurred";}
 +(NSString*) LOC_BALANCE_RESULT_NOTAUTHORIZED{return @"Purchaces disabled";}
 +(NSString*) LOC_BALANCE_RESULT_FULL_ACTIVATED{return @"Successfuly upgraded!";}
++(NSString*) LOC_BALANCE_RESULT_ACTION_IMPOSSIBLE{return @"Currently the action is not possible";}
 
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"English";}

@@ -11,5 +11,6 @@
 @interface CurrentBalanceCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *labelCurrentBalance;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

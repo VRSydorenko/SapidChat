@@ -1031,13 +1031,53 @@
     if (!response){
         return ERROR;
     }
-    /*if (response.attributes.count == 0){
-        return SYSTEM_NO_SUCH_MESSAGE;
-    }*/
-    /*if ([response attributesValueForKey:DBFIELD_MSGS_TO].s != msg.to){
-     return ERROR;
-     }*/
+    
     return OK;
 }
+
++(ErrorCodes) topUpUsersPoststamps:(int)count{
+    User* user;
+    
+    ErrorCodes retrieveUser = [self retrieveUser:&user withEmail:[UserSettings getEmail]];
+    if (retrieveUser != OK){
+        return retrieveUser;
+    }
+    [self saveUser:user]; // update local poststamps
+    int newValue = user.rp + count;
+    
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:user.email];
+    DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr];
+    
+    DynamoDBAttributeValue *attrValue = [[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", newValue]];
+    DynamoDBAttributeValueUpdate *attrUpdate = [[DynamoDBAttributeValueUpdate alloc] initWithValue:attrValue andAction:@"PUT"];
+    
+    NSMutableDictionary* updatesDict = [NSMutableDictionary dictionaryWithObject:attrUpdate forKey: DBFIELD_USERS_RP];
+    
+    DynamoDBUpdateItemRequest *updateRequest = [[DynamoDBUpdateItemRequest alloc] initWithTableName:DBTABLE_USERS andKey:key andAttributeUpdates:updatesDict];
+    [updateRequest setReturnValues:@"NONE"];
+    
+    DynamoDBUpdateItemResponse *response = nil;
+    @try {
+        response = [[AmazonClientManager ddb] updateItem:updateRequest];
+    
+        if ([self retrieveUser:&user withEmail:[UserSettings getEmail]] == OK){
+            [self saveUser:user]; // update local poststamps once again after topping up
+        }
+    }
+    @catch (AmazonServiceException* ex) {
+        NSLog(@"%@", ex);
+        return AMAZON_SERVICE_ERROR;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+        return ERROR;
+    }
+    if (!response){
+        return ERROR;
+    }
+    
+    return OK;
+}
+
 
 @end

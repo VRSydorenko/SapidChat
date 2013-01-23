@@ -52,5 +52,6 @@
 +(int) getTotalAvailablePoststamps;
 
 +(ErrorCodes) spendRegularPoststamps:(int)count;
++(ErrorCodes) topUpUsersPoststamps:(int)count;
 
 @end

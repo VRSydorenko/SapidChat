@@ -104,6 +104,7 @@
 }
 +(void) setPremiumUnlocked{
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:PURCHASE_PREMIUM_UNLOCKED];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

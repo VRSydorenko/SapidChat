@@ -181,6 +181,10 @@
 +(NSString*) LOC_BALANCE_POSTSTAMPS_5{return @"poststamps";}
 +(NSString*) LOC_BALANCE_HEADER_TOPUP{return @"Top up your balance";}
 +(NSString*) LOC_BALANCE_BUY_POSTSTAMPS{return @"poststamps";}
++(NSString*) LOC_BALANCE_RESULT_TOPPED_UP{return @"Topped Up!";}
++(NSString*) LOC_BALANCE_RESULT_ERROR{return @"Error ocurred";}
++(NSString*) LOC_BALANCE_RESULT_NOTAUTHORIZED{return @"Purchaces disabled";}
++(NSString*) LOC_BALANCE_RESULT_FULL_ACTIVATED{return @"Successfuly upgraded!";}
 
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"English";}

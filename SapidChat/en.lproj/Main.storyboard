@@ -1138,23 +1138,23 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellProOrNotPro" rowHeight="35" id="OCn-ZS-bPi" customClass="CurrentProModeCell">
-                                        <rect key="frame" x="0.0" y="46" width="320" height="36"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellProOrNotPro" rowHeight="37" id="OCn-ZS-bPi" customClass="CurrentProModeCell">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="38"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="34"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pro version!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qte-TJ-7fG">
-                                                    <rect key="frame" x="60" y="6" width="220" height="21"/>
+                                                    <rect key="frame" x="55" y="5" width="220" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="xPp-Vp-2b7">
-                                                    <rect key="frame" x="20" y="2" width="32" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                                    <rect key="frame" x="20" y="4" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1165,7 +1165,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellReadMoreAboutPro" id="g6r-2I-69d" customClass="ReadAboutProCell">
-                                        <rect key="frame" x="0.0" y="82" width="320" height="35"/>
+                                        <rect key="frame" x="0.0" y="84" width="320" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="34"/>
@@ -1187,7 +1187,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellMakeItPro" id="XCX-Wq-2uJ" customClass="MakeItProCell">
-                                        <rect key="frame" x="0.0" y="117" width="320" height="35"/>
+                                        <rect key="frame" x="0.0" y="119" width="320" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="34"/>
@@ -1212,7 +1212,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellCurrentBalance" id="Uz3-mo-PPL" customClass="CurrentBalanceCell">
-                                        <rect key="frame" x="0.0" y="152" width="320" height="35"/>
+                                        <rect key="frame" x="0.0" y="154" width="320" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="34"/>
@@ -1225,15 +1225,20 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="aeW-1c-tSy">
+                                                    <rect key="frame" x="270" y="7" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
                                             <outlet property="labelCurrentBalance" destination="E1a-mD-dp2" id="zWE-eY-F1B"/>
+                                            <outlet property="spinner" destination="aeW-1c-tSy" id="dMi-ac-Zyu"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellBuyOption" id="bX9-YA-3xA" customClass="BuyOptionCell">
-                                        <rect key="frame" x="0.0" y="187" width="320" height="36"/>
+                                        <rect key="frame" x="0.0" y="189" width="320" height="36"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="34"/>
@@ -1611,6 +1616,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentBalanceCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="labelCurrentBalance" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
         </class>
         <class className="CurrentProModeCell" superclassName="UITableViewCell">
@@ -1800,8 +1806,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pwI-hB-yoR"/>
         <segue reference="uEl-fc-r51"/>
         <segue reference="8wf-yh-Ir8"/>
+        <segue reference="pwI-hB-yoR"/>
     </inferredMetricsTieBreakers>
 </document>

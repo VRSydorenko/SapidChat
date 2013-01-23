@@ -17,8 +17,13 @@
 #import "DataManager.h"
 #import "BuyOptionCell.h"
 #import "Utils.h"
+#import "MainNavController.h"
 
-@interface BalanceVC ()
+@interface BalanceVC (){
+    MainNavController* navController;
+    PurchaseManager* purchaseManager;
+    bool operationInProgress;
+}
 
 @end
 
@@ -27,6 +32,12 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    operationInProgress = YES;
+    
+    navController = (MainNavController*)self.navigationController;
+    purchaseManager = [[PurchaseManager alloc] init];
+    purchaseManager.delegate = self;
     
     self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
     
@@ -39,6 +50,7 @@
 
 - (void)dealloc{
     [self setTableContent:nil];
+    purchaseManager = nil;
     [super viewDidUnload];
 }
 
@@ -91,6 +103,11 @@
             int poststamps = [DataManager getTotalAvailablePoststamps];
             NSString* text = [self getQuantifierStringForAmount:poststamps];
             cell.labelCurrentBalance.text = [NSString stringWithFormat:@"%d %@", poststamps, text];
+            if (operationInProgress){
+                [cell.spinner startAnimating];
+            } else {
+                [cell.spinner stopAnimating];
+            }
             return cell;
         }
         case 2:
@@ -114,16 +131,37 @@
         case 1:
             return [Lang LOC_BALANCE_HEADER_YOUR_BALANCE];
         case 2:
-           return[Lang LOC_BALANCE_HEADER_TOPUP];
+           return [Lang LOC_BALANCE_HEADER_TOPUP];
     }
     return @"";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section != 2){ // only poststamps cells are active
+        return;
+    }
+    if (operationInProgress){
+        return;
+    }
+    
+    operationInProgress = YES;
+    
     switch (indexPath.row) {
         case 0:
+            [purchaseManager purchasePoststamps10];
+            break;
+        case 1:
+            [purchaseManager purchasePoststamps30];
+            break;
+        case 2:
+            [purchaseManager purchasePoststamps50];
+            break;
+        default:
+            operationInProgress = NO;
             break;
     }
+    
+    [self.tableContent reloadData];
 }
 
 -(NSString*) getCurrentProModeCellText{
@@ -152,12 +190,47 @@
 
 - (IBAction)segmentPicked:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl*)sender;
+    operationInProgress = YES;
+    [self.tableContent reloadData];
     if (segmentedControl.selectedSegmentIndex == 0){
-        if ([PurchaseManager makeItPro] == OK){
-            [self.tableContent reloadData];
-        }
-    } else if ([PurchaseManager restorePurchase] == OK){
-        [self.tableContent reloadData];
+        [purchaseManager makeItPro];
+    } else {
+        [purchaseManager restoreFullVersion];
     }
 }
+
+-(void)fullVersionActivated{
+    [navController showInfoBarWithPositiveMessage:[Lang LOC_BALANCE_RESULT_FULL_ACTIVATED]];
+    operationInProgress = NO;
+    [self.tableContent reloadData];
+}
+
+-(void)poststampsPurchased{
+    [navController showInfoBarWithPositiveMessage:[Lang LOC_BALANCE_RESULT_TOPPED_UP]];
+    operationInProgress = NO;
+    [self.tableContent reloadData];
+}
+
+-(void)errorOcurred{
+    [navController showInfoBarWithNegativeMessage:[Lang LOC_BALANCE_RESULT_ERROR]];
+    operationInProgress = NO;
+    [self.tableContent reloadData];
+}
+
+-(void)purchasesDenied{
+    [navController showInfoBarWithNeutralMessage:[Lang LOC_BALANCE_RESULT_NOTAUTHORIZED]];
+    operationInProgress = NO;
+    [self.tableContent reloadData];
+}
+
+-(void)productsLoaded{
+    operationInProgress = NO;
+    [self.tableContent reloadData];
+}
+
+-(void) userCancelled{
+    operationInProgress = NO;
+    [self.tableContent reloadData];
+}
+
 @end

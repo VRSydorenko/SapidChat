@@ -237,6 +237,10 @@
 +(NSString*) LOC_BALANCE_POSTSTAMPS_5{return @"почтовых марок";}
 +(NSString*) LOC_BALANCE_HEADER_TOPUP{return @"Пополнение баланса";}
 +(NSString*) LOC_BALANCE_BUY_POSTSTAMPS{return @"почтовых марок";}
++(NSString*) LOC_BALANCE_RESULT_TOPPED_UP{return @"Баланс пополнен!";}
++(NSString*) LOC_BALANCE_RESULT_ERROR{return @"Ошибка";}
++(NSString*) LOC_BALANCE_RESULT_NOTAUTHORIZED{return @"Платежы отключены";}
++(NSString*) LOC_BALANCE_RESULT_FULL_ACTIVATED{return @"Успешно обновлено!";}
 
 // settings - languages
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"Русский";}

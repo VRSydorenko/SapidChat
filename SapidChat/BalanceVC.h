@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PurchaseManager.h"
 
-@interface BalanceVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface BalanceVC : UIViewController<UITableViewDataSource,
+                                        UITableViewDelegate,
+                                        CommercialNotificationDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableContent;
 - (IBAction)segmentPicked:(id)sender;

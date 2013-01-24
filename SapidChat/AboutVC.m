@@ -28,7 +28,7 @@
     
     [Utils setBackgroundFromPatternForView:self.view];
     
-    self.title = [Lang LOC_ABOUT_SCREEN_TITLE];
+    self.title = [Lang LOC_SETTINGS_SECTION_MORE_ABOUT];
     personFont = [UIFont fontWithName:@"Helvetica" size:14.0f];
     self.tableAbout.dataSource = self;
     self.tableAbout.delegate = self;
@@ -39,7 +39,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4; // main cell, idea, graphics, localization
+    return 5; // main cell, idea, graphics, localization
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -48,45 +48,55 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0){
-    //    return 0;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SomeCell"];
+    if (!cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"SomeCell"];
+        cell.textLabel.font = personFont;
+        cell.detailTextLabel.font = personFont;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    UITableViewCell *cell;
-    if (indexPath.section == 3){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"LocalizationCell"];
-        if (!cell){
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"LocalizationCell"];
-            cell.textLabel.font = personFont;
-            cell.detailTextLabel.font = personFont;
-        }
-        NSString* person;
-        NSString* lang;
-        switch (indexPath.row) {
-            case 0:{
-                person = [Lang LOC_ABOUT_VIKTOR_SYDORENKO];
-                lang = [Utils getLanguageName:RUSSIAN needSelfName:NO];
-                break;
+    
+    switch (indexPath.section) {
+        case 0:
+            // nothing to do here
+            break;
+        case 1:
+            cell.textLabel.text = [Lang LOC_ABOUT_VIKTOR_SYDORENKO];
+            break;
+        case 2:
+            cell.textLabel.text = [Lang LOC_ABOUT_DESIGNER];
+            break;
+        case 3:{
+            NSString* person;
+            NSString* lang;
+            switch (indexPath.row) {
+                case 0:{
+                    person = [Lang LOC_ABOUT_VIKTOR_SYDORENKO];
+                    lang = [Utils getLanguageName:RUSSIAN needSelfName:NO];
+                    break;
+                }
+                case 1:{
+                    person = @"Peter Burkimsher";
+                    lang = [Utils getLanguageName:ENGLISH needSelfName:NO];
+                    break;
+                }
+                case 2:{
+                    person = @"Alice Harather";
+                    lang = [Utils getLanguageName:GERMAN needSelfName:NO];
+                    break;
+                }
             }
-            case 1:{
-                person = @"Peter Burkimsher";
-                lang = [Utils getLanguageName:ENGLISH needSelfName:NO];
-                break;
-            }
-            case 2:{
-                person = @"Alice Harather";
-                lang = [Utils getLanguageName:GERMAN needSelfName:NO];
-                break;
-            }
+            cell.textLabel.text = person;
+            cell.detailTextLabel.text = lang;
+            break;
         }
-        cell.textLabel.text = person;
-        cell.detailTextLabel.text = lang;
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"SimpleCell"];
-        if (!cell){
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SimpleCell"];
-            cell.textLabel.font = personFont;
+        case 4:{
+            cell.textLabel.text = @"Double-J Design";
+            cell.detailTextLabel.text = [Lang LOC_ABOUT_ICONS];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            break;
         }
-        cell.textLabel.text = indexPath.section == 1 ? [Lang LOC_ABOUT_VIKTOR_SYDORENKO] : [Lang LOC_ABOUT_DASHA_DESIGNER];
     }
     return cell;
 }
@@ -104,8 +114,16 @@
             return [Lang LOC_ABOUT_DESIGN];
         case 3:
             return [Lang LOC_ABOUT_LOCALIZATION];
+        case 4:
+            return [Lang LOC_ABOUT_ALSO];
     }
     return @"";
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 4 && indexPath.row == 0){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.doublejdesign.co.uk"]];
+    }
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

@@ -172,6 +172,12 @@
     }
 }
 
+-(void) viewWillDisappear:(BOOL)animated{
+    if ([navCon.viewControllers indexOfObject:self] == NSNotFound){ // back button
+        navCon.hud.delegate = nil;
+    }
+}
+
 - (IBAction)languagePressed:(id)sender {
     [SettingsManager callNewMessagesLanguageScreenOverViewController:self];
 }
@@ -194,6 +200,7 @@
     
     CGSize newSize = CGSizeMake(2*self.imageView.bounds.size.width, 2*self.imageView.bounds.size.height);
     UIImage *newImage = [Utils image:image byScalingProportionallyToSize:newSize];
+    
     [self.imageView setImage:newImage];
     
     [picker dismissViewControllerAnimated:YES completion:nil];

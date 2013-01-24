@@ -81,6 +81,7 @@
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION] forLabel:self.loc_Langs_Conversation];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES] forLabel:self.loc_Langs_NewMessages];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION] forLabel:self.loc_Langs_Application];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_MORE_ABOUT] forLabel:self.labelMore_About];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -121,6 +122,13 @@
             }
             [self performSegueWithIdentifier:@"SegueSettingsToValuesList" sender:self];
             break;
+        case 3: // additional section
+            switch (indexPath.row) {
+                case 0: // about screen
+                    [self performSegueWithIdentifier:@"SegueSettingsToAbout" sender:self];
+                    break;
+            }
+            break;
     }
 }
 
@@ -130,6 +138,7 @@
         case 0: return [Lang LOC_SETTINGS_SECTIONHEADER_DATEnTIME];
         case 1: return [Lang LOC_SETTINGS_SECTIONHEADER_ACCOUNT];
         case 2: return [Lang LOC_SETTINGS_SECTIONHEADER_LANGUAGES];
+        case 3: return [Lang LOC_SETTINGS_SECTIONHEADER_MORE];
     }
     return [super tableView:tableView titleForHeaderInSection:section];
 }
@@ -181,6 +190,10 @@
     [self setLoc_Langs_Application:nil];
     [self setLoc_Langs_NewMessages:nil];
     [self setLabelNewMsgLanguage:nil];
+    [super viewDidUnload];
+}
+- (void)viewDidUnload {
+    [self setLabelMore_About:nil];
     [super viewDidUnload];
 }
 @end

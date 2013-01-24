@@ -23,12 +23,13 @@
 +(NSString*) LOC_INFO_FEATURE_TITLE_IMAGE{ return @"Изображения в сообщениях";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"Сегодня, конечно, никого не удивить пересылкой изображений, но все равно, легче отправить картинку прямо из чата в два клика чем спрашивать у собеседника адрес email и отправлять письмо.";}
 // about screen
-+(NSString*) LOC_ABOUT_SCREEN_TITLE{ return @"О приложении";}
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Виктор Сидоренко";}
-+(NSString*) LOC_ABOUT_DASHA_DESIGNER{ return @"Дмитрий Походяев";}
++(NSString*) LOC_ABOUT_DESIGNER{ return @"Дмитрий Походяев";}
 +(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"Разработка и оформление";}
 +(NSString*) LOC_ABOUT_DESIGN{return @"Графика";}
 +(NSString*) LOC_ABOUT_LOCALIZATION{return @"Локализация";}
++(NSString*) LOC_ABOUT_ALSO{return @"А также";}
++(NSString*) LOC_ABOUT_ICONS{return @"Иконки";}
 // first launch
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE{ return @"Язык приложения";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT{ return @"Далее";}
@@ -165,7 +166,7 @@
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"м";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_MILES{return @"м";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_FEETS{return @"ф";}
-+(NSString*) LOC_MESSAGES_CELL_ERROR_LOADING_IMAGE{return @"Ошибка загрузки изображения :(";}
++(NSString*) LOC_MESSAGES_CELL_ERROR_LOADING_IMAGE{return @"Ошибка загрузки :(";}
 +(NSString*) LOC_MESSAGES_CELL_TAPTOLOAD_IMAGE{return @"Нажмите для загрузки изображения";}
 +(NSString*) LOC_MESSAGES_CELL_IMAGES_ARE_IN_PRO_MODE{return @"Изображения доступны в полной версии";}
 +(NSString*) LOC_MESSAGES_CELL_LOADING{return @"Загрузка...";}
@@ -207,6 +208,8 @@
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION {return @"Общение";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"Новые сообщения";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Приложение";}
++(NSString*) LOC_SETTINGS_SECTIONHEADER_MORE{return @"Дополнительно";}
++(NSString*) LOC_SETTINGS_SECTION_MORE_ABOUT{return @"О приложении";}
 
 // section account
 +(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_OK{return @"ОК";}

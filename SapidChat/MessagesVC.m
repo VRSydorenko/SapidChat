@@ -79,10 +79,9 @@
     
     [self setupActionSheets];
     
+    [LocalizationUtils setTitle:replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE] forButton:self.buttonReply];
     if ([collocutor isEqualToString:SYSTEM_USER]){
-        self.buttonReply.hidden = YES;
-    } else {
-        [LocalizationUtils setTitle:replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE] forButton:self.buttonReply];
+        self.buttonReply.enabled = NO;
     }
     
     dontDismiss = NO;
@@ -368,7 +367,7 @@
             [self handleCellExpandation:indexPath];
         } else if ([UserSettings premiumUnlocked]){
             MessageImageCell* cell = (MessageImageCell*)[tableView cellForRowAtIndexPath:indexPath];
-            // TODO: change image to something indicating loading
+            cell.imgView.image = nil;
             [cell.activityIndicator startAnimating];
             cell.labelInfoText.text = [Lang LOC_MESSAGES_CELL_LOADING];
             [DataManager requestAttachmentData:msg.attachmentName delegate:self];

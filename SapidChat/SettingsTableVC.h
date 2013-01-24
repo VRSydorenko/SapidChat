@@ -24,5 +24,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *loc_Langs_Conversation;
 @property (strong, nonatomic) IBOutlet UILabel *loc_Langs_NewMessages;
 @property (strong, nonatomic) IBOutlet UILabel *loc_Langs_Application;
+@property (strong, nonatomic) IBOutlet UILabel *labelMore_About;
 
 @end

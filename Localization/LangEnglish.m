@@ -23,12 +23,13 @@
 +(NSString*) LOC_INFO_FEATURE_TITLE_IMAGE{ return @"Images in messages";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"Sending images is not a new invention nowadays, but it's easier to send an image in two taps from the chat than asking for their email address and composing a new email.";}
 // about screen
-+(NSString*) LOC_ABOUT_SCREEN_TITLE{ return @"About the app";}
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Viktor Sydorenko";}
-+(NSString*) LOC_ABOUT_DASHA_DESIGNER{ return @"Dmitriy Pohodyaev";}
++(NSString*) LOC_ABOUT_DESIGNER{ return @"Dmitriy Pohodyaev";}
 +(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"Development and decor";}
 +(NSString*) LOC_ABOUT_DESIGN{return @"Graphics";}
 +(NSString*) LOC_ABOUT_LOCALIZATION{return @"Localization";}
++(NSString*) LOC_ABOUT_ALSO{return @"Also";}
++(NSString*) LOC_ABOUT_ICONS{return @"Icons";}
 // first launch
 +(NSString*) LOC_FIRSTLAUNCH_APPLANGUAGE{ return @"Application language";}
 +(NSString*) LOC_FIRSTLAUNCH_BTN_NEXT{ return @"Next";}
@@ -110,7 +111,7 @@
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_METERS{return @"m";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_MILES{return @"m";}
 +(NSString*) LOC_MESSAGES_CELL_DISTANCE_FEETS{return @"f";}
-+(NSString*) LOC_MESSAGES_CELL_ERROR_LOADING_IMAGE{return @"Error loading image :(";}
++(NSString*) LOC_MESSAGES_CELL_ERROR_LOADING_IMAGE{return @"Loading error :(";}
 +(NSString*) LOC_MESSAGES_CELL_TAPTOLOAD_IMAGE;{return @"Tap to load image";}
 +(NSString*) LOC_MESSAGES_CELL_IMAGES_ARE_IN_PRO_MODE{return @"Images are available in full version";}
 +(NSString*) LOC_MESSAGES_CELL_LOADING{return @"Loading...";}
@@ -152,6 +153,8 @@
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION {return @"Conversations";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"New messages";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Application";}
++(NSString*) LOC_SETTINGS_SECTIONHEADER_MORE{return @"More";}
++(NSString*) LOC_SETTINGS_SECTION_MORE_ABOUT{return @"About the app";}
 
 // section account
 +(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_OK{return @"OK";}

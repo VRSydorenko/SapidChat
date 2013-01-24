@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/MessagesVC.m"
-         timestampString = "380408243.795016"
+         timestampString = "380755438.274051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "167"
-         endingLineNumber = "167"
+         startingLineNumber = "166"
+         endingLineNumber = "166"
          landmarkName = "-updateMessages"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/MessagesVC.m"
-         timestampString = "380478471.063259"
+         timestampString = "380755438.274051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "185"
-         endingLineNumber = "185"
+         startingLineNumber = "184"
+         endingLineNumber = "184"
          landmarkName = "-updateMessages"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/MessagesVC.m"
-         timestampString = "380478471.063259"
+         timestampString = "380755438.274051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "183"
-         endingLineNumber = "183"
+         startingLineNumber = "182"
+         endingLineNumber = "182"
          landmarkName = "-updateMessages"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/MessagesVC.m"
-         timestampString = "380478471.063259"
+         timestampString = "380755438.274051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "230"
-         endingLineNumber = "230"
+         startingLineNumber = "229"
+         endingLineNumber = "229"
          landmarkName = "-tableView:viewForHeaderInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,13 +60,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SapidChat/ComposeVC.m"
-         timestampString = "380581456.737173"
+         timestampString = "380752704.030392"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "197"
-         endingLineNumber = "197"
-         landmarkName = "-imagePickerController:didFinishPickingImage:editingInfo:"
-         landmarkType = "5">
+         startingLineNumber = "208"
+         endingLineNumber = "208"
+         landmarkName = "@implementation ComposeVC"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -157,6 +157,19 @@
          startingLineNumber = "1041"
          endingLineNumber = "1041"
          landmarkName = "+topUpUsersPoststamps:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Data/DataManager.m"
+         timestampString = "380744877.868538"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "640"
+         endingLineNumber = "640"
+         landmarkName = "+loadNewMessages"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

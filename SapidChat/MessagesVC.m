@@ -80,6 +80,8 @@
     [self setupActionSheets];
     
     [LocalizationUtils setTitle:replyMode ? [Lang LOC_MESSAGES_MESSAGES_BTN_REPLY] : [Lang LOC_MESSAGES_MESSAGES_BTN_COMPOSE_ONE_MORE] forButton:self.buttonReply];
+    [self.buttonReply sizeToFit];
+    
     if ([collocutor isEqualToString:SYSTEM_USER]){
         self.buttonReply.enabled = NO;
     }

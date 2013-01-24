@@ -79,6 +79,10 @@
 		7FCBF68C160F291300A2A2E2 /* UserRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF686160F291300A2A2E2 /* UserRegistrationVC.m */; };
 		7FCBF68D160F291300A2A2E2 /* UserRegistrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBF688160F291300A2A2E2 /* UserRegistrator.m */; };
 		7FCCE05A16878A1C00CD032B /* feature_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCCE05916878A1C00CD032B /* feature_images.png */; };
+		7FCEC0A816B1DF5300EB8AF6 /* compose.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCEC0A616B1DF5300EB8AF6 /* compose.png */; };
+		7FCEC0A916B1DF5300EB8AF6 /* compose@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCEC0A716B1DF5300EB8AF6 /* compose@2x.png */; };
+		7FCEC0B516B1E23000EB8AF6 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCEC0AF16B1E23000EB8AF6 /* keyboard.png */; };
+		7FCEC0B616B1E23000EB8AF6 /* keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCEC0B016B1E23000EB8AF6 /* keyboard@2x.png */; };
 		7FD14AFA1699B4AE00F0C652 /* RegInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD14AF91699B4AE00F0C652 /* RegInfoVC.m */; };
 		7FD42D99169DF09400BEE515 /* whiteCheckmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD42D97169DF09400BEE515 /* whiteCheckmark.png */; };
 		7FD42D9A169DF09400BEE515 /* whiteCheckmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD42D98169DF09400BEE515 /* whiteCheckmark@2x.png */; };
@@ -309,6 +313,10 @@
 		7FCBF687160F291300A2A2E2 /* UserRegistrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRegistrator.h; path = User/UserRegistrator.h; sourceTree = "<group>"; };
 		7FCBF688160F291300A2A2E2 /* UserRegistrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegistrator.m; path = User/UserRegistrator.m; sourceTree = "<group>"; };
 		7FCCE05916878A1C00CD032B /* feature_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = feature_images.png; path = Images/feature_images.png; sourceTree = "<group>"; };
+		7FCEC0A616B1DF5300EB8AF6 /* compose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compose.png; path = Images/compose.png; sourceTree = "<group>"; };
+		7FCEC0A716B1DF5300EB8AF6 /* compose@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose@2x.png"; path = "Images/compose@2x.png"; sourceTree = "<group>"; };
+		7FCEC0AF16B1E23000EB8AF6 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboard.png; path = Images/keyboard.png; sourceTree = "<group>"; };
+		7FCEC0B016B1E23000EB8AF6 /* keyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keyboard@2x.png"; path = "Images/keyboard@2x.png"; sourceTree = "<group>"; };
 		7FD14AF81699B4AD00F0C652 /* RegInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegInfoVC.h; path = User/RegInfoVC.h; sourceTree = "<group>"; };
 		7FD14AF91699B4AE00F0C652 /* RegInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegInfoVC.m; path = User/RegInfoVC.m; sourceTree = "<group>"; };
 		7FD42D97169DF09400BEE515 /* whiteCheckmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteCheckmark.png; path = Images/whiteCheckmark.png; sourceTree = "<group>"; };
@@ -504,6 +512,10 @@
 		7F3BA58716768E030021F951 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7FCEC0AF16B1E23000EB8AF6 /* keyboard.png */,
+				7FCEC0B016B1E23000EB8AF6 /* keyboard@2x.png */,
+				7FCEC0A616B1DF5300EB8AF6 /* compose.png */,
+				7FCEC0A716B1DF5300EB8AF6 /* compose@2x.png */,
 				7FE77F5016AF466C0006D889 /* image.png */,
 				7FE77F5116AF466C0006D889 /* image@2x.png */,
 				7FE77F5216AF466C0006D889 /* lock.png */,
@@ -1046,6 +1058,10 @@
 				7FE77F5516AF466C0006D889 /* image@2x.png in Resources */,
 				7FE77F5616AF466C0006D889 /* lock.png in Resources */,
 				7FE77F5716AF466C0006D889 /* lock@2x.png in Resources */,
+				7FCEC0A816B1DF5300EB8AF6 /* compose.png in Resources */,
+				7FCEC0A916B1DF5300EB8AF6 /* compose@2x.png in Resources */,
+				7FCEC0B516B1E23000EB8AF6 /* keyboard.png in Resources */,
+				7FCEC0B616B1E23000EB8AF6 /* keyboard@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

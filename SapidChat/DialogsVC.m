@@ -101,6 +101,14 @@
         cell.labelCollocutor.text = [Utils getUserString:stringCollocutor];
         Message *msg = (Message*)[[dialog getSortedMessages] lastObject];
         cell.infoMessage.text = msg.text.length > 0 ? msg.text : msg.attachmentName.length > 0 ? [Lang LOC_MESSAGES_CELL_MSG_WITH_ATTACHMENT] : @"ERROR";
+        
+        cell.viewEnvelopePattern.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"envelope_pattern.png"]];
+        
+        if (dialog.collocutor && [DataManager getUnreadMessagesCountForCollocutor:dialog.collocutor] > 0){
+            cell.imageEnvelopeRight.image = [UIImage imageNamed:@"envelope_right.png"];
+        } else {
+            cell.imageEnvelopeRight.image = [UIImage imageNamed:@"envelope_right_torn.png"];
+        }
     }
     
     return cell;

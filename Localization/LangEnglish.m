@@ -70,7 +70,7 @@
 +(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE_CONDITIONS{return @"Poststamps is an internal currency of Sapid Chat. For sending of one intriguing letter one poststamp is requred. Afetr the registration the user becomes 10 poststamps to their internal account for free. Checking the actual state of the poststamps balance or topping it up can be done in the \"Cabinet\".";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Messages";}
-+(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d new messages";}
++(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"New messages: %d";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"No new messages";}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Intrigue";}
 +(NSString*) LOC_MAIN_CELL_BALANCE {return @"Cabinet";}

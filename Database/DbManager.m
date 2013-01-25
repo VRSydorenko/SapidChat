@@ -379,8 +379,19 @@
 }
 
 -(int) getUnreadMessagesCount{
-    NSString *querySQL = [NSString stringWithFormat: @"SELECT COUNT(*) FROM %@ WHERE %@=\"%@\" AND %@=1", T_MSGS, F_AUTHOR, [UserSettings getEmail], F_UNREAD];
-    const char *query_stmt = [querySQL UTF8String];
+    return [self getUnreadMessagesCountForCollocutor:@""];
+}
+
+-(int) getUnreadMessagesCountForCollocutor:(NSString*)user{
+    NSString *querySQL;
+    if (user.length > 0) {
+        querySQL = [NSString stringWithFormat: @"SELECT COUNT(*) FROM %@ WHERE %@=\"%@\" AND %@=1 AND %@=\"%@\"", T_MSGS, F_AUTHOR, [UserSettings getEmail], F_UNREAD, F_FROM, user];
+
+    } else {
+        querySQL = [NSString stringWithFormat: @"SELECT COUNT(*) FROM %@ WHERE %@=\"%@\" AND %@=1", T_MSGS, F_AUTHOR, [UserSettings getEmail], F_UNREAD];
+
+    }
+        const char *query_stmt = [querySQL UTF8String];
     
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(sapidDb, query_stmt, -1, &statement, NULL) == SQLITE_OK)
@@ -396,7 +407,7 @@
 }
 
 -(void) resetUnreadMessagesCountForCollocutor:(NSString*)email{ // User specific method
-    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = 0 WHERE %@=\"%@\" AND %@=\"%@\"", T_MSGS, F_UNREAD, F_AUTHOR, [UserSettings getEmail], F_TO, [UserSettings getEmail]];
+    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = 0 WHERE %@=\"%@\" AND %@=\"%@\" AND %@=\"%@\"", T_MSGS, F_UNREAD, F_AUTHOR, [UserSettings getEmail], F_TO, [UserSettings getEmail], F_FROM, email];
     const char *query_stmt = [querySQL UTF8String];
     
     sqlite3_stmt *statement;

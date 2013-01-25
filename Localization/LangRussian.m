@@ -69,7 +69,7 @@
 +(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE_CONDITIONS{return @"Почтовые марки - это внутрення валюта Sapid Chat. Для отправки одного интригующего письма необходима одна почтовая марка. Сразу же после регистрации пользователь бесплатно получает на свой внутренний счет 10 марок. Посмотреть состояние баланса и пополнить его можно в разделе \"Кабинет\".";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Сообщения";}
-+(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"%d новых сообщений";}
++(NSString*) LOC_MAIN_CELL_MESSAGES_T_NEWMESSAGES {return @"Hовых сообщений: %d";}
 +(NSString*) LOC_MAIN_CELL_MESSAGES_NO_NEWMESSAGES {return @"Новых сообщений нет";}
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Интрига";}
 +(NSString*) LOC_MAIN_CELL_BALANCE {return @"Кабинет";}

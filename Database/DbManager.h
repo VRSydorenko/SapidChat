@@ -41,6 +41,7 @@
 -(int) getMaxInSystemMessageTimestamp;
 -(int) getLastOutMessageTimestamp;
 -(int) getUnreadMessagesCount;
+-(int) getUnreadMessagesCountForCollocutor:(NSString*)user;
 -(void) resetUnreadMessagesCountForCollocutor:(NSString*)email;
 
 -(int) getRegularPoststampsCount;

@@ -47,6 +47,10 @@
     return [[self getDbManager] getUnreadMessagesCount];
 }
 
++(int) getUnreadMessagesCountForCollocutor:(NSString*)user{
+    return [[self getDbManager] getUnreadMessagesCountForCollocutor:user];
+}
+
 +(void) resetUnreadMessagesCountForCollocutor:(NSString*)email{
     [[self getDbManager] resetUnreadMessagesCountForCollocutor:email];
 }

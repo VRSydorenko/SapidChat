@@ -34,6 +34,7 @@
 +(NSArray*) getAllDialogs;
 +(NSArray*) getSavedDialogs;
 +(int) getUnreadMessagesCount;
++(int) getUnreadMessagesCountForCollocutor:(NSString*)user;
 +(void) resetUnreadMessagesCountForCollocutor:(NSString*)email;
 
 +(ErrorCodes)sendMessage:(Message*)message;

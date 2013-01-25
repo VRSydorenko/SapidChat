@@ -43,6 +43,7 @@
     [super viewDidLoad];
     
     self.fakeNavBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barGreenBackground.png"]];
+    self.labelTitle.font = [UIFont fontWithName:APPLICATION_NAME_FONT size:20.0];
     
     [UserSettings setHasLaunched];
     
@@ -150,4 +151,8 @@
     [regController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)viewDidUnload {
+    [self setLabelTitle:nil];
+    [super viewDidUnload];
+}
 @end

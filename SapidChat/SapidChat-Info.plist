@@ -50,16 +50,20 @@
 			<key>TintColor</key>
 			<dict>
 				<key>Blue</key>
-				<real>0.0</real>
+				<real>0</real>
 				<key>Green</key>
-				<real>0.50196081399917603</real>
+				<real>0.501960813999176</real>
 				<key>Red</key>
-				<real>0.0</real>
+				<real>0</real>
 			</dict>
 			<key>Translucent</key>
 			<false/>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>billabong.ttf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

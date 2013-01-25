@@ -34,4 +34,6 @@
 +(NSString*) getUserString:(NSString*)userEmail;
 +(NSDate*) dateWithoutTime:(NSDate*)date;
 
++(UILabel*)makeScreenTitleLabelforText:(NSString*)text;
+
 @end

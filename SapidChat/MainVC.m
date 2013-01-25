@@ -30,6 +30,7 @@
     [NSTimeZone resetSystemTimeZone];
     
     [Utils setBackgroundFromPatternForView:self.view];
+    self.navigationItem.titleView = [Utils makeScreenTitleLabelforText:self.navigationItem.title];
 
     self.tableMain.dataSource = self;
     self.tableMain.delegate = self;

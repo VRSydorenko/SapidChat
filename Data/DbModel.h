@@ -90,6 +90,7 @@ typedef enum MessageTypes{ // !!! Don't change the numbers !!!
 // when
 
 // system definitions
+#define APPLICATION_NAME_FONT @"billabong"
 #define SYSTEM_WAITS_FOR_REPLY_COLLOCUTOR @"WaitForReplyCollocutor"
 #define MINIMUM_PASSWORD_LENGTH 5
 

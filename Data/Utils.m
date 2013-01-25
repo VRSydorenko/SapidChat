@@ -194,4 +194,17 @@
     return [calendar dateFromComponents:components];
 }
 
++(UILabel*)makeScreenTitleLabelforText:(NSString*)text{
+    CGRect frame = CGRectMake(0, 0, 200, 44);
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:APPLICATION_NAME_FONT size:20.0];
+    label.textAlignment = UITextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.text = text;
+    [label setShadowColor:[UIColor darkGrayColor]];
+    [label setShadowOffset:CGSizeMake(0, -0.5)];
+    return label;
+}
+
 @end

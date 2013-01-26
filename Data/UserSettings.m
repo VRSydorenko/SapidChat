@@ -46,6 +46,14 @@
     [[NSUserDefaults standardUserDefaults] setValue:email forKey:CURRENTLY_LOGGED_EMAIL];
 }
 
++(NSArray*) getBlockedForIntrigue{
+    NSArray* a = (NSArray*)[[NSUserDefaults standardUserDefaults] objectForKey:BLOCKED_FOR_INTRIGUE];
+    return  a;
+}
++(void) setBlockedForIntrigue:(NSArray*)emails{
+    [[NSUserDefaults standardUserDefaults] setValue:emails forKey:BLOCKED_FOR_INTRIGUE];
+}
+
 +(int) getUnreadMessagesCountForCollocutor:(NSString*)collocutor{
     NSString* stringCount =  (NSString*)[[NSUserDefaults standardUserDefaults] objectForKey:[self userSpecKey:collocutor]];
     if (!stringCount){

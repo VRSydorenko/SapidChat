@@ -24,6 +24,7 @@
 
 #define SETTINGS_SAVED_NEWMSG_LANG @"defs_savedNewMsgLang"
 #define SETTINGS_SAVED_APP_LANG @"defs_savedAppLang"
+#define BLOCKED_FOR_INTRIGUE @"defs_blocked_for_intrigue"
 
 @interface UserSettings : NSObject
 +(NSString*) getDateFormat;
@@ -34,6 +35,9 @@
 
 +(NSString*) getEmail;
 +(void) setEmail:(NSString*)email;
+
++(NSArray*) getBlockedForIntrigue;
++(void) setBlockedForIntrigue:(NSArray*)emails;
 
 +(NSArray*)getAppSupportedLanguages;
 +(int) getAppLanguage;

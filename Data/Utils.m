@@ -25,7 +25,7 @@
     }
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex]; 
-    return [emailTest evaluateWithObject:email] && ![email isEqualToString:SYSTEM_USER] ? OK : INVALID_EMAIL;
+    return [emailTest evaluateWithObject:email] ? OK : INVALID_EMAIL;
 }
 
 +(bool) isNicknameValid:(NSString*)nick{
@@ -78,6 +78,7 @@
         case POSTSTAMPS_NOT_ENOUGH: return [Lang LOC_ERRORCODE_POSTSTAMPS_NOT_ENOUGH];
         case PASSWORDS_NOT_MATCH:   return [Lang LOC_ERRORCODE_PASSWORDS_NOT_MATCH];
         case PASSWORD_NOT_SPECIFIED:   return [Lang LOC_ERRORCODE_PASSWORD_NOT_SPECIFIED];
+        case EMAIL_BLOCKED_FOR_INTRIGUE: return [Lang LOC_ERRORCODE_EMAIL_BLOCKED_FOR_INTRIGUE];
         default:
             return @"Error...";
     }

@@ -307,6 +307,7 @@
         DynamoDBKey *key = [[DynamoDBKey alloc] initWithHashKeyElement: keyAttr];
         getItemRequest.key = key;
         response = [[AmazonClientManager ddb] getItem:getItemRequest];
+        [DbItemHelper prepareUser:response.item];
         //
     }
     @catch (AmazonServiceException* ex) {

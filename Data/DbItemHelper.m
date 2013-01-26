@@ -14,6 +14,7 @@
 #import "User.h"
 #import "Utils.h"
 #import "AmazonKeyChainWrapper.h"
+#import "UserSettings.h"
 
 @implementation DbItemHelper
 
@@ -46,6 +47,11 @@
         if ([key isEqualToString: DBFIELD_USERS_RP]){
             result.rp = attrVal.n.intValue;
         }
+        // only system user has array of blocked for intrigue emails
+        if ([key isEqualToString: DBFIELD_USERS_BLOCKED_INTRIGUE_EMAILS]){
+            [UserSettings setBlockedForIntrigue:attrVal.sS];
+        }
+
      /* if ([key isEqualToString: DBFIELD_USERS_BIRTHDAY]){
             result.birthday = [NSDate dateWithTimeIntervalSince   1970:[attrVal.n intValue]];
         }

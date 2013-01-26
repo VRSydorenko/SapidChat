@@ -283,5 +283,6 @@
 +(NSString*) LOC_ERRORCODE_POSTSTAMPS_NOT_ENOUGH{return @"Недостаточно марок";}
 +(NSString*) LOC_ERRORCODE_PASSWORDS_NOT_MATCH{return @"Новый пароль не подтвержден";}
 +(NSString*) LOC_ERRORCODE_PASSWORD_NOT_SPECIFIED{return @"Не указан пароль";}
++(NSString*) LOC_ERRORCODE_EMAIL_BLOCKED_FOR_INTRIGUE{return @"Данный email недоступен для Интриги";}
 
 @end

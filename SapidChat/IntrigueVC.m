@@ -16,6 +16,7 @@
 #import "UserSettings.h"
 #import "SapidInfoBarManager.h"
 #import "MainNavController.h"
+#import "User.h"
 
 @interface IntrigueVC (){
     MainNavController* navController;
@@ -84,12 +85,20 @@
         
         dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
         dispatch_async(refreshQueue, ^{
-            ErrorCodes errorCode = [PurchaseManager beginRegularPoststampsSpending:intriguePrice];
+            User* fakeUser;
+            ErrorCodes errorCode = [DataManager retrieveUser:&fakeUser withEmail:SYSTEM_USER];
             if (errorCode == OK){
-                errorCode = [DataManager sendIntrigueTo:email withOptionalText:self.textMsg.text];
-            }
-            if (errorCode == OK){
-                [PurchaseManager finishRegularPoststampsSpending:intriguePrice];
+                if ([[UserSettings getBlockedForIntrigue] containsObject:self.textEmail.text]){
+                    errorCode = EMAIL_BLOCKED_FOR_INTRIGUE;
+                } else {
+                    errorCode = [PurchaseManager beginRegularPoststampsSpending:intriguePrice];
+                    if (errorCode == OK){
+                        errorCode = [DataManager sendIntrigueTo:email withOptionalText:self.textMsg.text];
+                    }
+                    if (errorCode == OK){
+                        [PurchaseManager finishRegularPoststampsSpending:intriguePrice];
+                    }
+                }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.indicatorSend stopAnimating];

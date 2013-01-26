@@ -121,7 +121,7 @@
             [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:EMAIL_NOT_SPECIFIED]];
             return;
         }
-        if ([Utils validateEmail:self.textEmail.text] != OK){
+        if ([Utils validateEmail:self.textEmail.text] != OK || [self.textEmail.text isEqualToString:SYSTEM_USER] || [self.textEmail.text isEqualToString:@"intrigue@sapidchat.com"]){
             [navController showInfoBarWithNegativeMessage:[Utils getErrorDescription:INVALID_EMAIL]];
             return;
         }

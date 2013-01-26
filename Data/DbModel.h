@@ -28,6 +28,7 @@ typedef enum ErrorCodes{
     POSTSTAMPS_NOT_ENOUGH   = 14,
     PASSWORDS_NOT_MATCH = 15,
     PASSWORD_NOT_SPECIFIED = 16,
+    EMAIL_BLOCKED_FOR_INTRIGUE = 17,
 } ErrorCodes;
 
 typedef enum Languages{ // !!! Don't change the numbers !!!
@@ -68,6 +69,7 @@ typedef enum MessageTypes{ // !!! Don't change the numbers !!!
 #define DBFIELD_USERS_NICKNAME @"nick"
 #define DBFIELD_USERS_LANGS @"langs"
 #define DBFIELD_USERS_RP @"rp"
+#define DBFIELD_USERS_BLOCKED_INTRIGUE_EMAILS @"blocked_for_intrigue" // only for system user
 
 #define DBTABLE_MSGS_SENT @"t_msgs_sent"
 #define DBTABLE_MSGS_RECEIVED @"t_msgs_received"

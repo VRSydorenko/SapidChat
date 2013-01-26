@@ -211,6 +211,7 @@
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Приложение";}
 +(NSString*) LOC_SETTINGS_SECTIONHEADER_MORE{return @"Дополнительно";}
 +(NSString*) LOC_SETTINGS_SECTION_MORE_ABOUT{return @"О приложении";}
++(NSString*) LOC_SETTINGS_SECTION_MORE_RATE{return @"Оцениете Sapid Chat";}
 
 // section account
 +(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_OK{return @"ОК";}

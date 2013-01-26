@@ -82,6 +82,7 @@
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES] forLabel:self.loc_Langs_NewMessages];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION] forLabel:self.loc_Langs_Application];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_MORE_ABOUT] forLabel:self.labelMore_About];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_MORE_RATE] forLabel:self.labelMore_Rate];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -127,6 +128,11 @@
                 case 0: // about screen
                     [self performSegueWithIdentifier:@"SegueSettingsToAbout" sender:self];
                     break;
+                case 1:{ // rate the app
+                    NSString* url = @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=595828753&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8";
+                    [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
+                    break;
+                }
             }
             break;
     }

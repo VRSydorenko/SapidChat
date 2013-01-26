@@ -111,6 +111,11 @@
     [self.tabelMessages reloadData];
 }
 
+-(void) viewDidAppear:(BOOL)animated{
+    CGPoint contentOffset = CGPointMake(0, [self.tabelMessages contentSize].height -  self.tabelMessages.bounds.size.height);
+    [self.tabelMessages setContentOffset:contentOffset animated:YES];
+}
+
 -(void) backPressed{
     [self.navigationController popViewControllerAnimated:YES];
 }

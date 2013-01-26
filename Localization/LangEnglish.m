@@ -66,7 +66,7 @@
 // info screen
 +(NSString*) LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE{return @"About intrigue";}
 +(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE{return @"With this feature you can anonymously invite somebody to communication. All you need for that is an email of the person you are interested in. Enter the email in corresponding field and hit the \"Make intrigued\" button. After that to the entered email address will be sent an email saying the person that somebody is interested in them and anonymously invites to communication in Sapid Chat. You can optionally add an additional message to the invitation.\r\r\
-    Currently Sapid Chat is developed only for iOS devices so when making somebody intrigued with this option please be sure your partner has iPhone or iPad and thus will be able to run Sapid Chat and talk to you.";}
+    Currently Sapid Chat is developed only for iOS devices so when making somebody intrigued with this option please be sure your partner has iPhone or iPad and thus will be able to run Sapid Chat and reply to you.";}
 +(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE_CONDITIONS{return @"Poststamps is an internal currency of Sapid Chat. For sending of one intriguing letter one poststamp is requred. Afetr the registration the user becomes 10 poststamps to their internal account for free. Checking the actual state of the poststamps balance or topping it up can be done in the \"Cabinet\".";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Messages";}
@@ -137,6 +137,7 @@
 +(NSString*) LOC_COMPOSE_ACTSHEET_TITLE_PICKFROM{return @"Source:";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA{return @"Take a photo";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA_ROLL{return @"Camera roll";}
++(NSString*) LOC_COMPOSE_ACTSHEET_CLEAR_PIC{return @"Clear picture";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CANCEL{return @"Cancel";}
 +(NSString*) LOC_COMPOSE_ALERT_SOURCE_UNAVAILABLE{return @"The image source is unfortunately unabvailable on this device";}
 +(NSString*) LOC_COMPOSE_INFOMSG_MESSAGE_IS_EMPTY{return @"Neither text nor image to send";}

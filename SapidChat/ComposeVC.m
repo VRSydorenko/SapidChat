@@ -188,7 +188,7 @@
     NSString* cancel = [Lang LOC_COMPOSE_ACTSHEET_CANCEL];
     NSString* takePhoto = [Lang LOC_COMPOSE_ACTSHEET_CAMERA];
     NSString* cameraRoll = [Lang LOC_COMPOSE_ACTSHEET_CAMERA_ROLL];
-    UIActionSheet *pickImageActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:nil otherButtonTitles:takePhoto, cameraRoll, nil];
+    UIActionSheet *pickImageActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:isImageSet ?[Lang LOC_COMPOSE_ACTSHEET_CLEAR_PIC] : nil otherButtonTitles:takePhoto, cameraRoll, nil];
     [pickImageActionSheet showInView:self.view];
 }
 
@@ -212,12 +212,19 @@
 }
 
 -(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 2){ // cancel button
+    if ((isImageSet && buttonIndex == 3) || (!isImageSet && buttonIndex == 2)){ // cancel button
+        return;
+    }
+    
+    if (buttonIndex == 0 && isImageSet){ // clear button
+        self.imageView.image = nil;
+        isImageSet = NO;
         return;
     }
     
     bool sourceExists = NO;
-	if(buttonIndex == 0) { // take photo
+    
+	if((buttonIndex == 0 && !isImageSet) || (buttonIndex == 1 && isImageSet)) { // take photo
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
             imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
             sourceExists = YES;

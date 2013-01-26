@@ -438,9 +438,18 @@
             if (result == OK){
                 User* collocutor;
                 if ([self retrieveUser:&collocutor withEmail:msg.from] == OK){
-                    [self saveUser:collocutor];// retrieve user
+                    [self saveUser:collocutor];
                 }
             }
+            
+            Message* reportMsg = [[Message alloc] init];
+            reportMsg.from = me.email;
+            reportMsg.to = msg.from;
+            reportMsg.text = [NSString stringWithFormat:@"%@ has picked up you message!", me.nickname];
+            reportMsg.when = [[NSDate date] timeIntervalSinceReferenceDate];
+            reportMsg.type = MSG_REPORT;
+            reportMsg.initial_message_global_timestamp = msg.when;
+            [self sendMessageToCollocutor:reportMsg];
         }
     } while (!msg);
     
@@ -800,15 +809,18 @@
     
     // TODO: do it in a batch!
     @try {
-        // add to sent messages table
-        DynamoDBPutItemRequest *request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_MSGS_SENT andItem:msgDic];
+        DynamoDBPutItemRequest *request;
         DynamoDBPutItemResponse *response = nil;
+        // add to sent messages table
+        if (message.type != MSG_REPORT){ // reporting messages such as notification about picked messages are not stored in sent table
+            request = [[DynamoDBPutItemRequest alloc] initWithTableName:DBTABLE_MSGS_SENT andItem:msgDic];
         
-        response = [[AmazonClientManager ddb] putItem:request];
-        if (!response){
-            return AMAZON_SERVICE_ERROR;
+            response = [[AmazonClientManager ddb] putItem:request];
+            if (!response){
+                return AMAZON_SERVICE_ERROR;
+            }
+            response = nil;
         }
-        response = nil;
         
         // add to the collocutor's received table
         if (message.initial_message_global_timestamp > 0){
@@ -839,9 +851,10 @@
         [self upload:message.attachmentData inBucket:ATTACHMENTS_BUCKET_NAME forKey:message.attachmentName];
     }
     
-    message.when = timestamp; 
-    [DataManager saveMessage:message];
-    
+    if (message.type != MSG_REPORT){
+        message.when = timestamp;
+        [DataManager saveMessage:message];
+    }
     return OK;
 }
 

@@ -9,6 +9,7 @@
 #import "IntroVC.h"
 #import "Lang.h"
 #import "FirstLaunchNavController.h"
+#import "DbModel.h"
 
 @interface IntroVC (){
     bool isChanginPage;
@@ -26,6 +27,9 @@
 {
     [super viewDidLoad];
 	
+    self.fakeNavBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barGreenBackground.png"]];
+    self.labelTitle.font = [UIFont fontWithName:APPLICATION_NAME_FONT size:20.0];
+    
     self.scrollView.delegate = self;
     [self setupContent];
 }
@@ -131,4 +135,9 @@
 }
 
 
+- (void)viewDidUnload {
+    [self setLabelTitle:nil];
+    [self setFakeNavBar:nil];
+    [super viewDidUnload];
+}
 @end

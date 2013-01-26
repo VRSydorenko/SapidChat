@@ -12,6 +12,7 @@
 #import "FirstLaunchNavController.h"
 #import "ViewController.h"
 #import "LocalizationUtils.h"
+#import "DbModel.h"
 
 @interface AppLanguageVC (){
     NSArray* appLangs;
@@ -26,11 +27,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
     appLangs = [UserSettings getAppSupportedLanguages];
     self.btnNext.hidden = YES;
     self.tableAppLanguages.dataSource = self;
     self.tableAppLanguages.delegate = self;
+    
+    self.fakeNavBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barGreenBackground.png"]];
+    self.labelTitle.font = [UIFont fontWithName:APPLICATION_NAME_FONT size:20.0];
 }
 
 - (void)dealloc
@@ -73,4 +77,9 @@
     }
 }
 
+- (void)viewDidUnload {
+    [self setFakeNavBar:nil];
+    [self setLabelTitle:nil];
+    [super viewDidUnload];
+}
 @end

@@ -112,8 +112,19 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated{
-    CGPoint contentOffset = CGPointMake(0, [self.tabelMessages contentSize].height -  self.tabelMessages.bounds.size.height);
-    [self.tabelMessages setContentOffset:contentOffset animated:YES];
+    if (![self lastMessageIsVisible]){
+        CGPoint contentOffset = CGPointMake(0, [self.tabelMessages contentSize].height -  self.tabelMessages.bounds.size.height);
+        [self.tabelMessages setContentOffset:contentOffset animated:YES];
+    }
+}
+
+-(BOOL) lastMessageIsVisible{
+    for (NSIndexPath *index in [self.tabelMessages indexPathsForVisibleRows]){
+        if (index.section == messages.count - 1){
+            return YES;
+        }
+    }
+    return NO;
 }
 
 -(void) backPressed{
@@ -460,13 +471,14 @@
 
 -(NSString*) getMsgCellImageNameStart:(int)type incoming:(bool)incoming{
     NSString* fileName = @"msg_%@_%@";
-    NSString* inOutSpecifier = incoming || type == MSG_SYSTEM ? @"in" : @"out"; // system are always In
+    NSString* inOutSpecifier = incoming || type == MSG_SYSTEM || type == MSG_REPORT ? @"in" : @"out"; // system are always In
     NSString* typeSpecifier;
     switch (type) {
         case MSG_REGULAR:
             typeSpecifier = @"regular";
             break;
         case MSG_SYSTEM:
+        case MSG_REPORT:
             typeSpecifier = @"system";
             break;
         case MSG_INTRIGUE:

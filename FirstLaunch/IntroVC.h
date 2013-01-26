@@ -19,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property id<IntroScreenDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UILabel *labelTitle;
+@property (strong, nonatomic) IBOutlet UIView *fakeNavBar;
 
 - (IBAction)pageChanged:(id)sender;
 - (IBAction)closePressed:(id)sender;

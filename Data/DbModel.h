@@ -53,6 +53,7 @@ typedef enum MessageTypes{ // !!! Don't change the numbers !!!
     MSG_SYSTEM      = 0,
     MSG_REGULAR     = 1,
     MSG_INTRIGUE    = 2,
+    MSG_REPORT      = 3, // about that one user picked up a message
 } MessageTypes;
 
 #define SYSTEM_USER @"info@sapidchat.com"

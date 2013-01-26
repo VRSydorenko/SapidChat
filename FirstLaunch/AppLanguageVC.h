@@ -12,5 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableAppLanguages;
 @property (strong, nonatomic) IBOutlet UIButton *btnNext;
+@property (strong, nonatomic) IBOutlet UIView *fakeNavBar;
+@property (strong, nonatomic) IBOutlet UILabel *labelTitle;
 
 @end

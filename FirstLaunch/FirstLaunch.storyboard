@@ -33,23 +33,31 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CellAppLanguage" textLabel="muU-9o-OiX" style="IBUITableViewCellStyleDefault" id="tuc-Ey-Eza">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellAppLanguage" id="idV-ne-i0O" customClass="LanguageCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="muU-9o-OiX">
-                                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Mcb-mj-8cX">
+                                                    <rect key="frame" x="95" y="6" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Language" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S6V-yt-p6p">
+                                                    <rect key="frame" x="135" y="11" width="165" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="imageFlag" destination="Mcb-mj-8cX" id="UVD-Hi-qZg"/>
+                                            <outlet property="labelLanguage" destination="S6V-yt-p6p" id="tl5-6B-NOo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -187,6 +195,13 @@
                 <relationship kind="outlet" name="labelTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="LanguageCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LanguageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageFlag" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="labelLanguage" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

@@ -206,6 +206,8 @@
 +(NSString*) LOC_SETTINGS_LANGUAGES_PORTUGESE{ return @"Portugese";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_RUSSIAN{ return @"Russian";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_SPANISH{ return @"Spanish";}
++(NSString*) LOC_SETTINGS_LANGUAGES_HUNGARIAN{ return @"Hungarian";}
++(NSString*) LOC_SETTINGS_LANGUAGES_ROMANIAN{ return @"Romanian";}
 
 // separate settings
 +(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_TEXT_PICKLANGFROMKNOWN{ return @"Choose from the languages you know one for the new message";}

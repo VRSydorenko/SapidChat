@@ -98,6 +98,8 @@
         case PORTUGESE: return selfName ? @"Português" : [Lang LOC_SETTINGS_LANGUAGES_PORTUGESE];
         case RUSSIAN:   return selfName ? [LangRussian LOC_SYS_LANGUAGE_SELFNAME] : [Lang LOC_SETTINGS_LANGUAGES_RUSSIAN];
         case SPANISH:   return selfName ? @"Español" : [Lang LOC_SETTINGS_LANGUAGES_SPANISH];
+        case HUNGARIAN:   return selfName ? @"Magyar" : [Lang LOC_SETTINGS_LANGUAGES_HUNGARIAN];
+        case ROMANIAN:   return selfName ? @"Română" : [Lang LOC_SETTINGS_LANGUAGES_ROMANIAN];
         default:
             return @"Unknown language";
     }
@@ -206,6 +208,49 @@
     [label setShadowColor:[UIColor darkGrayColor]];
     [label setShadowOffset:CGSizeMake(0, -0.5)];
     return label;
+}
+
++(UIImage*)getFlagForLanguage:(int)lang{
+    NSString* imageName = @"";
+    switch (lang) {
+        case ARABIC:
+            imageName = @"arableague.png";
+            break;
+        case CHINESE:
+            imageName = @"china.png";
+            break;
+        case ENGLISH:
+            imageName = @"uk.png";
+            break;
+        case FRENCH:
+            imageName = @"france.png";
+            break;
+        case GERMAN:
+            imageName = @"germany.png";
+            break;
+        case HINDI:
+            imageName = @"india.png";
+            break;
+        case ITALIAN:
+            imageName = @"italy.png";
+            break;
+        case JAPANESE:
+            imageName = @"japan.png";
+            break;
+        case KOREAN:
+            imageName = @"korea.png";
+            break;
+        case PORTUGESE:
+            imageName = @"portugal.png";
+            break;
+        case RUSSIAN:
+            imageName = @"russia.png";
+            break;
+        case SPANISH:
+            imageName = @"spain.png";
+            break;
+    }
+    return [UIImage imageNamed:imageName];
 }
 
 @end

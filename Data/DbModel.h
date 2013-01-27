@@ -44,8 +44,10 @@ typedef enum Languages{ // !!! Don't change the numbers !!!
     PORTUGESE   = 9,
     RUSSIAN     = 10,
     SPANISH     = 11,
+    HUNGARIAN   = 12,
+    ROMANIAN    = 13,
     //---------------
-    LANG_COUNT  = 12,
+    LANG_COUNT  = 14,
 } Languages;
 
 

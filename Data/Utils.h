@@ -36,4 +36,6 @@
 
 +(UILabel*)makeScreenTitleLabelforText:(NSString*)text;
 
++(UIImage*)getFlagForLanguage:(int)lang;
+
 @end

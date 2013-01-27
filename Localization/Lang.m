@@ -21,14 +21,6 @@
     return nil;
 }
 
-+(NSString*)getAppLanguageStringForFirstLaunch:(int)lang{
-    switch (lang) {
-        case 2: return [LangEnglish LOC_FIRSTLAUNCH_APPLANGUAGE];
-        case 10: return [LangRussian LOC_FIRSTLAUNCH_APPLANGUAGE];
-    }
-    return nil;
-}
-
 // universal
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
 +(NSString*) LOC_UNI_CANCEL{return [[self AppLanguage] LOC_UNI_CANCEL];}
@@ -221,6 +213,8 @@
 +(NSString*) LOC_SETTINGS_LANGUAGES_PORTUGESE{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_PORTUGESE];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_RUSSIAN{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_RUSSIAN];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_SPANISH{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_SPANISH];}
++(NSString*) LOC_SETTINGS_LANGUAGES_HUNGARIAN{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_HUNGARIAN];}
++(NSString*) LOC_SETTINGS_LANGUAGES_ROMANIAN{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_ROMANIAN];}
 
 // separate settings
 +(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_TEXT_PICKLANGFROMKNOWN{return [[self AppLanguage] LOC_SEPSETTINGS_NEWMSGLANG_TEXT_PICKLANGFROMKNOWN];}

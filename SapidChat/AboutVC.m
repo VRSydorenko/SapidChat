@@ -82,8 +82,8 @@
                     break;
                 }
                 case 2:{
-                    person = @"Alice Harather";
-                    lang = [Utils getLanguageName:GERMAN needSelfName:NO];
+                    person = @"Tamas Vajda";
+                    lang = [Utils getLanguageName:HUNGARIAN needSelfName:NO];
                     break;
                 }
             }

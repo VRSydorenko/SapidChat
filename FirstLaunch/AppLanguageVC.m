@@ -13,6 +13,8 @@
 #import "ViewController.h"
 #import "LocalizationUtils.h"
 #import "DbModel.h"
+#import "Utils.h"
+#import "LanguageCell.h"
 
 @interface AppLanguageVC (){
     NSArray* appLangs;
@@ -43,7 +45,6 @@
     [self setBtnNext:nil];
     appLangs = nil;
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -51,11 +52,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"CellAppLanguage"];
-    if (cell){
-        int lang = ((NSString*)[appLangs objectAtIndex:indexPath.row]).intValue;
-        cell.textLabel.text = [Lang getAppLanguageStringForFirstLaunch:lang];
+    LanguageCell* cell = (LanguageCell*)[tableView dequeueReusableCellWithIdentifier:@"CellAppLanguage"];
+    if (!cell){
+        cell = [[LanguageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellAppLanguage"];
     }
+    
+    int lang = ((NSString*)[appLangs objectAtIndex:indexPath.row]).intValue;
+    cell.labelLanguage.text = [Utils getLanguageName:lang needSelfName:YES];
+    cell.imageFlag.image = [Utils getFlagForLanguage:lang];
+    
     return cell;
 }
 

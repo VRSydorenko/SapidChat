@@ -133,7 +133,7 @@
 }
 
 - (IBAction)logoutPressed:(id)sender {
-    UIActionSheet *logoutActionSheet = [[UIActionSheet alloc] initWithTitle:[Lang LOC_UNI_APP_NAME] delegate:self cancelButtonTitle:[Lang LOC_UNI_CANCEL] destructiveButtonTitle:[Lang LOC_MAIN_BUTTON_LOGOUT] otherButtonTitles:nil];
+    UIActionSheet *logoutActionSheet = [[UIActionSheet alloc] initWithTitle:[UserSettings getEmail] delegate:self cancelButtonTitle:[Lang LOC_UNI_CANCEL] destructiveButtonTitle:[Lang LOC_MAIN_BUTTON_LOGOUT] otherButtonTitles:nil];
     [logoutActionSheet showInView:self.view];
 }
 

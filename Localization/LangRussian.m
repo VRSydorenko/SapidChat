@@ -104,17 +104,17 @@
     <br/>\
     </li>\
     <li>Когда человек после прочтения вашего письма откроет Sapid Chat, то он увидит следующее сообщение, отправленное от имени вашей учетной записи:\
-    <div style=\"background:#F7E8C3;padding:10px;border: solid 1px gray;font-size:11pt;\">\
+    <div style=\"background:#FFFAF0;padding:10px;border: solid 1px gray;font-size:11pt;\">\
     %@\
     </div>\
     %@\
     </li>\
     </ul>\
-    Вот так вот, а после отправки нужно будет подождать и надеяться, что это затронет интерес человека и он зайдет в Sapid Chat пообщаться с вами.\
+    После отправки нужно будет подождать пока человек проверит почту и надеяться, что это затронет его интерес и он зайдет в Sapid Chat ответить вам.\
     <p>Интересного вам общения!\
     <br/>Sapid Chat</p><hr></br>";}
 +(NSString*) internal_INTRIGUE_MAIL_CONTENT_CUSTOMYOURSELF_TEMPL{return @"А также еще одно, которое вы указали в качестве дополнительного:\
-    <div style=\"background:#F7E8C3;padding:10px;border: solid 1px gray;font-size:11pt;\">\
+    <div style=\"background:#FFFAF0;padding:10px;border: solid 1px gray;font-size:11pt;\">\
     %@\
     </div>";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_DEFAULT{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], @"", @""];}

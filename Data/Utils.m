@@ -210,6 +210,13 @@
     return label;
 }
 
++(void) fitButtonInHorizontalCenter:(UIButton*)button{
+    [button sizeToFit];
+    CGRect frame = button.frame;
+    frame.origin.x = 160 - button.bounds.size.width/2;
+    button.frame = frame;
+}
+
 +(UIImage*)getFlagForLanguage:(int)lang{
     NSString* imageName = @"";
     switch (lang) {

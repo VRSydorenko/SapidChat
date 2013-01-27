@@ -18,8 +18,8 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UITableView *tableLanguages;
 @property (strong, nonatomic) IBOutlet UIButton *btnNext;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *btnRegister;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *btnClose;
+@property (strong, nonatomic) IBOutlet UIButton *btnRegister;
+@property (strong, nonatomic) IBOutlet UIButton *btnClose;
 @property (strong, nonatomic) IBOutlet UITextView *txtSelectLangs;
 @property (strong, nonatomic) IBOutlet UIButton *btnCancel;
 

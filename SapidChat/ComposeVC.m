@@ -28,7 +28,6 @@
 @implementation ComposeVC
 @synthesize textMessage;
 @synthesize imageView;
-@synthesize buttonLanguage;
 @synthesize btnSend;
 @synthesize btnAttachData;
 
@@ -48,7 +47,6 @@
     dontDismiss = NO;
     if (self.collocutor.length > 0){
         self.title = [Utils getUserString:collocutor];
-        self.buttonLanguage.hidden = YES;
         self.buttonLanguageIcon.hidden = YES;
     } else {
         self.title = [Lang LOC_COMPOSE_TITLE];
@@ -83,7 +81,6 @@
 - (void)dealloc
 {
     [self setTextMessage:nil];
-    [self setButtonLanguage:nil];
     [self setBtnSend:nil];
     [self setBtnAttachData:nil];
     [self setImageView:nil];
@@ -95,8 +92,8 @@
 }
 
 - (void) updateLanguageText{
-    [LocalizationUtils setTitle:[Utils getLanguageName:[UserSettings getNewMessagesLanguage] needSelfName:NO] forButton:self.buttonLanguage];
-    [self.buttonLanguage sizeToFit];
+    [LocalizationUtils setTitle:[Utils getLanguageName:[UserSettings getNewMessagesLanguage] needSelfName:NO] forButton:self.buttonLanguageIcon];
+    [self.buttonLanguageIcon sizeToFit];
 }
 
 - (IBAction)sendPressed:(id)sender {

@@ -79,12 +79,15 @@
 -(void) setLocalizableValues{
     if (self.btnNext){
         [LocalizationUtils setTitle:[Lang LOC_REGISTATOR_BTN_NEXT] forButton:self.btnNext];
+        [Utils fitButtonInHorizontalCenter:self.btnNext];
     }
     if (self.btnClose){
-        self.btnClose.title = [Lang LOC_REGISTATOR_BTN_CLOSE];
+        [LocalizationUtils setTitle:[Lang LOC_REGISTATOR_BTN_CLOSE] forButton:self.btnClose];
+        [Utils fitButtonInHorizontalCenter:self.btnClose];
     }
     if (self.btnRegister){
-        self.btnRegister.title = [Lang LOC_REGISTATOR_BTN_REGISTER];
+        [LocalizationUtils setTitle:[Lang LOC_REGISTATOR_BTN_REGISTER] forButton:self.btnRegister];
+        [Utils fitButtonInHorizontalCenter:self.btnRegister];
     }
     if (self.textEmail){
         self.textEmail.placeholder = [Lang LOC_UNI_EMAIL];

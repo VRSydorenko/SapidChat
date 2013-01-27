@@ -26,7 +26,6 @@
 @property (strong, nonatomic) id <ComposeNewMessageResponseDelegate> composeHandler;
 @property (strong, nonatomic) IBOutlet UITextView *textMessage;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UIButton *buttonLanguage;
 @property (strong, nonatomic) IBOutlet UIButton *buttonLanguageIcon;
 @property (strong, nonatomic) IBOutlet UILabel *labelInfoText;
 @property (strong, nonatomic) IBOutlet UIButton *btnSend;

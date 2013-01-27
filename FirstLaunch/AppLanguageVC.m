@@ -73,6 +73,7 @@
 
 -(void)localize{
     [LocalizationUtils setTitle:[Lang LOC_FIRSTLAUNCH_BTN_NEXT] forButton:self.btnNext];
+    [Utils fitButtonInHorizontalCenter:self.btnNext];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

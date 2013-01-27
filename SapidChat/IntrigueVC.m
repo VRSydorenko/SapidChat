@@ -47,9 +47,10 @@
     intriguePrice = 1;
     
     isSending = NO;
-    self.title = [Lang LOC_INTRIGUE_SCREEN_TITLE];
+    self.title = [Lang LOC_MAIN_CELL_INTRIGUE];
     [LocalizationUtils setText:[Lang LOC_INTRIGUE_LABEL_ENTERMAIL] forLabel:self.labelEnterEmail];
     [LocalizationUtils setTitle:[Lang LOC_INTRIGUE_BTN_SEND] forButton:self.btnSend];
+    [Utils fitButtonInHorizontalCenter:self.btnSend];
     self.textEmail.placeholder = [Lang LOC_UNI_EMAIL];
     self.textMsg.placeholder = [Lang LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG];
     [self updateConoditionsLabel];

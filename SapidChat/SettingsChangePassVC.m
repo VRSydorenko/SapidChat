@@ -37,9 +37,10 @@
     self.title = [Lang LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE];
     self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
     self.editCurrentPass.placeholder = [Lang LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CURRENT];
-    self.editNewPass.placeholder = [Lang LOC_SETTINGS_CHANGEPASS_PLACEHLDR_NEW];
+    self.editNewPass.placeholder = [Lang LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE];
     self.editNewPassConfirm.placeholder = [Lang LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CONFIRM];
     [LocalizationUtils setTitle:[Lang LOC_SETTINGS_CHANGEPASS_BTN_OK] forButton:self.btnChangePass];
+    [Utils fitButtonInHorizontalCenter:self.btnChangePass];
 }
 
 - (void)dealloc

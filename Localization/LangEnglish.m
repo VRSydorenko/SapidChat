@@ -45,7 +45,6 @@
 +(NSString*) LOC_REGISTATOR_BTN_REGISTER { return @"Create account!";}
 +(NSString*) LOC_REGISTATOR_BTN_CLOSE { return @"Done!";}
 +(NSString*) LOC_REGISTATOR_BTN_BACK { return @"Back";}
-+(NSString*) LOC_REGISTATOR_FIELD_EMAIL { return @"Email";}
 +(NSString*) LOC_REGISTATOR_FIELD_PASSWORD { return @"Password";}
 +(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Nickname";}
 +(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Since the communication here is anonymous it would be good to specify a nickname in order to distinguish between interlocutors";}
@@ -62,7 +61,6 @@
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Login";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Registration";}
 +(NSString*) LOC_LOGIN_BTN_FORGOTPASSWORD {return @"Forgot password?";}
-+(NSString*) LOC_LOGIN_TXT_LOGIN_PLACEHOLDER    {return @"Email";}
 +(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER {return @"Password";}
 // info screen
 +(NSString*) LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE{return @"About intrigue";}
@@ -76,7 +74,6 @@
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Intrigue";}
 +(NSString*) LOC_MAIN_CELL_BALANCE {return @"Cabinet";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Log out";}
-+(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{ return @"Forgot password?";}
 // restore pass screen
 +(NSString*) LOC_RESTORE_SCREEN_TITLE{return @"Password restore";}
 +(NSString*) LOC_RESTORE_LABEL_INSTRUCTION{return @"Please enter email you registered with:";}
@@ -84,8 +81,7 @@
 +(NSString*) LOC_RESTORE_ALERT_STATE{return @"The password has been sent to the entered email address";}
 +(NSString*) LOC_RESTORE_ALERT_BTN_OK{return @"Close";}
 +(NSString*) LOC_RESTORE_EMAIL_TEMPL{return @"Hello, %@!\rYou asked to remind you about your password and we are sending it to you.\rYour password: %@\rSapid Chat wishes you an interesting communication!\rhttp://sapidchat.com/\rinfo@sapidchat.com";}
-// intrigue sell screen
-+(NSString*) LOC_INTRIGUE_SCREEN_TITLE{return @"Intrigue";}
+// intrigue cell screen
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Enter email of whose you want to get intrigued by inviting to the chat:";}
 +(NSString*) LOC_INTRIGUE_LABEL_CONDITIONS{return @"Sending: %d %@; You have: %d";}
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Make intrigued!";}
@@ -175,8 +171,6 @@
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE{return @"Dialog actions";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE{return @"Delete";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM{return @"Claim";}
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR{return @"Clear";}
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_EDIT{return @"Edit";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_TITLE{return @"Confirm delete";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_QUESTION{return @"Delete this dialog?";}
 // compose screen
@@ -212,7 +206,6 @@
 // section account
 +(NSString*) LOC_SETTINGS_POPUPEDIT_NICK_PLACEHOLDER_ENTERHERE{return @"Please enter your nick";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CURRENT{return @"Current password";}
-+(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_NEW{return @"New password";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CONFIRM{return @"Confirm new password";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_BTN_OK{return @"Change";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE{return @"New password";}

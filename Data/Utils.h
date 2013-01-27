@@ -36,6 +36,8 @@
 
 +(UILabel*)makeScreenTitleLabelforText:(NSString*)text;
 
++(void) fitButtonInHorizontalCenter:(UIButton*)button;
+    
 +(UIImage*)getFlagForLanguage:(int)lang;
 
 @end

@@ -45,7 +45,6 @@
 +(NSString*) LOC_REGISTATOR_BTN_REGISTER { return @"Создать аккаунт!";}
 +(NSString*) LOC_REGISTATOR_BTN_CLOSE { return @"Готово!";}
 +(NSString*) LOC_REGISTATOR_BTN_BACK { return @"Назад";}
-+(NSString*) LOC_REGISTATOR_FIELD_EMAIL { return @"Эл. почта";}
 +(NSString*) LOC_REGISTATOR_FIELD_PASSWORD { return @"Пароль";}
 +(NSString*) LOC_REGISTATOR_FIELD_NICK { return @"Ник";}
 +(NSString*) LOC_REGISTATOR_TEXT_SPECIFYNICK { return @"Поскольку общение здесь анонимное, то было бы хорошо придумать себе ник чтобы было возможно различать собеседников";}
@@ -62,7 +61,6 @@
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Вход";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Регистрация";}
 +(NSString*) LOC_LOGIN_BTN_FORGOTPASSWORD {return @"Забыли пароль?";}
-+(NSString*) LOC_LOGIN_TXT_LOGIN_PLACEHOLDER    {return @"Email";}
 +(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER {return @"Пароль";}
 // info screen
 +(NSString*) LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE{return @"Об Интриге";}
@@ -75,7 +73,6 @@
 +(NSString*) LOC_MAIN_CELL_INTRIGUE {return @"Интрига";}
 +(NSString*) LOC_MAIN_CELL_BALANCE {return @"Кабинет";}
 +(NSString*) LOC_MAIN_BUTTON_LOGOUT{return @"Выйти";}
-+(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{ return @"Забыли пароль?";}
 // restore pass screen
 +(NSString*) LOC_RESTORE_SCREEN_TITLE{return @"Восстановление пароля";}
 +(NSString*) LOC_RESTORE_LABEL_INSTRUCTION{return @"Введите email, указанный при регистрации:";}
@@ -84,7 +81,6 @@
 +(NSString*) LOC_RESTORE_ALERT_BTN_OK{return @"Закрыть";}
 +(NSString*) LOC_RESTORE_EMAIL_TEMPL{return @"Здравствуйте, %@!\rВы запросили напоминание вашего пароля и мы с радостью высылаем его вам.\rВаш пароль: %@\rSapid Chat желает вам хорошего настроения и интересного общения!\rhttp://sapidchat.com/\rinfo@sapidchat.com";}
 // intrigue sell screen
-+(NSString*) LOC_INTRIGUE_SCREEN_TITLE{return @"Интрига";}
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Введите e-mail того, кого хотите заинтриговать, анонимно пригласив пообщаться:";}
 +(NSString*) LOC_INTRIGUE_LABEL_CONDITIONS{return @"Отправка: %d %@; У вас: %d";}
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Заинтриговать!";}
@@ -174,8 +170,6 @@
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE{return @"Действия над диалогом";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE{return @"Удалить";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM{return @"Пожаловаться";}
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR{return @"Очистить";}
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_EDIT{return @"Изменить";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_TITLE{return @"Подтверждение удаления";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_QUESTION{return @"Удалить этот диалог?";}
 // compose screen
@@ -211,7 +205,6 @@
 // section account
 +(NSString*) LOC_SETTINGS_POPUPEDIT_NICK_PLACEHOLDER_ENTERHERE{return @"Введите ваш ник";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CURRENT{return @"Текущий пароль";}
-+(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_NEW{return @"Новый пароль";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CONFIRM{return @"Подтвердите новый пароль";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_BTN_OK{return @"Поменять";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE{return @"Новый пароль";}

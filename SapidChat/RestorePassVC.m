@@ -41,6 +41,7 @@
     self.labelInstruction.text = [Lang LOC_RESTORE_LABEL_INSTRUCTION];
 	self.textEmail.placeholder = [Lang LOC_UNI_EMAIL];
     [LocalizationUtils setTitle:[Lang LOC_RESTORE_BTN_GO] forButton:self.btnGo];
+    [Utils fitButtonInHorizontalCenter:self.btnGo];
     
     infoBarManager = [[SapidInfoBarManager alloc] init];
     [infoBarManager initInfoBarWithTopViewFrame:self.fakeNavBar.frame andHeight:40];

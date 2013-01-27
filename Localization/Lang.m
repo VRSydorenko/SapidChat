@@ -185,8 +185,6 @@
 +(NSString*) LOC_BALANCE_PRO_NO{return [[self AppLanguage] LOC_BALANCE_PRO_NO];}
 +(NSString*) LOC_BALANCE_PRO_YES{return [[self AppLanguage] LOC_BALANCE_PRO_YES];}
 +(NSString*) LOC_BALANCE_WHAT_IN_PRO{return [[self AppLanguage] LOC_BALANCE_WHAT_IN_PRO];}
-+(NSString*) LOC_BALANCE_WHAT_IN_PRO_TITLE{return [[self AppLanguage] LOC_BALANCE_WHAT_IN_PRO_TITLE];}
-+(NSString*) LOC_BALANCE_BTN_MAKEPRO{return [[self AppLanguage] LOC_BALANCE_BTN_MAKEPRO];}
 +(NSString*) LOC_BALANCE_BTN_RESTORE{return [[self AppLanguage] LOC_BALANCE_BTN_RESTORE];}
 +(NSString*) LOC_BALANCE_HEADER_APP{return [[self AppLanguage] LOC_BALANCE_HEADER_APP];}
 +(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return [[self AppLanguage] LOC_BALANCE_HEADER_YOUR_BALANCE];}
@@ -194,7 +192,6 @@
 +(NSString*) LOC_BALANCE_POSTSTAMPS_3{return [[self AppLanguage] LOC_BALANCE_POSTSTAMPS_3];}
 +(NSString*) LOC_BALANCE_POSTSTAMPS_5{return [[self AppLanguage] LOC_BALANCE_POSTSTAMPS_5];}
 +(NSString*) LOC_BALANCE_HEADER_TOPUP{return [[self AppLanguage] LOC_BALANCE_HEADER_TOPUP];}
-+(NSString*) LOC_BALANCE_BUY_POSTSTAMPS{return [[self AppLanguage] LOC_BALANCE_BUY_POSTSTAMPS];}
 +(NSString*) LOC_BALANCE_RESULT_TOPPED_UP{return [[self AppLanguage] LOC_BALANCE_RESULT_TOPPED_UP];}
 +(NSString*) LOC_BALANCE_RESULT_ERROR{return [[self AppLanguage] LOC_BALANCE_RESULT_ERROR];}
 +(NSString*) LOC_BALANCE_RESULT_NOTAUTHORIZED{return [[self AppLanguage] LOC_BALANCE_RESULT_NOTAUTHORIZED];}
@@ -226,7 +223,6 @@
 +(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK {return [[self AppLanguage] LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK];}
 
 // error codes
-+(NSString*) LOC_ERRORCODE_OK {return [[self AppLanguage] LOC_ERRORCODE_OK];}
 +(NSString*) LOC_ERRORCODE_ERROR{return [[self AppLanguage] LOC_ERRORCODE_ERROR];}
 +(NSString*) LOC_ERRORCODE_INVALID_EMAIL{return [[self AppLanguage] LOC_ERRORCODE_INVALID_EMAIL];}
 +(NSString*) LOC_ERRORCODE_USER_EXISTS{return [[self AppLanguage] LOC_ERRORCODE_USER_EXISTS];}

@@ -60,6 +60,8 @@
         self.navigationItem.hidesBackButton = YES;
         user = [navController composeUser];
         [self registerAsync];
+    } else {
+        [self initControlsData];
     }
     [self setLocalizableValues];
     

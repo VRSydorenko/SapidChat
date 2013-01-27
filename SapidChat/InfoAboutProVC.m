@@ -31,7 +31,7 @@
     
     [Utils setBackgroundFromPatternForView:self.view];
     
-    self.labelTitle.text = [Lang LOC_BALANCE_WHAT_IN_PRO_TITLE];
+    self.labelTitle.text = [Lang LOC_BALANCE_PRO_YES];
     
     boundingSize = CGSizeMake(240.0f, CGFLOAT_MAX); // 260 is the width of UILabel
     descrFont = [UIFont fontWithName:@"Helvetica" size:13.0f];

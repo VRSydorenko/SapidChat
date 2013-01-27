@@ -64,7 +64,7 @@
 
 +(NSString*) getErrorDescription:(ErrorCodes)error{
     switch (error) {
-        case OK:            return [Lang LOC_ERRORCODE_OK];
+        case OK:            return [Lang LOC_UNI_OK];
         case ERROR:         return [Lang LOC_ERRORCODE_ERROR];
         case INVALID_EMAIL: return [Lang LOC_ERRORCODE_INVALID_EMAIL];
         case USER_EXISTS:   return [Lang LOC_ERRORCODE_USER_EXISTS];

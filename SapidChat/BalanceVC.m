@@ -91,7 +91,7 @@
                 }
                 case 2:{
                     MakeItProCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellMakeItPro"];
-                    [cell.segmentedControl setTitle:[Lang LOC_BALANCE_BTN_MAKEPRO] forSegmentAtIndex:0];
+                    [cell.segmentedControl setTitle:[Lang LOC_BALANCE_PRO_YES] forSegmentAtIndex:0];
                     [cell.segmentedControl setTitle:[Lang LOC_BALANCE_BTN_RESTORE] forSegmentAtIndex:1];
                     return cell;
                 }

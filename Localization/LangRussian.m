@@ -28,7 +28,7 @@
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Виктор Сидоренко";}
 +(NSString*) LOC_ABOUT_DESIGNER{ return @"Дмитрий Походяев";}
 +(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"Разработка и оформление";}
-+(NSString*) LOC_ABOUT_DESIGN{return @"Графика";}
++(NSString*) LOC_ABOUT_DESIGN{return @"Рисунки";}
 +(NSString*) LOC_ABOUT_LOCALIZATION{return @"Локализация";}
 +(NSString*) LOC_ABOUT_ALSO{return @"А также";}
 +(NSString*) LOC_ABOUT_ICONS{return @"Иконки";}
@@ -41,7 +41,6 @@
 +(NSString*) LOC_FIRSTLAUNCH_LABEL_COMMUNICATE{ return @"Завязывается общение!";}
 // registration screen
 +(NSString*) LOC_REGISTATOR_TITLE{return @"Регистрация";}
-+(NSString*) LOC_REGISTATOR_BTN_CANCEL { return @"Отмена";}
 +(NSString*) LOC_REGISTATOR_BTN_NEXT { return @"Далее";}
 +(NSString*) LOC_REGISTATOR_BTN_REGISTER { return @"Создать аккаунт!";}
 +(NSString*) LOC_REGISTATOR_BTN_CLOSE { return @"Готово!";}
@@ -79,7 +78,6 @@
 +(NSString*) LOC_MAIN_BUTTON_FORGOTPASS{ return @"Забыли пароль?";}
 // restore pass screen
 +(NSString*) LOC_RESTORE_SCREEN_TITLE{return @"Восстановление пароля";}
-+(NSString*) LOC_RESTORE_TXT_EMAIL_PLACEHOLDER{return @"Email";}
 +(NSString*) LOC_RESTORE_LABEL_INSTRUCTION{return @"Введите email, указанный при регистрации:";}
 +(NSString*) LOC_RESTORE_BTN_GO{return @"Выслать пароль";}
 +(NSString*) LOC_RESTORE_ALERT_STATE{return @"Пароль отправлен по указанному адресу";}
@@ -92,9 +90,8 @@
 +(NSString*) LOC_INTRIGUE_BTN_SEND{return @"Заинтриговать!";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Отправлено";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK{return @"Отправлено на ваш email";}
-+(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL{return @"Email";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"Дополнительное сообщение (не обязательно)";}
-+(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Привет!\rЭто я отправил тебе то интригующее сообщение на почту ;)";}
++(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Привет! \rЭто я отправил тебе то интригующее сообщение на почту ;)";}
 +(NSString*) LOC_INTRIGUE_MAIL_SUBJECT{return @"Кто-то хочет заинтриговать вас в Sapid Chat";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_YOURSELF{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL], @"%@", [self LOC_INTRIGUE_COLLOCUTOR_MESSAGE], @""];}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM_YOURSELF{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL], @"%@", [self LOC_INTRIGUE_COLLOCUTOR_MESSAGE], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMYOURSELF_TEMPL]];}
@@ -177,13 +174,10 @@
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE{return @"Действия над диалогом";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE{return @"Удалить";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM{return @"Пожаловаться";}
-+(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL{return @"Отмена";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLEAR{return @"Очистить";}
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_EDIT{return @"Изменить";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_TITLE{return @"Подтверждение удаления";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_QUESTION{return @"Удалить этот диалог?";}
-+(NSString*) LOC_MESSAGES_ALERT_DELETION_CANCEL{return @"Отмена";}
-+(NSString*) LOC_MESSAGES_ALERT_DELETION_OK{return @"Да";}
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"Новое сообщение";}
 +(NSString*) LOC_COMPOSE_MSG_SENDING{return @"Отправляем...";}
@@ -195,7 +189,6 @@
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA{return @"Сделать фото";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CAMERA_ROLL{return @"Выбрать из галереи";}
 +(NSString*) LOC_COMPOSE_ACTSHEET_CLEAR_PIC{return @"Очистить фото";}
-+(NSString*) LOC_COMPOSE_ACTSHEET_CANCEL{return @"Отмена";}
 +(NSString*) LOC_COMPOSE_ALERT_SOURCE_UNAVAILABLE{return @"К сожалению, данный источник изображений не доступен на этом устройстве.";}
 +(NSString*) LOC_COMPOSE_INFOMSG_MESSAGE_IS_EMPTY{return @"Нечего отправлять. Ни текст ни фото не выбраны.";}
 // settings
@@ -216,25 +209,19 @@
 +(NSString*) LOC_SETTINGS_SECTION_MORE_RATE{return @"Оцениете Sapid Chat";}
 
 // section account
-+(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_OK{return @"ОК";}
-+(NSString*) LOC_SETTINGS_POPUPEDIT_BTN_CANCEL{return @"Отмена";}
 +(NSString*) LOC_SETTINGS_POPUPEDIT_NICK_PLACEHOLDER_ENTERHERE{return @"Введите ваш ник";}
-
 +(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CURRENT{return @"Текущий пароль";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_NEW{return @"Новый пароль";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_PLACEHLDR_CONFIRM{return @"Подтвердите новый пароль";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_BTN_OK{return @"Поменять";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE{return @"Новый пароль";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_MSG{return @"Пароль успешно изменен";}
-+(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK{return @"OK";}
 
 // screen balance
 +(NSString*) LOC_BALANCE_SCREEN_TITLE{return @"Кабинет";}
 +(NSString*) LOC_BALANCE_PRO_NO{return @"Ограниченная версия!";}
 +(NSString*) LOC_BALANCE_PRO_YES{return @"Полная версия!";}
 +(NSString*) LOC_BALANCE_WHAT_IN_PRO{return @"Преимущества полной версии";}
-+(NSString*) LOC_BALANCE_WHAT_IN_PRO_TITLE{return @"Полная версия";}
-+(NSString*) LOC_BALANCE_BTN_MAKEPRO{return @"Полная версия";}
 +(NSString*) LOC_BALANCE_BTN_RESTORE{return @"Восстановить";}
 +(NSString*) LOC_BALANCE_HEADER_APP{return @"Приложение";}
 +(NSString*) LOC_BALANCE_HEADER_YOUR_BALANCE{return @"Ваш баланс";}
@@ -242,7 +229,6 @@
 +(NSString*) LOC_BALANCE_POSTSTAMPS_3{return @"почтовых марки";}
 +(NSString*) LOC_BALANCE_POSTSTAMPS_5{return @"почтовых марок";}
 +(NSString*) LOC_BALANCE_HEADER_TOPUP{return @"Пополнение баланса";}
-+(NSString*) LOC_BALANCE_BUY_POSTSTAMPS{return @"почтовых марок";}
 +(NSString*) LOC_BALANCE_RESULT_TOPPED_UP{return @"Баланс пополнен!";}
 +(NSString*) LOC_BALANCE_RESULT_ERROR{return @"Ошибка";}
 +(NSString*) LOC_BALANCE_RESULT_NOTAUTHORIZED{return @"Платежы отключены";}
@@ -269,12 +255,10 @@
 // separate settings
 +(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_TEXT_PICKLANGFROMKNOWN{ return @"Из языков, что вы знаете, выберите язык для нового сообщения";}
 +(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_TO_LANGS_YOU_KNOW{ return @"К языкам, что я знаю...";}
-+(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_CANCEL{return @"Назад";}
 +(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_TEXT{ return @"Выберите языки, на которых вы можете общаться";}
 +(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK {return @"Назад";}
 
 // error codes
-+(NSString*) LOC_ERRORCODE_OK {return @"OK";}
 +(NSString*) LOC_ERRORCODE_ERROR{return @"Ошибка";}
 +(NSString*) LOC_ERRORCODE_INVALID_EMAIL{return @"Некорректный email адрес";}
 +(NSString*) LOC_ERRORCODE_USER_EXISTS{return @"Такой пользователь уже существует";}

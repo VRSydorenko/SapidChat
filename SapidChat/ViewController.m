@@ -63,7 +63,7 @@
     [self.textEmail resignFirstResponder];
     [self.textPassword resignFirstResponder];
     
-    self.textEmail.placeholder = [Lang LOC_LOGIN_TXT_LOGIN_PLACEHOLDER];
+    self.textEmail.placeholder = [Lang LOC_UNI_EMAIL];
     self.textPassword.placeholder = [Lang LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER];
     
     self.textEmail.text = @"";

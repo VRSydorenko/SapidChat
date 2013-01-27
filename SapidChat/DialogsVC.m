@@ -32,7 +32,6 @@
 @synthesize btnPick;
 @synthesize btnCompose;
 @synthesize tableDialogs;
-@synthesize spinnerPick;
 
 - (void)viewDidLoad
 {
@@ -42,8 +41,15 @@
     
     [Utils setBackgroundFromPatternForView:self.view];
     self.title = [Lang LOC_MESSAGES_TITLE];
-    self.btnPick.title = [Lang LOC_MESSAGES_BTN_PICKNEW];
-    self.btnCompose.title = [Lang LOC_MESSAGES_BTN_COMPOSE];
+    
+    [LocalizationUtils setTitle:[Lang LOC_MESSAGES_BTN_COMPOSE] forButton:self.btnCompose];
+    [self.btnCompose sizeToFit];
+    
+    [LocalizationUtils setTitle:[Lang LOC_MESSAGES_BTN_PICKNEW] forButton:self.btnPick];
+    [self.btnPick sizeToFit];
+    CGRect frame = self.btnPick.frame;
+    frame.origin.x = 320/*display width*/ - 20/*padding*/ - self.btnPick.bounds.size.width;
+    self.btnPick.frame = frame;
     
     isPicking = NO;
     navController = (MainNavController*)self.navigationController;
@@ -55,7 +61,6 @@
 - (void)dealloc
 {
     [self setTableDialogs:nil];
-    [self setSpinnerPick:nil];
     [self setBtnPick:nil];
     [self setBtnCompose:nil];
     selectedDialog = nil;
@@ -134,11 +139,16 @@
     }
 }
 
+-(void)startSpinnerOnRightBarButtonItem{
+    if (self.navigationItem.rightBarButtonItem == self.btnRefresh){
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [spinner startAnimating];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+    }
+}
 
 - (IBAction)refreshPressed:(id)sender {
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [spinner startAnimating];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+    [self startSpinnerOnRightBarButtonItem];
     
     dispatch_queue_t refreshQueue = dispatch_queue_create("refresh Queue", NULL);
     dispatch_async(refreshQueue, ^{
@@ -146,7 +156,9 @@
 //        navController.dialogs = [DataManager getAllDialogs];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableDialogs reloadData];
-            self.navigationItem.rightBarButtonItem = sender;
+            if (!isPicking){
+                self.navigationItem.rightBarButtonItem = self.btnRefresh;
+            }
         });
     });
     dispatch_release(refreshQueue);
@@ -155,7 +167,7 @@
 - (IBAction)pickPressed:(id)sender {
     if (!isPicking){
         isPicking = YES;
-        [self.spinnerPick startAnimating];
+        [self startSpinnerOnRightBarButtonItem];
         
         dispatch_queue_t refreshQueue = dispatch_queue_create("pick Queue", NULL);
         dispatch_async(refreshQueue, ^{
@@ -169,7 +181,7 @@
                 } else if (pickResult == SYSTEM_NO_MESSAGES_TO_PICKUP){
                     [navController showInfoBarWithNeutralMessage:[Lang LOC_MESSAGES_CELL_NO_MSG_TOPICKUP]];
                 }
-                [self.spinnerPick stopAnimating];
+                self.navigationItem.rightBarButtonItem = self.btnRefresh;
                 isPicking = NO;
             });
         });
@@ -185,4 +197,8 @@
     [self refreshPressed:self.navigationItem.rightBarButtonItem];
 }
 
+- (void)viewDidUnload {
+    [self setBtnRefresh:nil];
+    [super viewDidUnload];
+}
 @end

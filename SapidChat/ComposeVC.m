@@ -185,7 +185,7 @@
 - (IBAction)attachDataPressed:(id)sender {
     [self.textMessage resignFirstResponder];
     NSString* title = [Lang LOC_COMPOSE_ACTSHEET_TITLE_PICKFROM];
-    NSString* cancel = [Lang LOC_COMPOSE_ACTSHEET_CANCEL];
+    NSString* cancel = [Lang LOC_UNI_CANCEL];
     NSString* takePhoto = [Lang LOC_COMPOSE_ACTSHEET_CAMERA];
     NSString* cameraRoll = [Lang LOC_COMPOSE_ACTSHEET_CAMERA_ROLL];
     UIActionSheet *pickImageActionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancel destructiveButtonTitle:isImageSet ?[Lang LOC_COMPOSE_ACTSHEET_CLEAR_PIC] : nil otherButtonTitles:takePhoto, cameraRoll, nil];

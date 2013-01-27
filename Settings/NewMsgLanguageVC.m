@@ -53,8 +53,12 @@
 {
     [super viewDidLoad];
     [LocalizationUtils setTitle:[Lang LOC_SEPSETTINGS_NEWMSGLANG_BTN_TO_LANGS_YOU_KNOW] forButton:self.btnToLangsIKnow];
-    //[self.btnToLangsIKnow sizeToFit];
-    [LocalizationUtils setTitle:[Lang LOC_SEPSETTINGS_NEWMSGLANG_BTN_CANCEL] forButton:self.btnCancel];
+    [self.btnToLangsIKnow sizeToFit];
+    CGRect frame = self.btnToLangsIKnow.frame;
+    frame.origin.x = 320/*display width*/ - 32/*padding*/ - self.btnToLangsIKnow.bounds.size.width;
+    self.btnToLangsIKnow.frame = frame;
+    
+    [LocalizationUtils setTitle:[Lang LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK] forButton:self.btnCancel];
     self.textNewMsgLangs.text = [Lang LOC_SEPSETTINGS_NEWMSGLANG_TEXT_PICKLANGFROMKNOWN];
     self.tableLanguages.dataSource = self;
     self.tableLanguages.delegate = self;

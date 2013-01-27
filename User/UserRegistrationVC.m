@@ -60,9 +60,6 @@
         self.navigationItem.hidesBackButton = YES;
         user = [navController composeUser];
         [self registerAsync];
-    } else {
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[Lang LOC_REGISTATOR_BTN_BACK] style:UIBarButtonItemStylePlain target:nil action:nil];
-        [self initControlsData];
     }
     [self setLocalizableValues];
     
@@ -88,7 +85,7 @@
         self.btnRegister.title = [Lang LOC_REGISTATOR_BTN_REGISTER];
     }
     if (self.textEmail){
-        self.textEmail.placeholder = [Lang LOC_REGISTATOR_FIELD_EMAIL];
+        self.textEmail.placeholder = [Lang LOC_UNI_EMAIL];
     }
     if (self.textPassword){
         self.textPassword.placeholder = [Lang LOC_REGISTATOR_FIELD_PASSWORD];
@@ -281,7 +278,7 @@
     if ([segue.identifier isEqualToString:@"SegueEmailToInfo"]){
         InfoVC* infoVC = (InfoVC*)segue.destinationViewController;
         infoVC.infoString = [Lang LOC_REGISTATOR_WHY_EMAIL];
-        infoVC.title = [Lang LOC_REGISTATOR_FIELD_EMAIL];
+        infoVC.title = [Lang LOC_UNI_EMAIL];
     }
 }
 

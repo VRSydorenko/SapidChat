@@ -133,7 +133,7 @@
 
 -(void) setupActionSheets{
     NSString* title = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_TITLE];
-    NSString* cancel = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CANCEL];
+    NSString* cancel = [Lang LOC_UNI_CANCEL];
     
     NSString* delete = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_DELETE];
     //NSString* claim = [Lang LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM];
@@ -569,7 +569,7 @@
 }
 
 -(void) askToConfirmDeletion{
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@""/*[Lang LOC_MESSAGES_ALERT_DELETION_TITLE]*/ message:[Lang LOC_MESSAGES_ALERT_DELETION_QUESTION] delegate:self cancelButtonTitle:[Lang LOC_MESSAGES_ALERT_DELETION_CANCEL] otherButtonTitles:[Lang LOC_MESSAGES_ALERT_DELETION_OK], nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@""/*[Lang LOC_MESSAGES_ALERT_DELETION_TITLE]*/ message:[Lang LOC_MESSAGES_ALERT_DELETION_QUESTION] delegate:self cancelButtonTitle:[Lang LOC_UNI_CANCEL] otherButtonTitles:[Lang LOC_UNI_YES], nil];
     [alert show];
 }
 

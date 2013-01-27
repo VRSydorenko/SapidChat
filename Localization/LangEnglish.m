@@ -14,6 +14,8 @@
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
 +(NSString*) LOC_UNI_CANCEL{return @"Cancel";}
 +(NSString*) LOC_UNI_OK{return @"OK";}
++(NSString*) LOC_UNI_EMAIL{return @"Email";}
++(NSString*) LOC_UNI_YES{return @"Yes";}
 // info
 +(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return @"Distance to collocutor";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{
@@ -169,7 +171,6 @@
 +(NSString*) LOC_SETTINGS_CHANGEPASS_BTN_OK{return @"Change";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE{return @"New password";}
 +(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_MSG{return @"The password has been changed";}
-+(NSString*) LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK{return @"OK";}
 
 // screen balance
 +(NSString*) LOC_BALANCE_SCREEN_TITLE{return @"Cabinet";}

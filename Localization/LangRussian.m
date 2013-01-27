@@ -14,6 +14,8 @@
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
 +(NSString*) LOC_UNI_CANCEL{return @"Отмена";}
 +(NSString*) LOC_UNI_OK{return @"OK";}
++(NSString*) LOC_UNI_EMAIL{return @"Эл. почта";}
++(NSString*) LOC_UNI_YES{return @"Да";}
 // info
 +(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return @"Расстояние до собеседника";}
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{

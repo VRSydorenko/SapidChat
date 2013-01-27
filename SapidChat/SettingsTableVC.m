@@ -157,8 +157,8 @@
 }
 
 - (void) editSimpleTextSetting:(NSString*)title currentText:(NSString*)currentValue placeholder:(NSString*)placeholder{
-    NSString* btnOkText = [Lang LOC_SETTINGS_POPUPEDIT_BTN_OK];
-    NSString* btnCancelText = [Lang LOC_SETTINGS_POPUPEDIT_BTN_CANCEL];
+    NSString* btnOkText = [Lang LOC_UNI_OK];
+    NSString* btnCancelText = [Lang LOC_UNI_CANCEL];
     
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:title message:@"" delegate:self cancelButtonTitle:btnCancelText otherButtonTitles:btnOkText, nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;

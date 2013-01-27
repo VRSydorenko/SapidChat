@@ -25,6 +25,8 @@
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}
 +(NSString*) LOC_UNI_CANCEL{return [[self AppLanguage] LOC_UNI_CANCEL];}
 +(NSString*) LOC_UNI_OK{return [[self AppLanguage] LOC_UNI_OK];}
++(NSString*) LOC_UNI_EMAIL{return [[self AppLanguage] LOC_UNI_EMAIL];}
++(NSString*) LOC_UNI_YES{return [[self AppLanguage] LOC_UNI_YES];}
 // info
 +(NSString*) LOC_INFO_FEATURE_TITLE_DISTANCE{ return [[self AppLanguage] LOC_INFO_FEATURE_TITLE_DISTANCE];}
 +(NSString*) LOC_INFO_FEATURE_DESCR_DISTANCE{ return [[self AppLanguage] LOC_INFO_FEATURE_DESCR_DISTANCE];}

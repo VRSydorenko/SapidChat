@@ -39,7 +39,7 @@
     self.labelTitle.text = [Lang LOC_RESTORE_SCREEN_TITLE];
     
     self.labelInstruction.text = [Lang LOC_RESTORE_LABEL_INSTRUCTION];
-	self.textEmail.placeholder = [Lang LOC_LOGIN_TXT_LOGIN_PLACEHOLDER];
+	self.textEmail.placeholder = [Lang LOC_UNI_EMAIL];
     [LocalizationUtils setTitle:[Lang LOC_RESTORE_BTN_GO] forButton:self.btnGo];
     
     infoBarManager = [[SapidInfoBarManager alloc] init];
@@ -56,7 +56,6 @@
     [self setFakeNavBar:nil];
     [self setLabelTitle:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 

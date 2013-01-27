@@ -50,7 +50,7 @@
     self.title = [Lang LOC_INTRIGUE_SCREEN_TITLE];
     [LocalizationUtils setText:[Lang LOC_INTRIGUE_LABEL_ENTERMAIL] forLabel:self.labelEnterEmail];
     [LocalizationUtils setTitle:[Lang LOC_INTRIGUE_BTN_SEND] forButton:self.btnSend];
-    self.textEmail.placeholder = [Lang LOC_INTRIGUE_EDIT_PLACEHOLDER_EMAIL];
+    self.textEmail.placeholder = [Lang LOC_UNI_EMAIL];
     self.textMsg.placeholder = [Lang LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG];
     [self updateConoditionsLabel];
 }

@@ -109,7 +109,7 @@
     self.editNewPass.text = @"";
     self.editNewPassConfirm.text = @"";
     
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:[Lang LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE] message:[Lang LOC_SETTINGS_CHANGEPASS_RESULT_MSG] delegate:self cancelButtonTitle:[Lang LOC_SETTINGS_CHANGEPASS_RESULT_BTN_OK] otherButtonTitles:nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:[Lang LOC_SETTINGS_CHANGEPASS_SCREEN_TITLE] message:[Lang LOC_SETTINGS_CHANGEPASS_RESULT_MSG] delegate:self cancelButtonTitle:[Lang LOC_UNI_OK] otherButtonTitles:nil];
     [alert show];
 }
 

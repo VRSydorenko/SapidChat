@@ -62,24 +62,6 @@
     }
 }
 
-/*
--(int) getUserDbId:(NSString*)userEmail{
-    NSString *querySQL = [NSString stringWithFormat: @"SELECT %@ FROM %@ WHERE %@=\"%@\"", F_ID, T_USERS, F_EMAIL, userEmail];
-    const char *query_stmt = [querySQL UTF8String];
-    
-    sqlite3_stmt *statement;
-    if (sqlite3_prepare_v2(sapidDb, query_stmt, -1, &statement, NULL) == SQLITE_OK)
-    {
-        if (sqlite3_step(statement) == SQLITE_ROW)
-        {
-            NSString *idField = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
-            return idField.intValue;
-        }
-        sqlite3_finalize(statement);
-    }
-    return -1;
-}*/
-
 // public methods
 -(void) saveUser:(User*)user{ // user specific method
     User* exists = [self loadUser:user.email];
@@ -87,22 +69,24 @@
     NSString* sql;
     NSString *logMsg = @"";
     if (exists){ // already exists so update
-        sql = [NSString stringWithFormat: @"UPDATE %@ SET %@ = \"%@\", %@ = \"%@\", %@ = %d WHERE %@ =\"%@\" AND %@ = \"%@\"", T_USERS, F_NICK, user.nickname, F_LANGS, languages, F_RP, user.rp, F_EMAIL, user.email, F_AUTHOR, [UserSettings getEmail]];
-        logMsg = @"User updated!!!";
+        sql = [NSString stringWithFormat: @"UPDATE %@ SET %@ = ?, %@ = \"%@\", %@ = %d WHERE %@ =\"%@\" AND %@ = \"%@\"", T_USERS, F_NICK, F_LANGS, languages, F_RP, user.rp, F_EMAIL, user.email, F_AUTHOR, [UserSettings getEmail]];
+        logMsg = @"User updated";
     } else { // doesnt exist so insert
-        sql = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", %d, 0)", T_USERS, F_AUTHOR, F_EMAIL, F_NICK, F_LANGS, F_RP, F_RP_BUF, [UserSettings getEmail], user.email, user.nickname, languages, user.rp];
-        logMsg = @"User inserted!!!";
+        sql = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, ?, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", %d, 0)", T_USERS, F_AUTHOR, F_EMAIL, F_NICK, F_LANGS, F_RP, F_RP_BUF, [UserSettings getEmail], user.email, languages, user.rp];
+        logMsg = @"User inserted";
     }
     const char *insert_stmt = [sql UTF8String];
     
     sqlite3_stmt *statement;
-    sqlite3_prepare_v2(sapidDb, insert_stmt, -1, &statement, NULL);
-    if (sqlite3_step(statement) == SQLITE_DONE)
-    {
-        NSLog(@"%@", logMsg);
-    } else {
-        NSLog(@"Failed to save user");
-        NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
+    if (sqlite3_prepare_v2(sapidDb, insert_stmt, -1, &statement, NULL) == SQLITE_OK){
+        sqlite3_bind_text(statement, 1, [user.nickname cStringUsingEncoding:NSUTF8StringEncoding], -1, SQLITE_TRANSIENT);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            NSLog(@"%@", logMsg);
+        } else {
+            NSLog(@"Failed to save user");
+            NSLog(@"Info:%s", sqlite3_errmsg(sapidDb));
+        }
     }
     sqlite3_finalize(statement);
 }
@@ -158,12 +142,13 @@
 }
 
 -(void)updateOwnNick:(NSString*)nick{
-    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = \"%@\" WHERE %@ = \"%@\" AND %@ = \"%@\"", T_USERS, F_NICK, nick, F_EMAIL, [UserSettings getEmail], F_AUTHOR, [UserSettings getEmail]];
+    NSString* querySQL = [NSString stringWithFormat:@"UPDATE %@ SET %@ = ? WHERE %@ = \"%@\" AND %@ = \"%@\"", T_USERS, F_NICK, F_EMAIL, [UserSettings getEmail], F_AUTHOR, [UserSettings getEmail]];
     const char *query_stmt = [querySQL UTF8String];
     
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(sapidDb, query_stmt, -1, &statement, NULL) == SQLITE_OK)
     {
+        sqlite3_bind_text(statement, 1, [nick cStringUsingEncoding:NSUTF8StringEncoding], -1, SQLITE_TRANSIENT);
         if (sqlite3_step(statement) == SQLITE_DONE)
         {
         } else {
@@ -221,17 +206,17 @@
     BOOL isDataPresent = msg.attachmentData && msg.attachmentData.length > 0;
     NSString* insertSQL;
     if (isDataPresent){
-        insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, \"%@\", %d, %.10f, %.10f, \"%@\", ?, %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, F_ATTNAME, F_ATTDATA, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.text, msg.type, msg.latitude, msg.longitude, msg.attachmentName, isNew];
+        insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, ?, %d, %.10f, %.10f, \"%@\", ?, %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, F_ATTNAME, F_ATTDATA, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.type, msg.latitude, msg.longitude, msg.attachmentName, isNew];
     } else {
-        insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, \"%@\", %d, %.10f, %.10f, \"%@\", %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, F_ATTNAME, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.text, msg.type, msg.latitude, msg.longitude, msg.attachmentName, isNew];
+        insertSQL = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", %d, ?, %d, %.10f, %.10f, \"%@\", %d)", T_MSGS, F_AUTHOR, F_FROM, F_TO, F_WHEN, F_TEXT, F_TYPE, F_LATD, F_LOND, F_ATTNAME, F_UNREAD, [UserSettings getEmail], msg.from, msg.to, msg.when, msg.type, msg.latitude, msg.longitude, msg.attachmentName, isNew];
     }
     const char *insert_stmt = [insertSQL UTF8String];
 
     sqlite3_stmt *statement;    
     if (sqlite3_prepare_v2(sapidDb, insert_stmt, -1, &statement, NULL) == SQLITE_OK){
+        sqlite3_bind_text(statement, 1, [msg.text cStringUsingEncoding:NSUTF8StringEncoding], -1, SQLITE_TRANSIENT);
         if (isDataPresent){
-            // important!!! 1 - number of `?` in the statement corresponds to blob column in the DB 
-            sqlite3_bind_blob(statement, 1, [msg.attachmentData bytes], [msg.attachmentData length], SQLITE_TRANSIENT);
+            sqlite3_bind_blob(statement, 2, [msg.attachmentData bytes], [msg.attachmentData length], SQLITE_TRANSIENT);
         }
         if (sqlite3_step(statement) == SQLITE_DONE){
             if (msg.type == MSG_SYSTEM){ // save the latest msg tiem for not to fetch it after deletion

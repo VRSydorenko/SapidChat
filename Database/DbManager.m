@@ -452,7 +452,7 @@
         }
     }
     sqlite3_finalize(statement);
-    return -1;
+    return 0;
 }
 
 -(void) addPoststamps:(int)count toBuffer:(bool)toBuffer{ // user specific method

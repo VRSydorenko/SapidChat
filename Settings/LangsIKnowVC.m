@@ -21,9 +21,7 @@
 
 @implementation LangsIKnowVC
 
-@synthesize textLangsIKnow;
 @synthesize tableLanguages;
-@synthesize btnBack;
 
 - (void)viewWillAppear:(BOOL)animated{
     languages = [[NSMutableArray alloc] initWithArray:[DataManager getCurrentUser].languages];
@@ -33,8 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.textLangsIKnow.text = [Lang LOC_SEPSETTINGS_LANGSIKNOW_TEXT];
-    [LocalizationUtils setTitle:[Lang LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK] forButton:self.btnBack];
+    self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION];
+    self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
+       
     self.tableLanguages.dataSource = self;
     self.tableLanguages.delegate = self;
 }
@@ -42,11 +41,8 @@
 - (void)dealloc
 {
     [self setTableLanguages:nil];
-    [self setTextLangsIKnow:nil];
-    [self setBtnBack:nil];
     languages = nil;
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -86,7 +82,8 @@
     }
 }
 
-- (IBAction)backPressed:(id)sender {
+-(void)backPressed{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 @end

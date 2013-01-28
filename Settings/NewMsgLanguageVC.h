@@ -10,11 +10,9 @@
 
 @interface NewMsgLanguageVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextView *textNewMsgLangs;
-@property (strong, nonatomic) IBOutlet UIButton *btnToLangsIKnow;
 @property (strong, nonatomic) IBOutlet UITableView *tableLanguages;
+@property (strong, nonatomic) IBOutlet UIButton *btnToLangsIKnow;
 - (IBAction)toLangsIKnowPressed:(id)sender;
-@property (strong, nonatomic) IBOutlet UIButton *btnCancel;
-- (IBAction)cancelPressed:(id)sender;
+- (IBAction)closePressed:(id)sender;
 
 @end

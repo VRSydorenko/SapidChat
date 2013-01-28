@@ -19,13 +19,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)dealloc
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+	
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"barGreenBackground.png"] forBarMetrics:UIBarMetricsDefault];
 }
 
 -(void) closeUsingHandler{

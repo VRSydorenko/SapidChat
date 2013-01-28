@@ -22,9 +22,7 @@
 @end
 
 @implementation NewMsgLanguageVC
-@synthesize btnCancel;
 @synthesize tableLanguages;
-@synthesize textNewMsgLangs;
 @synthesize btnToLangsIKnow;
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -52,14 +50,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES];
+    
     [LocalizationUtils setTitle:[Lang LOC_SEPSETTINGS_NEWMSGLANG_BTN_TO_LANGS_YOU_KNOW] forButton:self.btnToLangsIKnow];
     [self.btnToLangsIKnow sizeToFit];
     CGRect frame = self.btnToLangsIKnow.frame;
-    frame.origin.x = 320/*display width*/ - 32/*padding*/ - self.btnToLangsIKnow.bounds.size.width;
+    frame.origin.x = 320/*display width*/ - 20/*padding*/ - self.btnToLangsIKnow.bounds.size.width;
     self.btnToLangsIKnow.frame = frame;
     
-    [LocalizationUtils setTitle:[Lang LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK] forButton:self.btnCancel];
-    self.textNewMsgLangs.text = [Lang LOC_SEPSETTINGS_NEWMSGLANG_TEXT_PICKLANGFROMKNOWN];
     self.tableLanguages.dataSource = self;
     self.tableLanguages.delegate = self;
 }
@@ -68,8 +66,6 @@
 {
     [self setTableLanguages:nil];
     [self setBtnToLangsIKnow:nil];
-    [self setTextNewMsgLangs:nil];
-    [self setBtnCancel:nil];
     languages = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -106,7 +102,7 @@
     [self performSegueWithIdentifier:@"SegueNewMsgLangsToLangsIKnow" sender:self];
 }
 
-- (IBAction)cancelPressed:(id)sender {
+- (IBAction)closePressed:(id)sender {
     [(NewMsgLanguagesNavCon*)self.navigationController closeUsingHandler];
 }
 @end

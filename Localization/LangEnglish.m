@@ -247,10 +247,7 @@
 +(NSString*) LOC_SETTINGS_LANGUAGES_ROMANIAN{ return @"Romanian";}
 
 // separate settings
-+(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_TEXT_PICKLANGFROMKNOWN{ return @"Choose from the languages you know one for the new message";}
 +(NSString*) LOC_SEPSETTINGS_NEWMSGLANG_BTN_TO_LANGS_YOU_KNOW{ return @"To the languages I know...";}
-+(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_TEXT{ return @"Select languages you can communicate in";}
-+(NSString*) LOC_SEPSETTINGS_LANGSIKNOW_BTN_BACK {return @"Back";}
 
 // error codes
 +(NSString*) LOC_ERRORCODE_ERROR{return @"Error ocurred";}

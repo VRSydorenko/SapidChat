@@ -72,7 +72,7 @@
         sql = [NSString stringWithFormat: @"UPDATE %@ SET %@ = ?, %@ = \"%@\", %@ = %d WHERE %@ =\"%@\" AND %@ = \"%@\"", T_USERS, F_NICK, F_LANGS, languages, F_RP, user.rp, F_EMAIL, user.email, F_AUTHOR, [UserSettings getEmail]];
         logMsg = @"User updated";
     } else { // doesnt exist so insert
-        sql = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, ?, %@, %@, %@) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", %d, 0)", T_USERS, F_AUTHOR, F_EMAIL, F_NICK, F_LANGS, F_RP, F_RP_BUF, [UserSettings getEmail], user.email, languages, user.rp];
+        sql = [NSString stringWithFormat: @"INSERT INTO %@ (%@, %@, %@, %@, %@, %@) VALUES (\"%@\", \"%@\", ?, \"%@\", %d, 0)", T_USERS, F_AUTHOR, F_EMAIL, F_NICK, F_LANGS, F_RP, F_RP_BUF, [UserSettings getEmail], user.email, languages, user.rp];
         logMsg = @"User inserted";
     }
     const char *insert_stmt = [sql UTF8String];

@@ -17,10 +17,11 @@
 - (void) composeCompleted:(Message*)composedMsg;
 @end
 
-@interface ComposeVC : UIViewController<NewMsgLanguagesSettingsDelegate,
+@interface ComposeVC : UIViewController<UITextViewDelegate,
                                         UINavigationControllerDelegate,
                                         UIImagePickerControllerDelegate,
                                         UIActionSheetDelegate,
+                                        NewMsgLanguagesSettingsDelegate,
                                         ATMHudDelegate>
 
 @property (strong, nonatomic) id <ComposeNewMessageResponseDelegate> composeHandler;

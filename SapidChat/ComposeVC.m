@@ -42,6 +42,8 @@
     
     //[Utils setBackgroundFromPatternForView:self.view];
     
+    self.textMessage.delegate = self;
+    
 	isSending = NO;
     isImageSet = NO;
     dontDismiss = NO;
@@ -80,13 +82,14 @@
 
 - (void)dealloc
 {
+    navCon = nil;
+    imagePicker = nil;
     [self setTextMessage:nil];
     [self setBtnSend:nil];
     [self setBtnAttachData:nil];
     [self setImageView:nil];
     [self setBtnProInfo:nil];
-    navCon = nil;
-    imagePicker = nil;
+    [self setButtonLanguageIcon:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -272,8 +275,16 @@
     msg.initial_message_global_timestamp = initialMsgGlobalTimstamp;
     return msg;
 }
-- (void)viewDidUnload {
-    [self setButtonLanguageIcon:nil];
-    [super viewDidUnload];
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    
+    NSUInteger oldLength = [textView.text length];
+    NSUInteger replacementLength = [text length];
+    NSUInteger rangeLength = range.length;
+    
+    NSUInteger newLength = oldLength - rangeLength + replacementLength;
+    
+    return newLength <= 500;
 }
 @end

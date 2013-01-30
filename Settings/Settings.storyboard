@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="pnB-de-fHC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="pnB-de-fHC">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--New Msg LanguageVC-->
@@ -68,13 +68,10 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Oo-vh-vBG">
                                 <rect key="frame" x="291" y="10" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" image="crossLines.png">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="closePressed:" destination="Qec-f5-gzh" eventType="touchUpInside" id="v8y-YJ-zo5"/>
@@ -167,6 +164,26 @@
         <image name="crossLines.png" width="32" height="32"/>
         <image name="web.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="LangsIKnowVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LangsIKnowVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableLanguages" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NewMsgLanguageVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewMsgLanguageVC.h"/>
+            <relationships>
+                <relationship kind="action" name="closePressed:"/>
+                <relationship kind="action" name="toLangsIKnowPressed:"/>
+                <relationship kind="outlet" name="btnToLangsIKnow" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableLanguages" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NewMsgLanguagesNavCon" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewMsgLanguagesNavCon.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -274,6 +274,7 @@
             }
             [self.spinner stopAnimating];
             isRegistering = NO;
+            self.btnClose.hidden = NO;
         });
     });
     dispatch_release(regQueue);

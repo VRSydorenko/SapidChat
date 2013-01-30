@@ -34,6 +34,7 @@
 
 @property (nonatomic) id<CommercialNotificationDelegate> delegate;
 
+-(id)initWithDelegate:(id<CommercialNotificationDelegate>)delegate;
 -(void) makeItPro;
 -(void) restoreFullVersion;
 -(void) purchasePoststamps10;

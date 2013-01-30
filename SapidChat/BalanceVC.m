@@ -23,6 +23,7 @@
     MainNavController* navController;
     PurchaseManager* purchaseManager;
     bool operationInProgress;
+    bool productsLoading;
 }
 
 @end
@@ -34,10 +35,10 @@
     [super viewDidLoad];
     
     operationInProgress = YES;
+    productsLoading = YES;
     
     navController = (MainNavController*)self.navigationController;
-    purchaseManager = [[PurchaseManager alloc] init];
-    purchaseManager.delegate = self;
+    purchaseManager = [[PurchaseManager alloc] initWithDelegate:self];
     
     self.navigationItem.leftBarButtonItem = [Utils createBackButtonWithSelectorBackPressedOnTarget:self];
     
@@ -93,6 +94,7 @@
                     MakeItProCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellMakeItPro"];
                     [cell.segmentedControl setTitle:[Lang LOC_BALANCE_PRO_YES] forSegmentAtIndex:0];
                     [cell.segmentedControl setTitle:[Lang LOC_BALANCE_BTN_RESTORE] forSegmentAtIndex:1];
+                    
                     return cell;
                 }
             }
@@ -190,13 +192,14 @@
 
 - (IBAction)segmentPicked:(id)sender {
     UISegmentedControl *segmentedControl = (UISegmentedControl*)sender;
-    operationInProgress = YES;
     [self.tableContent reloadData];
     if (segmentedControl.selectedSegmentIndex == 0){
+        operationInProgress = YES;
         [purchaseManager makeItPro];
     } else {
         [purchaseManager restoreFullVersion];
     }
+    [segmentedControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
 }
 
 -(void)fullVersionActivated{
@@ -225,6 +228,7 @@
 
 -(void)productsLoaded{
     operationInProgress = NO;
+    productsLoading = NO;
     [self.tableContent reloadData];
 }
 

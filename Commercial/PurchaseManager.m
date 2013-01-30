@@ -47,11 +47,12 @@
     [DataManager addRegularPoststampsToLocalBuffer: -amount];
 }
 
-- (id)init
+- (id)initWithDelegate:(id<CommercialNotificationDelegate>)delegate
 {
     self = [super init];
     if (self){
         [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+        self.delegate = delegate;
         [self requestProductsData];
     }
     return self;

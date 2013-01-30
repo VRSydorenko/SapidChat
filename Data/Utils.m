@@ -256,6 +256,12 @@
         case SPANISH:
             imageName = @"spain.png";
             break;
+        case HUNGARIAN:
+            imageName = @"hungary.png";
+            break;
+        case ROMANIAN:
+            imageName = @"romania.png";
+            break;
     }
     return [UIImage imageNamed:imageName];
 }

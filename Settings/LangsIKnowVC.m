@@ -57,6 +57,7 @@
         int row = indexPath.row;
         cell.textLabel.text = [Utils getLanguageName:row needSelfName:NO];
         cell.detailTextLabel.text = [Utils getLanguageName:row needSelfName:YES];
+        cell.imageView.image = [Utils getFlagForLanguage:row];
         for (NSNumber *num in languages) {
             if (num.intValue == row){
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;

@@ -113,6 +113,7 @@
                 int row = indexPath.row;
                 cell.textLabel.text = [Utils getLanguageName:row needSelfName:NO];
                 cell.detailTextLabel.text = [Utils getLanguageName:row needSelfName:YES];
+                cell.imageView.image = [Utils getFlagForLanguage:row];
                 for (NSNumber *num in msgLanguages) {
                     if (num.intValue == row){
                         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -125,6 +126,7 @@
                 int lang = ((NSString*)[values objectAtIndex:indexPath.row]).intValue;
                 cell.textLabel.text = [Utils getLanguageName:lang needSelfName:NO];
                 cell.detailTextLabel.text = [Utils getLanguageName:lang needSelfName:YES];
+                cell.imageView.image = [Utils getFlagForLanguage:lang];
                 if ([UserSettings getNewMessagesLanguage] == lang){
                     cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 }
@@ -134,6 +136,7 @@
                 int lang = ((NSString*)[values objectAtIndex:indexPath.row]).intValue;
                 cell.textLabel.text = [Utils getLanguageName:lang needSelfName:NO];
                 cell.detailTextLabel.text = [Utils getLanguageName:lang needSelfName:YES];
+                cell.imageView.image = [Utils getFlagForLanguage:lang];
                 if ([UserSettings getAppLanguage] == lang){
                     cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 }

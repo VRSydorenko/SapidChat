@@ -203,5 +203,5 @@
 
 @end
 
-@interface Lang <Language>
+@interface Lang : NSObject<Language>
 @end

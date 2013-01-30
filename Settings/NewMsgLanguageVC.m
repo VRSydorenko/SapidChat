@@ -82,6 +82,7 @@
         int lang = ((NSString*)[languages objectAtIndex:indexPath.row]).intValue;
         cell.textLabel.text = [Utils getLanguageName:lang needSelfName:NO];
         cell.detailTextLabel.text = [Utils getLanguageName:lang needSelfName:YES];
+        cell.imageView.image = [Utils getFlagForLanguage:lang];
         if ([UserSettings getNewMessagesLanguage] == lang){
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }

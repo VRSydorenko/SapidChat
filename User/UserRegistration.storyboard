@@ -108,7 +108,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LanguageCell" textLabel="c3c-Rj-P2O" detailTextLabel="he2-ML-W3m" style="IBUITableViewCellStyleSubtitle" id="g6Z-aA-oLE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LanguageCell" textLabel="c3c-Rj-P2O" detailTextLabel="he2-ML-W3m" style="IBUITableViewCellStyleSubtitle" id="g6Z-aA-oLE">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -359,6 +359,37 @@
         <image name="crossLines.png" width="32" height="32"/>
         <image name="usercard.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="RegInfoVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegInfoVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="textInfo" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="RegistrationNavController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationNavController.h"/>
+        </class>
+        <class className="UserRegistrationVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserRegistrationVC.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelPressed:"/>
+                <relationship kind="action" name="editingChanged:"/>
+                <relationship kind="action" name="nextPressed:"/>
+                <relationship kind="action" name="textDidEndOnExit:"/>
+                <relationship kind="outlet" name="btnCancel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnClose" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnNext" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnRegister" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="tableLanguages" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textNick" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textPassword" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="txtSelectLangs" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="txtSpecifyNick" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

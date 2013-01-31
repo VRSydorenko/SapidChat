@@ -237,6 +237,7 @@
         int row = indexPath.row;
         cell.textLabel.text = [Utils getLanguageName:row needSelfName:NO];
         cell.detailTextLabel.text = [Utils getLanguageName:row needSelfName:YES];
+        cell.imageView.image = [Utils getFlagForLanguage:row];
         if ([navController.selectedLanguages containsObject:[NSNumber numberWithInt:row]]){
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }

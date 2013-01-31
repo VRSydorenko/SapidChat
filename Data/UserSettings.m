@@ -81,7 +81,22 @@
 
 // languages which can be chosen as application language
 +(NSArray*)getAppSupportedLanguages{
-    return [[NSMutableArray alloc] initWithObjects:@"2", @"10", nil]; // localization!!!
+    return [[NSArray alloc] initWithObjects:
+            [NSNumber numberWithInt:ARABIC],
+            [NSNumber numberWithInt:CHINESE],
+            [NSNumber numberWithInt:ENGLISH],
+            [NSNumber numberWithInt:FRENCH],
+            [NSNumber numberWithInt:GERMAN],
+            [NSNumber numberWithInt:HINDI],
+            [NSNumber numberWithInt:HUNGARIAN],
+            //[NSNumber numberWithInt:ITALIAN],
+            //[NSNumber numberWithInt:JAPANESE],
+            [NSNumber numberWithInt:KOREAN],
+            [NSNumber numberWithInt:PORTUGESE],
+            [NSNumber numberWithInt:ROMANIAN],
+            [NSNumber numberWithInt:RUSSIAN],
+            //[NSNumber numberWithInt:SPANISH],
+            nil];
 }
 
 +(int) getNewMessagesLanguage{

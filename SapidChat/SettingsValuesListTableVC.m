@@ -48,8 +48,7 @@
             break;
         }
         case VALUES_APP_LANGUAGES:{
-            values = [[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%d", RUSSIAN],
-                                                      [NSString stringWithFormat:@"%d", ENGLISH], nil];
+            values = [UserSettings getAppSupportedLanguages];
             self.title = [Lang LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION];
             break;
         }
@@ -133,7 +132,7 @@
                 break;
             }
             case VALUES_APP_LANGUAGES:{
-                int lang = ((NSString*)[values objectAtIndex:indexPath.row]).intValue;
+                int lang = ((NSNumber*)[values objectAtIndex:indexPath.row]).intValue;
                 cell.textLabel.text = [Utils getLanguageName:lang needSelfName:NO];
                 cell.detailTextLabel.text = [Utils getLanguageName:lang needSelfName:YES];
                 cell.imageView.image = [Utils getFlagForLanguage:lang];

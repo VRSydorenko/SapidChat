@@ -57,7 +57,7 @@
         cell = [[LanguageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellAppLanguage"];
     }
     
-    int lang = ((NSString*)[appLangs objectAtIndex:indexPath.row]).intValue;
+    int lang = ((NSNumber*)[appLangs objectAtIndex:indexPath.row]).intValue;
     cell.labelLanguage.text = [Utils getLanguageName:lang needSelfName:YES];
     cell.imageFlag.image = [Utils getFlagForLanguage:lang];
     
@@ -66,7 +66,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [UserSettings setAppLanguage:((NSString*)[appLangs objectAtIndex:indexPath.row]).intValue];
+    [UserSettings setAppLanguage:((NSNumber*)[appLangs objectAtIndex:indexPath.row]).intValue];
     [self localize];
     self.btnNext.hidden = NO;
 }

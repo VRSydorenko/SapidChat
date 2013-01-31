@@ -8,15 +8,36 @@
 
 #import "Lang.h"
 #import "UserSettings.h"
+#import "LangArabic.h"
+#import "LangChinese.h"
 #import "LangEnglish.h"
+#import "LangFrench.h"
+#import "LangGerman.h"
+#import "LangHindi.h"
+#import "LangHungarian.h"
+#import "LangKorean.h"
+#import "LangPortuguese.h"
+#import "LangRomanian.h"
 #import "LangRussian.h"
 
 @implementation Lang
 
 +(Class) AppLanguage{
     switch ([UserSettings getAppLanguage]) {
-        case 2: return [LangEnglish class];
-        case 10: return [LangRussian class];
+        case ARABIC: return [LangArabic class];
+        case CHINESE: return [LangChinese class];
+        case ENGLISH: return [LangEnglish class];
+        case FRENCH: return [LangFrench class];
+        case GERMAN: return [LangGerman class];
+        case HINDI: return [LangHindi class];
+        case HUNGARIAN: return [LangHungarian class];
+        //case ITALIAN: return [LangItalian class];
+        //case JAPANESE: return [LangJapanese class];
+        case KOREAN: return [LangKorean class];
+        case PORTUGESE: return [LangPortuguese class];
+        case ROMANIAN: return [LangRomanian class];
+        case RUSSIAN: return [LangRussian class];
+        //case SPANISH: return [LangSpanish class];
     }
     return nil;
 }

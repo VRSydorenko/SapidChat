@@ -36,6 +36,17 @@
 		7F7880251610DE5500BDD517 /* AppLanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7880241610DE5500BDD517 /* AppLanguageVC.m */; };
 		7F99594415BF409500A0DE84 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F99594315BF409500A0DE84 /* MainNavController.m */; };
 		7F99594715BF443100A0DE84 /* DialogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F99594615BF443100A0DE84 /* DialogCell.m */; };
+		7FA590A116BB068700ED5000 /* LangArabic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909216BB068700ED5000 /* LangArabic.m */; };
+		7FA590A216BB068700ED5000 /* LangChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909416BB068700ED5000 /* LangChinese.m */; };
+		7FA590A316BB068700ED5000 /* LangFrench.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909616BB068700ED5000 /* LangFrench.m */; };
+		7FA590A416BB068700ED5000 /* LangHindi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909816BB068700ED5000 /* LangHindi.m */; };
+		7FA590A516BB068700ED5000 /* LangHungarian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909A16BB068700ED5000 /* LangHungarian.m */; };
+		7FA590A616BB068700ED5000 /* LangKorean.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909C16BB068700ED5000 /* LangKorean.m */; };
+		7FA590A716BB068700ED5000 /* LangPortuguese.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909E16BB068700ED5000 /* LangPortuguese.m */; };
+		7FA590A816BB068700ED5000 /* LangRomanian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA590A016BB068700ED5000 /* LangRomanian.m */; };
+		7FA590AB16BB0E3200ED5000 /* LangGerman.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA590AA16BB0E3100ED5000 /* LangGerman.m */; };
+		7FA590B616BB222900ED5000 /* envelope_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA590B416BB222800ED5000 /* envelope_right.png */; };
+		7FA590B916BB22AD00ED5000 /* envelope_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA590B816BB22AD00ED5000 /* envelope_right@2x.png */; };
 		7FA5F72915D2C04A009F5A96 /* DialogsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5F72815D2C04A009F5A96 /* DialogsVC.m */; };
 		7FAF04EB16B4A4C0005A677B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF04E816B4A4C0005A677B /* Default-568h@2x.png */; };
 		7FAF04EC16B4A4C0005A677B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF04E916B4A4C0005A677B /* Default.png */; };
@@ -295,6 +306,26 @@
 		7F99594315BF409500A0DE84 /* MainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavController.m; sourceTree = "<group>"; };
 		7F99594515BF443100A0DE84 /* DialogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogCell.h; sourceTree = "<group>"; };
 		7F99594615BF443100A0DE84 /* DialogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogCell.m; sourceTree = "<group>"; };
+		7FA5909116BB068700ED5000 /* LangArabic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangArabic.h; path = Localization/LangArabic.h; sourceTree = "<group>"; };
+		7FA5909216BB068700ED5000 /* LangArabic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangArabic.m; path = Localization/LangArabic.m; sourceTree = "<group>"; };
+		7FA5909316BB068700ED5000 /* LangChinese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangChinese.h; path = Localization/LangChinese.h; sourceTree = "<group>"; };
+		7FA5909416BB068700ED5000 /* LangChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangChinese.m; path = Localization/LangChinese.m; sourceTree = "<group>"; };
+		7FA5909516BB068700ED5000 /* LangFrench.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangFrench.h; path = Localization/LangFrench.h; sourceTree = "<group>"; };
+		7FA5909616BB068700ED5000 /* LangFrench.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangFrench.m; path = Localization/LangFrench.m; sourceTree = "<group>"; };
+		7FA5909716BB068700ED5000 /* LangHindi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangHindi.h; path = Localization/LangHindi.h; sourceTree = "<group>"; };
+		7FA5909816BB068700ED5000 /* LangHindi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangHindi.m; path = Localization/LangHindi.m; sourceTree = "<group>"; };
+		7FA5909916BB068700ED5000 /* LangHungarian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangHungarian.h; path = Localization/LangHungarian.h; sourceTree = "<group>"; };
+		7FA5909A16BB068700ED5000 /* LangHungarian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangHungarian.m; path = Localization/LangHungarian.m; sourceTree = "<group>"; };
+		7FA5909B16BB068700ED5000 /* LangKorean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangKorean.h; path = Localization/LangKorean.h; sourceTree = "<group>"; };
+		7FA5909C16BB068700ED5000 /* LangKorean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangKorean.m; path = Localization/LangKorean.m; sourceTree = "<group>"; };
+		7FA5909D16BB068700ED5000 /* LangPortuguese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangPortuguese.h; path = Localization/LangPortuguese.h; sourceTree = "<group>"; };
+		7FA5909E16BB068700ED5000 /* LangPortuguese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangPortuguese.m; path = Localization/LangPortuguese.m; sourceTree = "<group>"; };
+		7FA5909F16BB068700ED5000 /* LangRomanian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangRomanian.h; path = Localization/LangRomanian.h; sourceTree = "<group>"; };
+		7FA590A016BB068700ED5000 /* LangRomanian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangRomanian.m; path = Localization/LangRomanian.m; sourceTree = "<group>"; };
+		7FA590A916BB0E3100ED5000 /* LangGerman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangGerman.h; path = Localization/LangGerman.h; sourceTree = "<group>"; };
+		7FA590AA16BB0E3100ED5000 /* LangGerman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangGerman.m; path = Localization/LangGerman.m; sourceTree = "<group>"; };
+		7FA590B416BB222800ED5000 /* envelope_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = envelope_right.png; path = Images/envelope_right.png; sourceTree = "<group>"; };
+		7FA590B816BB22AD00ED5000 /* envelope_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "envelope_right@2x.png"; path = "Images/envelope_right@2x.png"; sourceTree = "<group>"; };
 		7FA5F72715D2C04A009F5A96 /* DialogsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogsVC.h; sourceTree = "<group>"; };
 		7FA5F72815D2C04A009F5A96 /* DialogsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogsVC.m; sourceTree = "<group>"; };
 		7FAF04E816B4A4C0005A677B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -613,6 +644,8 @@
 			children = (
 				7FE488AE16B6F83C0052EFA0 /* Icons */,
 				7FAF04EF16B4A79E005A677B /* Messages */,
+				7FA590B416BB222800ED5000 /* envelope_right.png */,
+				7FA590B816BB22AD00ED5000 /* envelope_right@2x.png */,
 				7FEE6C5016B5603300F27BB0 /* envelope_right_torn.png */,
 				7FEE6C4E16B55EDB00F27BB0 /* envelope_right_torn@2x.png */,
 				7FFC2B8116B307C1009AC022 /* envelope_pattern.png */,
@@ -887,6 +920,24 @@
 		7FC988171610BE4200AB04D5 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				7FA590A916BB0E3100ED5000 /* LangGerman.h */,
+				7FA590AA16BB0E3100ED5000 /* LangGerman.m */,
+				7FA5909116BB068700ED5000 /* LangArabic.h */,
+				7FA5909216BB068700ED5000 /* LangArabic.m */,
+				7FA5909316BB068700ED5000 /* LangChinese.h */,
+				7FA5909416BB068700ED5000 /* LangChinese.m */,
+				7FA5909516BB068700ED5000 /* LangFrench.h */,
+				7FA5909616BB068700ED5000 /* LangFrench.m */,
+				7FA5909716BB068700ED5000 /* LangHindi.h */,
+				7FA5909816BB068700ED5000 /* LangHindi.m */,
+				7FA5909916BB068700ED5000 /* LangHungarian.h */,
+				7FA5909A16BB068700ED5000 /* LangHungarian.m */,
+				7FA5909B16BB068700ED5000 /* LangKorean.h */,
+				7FA5909C16BB068700ED5000 /* LangKorean.m */,
+				7FA5909D16BB068700ED5000 /* LangPortuguese.h */,
+				7FA5909E16BB068700ED5000 /* LangPortuguese.m */,
+				7FA5909F16BB068700ED5000 /* LangRomanian.h */,
+				7FA590A016BB068700ED5000 /* LangRomanian.m */,
 				7FC988191610BEC200AB04D5 /* Lang.h */,
 				7FC9881A1610BEC200AB04D5 /* Lang.m */,
 				7FC9881C1610C31600AB04D5 /* LangEnglish.h */,
@@ -1283,6 +1334,8 @@
 				7FB50D3C16B8499000B82A3A /* pickup.png in Resources */,
 				7FB50D3D16B8499000B82A3A /* pickup@2x.png in Resources */,
 				7FBE398C16B991BE007A1E8B /* japan@2x.png in Resources */,
+				7FA590B616BB222900ED5000 /* envelope_right.png in Resources */,
+				7FA590B916BB22AD00ED5000 /* envelope_right@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1397,6 +1450,15 @@
 				7FE7ED50169B655C00009C12 /* ATMSoundFX.m in Sources */,
 				7FE7ED51169B655C00009C12 /* ATMTextLayer.m in Sources */,
 				7FAF059E16B4B63E005A677B /* LanguageCell.m in Sources */,
+				7FA590A116BB068700ED5000 /* LangArabic.m in Sources */,
+				7FA590A216BB068700ED5000 /* LangChinese.m in Sources */,
+				7FA590A316BB068700ED5000 /* LangFrench.m in Sources */,
+				7FA590A416BB068700ED5000 /* LangHindi.m in Sources */,
+				7FA590A516BB068700ED5000 /* LangHungarian.m in Sources */,
+				7FA590A616BB068700ED5000 /* LangKorean.m in Sources */,
+				7FA590A716BB068700ED5000 /* LangPortuguese.m in Sources */,
+				7FA590A816BB068700ED5000 /* LangRomanian.m in Sources */,
+				7FA590AB16BB0E3200ED5000 /* LangGerman.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

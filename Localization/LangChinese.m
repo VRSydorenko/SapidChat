@@ -117,7 +117,7 @@
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMMSG_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE]];}
 +(NSString*) internal_INTRIGUE_MAIL_CONTENT_TEMPL{return @"<div style=\"padding:10px;border: solid 1px gray;font-family:Verdana;\">\
     <font style=\"font-size:10pt;\">\
-    <h4>Hello!</h4>\
+    <h4>嗨！</h4>\
     <p>在Ｓａｐｉｄｃａｈｔ里一些人知道你的邮箱地址，会告诉你然后邀请你一起对话！</p>\
     <p>Ｓａｐｉｄｃｈａｔ是一个程序可以让你随机邀请人们一起讨论聊天。（如果你知道他们的邮箱地址）\
     <br/><font color=\"red\"><strong>这个邮件不是垃圾邮件</strong></font> 一些人人工打入你的邮箱然后邀请你一起在Ｓａｐｉｄｃｈａｔ里聊天</p>\

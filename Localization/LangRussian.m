@@ -172,6 +172,7 @@
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM{return @"Пожаловаться";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_TITLE{return @"Подтверждение удаления";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_QUESTION{return @"Удалить этот диалог?";}
++(NSString*) LOC_MESSAGES_REPORT_PICKED_UP{return @"%@ вытянул ваше сообщение!";}
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"Новое сообщение";}
 +(NSString*) LOC_COMPOSE_MSG_SENDING{return @"Отправляем...";}

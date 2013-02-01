@@ -445,7 +445,7 @@
             Message* reportMsg = [[Message alloc] init];
             reportMsg.from = me.email;
             reportMsg.to = msg.from;
-            reportMsg.text = [NSString stringWithFormat:@"%@ has picked up you message!", me.nickname];
+            reportMsg.text = [Lang LOC_MESSAGES_REPORT_PICKED_UP];
             reportMsg.when = [[NSDate date] timeIntervalSinceReferenceDate];
             reportMsg.type = MSG_REPORT;
             reportMsg.initial_message_global_timestamp = msg.when;

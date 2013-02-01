@@ -173,6 +173,7 @@
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM{return @"Claim";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_TITLE{return @"Confirm delete";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_QUESTION{return @"Delete?";}
++(NSString*) LOC_MESSAGES_REPORT_PICKED_UP{return @"%@ picked up your message!";}
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"New message";}
 +(NSString*) LOC_COMPOSE_MSG_SENDING{return @"Sending...";}

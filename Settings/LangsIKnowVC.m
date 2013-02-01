@@ -84,6 +84,7 @@
 }
 
 -(void)backPressed{
+    [DataManager updateOwnLanguagesInAWS];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -67,6 +67,9 @@
 }
 
 -(void) backPressed{
+    if (self.valuesMode == VALUES_CNV_LANGUAGES){
+        [DataManager updateOwnLanguagesInAWS];
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 

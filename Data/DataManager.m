@@ -445,7 +445,7 @@
             Message* reportMsg = [[Message alloc] init];
             reportMsg.from = me.email;
             reportMsg.to = msg.from;
-            reportMsg.text = [Lang LOC_MESSAGES_REPORT_PICKED_UP];
+            reportMsg.text = [NSString stringWithFormat:[Lang LOC_MESSAGES_REPORT_PICKED_UP], me.nickname];
             reportMsg.when = [[NSDate date] timeIntervalSinceReferenceDate];
             reportMsg.type = MSG_REPORT;
             reportMsg.initial_message_global_timestamp = msg.when;
@@ -533,6 +533,37 @@
         return ERROR;
     }
     return OK;
+}
+
++(void) updateOwnLanguagesInAWS{
+    User* me = [self loadUser:[UserSettings getEmail]];
+    
+    DynamoDBAttributeValue *hashKeyAttr = [[DynamoDBAttributeValue alloc] initWithS:me.email];
+    DynamoDBKey* key = [[DynamoDBKey alloc] initWithHashKeyElement:hashKeyAttr];
+    
+    NSMutableArray* langs = [[NSMutableArray alloc] init];
+    for (NSNumber* lang in me.languages) {
+        [langs addObject:lang.stringValue];
+    }
+    DynamoDBAttributeValue* attrValue = [[DynamoDBAttributeValue alloc] initWithNS:langs];
+    
+    DynamoDBAttributeValueUpdate *attrUpdate = [[DynamoDBAttributeValueUpdate alloc] initWithValue:attrValue andAction:@"PUT"];
+    
+    NSMutableDictionary* updatesDict = [NSMutableDictionary dictionaryWithObject:attrUpdate forKey:DBFIELD_USERS_LANGS];
+    
+    DynamoDBUpdateItemRequest *updateRequest = [[DynamoDBUpdateItemRequest alloc] initWithTableName:DBTABLE_USERS andKey:key andAttributeUpdates:updatesDict];
+    [updateRequest setReturnValues:@"NONE"];
+    
+    @try {
+        dispatch_queue_t refreshQueue = dispatch_queue_create("update lang Queue", NULL);
+        dispatch_async(refreshQueue, ^{
+            [[AmazonClientManager ddb] updateItem:updateRequest];
+        });
+        dispatch_release(refreshQueue);
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+    }
 }
 
 +(ErrorCodes) updateOwnPassword:(NSString*)pass{

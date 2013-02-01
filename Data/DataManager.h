@@ -43,6 +43,7 @@
 +(ErrorCodes) deleteMessage:(Message*)msg;
 
 +(ErrorCodes) updateOwnNick:(NSString*)nick; // in AWS
++(void) updateOwnLanguagesInAWS; // in AWS
 +(void) updateOwnNickInDb:(NSString*)nick; // local db
 +(ErrorCodes) updateOwnPassword:(NSString*)pass; // in AWS
 

@@ -96,6 +96,7 @@
     if (navController.dialogs.count == 0) { // if no data - return one cell-message
         UITableViewCell *cell = [[UITableViewCell alloc] init];
         cell.textLabel.text = [Lang LOC_MESSAGES_CELL_NO_RECORDS];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     

@@ -234,6 +234,7 @@
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME{ return @"English";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ARABIC{ return @"Arabic";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_CHINESE{ return @"Chinese";}
++(NSString*) LOC_SETTINGS_LANGUAGES_DANISH{ return @"Danish";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ENGLISH{ return @"English";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_FRENCH{ return @"French";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_GERMAN{ return @"German";}

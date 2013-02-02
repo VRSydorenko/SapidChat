@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Viktor Sydorenko. All rights reserved.
 //
 
-#import "LangKorean.h"
+#import "LangDanish.h"
 
-@implementation LangKorean
+@implementation LangDanish
 
 // universal
 +(NSString*) LOC_UNI_APP_NAME {return @"Sapid Chat";}

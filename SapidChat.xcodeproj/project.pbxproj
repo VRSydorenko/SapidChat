@@ -108,6 +108,12 @@
 		7FC21DDE16739C0C0093612C /* MessageBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC21DDD16739C0C0093612C /* MessageBottomCell.m */; };
 		7FC3F1C816BDA36B00ECCD74 /* messageCellBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC3F1C716BDA36B00ECCD74 /* messageCellBackground@2x.png */; };
 		7FC3F1CA16BDA9EF00ECCD74 /* messageCellBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC3F1C916BDA9EF00ECCD74 /* messageCellBackground.png */; };
+		7FC3F1CD16BDAF4C00ECCD74 /* denmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC3F1CB16BDAF4C00ECCD74 /* denmark.png */; };
+		7FC3F1CE16BDAF4C00ECCD74 /* denmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC3F1CC16BDAF4C00ECCD74 /* denmark@2x.png */; };
+		7FC3F1D116BDAF8600ECCD74 /* LangDanish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC3F1D016BDAF8600ECCD74 /* LangDanish.m */; };
+		7FC3F1D816BDB11D00ECCD74 /* LangItalian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC3F1D316BDB11A00ECCD74 /* LangItalian.m */; };
+		7FC3F1D916BDB11D00ECCD74 /* LangJapanese.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC3F1D516BDB11C00ECCD74 /* LangJapanese.m */; };
+		7FC3F1DA16BDB11D00ECCD74 /* LangSpanish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC3F1D716BDB11C00ECCD74 /* LangSpanish.m */; };
 		7FC9881B1610BEC200AB04D5 /* Lang.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881A1610BEC200AB04D5 /* Lang.m */; };
 		7FC9881E1610C31600AB04D5 /* LangEnglish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881D1610C31600AB04D5 /* LangEnglish.m */; };
 		7FC988211610C32600AB04D5 /* LangRussian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988201610C32600AB04D5 /* LangRussian.m */; };
@@ -377,6 +383,16 @@
 		7FC21DDD16739C0C0093612C /* MessageBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageBottomCell.m; path = TableCells/MessageBottomCell.m; sourceTree = "<group>"; };
 		7FC3F1C716BDA36B00ECCD74 /* messageCellBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "messageCellBackground@2x.png"; path = "Images/messageCellBackground@2x.png"; sourceTree = "<group>"; };
 		7FC3F1C916BDA9EF00ECCD74 /* messageCellBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = messageCellBackground.png; path = Images/messageCellBackground.png; sourceTree = "<group>"; };
+		7FC3F1CB16BDAF4C00ECCD74 /* denmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = denmark.png; path = Images/Flags/denmark.png; sourceTree = "<group>"; };
+		7FC3F1CC16BDAF4C00ECCD74 /* denmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "denmark@2x.png"; path = "Images/Flags/denmark@2x.png"; sourceTree = "<group>"; };
+		7FC3F1CF16BDAF8600ECCD74 /* LangDanish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangDanish.h; path = Localization/LangDanish.h; sourceTree = "<group>"; };
+		7FC3F1D016BDAF8600ECCD74 /* LangDanish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangDanish.m; path = Localization/LangDanish.m; sourceTree = "<group>"; };
+		7FC3F1D216BDB11A00ECCD74 /* LangItalian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangItalian.h; path = Localization/LangItalian.h; sourceTree = "<group>"; };
+		7FC3F1D316BDB11A00ECCD74 /* LangItalian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangItalian.m; path = Localization/LangItalian.m; sourceTree = "<group>"; };
+		7FC3F1D416BDB11B00ECCD74 /* LangJapanese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangJapanese.h; path = Localization/LangJapanese.h; sourceTree = "<group>"; };
+		7FC3F1D516BDB11C00ECCD74 /* LangJapanese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangJapanese.m; path = Localization/LangJapanese.m; sourceTree = "<group>"; };
+		7FC3F1D616BDB11C00ECCD74 /* LangSpanish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangSpanish.h; path = Localization/LangSpanish.h; sourceTree = "<group>"; };
+		7FC3F1D716BDB11C00ECCD74 /* LangSpanish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangSpanish.m; path = Localization/LangSpanish.m; sourceTree = "<group>"; };
 		7FC988191610BEC200AB04D5 /* Lang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lang.h; path = Localization/Lang.h; sourceTree = "<group>"; };
 		7FC9881A1610BEC200AB04D5 /* Lang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Lang.m; path = Localization/Lang.m; sourceTree = "<group>"; };
 		7FC9881C1610C31600AB04D5 /* LangEnglish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangEnglish.h; path = Localization/LangEnglish.h; sourceTree = "<group>"; };
@@ -629,6 +645,8 @@
 		7FAF04EE16B4A6C6005A677B /* Flags */ = {
 			isa = PBXGroup;
 			children = (
+				7FC3F1CB16BDAF4C00ECCD74 /* denmark.png */,
+				7FC3F1CC16BDAF4C00ECCD74 /* denmark@2x.png */,
 				7FAF056616B4B498005A677B /* arableague.png */,
 				7FAF056716B4B498005A677B /* arableague@2x.png */,
 				7FAF056816B4B498005A677B /* china.png */,
@@ -828,6 +846,14 @@
 		7FC988171610BE4200AB04D5 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				7FC3F1D216BDB11A00ECCD74 /* LangItalian.h */,
+				7FC3F1D316BDB11A00ECCD74 /* LangItalian.m */,
+				7FC3F1D416BDB11B00ECCD74 /* LangJapanese.h */,
+				7FC3F1D516BDB11C00ECCD74 /* LangJapanese.m */,
+				7FC3F1D616BDB11C00ECCD74 /* LangSpanish.h */,
+				7FC3F1D716BDB11C00ECCD74 /* LangSpanish.m */,
+				7FC3F1CF16BDAF8600ECCD74 /* LangDanish.h */,
+				7FC3F1D016BDAF8600ECCD74 /* LangDanish.m */,
 				7FA590A916BB0E3100ED5000 /* LangGerman.h */,
 				7FA590AA16BB0E3100ED5000 /* LangGerman.m */,
 				7FA5909116BB068700ED5000 /* LangArabic.h */,
@@ -1216,6 +1242,8 @@
 				7FA590B916BB22AD00ED5000 /* envelope_right@2x.png in Resources */,
 				7FC3F1C816BDA36B00ECCD74 /* messageCellBackground@2x.png in Resources */,
 				7FC3F1CA16BDA9EF00ECCD74 /* messageCellBackground.png in Resources */,
+				7FC3F1CD16BDAF4C00ECCD74 /* denmark.png in Resources */,
+				7FC3F1CE16BDAF4C00ECCD74 /* denmark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1339,6 +1367,10 @@
 				7FA590A716BB068700ED5000 /* LangPortuguese.m in Sources */,
 				7FA590A816BB068700ED5000 /* LangRomanian.m in Sources */,
 				7FA590AB16BB0E3200ED5000 /* LangGerman.m in Sources */,
+				7FC3F1D116BDAF8600ECCD74 /* LangDanish.m in Sources */,
+				7FC3F1D816BDB11D00ECCD74 /* LangItalian.m in Sources */,
+				7FC3F1D916BDB11D00ECCD74 /* LangJapanese.m in Sources */,
+				7FC3F1DA16BDB11D00ECCD74 /* LangSpanish.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

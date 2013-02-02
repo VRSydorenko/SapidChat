@@ -10,6 +10,7 @@
 #import "UserSettings.h"
 #import "LangArabic.h"
 #import "LangChinese.h"
+#import "LangDanish.h"
 #import "LangEnglish.h"
 #import "LangFrench.h"
 #import "LangGerman.h"
@@ -19,6 +20,9 @@
 #import "LangPortuguese.h"
 #import "LangRomanian.h"
 #import "LangRussian.h"
+#import "LangItalian.h"
+#import "LangSpanish.h"
+#import "LangJapanese.h"
 
 @implementation Lang
 
@@ -26,18 +30,19 @@
     switch ([UserSettings getAppLanguage]) {
         case ARABIC: return [LangArabic class];
         case CHINESE: return [LangChinese class];
+        case DANISH: return [LangDanish class];
         case ENGLISH: return [LangEnglish class];
         case FRENCH: return [LangFrench class];
         case GERMAN: return [LangGerman class];
         case HINDI: return [LangHindi class];
         case HUNGARIAN: return [LangHungarian class];
-        //case ITALIAN: return [LangItalian class];
-        //case JAPANESE: return [LangJapanese class];
+        case ITALIAN: return [LangItalian class];
+        case JAPANESE: return [LangJapanese class];
         case KOREAN: return [LangKorean class];
         case PORTUGESE: return [LangPortuguese class];
         case ROMANIAN: return [LangRomanian class];
         case RUSSIAN: return [LangRussian class];
-        //case SPANISH: return [LangSpanish class];
+        case SPANISH: return [LangSpanish class];
     }
     return nil;
 }
@@ -217,6 +222,7 @@
 +(NSString*) LOC_SYS_LANGUAGE_SELFNAME {return [[self AppLanguage] LOC_SYS_LANGUAGE_SELFNAME];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ARABIC{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_ARABIC];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_CHINESE{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_CHINESE];}
++(NSString*) LOC_SETTINGS_LANGUAGES_DANISH{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_DANISH];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ENGLISH{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_ENGLISH];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_FRENCH{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_FRENCH];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_GERMAN{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_GERMAN];}

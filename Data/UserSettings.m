@@ -84,18 +84,19 @@
     return [[NSArray alloc] initWithObjects:
             [NSNumber numberWithInt:ARABIC],
             [NSNumber numberWithInt:CHINESE],
+            [NSNumber numberWithInt:DANISH],
             [NSNumber numberWithInt:ENGLISH],
             [NSNumber numberWithInt:FRENCH],
             [NSNumber numberWithInt:GERMAN],
             [NSNumber numberWithInt:HINDI],
             [NSNumber numberWithInt:HUNGARIAN],
-            //[NSNumber numberWithInt:ITALIAN],
-            //[NSNumber numberWithInt:JAPANESE],
+            [NSNumber numberWithInt:ITALIAN],
+            [NSNumber numberWithInt:JAPANESE],
             [NSNumber numberWithInt:KOREAN],
             [NSNumber numberWithInt:PORTUGESE],
             [NSNumber numberWithInt:ROMANIAN],
             [NSNumber numberWithInt:RUSSIAN],
-            //[NSNumber numberWithInt:SPANISH],
+            [NSNumber numberWithInt:SPANISH],
             nil];
 }
 

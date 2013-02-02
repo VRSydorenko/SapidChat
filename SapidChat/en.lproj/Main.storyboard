@@ -466,14 +466,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="02:35 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Y5A-y5-ASv">
-                                                    <rect key="frame" x="10" y="4" width="93" height="11"/>
+                                                    <rect key="frame" x="10" y="0.0" width="148" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="15 km 250 m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="WNN-am-BwL">
-                                                    <rect key="frame" x="166" y="4" width="124" height="11"/>
+                                                    <rect key="frame" x="166" y="0.0" width="124" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1628,8 +1628,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pwI-hB-yoR"/>
-        <segue reference="nTz-gt-Agf"/>
         <segue reference="jKS-7j-0uO"/>
+        <segue reference="8wf-yh-Ir8"/>
+        <segue reference="pwI-hB-yoR"/>
     </inferredMetricsTieBreakers>
 </document>

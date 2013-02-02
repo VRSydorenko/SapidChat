@@ -14,6 +14,7 @@
 #import "ComposeVC.h"
 #import "LocalizationUtils.h"
 #import "Lang.h"
+#import "LangEnglish.h"
 #import "MessageBottomCell.h"
 #import "MessageMiddleCell.h"
 #import "MessageTopCell.h"
@@ -60,7 +61,7 @@
     
     boundingSize = CGSizeMake(CELL_MSG_WIDTH, CGFLOAT_MAX); // 240 is the width of the message's UILabel
     messageFont = [UIFont fontWithName:@"Helvetica" size:FONT_MSG_SIZE];
-    timeAndDistanceFont = [UIFont fontWithName:@"Helvetica" size:FONT_TIME_DISTANCE_SIZE];
+    timeAndDistanceFont = [UIFont fontWithName:APPLICATION_NAME_FONT size:FONT_TIME_DISTANCE_SIZE];
     
     [self updateMessages];
     
@@ -309,32 +310,40 @@
     switch ([self getCellTypeByIndexPath:indexPath]) {
         case CELL_TOP:{
             MessageTopCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageTopCell"];
-            if (cell){
-                cell.labelTime.font = timeAndDistanceFont;
-                NSDate* localTime = [Utils toLocalDate:msg.when];
-                cell.labelTime.text = [Utils timeToString:localTime];
-                
-                NSString* distanceText = @"";
-                if (incoming && [UserSettings premiumUnlocked]){
-                    cell.labelDistance.font = timeAndDistanceFont;
-                    distanceText = [self getDistanceStringForLatitude:msg.latitude andLongitude:msg.longitude];
-                }
-                cell.labelDistance.text = distanceText;
-                
-                UIImage* bgImg = [self getTopMessageCellImageBkg:msg.type incoming:incoming];
-                cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
+            if (!cell){
+                cell = [[MessageTopCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MessageTopCell"];
             }
+            cell.labelTime.textColor = [UIColor grayColor];
+            cell.labelTime.font = timeAndDistanceFont;
+            cell.labelTime.text = [Utils timeToString:[Utils toLocalDate:msg.when]];
+                
+            NSString* distanceText = @"";
+            if (msg.type == MSG_SYSTEM || msg.type == MSG_REPORT){
+                distanceText = [Lang LOC_UNI_APP_NAME];
+            } else if (msg.type == MSG_INTRIGUE){
+                distanceText = [LangEnglish LOC_MAIN_CELL_INTRIGUE];
+            }else if (incoming && [UserSettings premiumUnlocked]){
+                distanceText = [self getDistanceStringForLatitude:msg.latitude andLongitude:msg.longitude];
+            }
+            
+            cell.labelDistance.textColor = [UIColor grayColor];
+            cell.labelDistance.font = timeAndDistanceFont;
+            cell.labelDistance.text = distanceText;
+            cell.backgroundColor = [self getMessageCellBgColor];
+            
             return cell;
         }
         case CELL_TEXT:{
             MessageMiddleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageMiddleCell"];
-            if (cell){
-                cell.labelMessage.font = messageFont;
-                cell.labelMessage.text = msg.text;
-                
-                UIImage* bgImg = [self getMidMessageCellImageBkg:msg.type incoming:incoming];
-                cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
+            if (!cell){
+                cell = [[MessageMiddleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MessageMiddleCell"];
             }
+            
+            cell.labelMessage.textColor = [self getMessageTextColor:msg.type incoming:incoming];
+            cell.labelMessage.font = messageFont;
+            cell.labelMessage.text = msg.text;
+            cell.backgroundColor = [self getMessageCellBgColor];
+        
             return cell;
         }
         case CELL_IMAGE:{
@@ -357,20 +366,18 @@
                     imgCell.imgView.image = [UIImage imageNamed:@"lock.png"];
                     infoString = [Lang LOC_MESSAGES_CELL_IMAGES_ARE_IN_PRO_MODE];
                 }
-                UIImage* bgImg = [self getMidMessageCellImageBkg:msg.type incoming:incoming];
-                imgCell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
-                
+                imgCell.backgroundColor = [self getMessageCellBgColor];
                 imgCell.labelInfoText.text = infoString;
             }
             return imgCell;
         }
         case CELL_BOTTOM:{
             MessageBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageBottomCell"];
-            if (cell){
-                UIImage* bgImg = [self getBottomMessageCellImageBkg:msg.type incoming:incoming];
-                cell.backgroundView = [[UIImageView alloc] initWithImage:bgImg];
-                return cell;
+            if (!cell){
+                cell = [[MessageBottomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MessageBottomCell"];
             }
+            cell.backgroundColor = [self getMessageCellBgColor];
+            return cell;
         }
     }
     return [[UITableViewCell alloc] init];
@@ -415,15 +422,12 @@
     for (int i = 0; i<messages.count; i++) {
         msg = (Message*)[messages objectAtIndex:i];
         if ([msg.attachmentName isEqualToString:attachmentName]){
-            // TODO: defining a row carefully
             int rowIndex = msg.text.length > 0 ? 2 : 1;
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:rowIndex inSection:i];
             MessageImageCell* cell = (MessageImageCell*)[self.tabelMessages cellForRowAtIndexPath:indexPath];
             if ([UIImage imageWithData:attachmentData]){
                 msg.attachmentData = attachmentData;
             } else {
-                // TODO: implement
-                // error dowloading data
                 [errorCells addObject:indexPath];
             }
             [cell.activityIndicator stopAnimating];
@@ -452,38 +456,22 @@
     return CELL_BOTTOM;
 }
 
-- (UIImage*) getTopMessageCellImageBkg:(int)msgType incoming:(bool)incoming{
-    NSString* fileName = [NSString stringWithFormat:@"%@_top.png", [self getMsgCellImageNameStart:msgType incoming:incoming]];
-    return [UIImage imageNamed:fileName];
-}
-
-- (UIImage*) getMidMessageCellImageBkg:(int)msgType incoming:(bool)incoming{
-    NSString* fileName = [NSString stringWithFormat:@"%@_mid.png", [self getMsgCellImageNameStart:msgType incoming:incoming]];
-    return [UIImage imageNamed:fileName];
-}
-
-- (UIImage*) getBottomMessageCellImageBkg:(int)msgType incoming:(bool)incoming{
-    NSString* fileName = [NSString stringWithFormat:@"%@_bottom.png", [self getMsgCellImageNameStart:msgType incoming:incoming]];
-    return [UIImage imageNamed:fileName];
-}
-
--(NSString*) getMsgCellImageNameStart:(int)type incoming:(bool)incoming{
-    NSString* fileName = @"msg_%@_%@";
-    NSString* inOutSpecifier = incoming || type == MSG_SYSTEM || type == MSG_REPORT ? @"in" : @"out"; // system are always In
-    NSString* typeSpecifier;
-    switch (type) {
-        case MSG_REGULAR:
-            typeSpecifier = @"regular";
-            break;
-        case MSG_SYSTEM:
-        case MSG_REPORT:
-            typeSpecifier = @"system";
-            break;
-        case MSG_INTRIGUE:
-            typeSpecifier = @"intrigue";
-            break;
+-(UIColor*)getMessageTextColor:(int)msgType incoming:(bool)incoming{
+    if (incoming){
+        if (msgType == MSG_REGULAR){
+            return [UIColor colorWithRed:30.0/255.0 green:100.0/255.0 blue:40.0/255.0 alpha:1.0];
+        }
+        if (msgType == MSG_REPORT){
+            return [UIColor blackColor];
+        }
+    } else {
+        return [UIColor grayColor];
     }
-    return [NSString stringWithFormat:fileName, inOutSpecifier, typeSpecifier];
+    return [UIColor blackColor];
+}
+
+- (UIColor*) getMessageCellBgColor{
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"messageCellBackground.png"]];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

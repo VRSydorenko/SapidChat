@@ -94,7 +94,7 @@
         case HINDI:     return selfName ? @"हिन्दी" : [Lang LOC_SETTINGS_LANGUAGES_HINDI];
         case ITALIAN:   return selfName ? @"Italiano" : [Lang LOC_SETTINGS_LANGUAGES_ITALIAN];
         case JAPANESE:  return selfName ? @"日本語" : [Lang LOC_SETTINGS_LANGUAGES_JAPANESE];
-        case KOREAN:    return selfName ? @"한국어, 조선말" : [Lang LOC_SETTINGS_LANGUAGES_KOREAN];
+        case KOREAN:    return selfName ? @"한국어" : [Lang LOC_SETTINGS_LANGUAGES_KOREAN];
         case PORTUGESE: return selfName ? @"Português" : [Lang LOC_SETTINGS_LANGUAGES_PORTUGESE];
         case RUSSIAN:   return selfName ? [LangRussian LOC_SYS_LANGUAGE_SELFNAME] : [Lang LOC_SETTINGS_LANGUAGES_RUSSIAN];
         case SPANISH:   return selfName ? @"Español" : [Lang LOC_SETTINGS_LANGUAGES_SPANISH];

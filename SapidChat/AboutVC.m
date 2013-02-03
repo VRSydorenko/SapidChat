@@ -44,7 +44,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0){return 0;}
-    return section == 3 ? 10 : 1; // 10 rows for localization section
+    return section == 3 ? 14 : 1; // 10 rows for localization section
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -100,26 +100,47 @@
                     break;
                 }
                 case 5:{
+                    person = @"Anders Havn";
+                    lang = [Utils getLanguageName:DANISH needSelfName:NO];
+                    break;
+                }
+                case 6:{
                     person = @"Kevin Perry";
                     lang = [Utils getLanguageName:GERMAN needSelfName:NO];
                     break;
                 }
-                case 6:{
+                case 7:{
                     person = @"Marcelo Machado da Silva";
                     lang = [Utils getLanguageName:PORTUGESE needSelfName:NO];
                     break;
                 }
-                case 7:{
+                case 8:{
                     person = @"Sofouen";
                     lang = [NSString stringWithFormat:@"%@, %@", [Utils getLanguageName:ARABIC needSelfName:NO], [Utils getLanguageName:FRENCH needSelfName:NO]];
                     break;
                 }
-                case 8:{
-                    person = @"Ji-won";
+                case 9:{
+                    person = @"Anly Wang";
+                    lang = [Utils getLanguageName:JAPANESE needSelfName:NO];
+                    break;
+                }
+                case 10:{
+                    person = @"Giulia Stramaccioni";
+                    lang = [Utils getLanguageName:ITALIAN needSelfName:NO];
+                    break;
+                }
+                case 11:{
+                    person = @"Mario Olavarrieta";
+                    lang = [Utils getLanguageName:SPANISH needSelfName:NO];
+                    break;
+                }
+
+                case 12:{
+                    person = @"한예담";
                     lang = [Utils getLanguageName:KOREAN needSelfName:NO];
                     break;
                 }
-                case 9:{
+                case 13:{
                     person = [Lang LOC_ABOUT_VIKTOR_SYDORENKO];
                     lang = [Utils getLanguageName:RUSSIAN needSelfName:NO];
                     break;

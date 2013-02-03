@@ -64,12 +64,12 @@
         if (msgLangs.length > 0){
             [msgLangs appendString:@", "];
         }
-        [msgLangs appendString:[Utils getLanguageName:num.intValue needSelfName:NO]];
+        [msgLangs appendString:[Utils getLanguageName:num.intValue needSelfName:YES]];
     }
     
     [LocalizationUtils setText:msgLangs  forLabel:self.labelCnvLanguages];
-    [LocalizationUtils setText:[Utils getLanguageName:[UserSettings getNewMessagesLanguage] needSelfName:NO] forLabel:self.labelNewMsgLanguage];
-    [LocalizationUtils setText:[Utils getLanguageName:[UserSettings getAppLanguage] needSelfName:NO] forLabel:self.labelAppLanguage];
+    [LocalizationUtils setText:[Utils getLanguageName:[UserSettings getNewMessagesLanguage] needSelfName:YES] forLabel:self.labelNewMsgLanguage];
+    [LocalizationUtils setText:[Utils getLanguageName:[UserSettings getAppLanguage] needSelfName:YES] forLabel:self.labelAppLanguage];
 }
 
 -(void) updateLocalizableValues{

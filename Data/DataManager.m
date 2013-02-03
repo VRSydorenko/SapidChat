@@ -262,7 +262,7 @@
     messageBody.data = [NSString stringWithFormat:[Lang LOC_RESTORE_EMAIL_TEMPL], user.nickname, user.email];
     
     SESContent *subject = [[SESContent alloc] init];
-    subject.data = @"Sapid Chat password restore";
+    subject.data = [Lang LOC_RESTORE_SCREEN_TITLE];
     
     SESBody *body = [[SESBody alloc] init];
     body.text = messageBody;

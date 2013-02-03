@@ -43,8 +43,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0){return 0;}
-    return section == 3 ? 14 : 1; // 10 rows for localization section
+    if (section == 0) {return 0;}
+    if (section == 3) {return LANG_COUNT;}
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

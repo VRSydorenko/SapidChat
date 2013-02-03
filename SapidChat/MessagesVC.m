@@ -275,9 +275,9 @@
             if ([self cellIsSelected:indexPath] && msg.attachmentData.length > 0){
                 UIImage *img = [UIImage imageWithData:msg.attachmentData];
                 if (img.size.height >= img.size.width){
-                    return CELL_MSG_IMG_PORTRAIT_HEIGHT;
+                    return fminf(img.size.height, 340.0);
                 } else{
-                    return CELL_MSG_IMG_LANDSCAPE_HEIGHT;
+                    return fminf(img.size.height, 240.0);
                 }
             }
             return CELL_MSG_IMG_PLACEHOLDER_HEIGHT;

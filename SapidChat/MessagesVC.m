@@ -498,7 +498,7 @@
             NSString* text_m =  [Lang LOC_MESSAGES_CELL_DISTANCE_METERS];
             if (km > 0){
                 NSString* text_km = [Lang LOC_MESSAGES_CELL_DISTANCE_KILOMETERS];
-                return [NSString stringWithFormat:@"%d%@ %d%@", km, text_km, (int)meters, text_m];
+                return [NSString stringWithFormat:@"%d %@ %d%@", km, text_km, (int)meters, text_m];
             } else {
                 return [NSString stringWithFormat:@"%d%@", (int)meters, text_m];
             }
@@ -511,7 +511,7 @@
             NSString* text_f =  [Lang LOC_MESSAGES_CELL_DISTANCE_FEETS];
             if (miles > 0){
                 NSString* text_m = [Lang LOC_MESSAGES_CELL_DISTANCE_MILES];
-                return [NSString stringWithFormat:@"%d%@ %d%@", miles, text_m, (int)feets, text_f];
+                return [NSString stringWithFormat:@"%d %@ %d%@", miles, text_m, (int)feets, text_f];
             } else {
                 return [NSString stringWithFormat:@"%d%@", (int)feets, text_f];
             }

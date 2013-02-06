@@ -63,7 +63,11 @@
             cell.labelTitle.text = [Lang LOC_INFO_FEATURE_TITLE_DISTANCE];
             [cell.labelTitle sizeToFit];
             cell.labelDescription.text = [Lang LOC_INFO_FEATURE_DESCR_DISTANCE];
-            [cell.imageIcon setImage:[UIImage imageNamed:@"feature_distance.png"]];
+            if ([Utils getIfMetricMeasurementSystem]){
+                [cell.imageIcon setImage:[UIImage imageNamed:@"feature_distance.png"]];
+            } else {
+                [cell.imageIcon setImage:[UIImage imageNamed:@"feature_distance_mi.png"]];
+            }
             break;
         }
         case 1:{

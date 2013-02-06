@@ -44,7 +44,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {return 0;}
-    if (section == 3) {return LANG_COUNT;}
+    if (section == 3) {return LANG_COUNT - 1;} // -1 because Sofouen did 2 languages
     return 1;
 }
 

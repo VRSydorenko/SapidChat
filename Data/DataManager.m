@@ -554,16 +554,17 @@
     DynamoDBUpdateItemRequest *updateRequest = [[DynamoDBUpdateItemRequest alloc] initWithTableName:DBTABLE_USERS andKey:key andAttributeUpdates:updatesDict];
     [updateRequest setReturnValues:@"NONE"];
     
-    @try {
-        dispatch_queue_t refreshQueue = dispatch_queue_create("update lang Queue", NULL);
-        dispatch_async(refreshQueue, ^{
+    
+    dispatch_queue_t refreshQueue = dispatch_queue_create("update lang Queue", NULL);
+    dispatch_async(refreshQueue, ^{
+        @try {
             [[AmazonClientManager ddb] updateItem:updateRequest];
-        });
-        dispatch_release(refreshQueue);
-    }
-    @catch (NSException *exception) {
-        NSLog(@"%@", exception);
-    }
+        }
+        @catch (NSException *exception) {
+            NSLog(@"%@", exception);
+        }
+    });
+    dispatch_release(refreshQueue);
 }
 
 +(ErrorCodes) updateOwnPassword:(NSString*)pass{

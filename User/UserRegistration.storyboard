@@ -319,8 +319,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="vb1-ej-s4p">
-                                <rect key="frame" x="150" y="178" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="150" y="20" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dFu-EP-xtO">
                                 <rect key="frame" x="89" y="364" width="143" height="32"/>
@@ -337,7 +337,7 @@
                                     <action selector="nextPressed:" destination="2V0-c0-0QV" eventType="touchUpInside" id="S4A-Qo-2D8"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="registration_done@2x" id="PJX-mO-jfE">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="registration_done@2x" id="PJX-mO-jfE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="356"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </imageView>
@@ -364,6 +364,38 @@
         <image name="registration_done@2x" width="640" height="712"/>
         <image name="usercard.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="RegInfoVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegInfoVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="textInfo" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="RegistrationNavController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationNavController.h"/>
+        </class>
+        <class className="UserRegistrationVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserRegistrationVC.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelPressed:"/>
+                <relationship kind="action" name="editingChanged:"/>
+                <relationship kind="action" name="nextPressed:"/>
+                <relationship kind="action" name="textDidEndOnExit:"/>
+                <relationship kind="outlet" name="btnCancel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnClose" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnNext" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnRegister" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imgDone" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="tableLanguages" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textNick" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textPassword" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="txtSelectLangs" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="txtSpecifyNick" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

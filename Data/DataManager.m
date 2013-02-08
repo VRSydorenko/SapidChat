@@ -122,7 +122,7 @@
     {
         NSMutableDictionary* userDic = [[NSMutableDictionary alloc] init];
         
-        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:user.email] forKey:DBFIELD_USERS_EMAIL];
+        [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:[user.email lowercaseString]] forKey:DBFIELD_USERS_EMAIL];
         [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:password] forKey:DBFIELD_USERS_PASSWORD];
         [userDic setObject:[[DynamoDBAttributeValue alloc] initWithS:user.nickname] forKey:DBFIELD_USERS_NICKNAME];
         NSMutableArray* langs = [[NSMutableArray alloc] init];

@@ -276,6 +276,7 @@
             [self.spinner stopAnimating];
             isRegistering = NO;
             self.btnClose.hidden = NO;
+            self.imgDone.hidden = NO;
         });
     });
     dispatch_release(regQueue);

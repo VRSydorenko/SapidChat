@@ -8,12 +8,19 @@
 
 #import "SettingsManager.h"
 #import "NewMsgLanguageVC.h"
+#import "AllLangsVC.h"
 #import "NewMsgLanguagesNavCon.h"
 
 @implementation SettingsManager
 
 + (void) callNewMessagesLanguageScreenOverViewController:(UIViewController<NewMsgLanguagesSettingsDelegate>*)controller{
     NewMsgLanguagesNavCon *vc = [[UIStoryboard storyboardWithName:@"Settings" bundle:nil] instantiateViewControllerWithIdentifier:@"ScreenNewMsgLanguagesNavigation"];
+    vc.handler = controller;
+    [controller presentViewController:vc animated:YES completion:nil];
+}
+
++ (void) callOneLanguagePickerScreenOverViewController:(UIViewController<OneLanguagePickerDelegate>*)controller{
+    AllLangsVC *vc = [[UIStoryboard storyboardWithName:@"Settings" bundle:nil] instantiateViewControllerWithIdentifier:@"ScreenLanguages"];
     vc.handler = controller;
     [controller presentViewController:vc animated:YES completion:nil];
 }

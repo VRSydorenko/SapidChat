@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "NewMsgLanguagesNavCon.h"
+#import "AllLangsVC.h"
 
 @interface SettingsManager : NSObject
 
 + (void) callNewMessagesLanguageScreenOverViewController:(UIViewController<NewMsgLanguagesSettingsDelegate>*)controller;
+
++(void) callOneLanguagePickerScreenOverViewController:(UIViewController<OneLanguagePickerDelegate>*)controller;
 
 @end

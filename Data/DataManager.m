@@ -171,27 +171,31 @@
     return result;
 }
 
-+(NSString*) prepareIntrigueHtmlContentTo:(NSString*)email withOptionText:(NSString*)text{
++(NSString*) prepareIntrigueHtmlContentTo:(NSString*)email inLanguage:(int)lang withOptionText:(NSString*)text{
+    Class mailLanguageClass = [Lang getLangClassForLanguage:lang];
+    
     NSString* escapeHTML1 = [text stringByReplacingOccurrencesOfString:@"<" withString:@"&lt"];
     NSString* escapeHTML = [escapeHTML1 stringByReplacingOccurrencesOfString:@">" withString:@"&gt"];
-    NSString* content = escapeHTML.length > 0 ? [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_CUSTOM], escapeHTML] : [Lang LOC_INTRIGUE_MAIL_CONTENT_DEFAULT];
+    NSString* content = escapeHTML.length > 0 ? [NSString stringWithFormat:[mailLanguageClass LOC_INTRIGUE_MAIL_CONTENT_CUSTOM], escapeHTML] : [mailLanguageClass LOC_INTRIGUE_MAIL_CONTENT_DEFAULT];
     if ([email isEqualToString:[UserSettings getEmail]]){
-        NSString* contentYourself = escapeHTML.length > 0 ? [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_CUSTOM_YOURSELF], content, escapeHTML] : [NSString stringWithFormat:[Lang LOC_INTRIGUE_MAIL_CONTENT_YOURSELF], content];
+        NSString* contentYourself = escapeHTML.length > 0 ? [NSString stringWithFormat:[mailLanguageClass LOC_INTRIGUE_MAIL_CONTENT_CUSTOM_YOURSELF], content, escapeHTML] : [NSString stringWithFormat:[mailLanguageClass LOC_INTRIGUE_MAIL_CONTENT_YOURSELF], content];
         content = contentYourself;
     }
     
     return [NSString stringWithFormat:@"<html><head><meta http-equiv=\"Content-Type\"content=\"text/html; charset=UTF-16\"/></head><body style=\"font-family:Arial;font-size:11pt;background-color:#F7E8C3;\">%@</body></html>", content];
 }
 
-+(ErrorCodes) sendIntrigueTo:(NSString*)email withOptionalText:(NSString*)text{
++(ErrorCodes) sendIntrigueTo:(NSString*)email inLanguage:(int)lang withOptionalText:(NSString*)text{
+    Class mailLanguageClass = [Lang getLangClassForLanguage:lang];
+    
     SESContent *messageBody = [[SESContent alloc] init];
-    messageBody.data = [self prepareIntrigueHtmlContentTo:email withOptionText:text];
+    messageBody.data = [self prepareIntrigueHtmlContentTo:email inLanguage:lang withOptionText:text];
         
     SESBody *body = [[SESBody alloc] init];
     body.html = messageBody;
     
     SESContent *subject = [[SESContent alloc] init];
-    subject.data = [Lang LOC_INTRIGUE_MAIL_SUBJECT];
+    subject.data = [mailLanguageClass LOC_INTRIGUE_MAIL_SUBJECT];
     
     SESMessage *message = [[SESMessage alloc] init];
     message.subject = subject;
@@ -208,7 +212,7 @@
     Message* msg = [[Message alloc] init];
     msg.from = [UserSettings getEmail];
     msg.to = email;
-    msg.text = [Lang LOC_INTRIGUE_COLLOCUTOR_MESSAGE];
+    msg.text = [mailLanguageClass LOC_INTRIGUE_COLLOCUTOR_MESSAGE];
     msg.type = MSG_INTRIGUE;
     msg.when = [[NSDate date] timeIntervalSinceReferenceDate];
     

@@ -26,8 +26,8 @@
 
 @implementation Lang
 
-+(Class) AppLanguage{
-    switch ([UserSettings getAppLanguage]) {
++(Class) getLangClassForLanguage:(int)language{
+    switch (language) {
         case ARABIC: return [LangArabic class];
         case CHINESE: return [LangChinese class];
         case DANISH: return [LangDanish class];
@@ -45,6 +45,10 @@
         case SPANISH: return [LangSpanish class];
     }
     return nil;
+}
+
++(Class) AppLanguage{
+    return [self getLangClassForLanguage:[UserSettings getAppLanguage]];
 }
 
 // universal

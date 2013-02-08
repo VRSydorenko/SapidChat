@@ -974,11 +974,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wqc-ni-5nH">
-                                <rect key="frame" x="73" y="147" width="174" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wqc-ni-5nH">
+                                <rect key="frame" x="243" y="153" width="47" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Send" image="mail.png">
+                                <state key="normal" title="Send">
                                     <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -991,7 +991,7 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="vHs-r4-EKR">
                                 <rect key="frame" x="20" y="69" width="280" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
@@ -1006,7 +1006,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="CD6-tW-TkD">
-                                <rect key="frame" x="20" y="153" width="20" height="20"/>
+                                <rect key="frame" x="294" y="153" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="conditions &amp; balance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="agF-sC-GcL">
@@ -1018,7 +1018,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="IdY-vu-b1Q">
                                 <rect key="frame" x="20" y="108" width="280" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1038,6 +1038,36 @@
                                 </state>
                                 <connections>
                                     <segue destination="lqz-xK-aIy" kind="push" identifier="SegueIntrigueConitionsToInfo" id="pwI-hB-yoR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hAW-Fm-aDF">
+                                <rect key="frame" x="288" y="147" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" image="mail.png">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendPressed:" destination="KfH-nn-bWU" eventType="touchUpInside" id="Tp1-cI-f6b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ezx-z4-mjS">
+                                <rect key="frame" x="0.0" y="147" width="153" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Language" image="web.png">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="languagePressed:" destination="KfH-nn-bWU" eventType="touchUpInside" id="5Ew-jm-KQT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1060,7 +1090,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnLanguage" destination="Ezx-z4-mjS" id="VKT-id-CRC"/>
                         <outlet property="btnSend" destination="Wqc-ni-5nH" id="2IC-sc-att"/>
+                        <outlet property="btnSendIcon" destination="hAW-Fm-aDF" id="XjJ-tC-fWE"/>
                         <outlet property="indicatorSend" destination="CD6-tW-TkD" id="vum-mC-b2j"/>
                         <outlet property="labelConditions" destination="agF-sC-GcL" id="YQ9-k1-U3w"/>
                         <outlet property="labelEnterEmail" destination="5oQ-im-bIt" id="3x2-bO-Mvj"/>
@@ -1722,8 +1754,11 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IntrigueVC.h"/>
             <relationships>
                 <relationship kind="action" name="didEndOnExit:"/>
+                <relationship kind="action" name="languagePressed:"/>
                 <relationship kind="action" name="sendPressed:"/>
+                <relationship kind="outlet" name="btnLanguage" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnSendIcon" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="indicatorSend" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="labelConditions" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelEnterEmail" candidateClass="UILabel"/>

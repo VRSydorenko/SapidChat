@@ -70,9 +70,9 @@
         // setup image
         
         switch (i) {
-            case 0: imageName = @"intro_welcome.jpg";   break;
-            case 1: imageName = @"intro_compose.jpg";   break;
-            case 2: imageName = @"intro_pickup.jpg";    break;
+            case 0: imageName = @"intro_welcome.png";   break;
+            case 1: imageName = @"intro_compose.png";   break;
+            case 2: imageName = @"intro_pickup.png";    break;
             case 3: imageName = @"intro_communicate.jpg";   break;
         }
 		UIImage *image = [UIImage imageNamed:imageName];

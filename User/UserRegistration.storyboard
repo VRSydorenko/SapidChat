@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Ysn-Hc-xxa">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
@@ -320,7 +319,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="vb1-ej-s4p">
-                                <rect key="frame" x="150" y="191" width="20" height="20"/>
+                                <rect key="frame" x="150" y="178" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dFu-EP-xtO">
@@ -338,6 +337,10 @@
                                     <action selector="nextPressed:" destination="2V0-c0-0QV" eventType="touchUpInside" id="S4A-Qo-2D8"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="registration_done@2x" id="PJX-mO-jfE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="356"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -345,6 +348,7 @@
                     <navigationItem key="navigationItem" id="wmB-kV-hHO"/>
                     <connections>
                         <outlet property="btnClose" destination="dFu-EP-xtO" id="fp3-uI-SjJ"/>
+                        <outlet property="imgDone" destination="PJX-mO-jfE" id="YCE-2r-DWf"/>
                         <outlet property="spinner" destination="vb1-ej-s4p" id="8ZG-dy-TRW"/>
                     </connections>
                 </viewController>
@@ -357,39 +361,9 @@
         <image name="arrowright.png" width="32" height="32"/>
         <image name="check.png" width="32" height="32"/>
         <image name="crossLines.png" width="32" height="32"/>
+        <image name="registration_done@2x" width="640" height="712"/>
         <image name="usercard.png" width="32" height="32"/>
     </resources>
-    <classes>
-        <class className="RegInfoVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegInfoVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="textInfo" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="RegistrationNavController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegistrationNavController.h"/>
-        </class>
-        <class className="UserRegistrationVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserRegistrationVC.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:"/>
-                <relationship kind="action" name="editingChanged:"/>
-                <relationship kind="action" name="nextPressed:"/>
-                <relationship kind="action" name="textDidEndOnExit:"/>
-                <relationship kind="outlet" name="btnCancel" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnClose" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnNext" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnRegister" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="tableLanguages" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textNick" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textPassword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="txtSelectLangs" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="txtSpecifyNick" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

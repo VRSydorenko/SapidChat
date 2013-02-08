@@ -117,7 +117,7 @@
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMMSG_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE]];}
 +(NSString*) internal_INTRIGUE_MAIL_CONTENT_TEMPL{return @"<div style=\"padding:10px;border: solid 1px gray;font-family:Verdana;\">\
     <font style=\"font-size:10pt;\">\
-    <h4>Hello!</h4>\
+    <h4>Buna!</h4>\
     <p>Cineva care va cunoaste adresa de email doreste sa va spuna ceva, si v-a invitat in mod anonim intr-o conversatie pe Sapid Chat!</p>\
     <p>Sapid Chat este o aplicatie pentru comunicare online, care va ofera optiunea de a va invita in mod anonim, prietenii intr-o conversatie (daca le cunoasteti adresa de email).\
     <br/><font color=\"red\"><strong>Acest email nu este spam!</strong></font> Cineva a introdus adresa dumneavoastra pentru a va intriga si a va invita intr-o conversatie pe Sapid Chat.</p>\

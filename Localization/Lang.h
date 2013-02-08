@@ -206,4 +206,7 @@
 @end
 
 @interface Lang : NSObject<Language>
+
++(Class) getLangClassForLanguage:(int)language;
+
 @end

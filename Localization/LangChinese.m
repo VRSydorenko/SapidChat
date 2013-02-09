@@ -201,6 +201,7 @@
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"新信息";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"应用程序";}
 +(NSString*) LOC_SETTINGS_SECTIONHEADER_MORE{return @"更多";}
++(NSString*) LOC_SETTINGS_SECTION_MORE_TOUR{return @"介绍";}
 +(NSString*) LOC_SETTINGS_SECTION_MORE_ABOUT{return @"关于ａｐｐ";}
 +(NSString*) LOC_SETTINGS_SECTION_MORE_RATE{return @"Ｓａｐｉｄ　Ｃｈａｔ　评价";}
 

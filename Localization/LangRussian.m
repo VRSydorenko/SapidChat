@@ -200,6 +200,7 @@
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"Новые сообщения";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Приложение";}
 +(NSString*) LOC_SETTINGS_SECTIONHEADER_MORE{return @"Дополнительно";}
++(NSString*) LOC_SETTINGS_SECTION_MORE_TOUR{return @"Посмотреть вступление";}
 +(NSString*) LOC_SETTINGS_SECTION_MORE_ABOUT{return @"О приложении";}
 +(NSString*) LOC_SETTINGS_SECTION_MORE_RATE{return @"Оцениете Sapid Chat";}
 

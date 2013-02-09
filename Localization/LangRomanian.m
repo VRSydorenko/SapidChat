@@ -201,6 +201,7 @@
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"Mesaje noi";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Aplicatie";}
 +(NSString*) LOC_SETTINGS_SECTIONHEADER_MORE{return @"Mai multe";}
++(NSString*) LOC_SETTINGS_SECTION_MORE_TOUR{return @"Prezentare";}
 +(NSString*) LOC_SETTINGS_SECTION_MORE_ABOUT{return @"Despre aplicatie";}
 +(NSString*) LOC_SETTINGS_SECTION_MORE_RATE{return @"Da o nota Sapid Chat";}
 

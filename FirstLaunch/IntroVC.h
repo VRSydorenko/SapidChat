@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class IntroVC;
+
 @protocol IntroScreenDelegate
-
-- (void) introCloseButtonPressed;
-
+- (void) introCloseButtonPressed:(IntroVC*)viewController;
 @end
 
 @interface IntroVC : UIViewController <UIScrollViewDelegate>

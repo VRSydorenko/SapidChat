@@ -14,6 +14,7 @@
 #import "Lang.h"
 #import "LocalizationUtils.h"
 #import "AmazonKeyChainWrapper.h"
+#import "IntroLauncher.h"
 
 @interface SettingsTableVC (){
     int valuesMode;
@@ -81,6 +82,7 @@
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_CONVERSATION] forLabel:self.loc_Langs_Conversation];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES] forLabel:self.loc_Langs_NewMessages];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION] forLabel:self.loc_Langs_Application];
+    [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_MORE_TOUR] forLabel:self.labelMore_Tour];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_MORE_ABOUT] forLabel:self.labelMore_About];
     [LocalizationUtils setText:[Lang LOC_SETTINGS_SECTION_MORE_RATE] forLabel:self.labelMore_Rate];
 }
@@ -125,10 +127,13 @@
             break;
         case 3: // additional section
             switch (indexPath.row) {
-                case 0: // about screen
+                case 0: // take a tour
+                    [IntroLauncher showIntroOverCurrentViewController:self];
+                    break;
+                case 1: // about screen
                     [self performSegueWithIdentifier:@"SegueSettingsToAbout" sender:self];
                     break;
-                case 1:{ // rate the app
+                case 2:{ // rate the app
                     NSString* url = @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=595828753&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8";
                     [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
                     break;
@@ -182,6 +187,10 @@
     }
 }
 
+- (void) introCloseButtonPressed:(IntroVC*)viewController{
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)dealloc {
     [self setLabelTimeFormat:nil];
     [self setLabelDateFormat:nil];
@@ -196,10 +205,12 @@
     [self setLoc_Langs_Application:nil];
     [self setLoc_Langs_NewMessages:nil];
     [self setLabelNewMsgLanguage:nil];
+    [self setLabelMore_About:nil];
     [super viewDidUnload];
 }
+
 - (void)viewDidUnload {
-    [self setLabelMore_About:nil];
+    [self setLabelMore_Tour:nil];
     [super viewDidUnload];
 }
 @end

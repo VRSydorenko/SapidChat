@@ -131,7 +131,7 @@
 }
 
 - (IBAction)closePressed:(id)sender {
-    [self.delegate introCloseButtonPressed];
+    [self.delegate introCloseButtonPressed:self];
 }
 
 

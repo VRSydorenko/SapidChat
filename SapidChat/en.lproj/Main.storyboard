@@ -896,11 +896,29 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="More" id="1XL-6b-b0J">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Pqj-Uk-RpE" style="IBUITableViewCellStyleDefault" id="hSO-m6-m7a">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="EeX-fa-uX7" style="IBUITableViewCellStyleDefault" id="kHo-b9-c70">
                                         <rect key="frame" x="0.0" y="498" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Take a tour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EeX-fa-uX7">
+                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Pqj-Uk-RpE" style="IBUITableViewCellStyleDefault" id="hSO-m6-m7a">
+                                        <rect key="frame" x="0.0" y="543" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="About the app" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pqj-Uk-RpE">
@@ -915,7 +933,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Bv0-C4-bhh" style="IBUITableViewCellStyleDefault" id="1Ny-Gt-fYY">
-                                        <rect key="frame" x="0.0" y="543" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="587" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
@@ -948,6 +966,7 @@
                         <outlet property="labelDateFormat" destination="xul-Kg-Myj" id="yDo-sI-RDb"/>
                         <outlet property="labelMore_About" destination="Pqj-Uk-RpE" id="QGu-wU-bFc"/>
                         <outlet property="labelMore_Rate" destination="Bv0-C4-bhh" id="jND-FO-ppD"/>
+                        <outlet property="labelMore_Tour" destination="EeX-fa-uX7" id="3Wa-Yo-3oJ"/>
                         <outlet property="labelNewMsgLanguage" destination="7pp-Yv-1C7" id="ro4-X0-zSi"/>
                         <outlet property="labelNickname" destination="dlf-aw-3fq" id="cNQ-3M-URl"/>
                         <outlet property="labelTimeFormat" destination="lww-x1-eNA" id="A6b-51-14W"/>
@@ -1863,6 +1882,7 @@
                 <relationship kind="outlet" name="labelDateFormat" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelMore_About" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelMore_Rate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelMore_Tour" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelNewMsgLanguage" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelNickname" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelTimeFormat" candidateClass="UILabel"/>

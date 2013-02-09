@@ -99,6 +99,7 @@
 		7FB50D3D16B8499000B82A3A /* pickup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB50D3B16B8499000B82A3A /* pickup@2x.png */; };
 		7FB8BF61168FA008007EC50D /* SapidInfoBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8BF60168FA008007EC50D /* SapidInfoBarView.m */; };
 		7FB8BF64168FA0AC007EC50D /* SapidInfoBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8BF63168FA0AC007EC50D /* SapidInfoBarManager.m */; };
+		7FBB70EF16C688E5004CAFD8 /* IntroLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB70EE16C688E5004CAFD8 /* IntroLauncher.m */; };
 		7FBBB7E616C2F18700E2ED53 /* feature_distance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBBB7E516C2F18700E2ED53 /* feature_distance@2x.png */; };
 		7FBBB7E816C2F1E200E2ED53 /* feature_distance.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBBB7E716C2F1E200E2ED53 /* feature_distance.png */; };
 		7FBBB7EA16C2F3A900E2ED53 /* feature_images@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBBB7E916C2F3A900E2ED53 /* feature_images@2x.png */; };
@@ -374,6 +375,8 @@
 		7FB8BF60168FA008007EC50D /* SapidInfoBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SapidInfoBarView.m; path = CustomControls/SapidInfoBar/SapidInfoBarView.m; sourceTree = "<group>"; };
 		7FB8BF62168FA0AC007EC50D /* SapidInfoBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SapidInfoBarManager.h; path = CustomControls/SapidInfoBar/SapidInfoBarManager.h; sourceTree = "<group>"; };
 		7FB8BF63168FA0AC007EC50D /* SapidInfoBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SapidInfoBarManager.m; path = CustomControls/SapidInfoBar/SapidInfoBarManager.m; sourceTree = "<group>"; };
+		7FBB70ED16C688E5004CAFD8 /* IntroLauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroLauncher.h; path = FirstLaunch/IntroLauncher.h; sourceTree = "<group>"; };
+		7FBB70EE16C688E5004CAFD8 /* IntroLauncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntroLauncher.m; path = FirstLaunch/IntroLauncher.m; sourceTree = "<group>"; };
 		7FBBB7E516C2F18700E2ED53 /* feature_distance@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "feature_distance@2x.png"; path = "Images/feature_distance@2x.png"; sourceTree = "<group>"; };
 		7FBBB7E716C2F1E200E2ED53 /* feature_distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = feature_distance.png; path = Images/feature_distance.png; sourceTree = "<group>"; };
 		7FBBB7E916C2F3A900E2ED53 /* feature_images@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "feature_images@2x.png"; path = "Images/feature_images@2x.png"; sourceTree = "<group>"; };
@@ -655,6 +658,8 @@
 				7F7880241610DE5500BDD517 /* AppLanguageVC.m */,
 				7FAF059C16B4B63D005A677B /* LanguageCell.h */,
 				7FAF059D16B4B63D005A677B /* LanguageCell.m */,
+				7FBB70ED16C688E5004CAFD8 /* IntroLauncher.h */,
+				7FBB70EE16C688E5004CAFD8 /* IntroLauncher.m */,
 			);
 			name = FirstLaunch;
 			sourceTree = "<group>";
@@ -1405,6 +1410,7 @@
 				7FC3F1D916BDB11D00ECCD74 /* LangJapanese.m in Sources */,
 				7FC3F1DA16BDB11D00ECCD74 /* LangSpanish.m in Sources */,
 				7FFEB54416C586290014BF01 /* AllLangsVC.m in Sources */,
+				7FBB70EF16C688E5004CAFD8 /* IntroLauncher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

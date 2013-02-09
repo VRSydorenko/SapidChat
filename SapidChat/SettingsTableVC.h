@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FirstLaunchNavController.h"
 
-@interface SettingsTableVC : UITableViewController<UIAlertViewDelegate>
+@interface SettingsTableVC : UITableViewController<UIAlertViewDelegate,
+                                                   IntroScreenDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *labelTimeFormat;
 @property (strong, nonatomic) IBOutlet UILabel *labelDateFormat;
@@ -24,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *loc_Langs_Conversation;
 @property (strong, nonatomic) IBOutlet UILabel *loc_Langs_NewMessages;
 @property (strong, nonatomic) IBOutlet UILabel *loc_Langs_Application;
+@property (strong, nonatomic) IBOutlet UILabel *labelMore_Tour;
 @property (strong, nonatomic) IBOutlet UILabel *labelMore_About;
 @property (strong, nonatomic) IBOutlet UILabel *labelMore_Rate;
 

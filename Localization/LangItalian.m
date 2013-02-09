@@ -201,6 +201,7 @@
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_NEWMESSAGES {return @"New messages";}
 +(NSString*) LOC_SETTINGS_SECTION_LANGUAGES_APPLICATION {return @"Application";}
 +(NSString*) LOC_SETTINGS_SECTIONHEADER_MORE{return @"More";}
++(NSString*) LOC_SETTINGS_SECTION_MORE_TOUR{return @"Take a tour";}
 +(NSString*) LOC_SETTINGS_SECTION_MORE_ABOUT{return @"About the app";}
 +(NSString*) LOC_SETTINGS_SECTION_MORE_RATE{return @"Rate Sapid Chat";}
 

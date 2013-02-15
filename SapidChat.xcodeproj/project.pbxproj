@@ -39,7 +39,6 @@
 		7FA590A116BB068700ED5000 /* LangArabic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909216BB068700ED5000 /* LangArabic.m */; };
 		7FA590A216BB068700ED5000 /* LangChinese.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909416BB068700ED5000 /* LangChinese.m */; };
 		7FA590A316BB068700ED5000 /* LangFrench.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909616BB068700ED5000 /* LangFrench.m */; };
-		7FA590A416BB068700ED5000 /* LangHindi.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909816BB068700ED5000 /* LangHindi.m */; };
 		7FA590A516BB068700ED5000 /* LangHungarian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909A16BB068700ED5000 /* LangHungarian.m */; };
 		7FA590A616BB068700ED5000 /* LangKorean.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909C16BB068700ED5000 /* LangKorean.m */; };
 		7FA590A716BB068700ED5000 /* LangPortuguese.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5909E16BB068700ED5000 /* LangPortuguese.m */; };
@@ -61,8 +60,6 @@
 		7FAF058816B4B498005A677B /* germany@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF056D16B4B498005A677B /* germany@2x.png */; };
 		7FAF058916B4B498005A677B /* hungary.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF056E16B4B498005A677B /* hungary.png */; };
 		7FAF058A16B4B498005A677B /* hungary@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF056F16B4B498005A677B /* hungary@2x.png */; };
-		7FAF058B16B4B498005A677B /* india.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF057016B4B498005A677B /* india.png */; };
-		7FAF058C16B4B498005A677B /* india@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF057116B4B498005A677B /* india@2x.png */; };
 		7FAF058D16B4B498005A677B /* italy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF057216B4B498005A677B /* italy.png */; };
 		7FAF058E16B4B498005A677B /* italy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF057316B4B498005A677B /* italy@2x.png */; };
 		7FAF058F16B4B498005A677B /* japan.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF057416B4B498005A677B /* japan.png */; };
@@ -106,7 +103,6 @@
 		7FBBB7EC16C2F41B00E2ED53 /* feature_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBBB7EB16C2F41B00E2ED53 /* feature_images.png */; };
 		7FBBB7EE16C2F9F300E2ED53 /* feature_distance_mi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBBB7ED16C2F9F300E2ED53 /* feature_distance_mi@2x.png */; };
 		7FBBB7F016C2FA6600E2ED53 /* feature_distance_mi.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBBB7EF16C2FA6600E2ED53 /* feature_distance_mi.png */; };
-		7FBBBBC916C444B900F39863 /* intro_welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBBBBC816C444B900F39863 /* intro_welcome@2x.png */; };
 		7FBBBBCC16C4460F00F39863 /* intro_compose@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBBBBCA16C4460F00F39863 /* intro_compose@2x.png */; };
 		7FBBBBCD16C4460F00F39863 /* intro_pickup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBBBBCB16C4460F00F39863 /* intro_pickup@2x.png */; };
 		7FBBBBD016C44BA500F39863 /* registration_done@2x in Resources */ = {isa = PBXBuildFile; fileRef = 7FBBBBCF16C44BA500F39863 /* registration_done@2x */; };
@@ -125,6 +121,7 @@
 		7FC3F1D816BDB11D00ECCD74 /* LangItalian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC3F1D316BDB11A00ECCD74 /* LangItalian.m */; };
 		7FC3F1D916BDB11D00ECCD74 /* LangJapanese.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC3F1D516BDB11C00ECCD74 /* LangJapanese.m */; };
 		7FC3F1DA16BDB11D00ECCD74 /* LangSpanish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC3F1D716BDB11C00ECCD74 /* LangSpanish.m */; };
+		7FC744C616CEAF3300078297 /* intro_welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC744C516CEAF3300078297 /* intro_welcome@2x.png */; };
 		7FC9881B1610BEC200AB04D5 /* Lang.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881A1610BEC200AB04D5 /* Lang.m */; };
 		7FC9881E1610C31600AB04D5 /* LangEnglish.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9881D1610C31600AB04D5 /* LangEnglish.m */; };
 		7FC988211610C32600AB04D5 /* LangRussian.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988201610C32600AB04D5 /* LangRussian.m */; };
@@ -297,8 +294,6 @@
 		7FA5909416BB068700ED5000 /* LangChinese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangChinese.m; path = Localization/LangChinese.m; sourceTree = "<group>"; };
 		7FA5909516BB068700ED5000 /* LangFrench.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangFrench.h; path = Localization/LangFrench.h; sourceTree = "<group>"; };
 		7FA5909616BB068700ED5000 /* LangFrench.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangFrench.m; path = Localization/LangFrench.m; sourceTree = "<group>"; };
-		7FA5909716BB068700ED5000 /* LangHindi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangHindi.h; path = Localization/LangHindi.h; sourceTree = "<group>"; };
-		7FA5909816BB068700ED5000 /* LangHindi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangHindi.m; path = Localization/LangHindi.m; sourceTree = "<group>"; };
 		7FA5909916BB068700ED5000 /* LangHungarian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangHungarian.h; path = Localization/LangHungarian.h; sourceTree = "<group>"; };
 		7FA5909A16BB068700ED5000 /* LangHungarian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangHungarian.m; path = Localization/LangHungarian.m; sourceTree = "<group>"; };
 		7FA5909B16BB068700ED5000 /* LangKorean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangKorean.h; path = Localization/LangKorean.h; sourceTree = "<group>"; };
@@ -326,8 +321,6 @@
 		7FAF056D16B4B498005A677B /* germany@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "germany@2x.png"; path = "Images/Flags/germany@2x.png"; sourceTree = "<group>"; };
 		7FAF056E16B4B498005A677B /* hungary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hungary.png; path = Images/Flags/hungary.png; sourceTree = "<group>"; };
 		7FAF056F16B4B498005A677B /* hungary@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hungary@2x.png"; path = "Images/Flags/hungary@2x.png"; sourceTree = "<group>"; };
-		7FAF057016B4B498005A677B /* india.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = india.png; path = Images/Flags/india.png; sourceTree = "<group>"; };
-		7FAF057116B4B498005A677B /* india@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "india@2x.png"; path = "Images/Flags/india@2x.png"; sourceTree = "<group>"; };
 		7FAF057216B4B498005A677B /* italy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = italy.png; path = Images/Flags/italy.png; sourceTree = "<group>"; };
 		7FAF057316B4B498005A677B /* italy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "italy@2x.png"; path = "Images/Flags/italy@2x.png"; sourceTree = "<group>"; };
 		7FAF057416B4B498005A677B /* japan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = japan.png; path = Images/Flags/japan.png; sourceTree = "<group>"; };
@@ -383,7 +376,6 @@
 		7FBBB7EB16C2F41B00E2ED53 /* feature_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = feature_images.png; path = Images/feature_images.png; sourceTree = "<group>"; };
 		7FBBB7ED16C2F9F300E2ED53 /* feature_distance_mi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "feature_distance_mi@2x.png"; path = "Images/feature_distance_mi@2x.png"; sourceTree = "<group>"; };
 		7FBBB7EF16C2FA6600E2ED53 /* feature_distance_mi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = feature_distance_mi.png; path = Images/feature_distance_mi.png; sourceTree = "<group>"; };
-		7FBBBBC816C444B900F39863 /* intro_welcome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "intro_welcome@2x.png"; path = "FirstLaunch/Images/intro_welcome@2x.png"; sourceTree = "<group>"; };
 		7FBBBBCA16C4460F00F39863 /* intro_compose@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "intro_compose@2x.png"; path = "FirstLaunch/Images/intro_compose@2x.png"; sourceTree = "<group>"; };
 		7FBBBBCB16C4460F00F39863 /* intro_pickup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "intro_pickup@2x.png"; path = "FirstLaunch/Images/intro_pickup@2x.png"; sourceTree = "<group>"; };
 		7FBBBBCF16C44BA500F39863 /* registration_done@2x */ = {isa = PBXFileReference; lastKnownFileType = file; name = "registration_done@2x"; path = "User/Images/registration_done@2x"; sourceTree = "<group>"; };
@@ -412,6 +404,7 @@
 		7FC3F1D516BDB11C00ECCD74 /* LangJapanese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangJapanese.m; path = Localization/LangJapanese.m; sourceTree = "<group>"; };
 		7FC3F1D616BDB11C00ECCD74 /* LangSpanish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangSpanish.h; path = Localization/LangSpanish.h; sourceTree = "<group>"; };
 		7FC3F1D716BDB11C00ECCD74 /* LangSpanish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LangSpanish.m; path = Localization/LangSpanish.m; sourceTree = "<group>"; };
+		7FC744C516CEAF3300078297 /* intro_welcome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "intro_welcome@2x.png"; path = "FirstLaunch/Images/intro_welcome@2x.png"; sourceTree = "<group>"; };
 		7FC988191610BEC200AB04D5 /* Lang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lang.h; path = Localization/Lang.h; sourceTree = "<group>"; };
 		7FC9881A1610BEC200AB04D5 /* Lang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Lang.m; path = Localization/Lang.m; sourceTree = "<group>"; };
 		7FC9881C1610C31600AB04D5 /* LangEnglish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LangEnglish.h; path = Localization/LangEnglish.h; sourceTree = "<group>"; };
@@ -679,8 +672,6 @@
 				7FAF056D16B4B498005A677B /* germany@2x.png */,
 				7FAF056E16B4B498005A677B /* hungary.png */,
 				7FAF056F16B4B498005A677B /* hungary@2x.png */,
-				7FAF057016B4B498005A677B /* india.png */,
-				7FAF057116B4B498005A677B /* india@2x.png */,
 				7FAF057216B4B498005A677B /* italy.png */,
 				7FAF057316B4B498005A677B /* italy@2x.png */,
 				7FAF057416B4B498005A677B /* japan.png */,
@@ -892,8 +883,6 @@
 				7FA5909416BB068700ED5000 /* LangChinese.m */,
 				7FA5909516BB068700ED5000 /* LangFrench.h */,
 				7FA5909616BB068700ED5000 /* LangFrench.m */,
-				7FA5909716BB068700ED5000 /* LangHindi.h */,
-				7FA5909816BB068700ED5000 /* LangHindi.m */,
 				7FA5909916BB068700ED5000 /* LangHungarian.h */,
 				7FA5909A16BB068700ED5000 /* LangHungarian.m */,
 				7FA5909B16BB068700ED5000 /* LangKorean.h */,
@@ -972,9 +961,9 @@
 		7FDA84CB167E3BA0001986FB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7FC744C516CEAF3300078297 /* intro_welcome@2x.png */,
 				7FBBBBCA16C4460F00F39863 /* intro_compose@2x.png */,
 				7FBBBBCB16C4460F00F39863 /* intro_pickup@2x.png */,
-				7FBBBBC816C444B900F39863 /* intro_welcome@2x.png */,
 				7FDA84CC167E47A6001986FB /* intro_communicate.jpg */,
 			);
 			name = Images;
@@ -1218,8 +1207,6 @@
 				7FAF058816B4B498005A677B /* germany@2x.png in Resources */,
 				7FAF058916B4B498005A677B /* hungary.png in Resources */,
 				7FAF058A16B4B498005A677B /* hungary@2x.png in Resources */,
-				7FAF058B16B4B498005A677B /* india.png in Resources */,
-				7FAF058C16B4B498005A677B /* india@2x.png in Resources */,
 				7FAF058D16B4B498005A677B /* italy.png in Resources */,
 				7FAF058E16B4B498005A677B /* italy@2x.png in Resources */,
 				7FAF058F16B4B498005A677B /* japan.png in Resources */,
@@ -1278,10 +1265,10 @@
 				7FBBB7EC16C2F41B00E2ED53 /* feature_images.png in Resources */,
 				7FBBB7EE16C2F9F300E2ED53 /* feature_distance_mi@2x.png in Resources */,
 				7FBBB7F016C2FA6600E2ED53 /* feature_distance_mi.png in Resources */,
-				7FBBBBC916C444B900F39863 /* intro_welcome@2x.png in Resources */,
 				7FBBBBCC16C4460F00F39863 /* intro_compose@2x.png in Resources */,
 				7FBBBBCD16C4460F00F39863 /* intro_pickup@2x.png in Resources */,
 				7FBBBBD016C44BA500F39863 /* registration_done@2x in Resources */,
+				7FC744C616CEAF3300078297 /* intro_welcome@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1399,7 +1386,6 @@
 				7FA590A116BB068700ED5000 /* LangArabic.m in Sources */,
 				7FA590A216BB068700ED5000 /* LangChinese.m in Sources */,
 				7FA590A316BB068700ED5000 /* LangFrench.m in Sources */,
-				7FA590A416BB068700ED5000 /* LangHindi.m in Sources */,
 				7FA590A516BB068700ED5000 /* LangHungarian.m in Sources */,
 				7FA590A616BB068700ED5000 /* LangKorean.m in Sources */,
 				7FA590A716BB068700ED5000 /* LangPortuguese.m in Sources */,

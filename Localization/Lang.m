@@ -14,7 +14,6 @@
 #import "LangEnglish.h"
 #import "LangFrench.h"
 #import "LangGerman.h"
-#import "LangHindi.h"
 #import "LangHungarian.h"
 #import "LangKorean.h"
 #import "LangPortuguese.h"
@@ -34,7 +33,6 @@
         case ENGLISH: return [LangEnglish class];
         case FRENCH: return [LangFrench class];
         case GERMAN: return [LangGerman class];
-        case HINDI: return [LangHindi class];
         case HUNGARIAN: return [LangHungarian class];
         case ITALIAN: return [LangItalian class];
         case JAPANESE: return [LangJapanese class];

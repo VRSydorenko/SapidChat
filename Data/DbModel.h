@@ -38,17 +38,16 @@ typedef enum Languages{ // !!! Don't change the numbers !!!
     ENGLISH     = 3,
     FRENCH      = 4,
     GERMAN      = 5,
-    HINDI       = 6,
-    HUNGARIAN   = 7,
-    ITALIAN     = 8,
-    JAPANESE    = 9,
-    KOREAN      = 10,
-    PORTUGESE   = 11,
-    ROMANIAN    = 12,
-    RUSSIAN     = 13,
-    SPANISH     = 14,
+    HUNGARIAN   = 6,
+    ITALIAN     = 7,
+    JAPANESE    = 8,
+    KOREAN      = 9,
+    PORTUGESE   = 10,
+    ROMANIAN    = 11,
+    RUSSIAN     = 12,
+    SPANISH     = 13,
     //---------------
-    LANG_COUNT  = 15,
+    LANG_COUNT  = 14,
 } Languages;
 
 

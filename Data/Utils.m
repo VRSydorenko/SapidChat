@@ -92,7 +92,6 @@
         case ENGLISH:   return selfName ? [LangEnglish LOC_SYS_LANGUAGE_SELFNAME] : [Lang LOC_SETTINGS_LANGUAGES_ENGLISH];
         case FRENCH:    return selfName ? @"Français" : [Lang LOC_SETTINGS_LANGUAGES_FRENCH];
         case GERMAN:    return selfName ? @"Deutsch" : [Lang LOC_SETTINGS_LANGUAGES_GERMAN];
-        case HINDI:     return selfName ? @"हिन्दी" : [Lang LOC_SETTINGS_LANGUAGES_HINDI];
         case ITALIAN:   return selfName ? @"Italiano" : [Lang LOC_SETTINGS_LANGUAGES_ITALIAN];
         case JAPANESE:  return selfName ? @"日本語" : [Lang LOC_SETTINGS_LANGUAGES_JAPANESE];
         case KOREAN:    return selfName ? @"한국어" : [Lang LOC_SETTINGS_LANGUAGES_KOREAN];
@@ -238,9 +237,6 @@
             break;
         case GERMAN:
             imageName = @"germany.png";
-            break;
-        case HINDI:
-            imageName = @"india.png";
             break;
         case ITALIAN:
             imageName = @"italy.png";

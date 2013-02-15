@@ -88,7 +88,6 @@
             [NSNumber numberWithInt:ENGLISH],
             [NSNumber numberWithInt:FRENCH],
             [NSNumber numberWithInt:GERMAN],
-            [NSNumber numberWithInt:HINDI],
             [NSNumber numberWithInt:HUNGARIAN],
             [NSNumber numberWithInt:ITALIAN],
             [NSNumber numberWithInt:JAPANESE],

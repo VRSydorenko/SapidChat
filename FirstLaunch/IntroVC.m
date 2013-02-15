@@ -63,7 +63,7 @@
     const int imageWidth    = 320;
     const int labelMargin   = 20;
     
-    UIFont* textFront = [UIFont fontWithName:@"Helvetica" size:13.0f];
+    UIFont* textFront = [UIFont fontWithName:@"Helvetica" size:15.0f];
     NSString* imageName = @"";
 	for (int i = 0; i < pageCount; i++) { // 4 pages
         

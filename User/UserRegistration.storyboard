@@ -62,6 +62,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="registration_nick@2x.png" id="fy6-Jm-nm3">
+                                <rect key="frame" x="0.0" y="165" width="320" height="251"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -85,6 +89,7 @@
                     <connections>
                         <outlet property="btnCancel" destination="ArL-6s-NRP" id="VQ4-Oc-UtX"/>
                         <outlet property="btnNext" destination="FsX-7y-CM4" id="mCn-kF-7gP"/>
+                        <outlet property="imgNick" destination="fy6-Jm-nm3" id="mJ0-kZ-fwS"/>
                         <outlet property="textNick" destination="SjM-Xw-dCM" id="ITn-Ho-foj"/>
                         <outlet property="txtSpecifyNick" destination="lhv-y8-2OC" id="6mj-Ib-FAp"/>
                         <segue destination="uVo-dK-wsK" kind="push" identifier="SegueNickToLangs" id="n1u-zD-7Wy"/>
@@ -361,7 +366,8 @@
         <image name="arrowright.png" width="32" height="32"/>
         <image name="check.png" width="32" height="32"/>
         <image name="crossLines.png" width="32" height="32"/>
-        <image name="registration_done@2x" width="640" height="712"/>
+        <image name="registration_done@2x" width="16" height="16"/>
+        <image name="registration_nick@2x.png" width="640" height="500"/>
         <image name="usercard.png" width="32" height="32"/>
     </resources>
     <classes>
@@ -386,6 +392,7 @@
                 <relationship kind="outlet" name="btnNext" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnRegister" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imgDone" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imgNick" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="tableLanguages" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="textEmail" candidateClass="UITextField"/>

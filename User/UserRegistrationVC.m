@@ -290,4 +290,8 @@
     }
 }
 
+- (void)viewDidUnload {
+    [self setImgNick:nil];
+    [super viewDidUnload];
+}
 @end

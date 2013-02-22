@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnNext;
 @property (strong, nonatomic) IBOutlet UIButton *btnRegister;
 @property (strong, nonatomic) IBOutlet UIButton *btnClose;
+@property (strong, nonatomic) IBOutlet UIImageView *imgNick;
 @property (strong, nonatomic) IBOutlet UIImageView *imgDone;
 @property (strong, nonatomic) IBOutlet UITextView *txtSelectLangs;
 @property (strong, nonatomic) IBOutlet UIButton *btnCancel;

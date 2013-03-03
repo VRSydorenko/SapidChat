@@ -88,7 +88,7 @@
     switch (langCode) {
         case ARABIC:    return selfName ? @"العربية" : [Lang LOC_SETTINGS_LANGUAGES_ARABIC];
         case CHINESE:   return selfName ? @"中文, 汉语" : [Lang LOC_SETTINGS_LANGUAGES_CHINESE];
-        case DANISH:   return selfName ? @"Dansk" : [Lang LOC_SETTINGS_LANGUAGES_DANISH];
+        //case DANISH:   return selfName ? @"Dansk" : [Lang LOC_SETTINGS_LANGUAGES_DANISH];
         case ENGLISH:   return selfName ? [LangEnglish LOC_SYS_LANGUAGE_SELFNAME] : [Lang LOC_SETTINGS_LANGUAGES_ENGLISH];
         case FRENCH:    return selfName ? @"Français" : [Lang LOC_SETTINGS_LANGUAGES_FRENCH];
         case GERMAN:    return selfName ? @"Deutsch" : [Lang LOC_SETTINGS_LANGUAGES_GERMAN];
@@ -226,9 +226,9 @@
         case CHINESE:
             imageName = @"china.png";
             break;
-        case DANISH:
+        /*case DANISH:
             imageName = @"denmark.png";
-            break;
+            break;*/
         case ENGLISH:
             imageName = @"uk.png";
             break;

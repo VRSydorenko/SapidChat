@@ -51,6 +51,7 @@
     UIApplication  *app = [UIApplication sharedApplication];
     UIBackgroundTaskIdentifier bgTask = 0;
     
+    // in case user started some action (updating/sending messages) and immideately minimized the app
     bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
         [app endBackgroundTask:bgTask];
     }];}

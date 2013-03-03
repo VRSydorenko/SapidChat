@@ -239,7 +239,6 @@
 +(NSString*) LOC_SETTINGS_LANGUAGES_ENGLISH{ return @"Engleza";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_FRENCH{ return @"Franceza";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_GERMAN{ return @"Germana";}
-+(NSString*) LOC_SETTINGS_LANGUAGES_HINDI{ return @"Hindi";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ITALIAN{ return @"Italiana";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_JAPANESE{ return @"Japanese";}
 +(NSString*) LOC_SETTINGS_LANGUAGES_KOREAN{ return @"Coreana";}

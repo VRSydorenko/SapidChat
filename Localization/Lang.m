@@ -29,7 +29,7 @@
     switch (language) {
         case ARABIC: return [LangArabic class];
         case CHINESE: return [LangChinese class];
-        case DANISH: return [LangDanish class];
+        //case DANISH: return [LangDanish class];
         case ENGLISH: return [LangEnglish class];
         case FRENCH: return [LangFrench class];
         case GERMAN: return [LangGerman class];
@@ -229,7 +229,6 @@
 +(NSString*) LOC_SETTINGS_LANGUAGES_ENGLISH{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_ENGLISH];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_FRENCH{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_FRENCH];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_GERMAN{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_GERMAN];}
-+(NSString*) LOC_SETTINGS_LANGUAGES_HINDI{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_HINDI];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_ITALIAN{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_ITALIAN];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_JAPANESE{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_JAPANESE];}
 +(NSString*) LOC_SETTINGS_LANGUAGES_KOREAN{return [[self AppLanguage] LOC_SETTINGS_LANGUAGES_KOREAN];}

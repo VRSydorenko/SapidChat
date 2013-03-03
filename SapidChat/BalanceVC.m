@@ -95,6 +95,12 @@
                     [cell.segmentedControl setTitle:[Lang LOC_BALANCE_PRO_YES] forSegmentAtIndex:0];
                     [cell.segmentedControl setTitle:[Lang LOC_BALANCE_BTN_RESTORE] forSegmentAtIndex:1];
                     
+                    UIFont *font = [UIFont boldSystemFontOfSize:15.0f];
+                    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
+                                                             forKey:UITextAttributeFont];
+                    [cell.segmentedControl setTitleTextAttributes:attributes
+                                                    forState:UIControlStateNormal];
+                    
                     return cell;
                 }
             }

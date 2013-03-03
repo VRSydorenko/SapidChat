@@ -44,7 +44,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {return 0;}
-    if (section == 3) {return LANG_COUNT - 1;} // -1 because Sofouen did 2 languages
+    if (section == 3) {return 6;}
     return 1;
 }
 
@@ -96,47 +96,11 @@
                     break;
                 }
                 case 4:{
-                    person = @"Anders Havn";
-                    lang = [Utils getLanguageName:DANISH needSelfName:NO];
-                    break;
-                }
-                case 5:{
-                    person = @"Kevin Perry";
-                    lang = [Utils getLanguageName:GERMAN needSelfName:NO];
-                    break;
-                }
-                case 6:{
-                    person = @"Marcelo Machado da Silva";
-                    lang = [Utils getLanguageName:PORTUGESE needSelfName:NO];
-                    break;
-                }
-                case 7:{
-                    person = @"Sofouen";
-                    lang = [NSString stringWithFormat:@"%@, %@", [Utils getLanguageName:ARABIC needSelfName:NO], [Utils getLanguageName:FRENCH needSelfName:NO]];
-                    break;
-                }
-                case 8:{
-                    person = @"Anly Wang";
-                    lang = [Utils getLanguageName:JAPANESE needSelfName:NO];
-                    break;
-                }
-                case 9:{
                     person = @"Giulia Stramaccioni";
                     lang = [Utils getLanguageName:ITALIAN needSelfName:NO];
                     break;
                 }
-                case 10:{
-                    person = @"Mario Olavarrieta";
-                    lang = [Utils getLanguageName:SPANISH needSelfName:NO];
-                    break;
-                }
-
-                case 11:{
-                    person = @"한예담";
-                    lang = [Utils getLanguageName:KOREAN needSelfName:NO];
-                    break;
-                }
-                case 12:{
+                case 5:{
                     person = [Lang LOC_ABOUT_VIKTOR_SYDORENKO];
                     lang = [Utils getLanguageName:RUSSIAN needSelfName:NO];
                     break;

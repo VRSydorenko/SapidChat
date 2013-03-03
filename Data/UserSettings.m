@@ -82,20 +82,20 @@
 // languages which can be chosen as application language
 +(NSArray*)getAppSupportedLanguages{
     return [[NSArray alloc] initWithObjects:
-            [NSNumber numberWithInt:ARABIC],
+            //[NSNumber numberWithInt:ARABIC],
             [NSNumber numberWithInt:CHINESE],
-            [NSNumber numberWithInt:DANISH],
+            //[NSNumber numberWithInt:DANISH],
             [NSNumber numberWithInt:ENGLISH],
-            [NSNumber numberWithInt:FRENCH],
-            [NSNumber numberWithInt:GERMAN],
+            //[NSNumber numberWithInt:FRENCH],
+            //[NSNumber numberWithInt:GERMAN],
             [NSNumber numberWithInt:HUNGARIAN],
             [NSNumber numberWithInt:ITALIAN],
-            [NSNumber numberWithInt:JAPANESE],
-            [NSNumber numberWithInt:KOREAN],
-            [NSNumber numberWithInt:PORTUGESE],
+            //[NSNumber numberWithInt:JAPANESE],
+            //[NSNumber numberWithInt:KOREAN],
+            //[NSNumber numberWithInt:PORTUGESE],
             [NSNumber numberWithInt:ROMANIAN],
             [NSNumber numberWithInt:RUSSIAN],
-            [NSNumber numberWithInt:SPANISH],
+            //[NSNumber numberWithInt:SPANISH],
             nil];
 }
 

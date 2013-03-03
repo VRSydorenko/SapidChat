@@ -34,20 +34,19 @@ typedef enum ErrorCodes{
 typedef enum Languages{ // !!! Don't change the numbers !!!
     ARABIC      = 0,
     CHINESE     = 1,
-    DANISH      = 2,
-    ENGLISH     = 3,
-    FRENCH      = 4,
-    GERMAN      = 5,
-    HUNGARIAN   = 6,
-    ITALIAN     = 7,
-    JAPANESE    = 8,
-    KOREAN      = 9,
-    PORTUGESE   = 10,
-    ROMANIAN    = 11,
-    RUSSIAN     = 12,
-    SPANISH     = 13,
+    ENGLISH     = 2,
+    FRENCH      = 3,
+    GERMAN      = 4,
+    HUNGARIAN   = 5,
+    ITALIAN     = 6,
+    JAPANESE    = 7,
+    KOREAN      = 8,
+    PORTUGESE   = 9,
+    ROMANIAN    = 10,
+    RUSSIAN     = 11,
+    SPANISH     = 12,
     //---------------
-    LANG_COUNT  = 14,
+    LANG_COUNT  = 13,
 } Languages;
 
 

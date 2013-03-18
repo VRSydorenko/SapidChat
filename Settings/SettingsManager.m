@@ -19,9 +19,10 @@
     [controller presentViewController:vc animated:YES completion:nil];
 }
 
-+ (void) callOneLanguagePickerScreenOverViewController:(UIViewController<OneLanguagePickerDelegate>*)controller{
++ (void) callOneLanguagePickerFrom:(BOOL)appLanguages overViewController:(UIViewController<OneLanguagePickerDelegate>*)controller{
     AllLangsVC *vc = [[UIStoryboard storyboardWithName:@"Settings" bundle:nil] instantiateViewControllerWithIdentifier:@"ScreenLanguages"];
     vc.handler = controller;
+    vc.onlyAppLanguages = appLanguages;
     [controller presentViewController:vc animated:YES completion:nil];
 }
 

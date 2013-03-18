@@ -15,18 +15,20 @@
 #import "DbModel.h"
 
 @interface AllLangsVC (){
-    NSMutableArray* languages;
+    NSArray* languages;
 }
 @end
 
 @implementation AllLangsVC
 
 @synthesize tableLanguages;
-
+@synthesize onlyAppLanguages = _onlyAppLanguages;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    languages = self.onlyAppLanguages ? [UserSettings getAppSupportedLanguages] : nil;
     
     self.fakeNavBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barGreenBackground.png"]];
     
@@ -45,7 +47,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return LANG_COUNT;
+    return languages ? languages.count : LANG_COUNT;
 }
 
 
@@ -53,10 +55,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellLanguage"];
     if (cell){
         cell.accessoryType = UITableViewCellAccessoryNone;
-        int row = indexPath.row;
-        cell.textLabel.text = [Utils getLanguageName:row needSelfName:NO];
-        cell.detailTextLabel.text = [Utils getLanguageName:row needSelfName:YES];
-        cell.imageView.image = [Utils getFlagForLanguage:row];
+        int lang = languages ? ((NSNumber*)[languages objectAtIndex:indexPath.row]).intValue : indexPath.row;
+        cell.textLabel.text = [Utils getLanguageName:lang needSelfName:NO];
+        cell.detailTextLabel.text = [Utils getLanguageName:lang needSelfName:YES];
+        cell.imageView.image = [Utils getFlagForLanguage:lang];
     }
     return cell;
 }
@@ -64,8 +66,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell* cell = [self.tableLanguages cellForRowAtIndexPath:indexPath];
     if (cell){
-        NSNumber *row = [NSNumber numberWithInt:indexPath.row];
-        [self.handler languagePicked:row inController:self];
+        int lang = languages ? ((NSNumber*)[languages objectAtIndex:indexPath.row]).intValue : indexPath.row;
+        [self.handler languagePicked:[NSNumber numberWithInt:lang] inController:self];
     }
 }
 

@@ -133,7 +133,7 @@
 }
 
 - (IBAction)languagePressed:(id)sender {
-    [SettingsManager callOneLanguagePickerScreenOverViewController:self];
+    [SettingsManager callOneLanguagePickerFrom:YES overViewController:self];
 }
 
 - (void) languagePicked:(NSNumber *)lang inController:(AllLangsVC *)allLangsViewController{

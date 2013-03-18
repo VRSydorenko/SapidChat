@@ -14,6 +14,6 @@
 
 + (void) callNewMessagesLanguageScreenOverViewController:(UIViewController<NewMsgLanguagesSettingsDelegate>*)controller;
 
-+(void) callOneLanguagePickerScreenOverViewController:(UIViewController<OneLanguagePickerDelegate>*)controller;
++ (void) callOneLanguagePickerFrom:(BOOL)appLanguages overViewController:(UIViewController<OneLanguagePickerDelegate>*)controller;
 
 @end

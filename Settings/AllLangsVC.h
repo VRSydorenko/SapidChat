@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelTitle;
 @property (strong, nonatomic) IBOutlet UIButton *btnClose;
 @property (assign) id <OneLanguagePickerDelegate> handler;
+@property (assign, nonatomic) BOOL onlyAppLanguages;
 @property (strong, nonatomic) IBOutlet UIView *fakeNavBar;
 - (IBAction)closePressed:(id)sender;
 

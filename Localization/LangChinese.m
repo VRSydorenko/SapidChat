@@ -26,7 +26,7 @@
 +(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"如今发送图片已经不是新的发明了，但是比起要他们的电子邮箱发送图片，更简单的是直接在聊天框里点击两下图片";}
 // about screen
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Viktor Sydorenko";}
-+(NSString*) LOC_ABOUT_DESIGNER{ return @"Dmitriy Pohodyaev";}
++(NSString*) LOC_ABOUT_DESIGNER{ return @"Skirtos";}
 +(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"发展和主题";}
 +(NSString*) LOC_ABOUT_DESIGN{return @"图画";}
 +(NSString*) LOC_ABOUT_LOCALIZATION{return @"定位";}

@@ -26,7 +26,7 @@
 +(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"Sending images is not a new invention nowadays, but it's easier to send an image with two taps within the chat rather than asking for their email address and composing a new email.";}
 // about screen
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Viktor Sydorenko";}
-+(NSString*) LOC_ABOUT_DESIGNER{ return @"Dmitriy Pohodyaev";}
++(NSString*) LOC_ABOUT_DESIGNER{ return @"Skirtos";}
 +(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"Development and themes";}
 +(NSString*) LOC_ABOUT_DESIGN{return @"Pictures";}
 +(NSString*) LOC_ABOUT_LOCALIZATION{return @"Localization";}

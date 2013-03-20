@@ -26,7 +26,7 @@
 +(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"Mandare delle immagini non e' certamente una nuova invenzione al giorno d'oggi, ma e' piu' semplice spedirle con pochi click usando la chat che tramite una normalissima email.";}
 // about screen
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Viktor Sydorenko";}
-+(NSString*) LOC_ABOUT_DESIGNER{ return @"Dmitriy Pohodyaev";}
++(NSString*) LOC_ABOUT_DESIGNER{ return @"Skirtos";}
 +(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"Sviluppo e temi";}
 +(NSString*) LOC_ABOUT_DESIGN{return @"Immagini";}
 +(NSString*) LOC_ABOUT_LOCALIZATION{return @"Localizzazione";}

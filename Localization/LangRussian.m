@@ -26,7 +26,7 @@
 +(NSString*) LOC_INFO_FEATURE_DESCR_IMAGE{ return @"Сегодня, конечно, никого не удивить пересылкой изображений, но все равно, легче отправить картинку прямо из чата в два клика чем спрашивать у собеседника адрес email и отправлять письмо.";}
 // about screen
 +(NSString*) LOC_ABOUT_VIKTOR_SYDORENKO{ return @"Виктор Сидоренко";}
-+(NSString*) LOC_ABOUT_DESIGNER{ return @"Дмитрий Походяев";}
++(NSString*) LOC_ABOUT_DESIGNER{ return @"Skirtos";}
 +(NSString*) LOC_ABOUT_IDEA_AND_DEVELOPMENT{return @"Разработка и оформление";}
 +(NSString*) LOC_ABOUT_DESIGN{return @"Рисунки";}
 +(NSString*) LOC_ABOUT_LOCALIZATION{return @"Локализация";}

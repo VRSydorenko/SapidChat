@@ -113,7 +113,6 @@
         case 4:{
             cell.textLabel.text = @"Double-J Design";
             cell.detailTextLabel.text = [Lang LOC_ABOUT_ICONS];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             break;
         }
     }
@@ -137,12 +136,6 @@
             return [Lang LOC_ABOUT_ALSO];
     }
     return @"";
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 4 && indexPath.row == 0){
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.doublejdesign.co.uk"]];
-    }
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

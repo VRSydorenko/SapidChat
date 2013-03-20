@@ -73,7 +73,7 @@
             case 0: imageName = @"intro_welcome.png";   break;
             case 1: imageName = @"intro_compose.png";   break;
             case 2: imageName = @"intro_pickup.png";    break;
-            case 3: imageName = @"intro_communicate.jpg";   break;
+            case 3: imageName = @"intro_communicate.png";   break;
         }
 		UIImage *image = [UIImage imageNamed:imageName];
 		UIImageView *imageView = [[UIImageView alloc] initWithImage:image];

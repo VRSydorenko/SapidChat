@@ -70,7 +70,7 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     int result = (int)[defaults integerForKey:SETTINGS_SAVED_APP_LANG];
     if (!result){
-        return 2; // actually it is the first launch
+        return ENGLISH; // actually it is the first launch
     }
     return result;
 }

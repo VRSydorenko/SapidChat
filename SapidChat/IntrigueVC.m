@@ -47,13 +47,13 @@
     [Utils setBackgroundFromPatternForView:self.view];
 
     intriguePrice = 1;
+    mailLanguage = [UserSettings getAppLanguage];
+    [self updateLanguageTextWith:mailLanguage];
     
     isSending = NO;
     
     self.title = [Lang LOC_MAIN_CELL_INTRIGUE];
     [LocalizationUtils setText:[Lang LOC_INTRIGUE_LABEL_ENTERMAIL] forLabel:self.labelEnterEmail];
-    
-    [self updateLanguageTextWith:[UserSettings getNewMessagesLanguage]];
     
     [LocalizationUtils setTitle:[Lang LOC_INTRIGUE_BTN_SEND] forButton:self.btnSend];
     [self.btnSend sizeToFit];
@@ -97,7 +97,7 @@
         self.btnSendIcon.hidden = YES;
         [self.indicatorSend startAnimating];
         
-        dispatch_queue_t refreshQueue = dispatch_queue_create("compose Queue", NULL);
+        dispatch_queue_t refreshQueue = dispatch_queue_create("intrigue Queue", NULL);
         dispatch_async(refreshQueue, ^{
             User* fakeUser;
             ErrorCodes errorCode = [DataManager retrieveUser:&fakeUser withEmail:SYSTEM_USER];

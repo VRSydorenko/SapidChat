@@ -12,4 +12,6 @@
 
 @interface LangPortuguese : NSObject <Language>
 
+// currently there is no translation for this language so this class is not used now.
+
 @end

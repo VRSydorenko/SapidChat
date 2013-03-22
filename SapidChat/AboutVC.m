@@ -81,7 +81,7 @@
                     break;
                 }
                 case 1:{
-                    person = @"Tamas Vajda";
+                    person = @"Tamás Vajda";
                     lang = [Utils getLanguageName:HUNGARIAN needSelfName:NO];
                     break;
                 }

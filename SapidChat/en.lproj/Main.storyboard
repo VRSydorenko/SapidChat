@@ -390,7 +390,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wLo-Pz-fzl">
-                                <rect key="frame" x="20" y="378" width="73" height="32"/>
+                                <rect key="frame" x="3" y="378" width="73" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" image="compose.png">
@@ -405,7 +405,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Uir-p4-Wv7">
-                                <rect key="frame" x="227" y="378" width="73" height="32"/>
+                                <rect key="frame" x="244" y="378" width="73" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" image="pickup.png">
@@ -1922,8 +1922,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="nTz-gt-Agf"/>
         <segue reference="pwI-hB-yoR"/>
         <segue reference="uEl-fc-r51"/>
-        <segue reference="8wf-yh-Ir8"/>
     </inferredMetricsTieBreakers>
 </document>

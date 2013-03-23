@@ -39,7 +39,6 @@
     [self setScrollView:nil];
     [self setPageControl:nil];
     [self setDelegate:nil];
-    [super viewDidUnload];
 }
 
 - (IBAction)pageChanged:(id)sender {

@@ -52,7 +52,6 @@
 - (void)dealloc{
     [self setTableContent:nil];
     purchaseManager = nil;
-    [super viewDidUnload];
 }
 
 -(void) backPressed{

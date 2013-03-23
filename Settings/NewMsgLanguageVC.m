@@ -67,8 +67,6 @@
     [self setTableLanguages:nil];
     [self setBtnToLangsIKnow:nil];
     languages = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

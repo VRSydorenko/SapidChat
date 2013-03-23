@@ -90,8 +90,6 @@
     [self setImageView:nil];
     [self setBtnProInfo:nil];
     [self setButtonLanguageIcon:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (void) updateLanguageText{
@@ -135,7 +133,6 @@
                 isSending = NO;
             });
         });
-        dispatch_release(refreshQueue);
     }
 }
 

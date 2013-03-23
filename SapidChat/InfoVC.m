@@ -31,7 +31,6 @@
 - (void)dealloc
 {
     [self setTextInfo:nil];
-    [super viewDidUnload];
 }
 
 -(void) backPressed{

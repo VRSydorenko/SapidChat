@@ -202,7 +202,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:APPLICATION_NAME_FONT size:20.0];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
     label.text = text;
     [label setShadowColor:[UIColor darkGrayColor]];

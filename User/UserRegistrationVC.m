@@ -190,7 +190,6 @@
     [self setTxtSpecifyNick:nil];
     navController = nil;
     user = nil;
-    [super viewDidUnload];
 }
 
 // private methods
@@ -279,7 +278,6 @@
             self.imgDone.hidden = NO;
         });
     });
-    dispatch_release(regQueue);
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

@@ -173,7 +173,7 @@
 +(NSString*) LOC_MESSAGES_DIALOG_ACTIONSHEET_CLAIM{return @"Reklamáció";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_TITLE{return @"Törlés megerősítése";}
 +(NSString*) LOC_MESSAGES_ALERT_DELETION_QUESTION{return @"Töröljük?";}
-+(NSString*) LOC_MESSAGES_REPORT_PICKED_UP{return @"%@ picked up your message!";}
++(NSString*) LOC_MESSAGES_REPORT_PICKED_UP{return @"%@ kapta meg az üzenetet!";}
 // compose screen
 +(NSString*) LOC_COMPOSE_TITLE{return @"Új üzenet";}
 +(NSString*) LOC_COMPOSE_MSG_SENDING{return @"Küldés...";}

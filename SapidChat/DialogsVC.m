@@ -65,7 +65,6 @@
     [self setBtnCompose:nil];
     selectedDialog = nil;
     navController = nil;
-    [super viewDidUnload];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -162,7 +161,6 @@
             }
         });
     });
-    dispatch_release(refreshQueue);
 }
 
 - (IBAction)pickPressed:(id)sender {
@@ -186,7 +184,6 @@
                 isPicking = NO;
             });
         });
-        dispatch_release(refreshQueue);
     }
 }
 

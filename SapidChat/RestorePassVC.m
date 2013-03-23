@@ -56,7 +56,6 @@
     [self setSpinner:nil];
     [self setFakeNavBar:nil];
     [self setLabelTitle:nil];
-    [super viewDidUnload];
 }
 
 
@@ -78,7 +77,6 @@
                 isSendingPass = NO;
             });
         });
-        dispatch_release(logginQueue);
     }
 }
 

@@ -86,7 +86,6 @@
     [self setBtnRegister:nil];
     [self setBtnForgotPass:nil];
     [self setFakeNavBar:nil];
-    [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
@@ -139,7 +138,6 @@
             isLoggingIn = NO;
         });
     });
-    dispatch_release(logginQueue);
 }
 
 -(void) controllerToDismiss:(RegistrationNavController *)regController whichRegisteredTheUser:(User *)user{

@@ -74,7 +74,6 @@
     [self setIndicatorSend:nil];
     [self setLabelConditions:nil];
     [self setTextMsg:nil];
-    [super viewDidUnload];
 }
 
 -(void) backPressed{
@@ -128,7 +127,6 @@
                 isSending = NO;
             });
         });
-        dispatch_release(refreshQueue);
     }
 }
 

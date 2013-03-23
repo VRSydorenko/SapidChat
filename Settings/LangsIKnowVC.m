@@ -42,7 +42,6 @@
 {
     [self setTableLanguages:nil];
     languages = nil;
-    [super viewDidUnload];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

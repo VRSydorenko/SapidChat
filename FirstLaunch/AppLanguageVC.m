@@ -44,7 +44,6 @@
     [self setTableAppLanguages:nil];
     [self setBtnNext:nil];
     appLangs = nil;
-    [super viewDidUnload];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

@@ -50,7 +50,6 @@
     [self setEditNewPassConfirm:nil];
     [self setBtnChangePass:nil];
     [self setSpinner:nil];
-    [super viewDidUnload];
 }
 
 -(void) backPressed{
@@ -86,7 +85,6 @@
             isChangingPass = NO;
         });
     });
-    dispatch_release(changePassQueue);
 }
 
 -(ErrorCodes) validate{

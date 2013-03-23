@@ -156,8 +156,6 @@
 {
     [self setTableAbout:nil];
     personFont = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 

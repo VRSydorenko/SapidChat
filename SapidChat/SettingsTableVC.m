@@ -206,7 +206,6 @@
     [self setLoc_Langs_NewMessages:nil];
     [self setLabelNewMsgLanguage:nil];
     [self setLabelMore_About:nil];
-    [super viewDidUnload];
 }
 
 - (void)viewDidUnload {

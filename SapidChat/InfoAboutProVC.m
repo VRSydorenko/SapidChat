@@ -44,7 +44,6 @@
 {
     [self setTabelFeatures:nil];
     descrFont = nil;
-    [super viewDidUnload];
 }
 
 -(void) backPressed{

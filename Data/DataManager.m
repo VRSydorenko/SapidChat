@@ -568,7 +568,6 @@
             NSLog(@"%@", exception);
         }
     });
-    dispatch_release(refreshQueue);
 }
 
 +(ErrorCodes) updateOwnPassword:(NSString*)pass{

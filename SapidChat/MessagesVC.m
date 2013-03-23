@@ -24,6 +24,7 @@
     bool dontDismiss;
     NSArray *messages;
     NSMutableDictionary *selectedCells;
+    NSMutableDictionary *loadedAttachmentDatas;// key: attName, value: attData
     NSMutableArray *errorCells;
     
     // indexes of first and last messages within a day
@@ -58,6 +59,7 @@
     
     selectedCells = [[NSMutableDictionary alloc] init];
     errorCells = [[NSMutableArray alloc] init];
+    loadedAttachmentDatas = [[NSMutableDictionary alloc] init];
     
     boundingSize = CGSizeMake(CELL_MSG_WIDTH, CGFLOAT_MAX); // 240 is the width of the message's UILabel
     messageFont = [UIFont fontWithName:@"Helvetica" size:FONT_MSG_SIZE];
@@ -99,13 +101,13 @@
     messages = nil;
     selectedCells = nil;
     errorCells = nil;
+    loadedAttachmentDatas = nil;
     firstMsgs = nil;
     lastMsgs = nil;
     me = nil;
     replyModeActionSheet = nil;
     messageFont = nil;
     timeAndDistanceFont = nil;
-    [super viewDidUnload];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -351,15 +353,22 @@
             NSString* infoString = @"";
             if (imgCell){
                 if ([UserSettings premiumUnlocked]){
-                    if (msg.attachmentData.length){
+                    if (msg.attachmentData.length > 0){
                         imgCell.imgView.image = [[UIImage alloc] initWithData:msg.attachmentData];
                         infoString = @"";
                     } else {
-                        imgCell.imgView.image = [UIImage imageNamed:@"image.png"];
-                        if ([errorCells containsObject:indexPath]){
-                            infoString = [Lang LOC_MESSAGES_CELL_ERROR_LOADING_IMAGE];
+                        NSData* data = (NSData*)[loadedAttachmentDatas objectForKey:msg.attachmentName];
+                        if (data){
+                            imgCell.imgView.image = [[UIImage alloc] initWithData:data];
+                            msg.attachmentData = data;
+                            infoString = @"";
                         } else {
-                            infoString = [Lang LOC_MESSAGES_CELL_TAPTOLOAD_IMAGE];
+                            imgCell.imgView.image = [UIImage imageNamed:@"image.png"];
+                            if ([errorCells containsObject:indexPath]){
+                                infoString = [Lang LOC_MESSAGES_CELL_ERROR_LOADING_IMAGE];
+                            } else {
+                                infoString = [Lang LOC_MESSAGES_CELL_TAPTOLOAD_IMAGE];
+                            }
                         }
                     }
                 } else {
@@ -427,6 +436,7 @@
             MessageImageCell* cell = (MessageImageCell*)[self.tabelMessages cellForRowAtIndexPath:indexPath];
             if ([UIImage imageWithData:attachmentData]){
                 msg.attachmentData = attachmentData;
+                [loadedAttachmentDatas setObject:attachmentData forKey:attachmentName];
             } else {
                 [errorCells addObject:indexPath];
             }
@@ -605,7 +615,6 @@
             }
         });
     });
-    dispatch_release(refreshQueue);
 }
 
 -(void) deletionCompletedOk:(bool)ok{

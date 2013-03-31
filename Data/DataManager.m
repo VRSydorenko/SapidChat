@@ -449,7 +449,8 @@
             Message* reportMsg = [[Message alloc] init];
             reportMsg.from = me.email;
             reportMsg.to = msg.from;
-            reportMsg.text = [NSString stringWithFormat:[Lang LOC_MESSAGES_REPORT_PICKED_UP], me.nickname];
+            Class pickReportLanguageClass = [Lang getLangClassForLanguage:loadedMessageLanguage]; // for notifying user in their language
+            reportMsg.text = [NSString stringWithFormat:[pickReportLanguageClass LOC_MESSAGES_REPORT_PICKED_UP], me.nickname];
             reportMsg.when = [[NSDate date] timeIntervalSinceReferenceDate];
             reportMsg.type = MSG_REPORT;
             reportMsg.initial_message_global_timestamp = msg.when;

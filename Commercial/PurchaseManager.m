@@ -15,6 +15,7 @@
     SKProduct *productPoststamps10;
     SKProduct *productPoststamps30;
     SKProduct *productPoststamps50;
+    SKPaymentQueue* paymentQueue;
 }
 @end
 
@@ -51,8 +52,9 @@
 {
     self = [super init];
     if (self){
-        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
         self.delegate = delegate;
+        paymentQueue = [SKPaymentQueue defaultQueue];
+        [paymentQueue addTransactionObserver:self];
         [self requestProductsData];
     }
     return self;
@@ -62,7 +64,7 @@
     if ([self canMakePurchases]){
         if (productFullVersion){
             SKPayment *payment = [SKPayment paymentWithProduct:productFullVersion];
-            [[SKPaymentQueue defaultQueue] addPayment:payment];
+            [paymentQueue addPayment:payment];
         } else {
             [self.delegate actionImpossible];
         }
@@ -70,14 +72,14 @@
 }
 
 -(void) restoreFullVersion{
-    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+    [paymentQueue restoreCompletedTransactions];
 }
 
 -(void) purchasePoststamps10{
     if ([self canMakePurchases]){
         if (productPoststamps10){
             SKPayment *payment = [SKPayment paymentWithProduct:productPoststamps10];
-            [[SKPaymentQueue defaultQueue] addPayment:payment];
+            [paymentQueue addPayment:payment];
         } else {
             [self.delegate actionImpossible];
         }
@@ -88,7 +90,7 @@
     if ([self canMakePurchases]){
         if (productPoststamps30){
             SKPayment *payment = [SKPayment paymentWithProduct:productPoststamps30];
-            [[SKPaymentQueue defaultQueue] addPayment:payment];
+            [paymentQueue addPayment:payment];
         } else {
             [self.delegate actionImpossible];
         }
@@ -99,7 +101,7 @@
     if ([self canMakePurchases]){
         if (productPoststamps50){
             SKPayment *payment = [SKPayment paymentWithProduct:productPoststamps50];
-            [[SKPaymentQueue defaultQueue] addPayment:payment];
+            [paymentQueue addPayment:payment];
         } else {
             [self.delegate actionImpossible];
         }
@@ -145,18 +147,6 @@
     NSLog(@"Products loaded");
 }
 
-- (void)completeTransaction:(SKPaymentTransaction*)transaction
-{
-    [self provideContent:transaction.payment.productIdentifier];
-    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-}
-
-- (void)restoreTransaction:(SKPaymentTransaction*)transaction
-{
-    [self provideContent:transaction.originalTransaction.payment.productIdentifier];
-    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-}
-
 - (void)provideContent:(NSString*)productId
 {
     if ([productId isEqualToString:PRODUCT_FULL_VERSION]){
@@ -176,15 +166,36 @@
             return;
         }
 
-        if ([DataManager topUpUsersPoststamps:poststamps] == OK){
-            [DataManager loadUser:[UserSettings getEmail]]; // update local user info
-        } else {
-            // user balance update (in AWS) failed for some reason so
+        if ([DataManager topUpUsersPoststamps:poststamps] != OK){
+            // if user balance update (in AWS) failed for some reason so
             // store bought poststamps in local buffer in order for
             // not to lose it
             [DataManager addRegularPoststampsToLocalBuffer:poststamps];
         }
         [self.delegate poststampsPurchased];
+    }
+}
+
+- (void)paymentQueue:(SKPaymentQueue*)queue updatedTransactions:(NSArray*)transactions
+{
+    for (SKPaymentTransaction *transaction in transactions) {
+        switch (transaction.transactionState)
+        {
+            case SKPaymentTransactionStatePurchased:
+                [self provideContent:transaction.payment.productIdentifier];
+                [paymentQueue finishTransaction:transaction];
+                break;
+            case SKPaymentTransactionStateFailed:
+                [self failedTransaction:transaction];
+                [paymentQueue finishTransaction:transaction];
+                break;
+            case SKPaymentTransactionStateRestored:
+                [self provideContent:transaction.originalTransaction.payment.productIdentifier];
+                [paymentQueue finishTransaction:transaction];
+                break;
+            default:
+                break;
+        }
     }
 }
 
@@ -199,27 +210,6 @@
         NSLog(@"failedTransaction - CANCELLED");
         [self.delegate userCancelled];
     }
-    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-}
-
-- (void)paymentQueue:(SKPaymentQueue*)queue updatedTransactions:(NSArray*)transactions
-{
-    for (SKPaymentTransaction *transaction in transactions) {
-        switch (transaction.transactionState)
-        {
-            case SKPaymentTransactionStatePurchased:
-                [self completeTransaction:transaction];
-                break;
-            case SKPaymentTransactionStateFailed:
-                [self failedTransaction:transaction];
-                break;
-            case SKPaymentTransactionStateRestored:
-                [self restoreTransaction:transaction];
-                break;
-            default:
-                break;
-        }
-    }
 }
 
 - (BOOL)canMakePurchases
@@ -232,6 +222,8 @@
 }
 
 -(void) dealloc{
+    [paymentQueue removeTransactionObserver:self];
+    paymentQueue = nil;
     productFullVersion = nil;
     productPoststamps10 = nil;
     productPoststamps30 = nil;

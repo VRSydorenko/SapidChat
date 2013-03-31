@@ -55,6 +55,7 @@
 }
 
 -(void) backPressed{
+    purchaseManager = nil; // removing observer to omit multiple transactions
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -54,9 +54,9 @@
 +(NSString*) LOC_REGISTATOR_ERR_NOLANGS_SELECTED{return @"Nem választottál nyelvet";}
 +(NSString*) LOC_REGISTATOR_SUCCESS{return @"Sikeresen elkészült!";}
 +(NSString*) LOC_REGISTATOR_WHY_EMAIL{return @"Hogy miért email címmel kell regisztrálni:\r\
-    - jelszóhelyreállítás miatt (ha elfelejted, erre a címre fogjuk elküldeni).\r\
-    - a \"Megkörnyékezés\" funkció (ha valaki tudja az email címedet és fel akarja kelteni az érdeklődésedet). Ha többet szeretnél erről a lehetőségről tudni, elolvashatod a www.sapidchat.com weboldalon, vagy az alkalmazás \"Megkörnyéjezés\" résznél a regisztrációt követően.\r\r\
-    A Sapid Chat nem küld spamet és az adatokat bizalmasan kezeli.";}
+    - jelszó helyreállítás miatt (ha elfelejted, erre a címre fogjuk elküldeni).\r\
+    - a \"Megkörnyékezés\" funkció miatt (ha valaki tudja az email címedet és fel akarja venni veled a kapcsolatot). Ha többet szeretnél erről a lehetőségről tudni, elolvashatod a www.sapidchat.com weboldalon, vagy az alkalmazás \"Megkörnyékezés\" résznél a regisztrációt követően.\r\r\
+    A SapidChat nem küld spamet és az adatokat bizalmasan kezeli.";}
 // login screen
 +(NSString*) LOC_LOGIN_BTN_LOGIN    {return @"Belépés";}
 +(NSString*) LOC_LOGIN_BTN_REGISTRATION {return @"Regisztráció";}
@@ -64,8 +64,8 @@
 +(NSString*) LOC_LOGIN_TXT_PASSWORD_PLACEHOLDER {return @"Jelszó";}
 // info screen
 +(NSString*) LOC_INFO_SCREEN_TITLE_ABOUT_INTRIGUE{return @"A Megkörnyékezésről";}
-+(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE{return @"Ezzel a funkcióval név nélkül invitálhatsz másokat beszélgetni. Ehhez csak a kiválasztott személy e-mail címére van szükséged. Írd be ezt a címet a megfelelő helyre és nyomd meg a \"Megkörnyékezés\" gombot. Ezután küldünk egy levelet ennek a személynek arról, hogy valaki érdeklődik iránta, és név nélkül szeretne társalogni vele a Sapid Chat-en keresztül.\
-    Jelenleg a SapidChat-et csak iOS-re adtuk ki, tehát ha ezzel a lehetőséggel szeretnél valakit megkörnyékezni, kérjük bizonyosodjon meg róla, hogy a partnere rendelkezik iPhonnal vagy iPaddel, és ezek alkalmasak a Sapid Chat futtatására, hogy válaszolhassanak neked.";}
++(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE{return @"Megkörnyékezéssel beszélgetést kezdeményezhetsz bárkivel, név nélkül. Ehhez csak a kiválasztott személy e-mail címére van szükséged. Írd be ezt a címet a megfelelő mezőbe és nyomd meg a \"Megkörnyékezés\" gombot. Ezután küldünk egy levelet neki arról, hogy valaki érdeklődik iránta, és név nélkül szeretne társalogni vele a Sapid Chat-en keresztül.\
+    Jelenleg a SapidChat-et csak IOS-re adtuk ki, tehát ha ezzel a lehetőséggel szeretnél valakit megkörnyékezni, kérjük bizonyosodjon meg róla, hogy a partnered rendelkezik iPhon-nal vagy iPad-del, és ezek alkalmasak a SapidChat futtatására, hogy válaszolhassanak neked.";}
 +(NSString*) LOC_INFO_SCREEN_TEXT_ABOUT_INTRIGUE_CONDITIONS{return @"A Bélyegek a Sapid Chat belső fizetőeszköze. Ha mag akarsz valakit környékezni, akkor ehhez egy bélyegre lesz szükséged. Regisztráció után a felhasználó kap 10 bélyeget ingyen. A bélyegek aktuális egyenlegét megnézni vagy vásárolni az Egyenleg résznél lehet.";}
 // main screen
 +(NSString*) LOC_MAIN_CELL_MESSAGES {return @"Üzenetek";}
@@ -80,7 +80,7 @@
 +(NSString*) LOC_RESTORE_BTN_GO{return @"Küldd el a jelszót";}
 +(NSString*) LOC_RESTORE_ALERT_STATE{return @"A jelszót elküldtük a megadott e-mail címre";}
 +(NSString*) LOC_RESTORE_ALERT_BTN_OK{return @"Bezárás";}
-+(NSString*) LOC_RESTORE_EMAIL_TEMPL{return @"Sziá, %@!\rMivel új jelszót kértél, ezt elküldtük neked a megadott e-mail címedre.\rÚj jelszavad: %@\rSok érdekes csevegést kívánunk a Sapid Chat!\rhttp://sapidchat.com/\rinfo@sapidchat.com";}
++(NSString*) LOC_RESTORE_EMAIL_TEMPL{return @"Szia, %@!\rMivel új jelszót kértél, ezt elküldtük neked a megadott e-mail címedre.\rÚj jelszavad: %@\rSok érdekes csevegést kívánunk a Sapid Chat!\rhttp://sapidchat.com/\rinfo@sapidchat.com";}
 // intrigue cell screen
 +(NSString*) LOC_INTRIGUE_LABEL_ENTERMAIL{return @"Add meg a személy e-mail címét, akit meg szeretnél környékezni:";}
 +(NSString*) LOC_INTRIGUE_LABEL_CONDITIONS{return @"Elküldve: %d %@; Egyenleged: %d";}
@@ -88,7 +88,7 @@
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_OK{return @"Küldés";}
 +(NSString*) LOC_INTRIGUE_SERVICEMSG_SENDING_YOURSELF_OK{return @"Elküldve az e-mail címedre";}
 +(NSString*) LOC_INTRIGUE_EDIT_PLACEHOLDER_MSG{return @"További üzenet (opcionális)";}
-+(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Sziá!\rKüldtem neked egy megkörnyékező levelet ;)";}
++(NSString*) LOC_INTRIGUE_COLLOCUTOR_MESSAGE{return @"Szia!\rKüldtem neked egy megkörnyékező levelet ;)";}
 +(NSString*) LOC_INTRIGUE_MAIL_SUBJECT{return @"Egy megkörnyékezés a Sapid Chatről.";}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_YOURSELF{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL], @"%@", [self LOC_INTRIGUE_COLLOCUTOR_MESSAGE], @""];}
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM_YOURSELF{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_YOURSELF_TEMPL], @"%@", [self LOC_INTRIGUE_COLLOCUTOR_MESSAGE], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMYOURSELF_TEMPL]];}
@@ -117,14 +117,14 @@
 +(NSString*) LOC_INTRIGUE_MAIL_CONTENT_CUSTOM{return [NSString stringWithFormat:[self internal_INTRIGUE_MAIL_CONTENT_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTOMMSG_TEMPL], [self internal_INTRIGUE_MAIL_CONTENT_CUSTMMSG_CARE]];}
 +(NSString*) internal_INTRIGUE_MAIL_CONTENT_TEMPL{return @"<div style=\"padding:10px;border: solid 1px gray;font-family:Verdana;\">\
     <font style=\"font-size:10pt;\">\
-    <h4>Sziá!</h4>\
-    <p>Valaki ismeri az e-mail címed. és meghív név nélkül beszélgetni a SapidChat-en!</p>\
-    <p>Sapid Chat egy alkalmazás, ami az érintkezés egy érdekes módja, mivel itt név nélkül hívhatsz meg beszélgetni embereket (ha tudod az e-mail címüket).\
-    <br/><font color=\"red\"><strong>Ez e-mail hem spam!</strong></font> Valaki megadta az email címedet, hogy beszélgetni invitáljon a Sapid Chat.</p>\
+    <h4>Szia!</h4>\
+    <p>Valaki ismeri az e-mail címed, szeretne neked mondani valamit és szeretne téged anonim meghívni beszélgetni a SapidChat-en keresztül!</p>\
+    <p>Sapid Chat egy alkalmazás, ami az érintkezés egy érdekes módja, mivel itt anonim hívhatsz meg beszélgetni embereket (ha tudod az e-mail címüket).\
+    <br/><font color=\"red\"><strong>Ez e-mail hem spam!</strong></font> Valaki megadta az email címedet, hogy beszélgetni invitáljon a SapidChaten.</p>\
     %@\
     <p><font color=\"green\"><strong>Ha érdekel ki akar veled beszélgetni veled ezen a módon</strong></font>, nyisd meg a SapidChat-et és nézd meg melyik barátod küldte ezt a meghívót. Vagy talán ép másképp - valaki meg akar ismerkedni veled, és valahogy megszerezte az e-mail címedet, hogy így megismerhessen ;)</p>\
     <p><strong>Fontos!</strong> Ha szeretnéd látni a megkapott üzenetedet, ezzel az e-mail címmel kell regisztrálnod.</p>\
-    <p>Sapid Chat kellemes társalgást kíván neked!\
+    <p>SapidChat kellemes társalgást kíván neked!\
     <br/><a href=\"http://sapidchat.com/\">sapidchat.com</a>\
     <br/><a href=\"mailto:intrigue@sapidchat.com\">intrigue@sapidchat.com</a></p>\
     </font>\

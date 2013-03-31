@@ -119,9 +119,9 @@
     <h4>Ciao!</h4>\
     <p>Qualcuno che conosce il tuo indirizzo email vuole dirti qualcosa e ti ha anonimamente invitato a conversare su SapidChat!</p>\
     <p>Sapid Chat e' un'applicazione per fare interessanti comunicazione che ha la capacita' di invitare anonimamente le persone a conversare (se conosci il loro indirizzo email).\
-    <br/><font color=\"red\"><strong>Questa email non e' uno spam!</strong></font> Qualcuno manualmente ha inserito il tuo indirizzo email per farti intrigare e vuole invitarti ad una conversazione su Sapid Chat.</p>\
+    <br/><font color=\"red\"><strong>Questa email non e' uno spam!</strong></font> Qualcuno ha manulamente inserito il tuo indirizzo per farti 'intrigare' e vuole invitarti ad una conversazione su Sapid Chat.</p>\
     %@\
-    <p><font color=\"green\"><strong>Se sei interessato a capire chi ti sta' invitando</strong></font> puoi aprere Sapid Chat e vedere quali dei tuoi amici ha inviato a conversare. Forse e' il contrario, qualcuno vuole conoscerti e in qualche modo ha trovato la tua email per intrigarti ;)</p>\
+    <p><font color=\"green\"><strong>Se sei interessato a capire chi ti sta' invitando</strong></font> puoi aprire Sapid Chat e vedere quali dei tuoi amici ha inviato a conversare. Forse e' il contrario, qualcuno vuole conoscerti e in qualche modo ha trovato la tua email per intrigarti ;)</p>\
     <p><strong>Importante!</strong> Per vedere il messaggio che hai ricevuto nell'applicazione devi inserire questo indirizzo email quando ti registri.</p>\
     <p>Sapid Chat ti augura un'interessante conversazione!\
     <br/><a href=\"http://sapidchat.com/\">sapidchat.com</a>\
@@ -132,11 +132,11 @@
     Altre cose che puoi fare:\
     <br/>\
     <ul>\
-    <li>Se non sei interessata a chi ti sta invitando a conversare, puoi semplicemente ingnorare l'email. E'un peccato che qualcuno voglia stia aspettando senza ricevere risposta.\
+    <li>Se non sei interessato a chi ti sta invitando a conversare, puoi semplicemente ignorare l'email. Ma e' un peccato che qualcuno che voglia conversare con te stai aspettando senza ricevere risposta.\
     </li>\
     <li>Se vuoi dire alla persona che non sei interessato a conversare, rispondi semplicemente a questa email inserendo 'NO' nel soggetto  e noi diremo a questa persona che tu non vuoi rispondere al suo invito.\
     </li>\
-    <li>Se non vuoi ricevere queste tipo di email da Sapid Chat in futuro, rispondi a questa email inserendo 'MAI' nel soggetto. In questo caso bloccheremo la tua email a questi messaggi intriganti e nessuno sara' in grado di spedirtele in futuro.\
+    <li>Se non vuoi ricevere queste tipo di email da Sapid Chat in futuro, rispondi a questa email inserendo 'MAI' nel soggetto. In questo caso bloccheremo la tua email a questi messaggi intriganti e nessuno sara' piu' in grado di spedirteli in futuro.\
     </li>\
     %@\
     </ul>\

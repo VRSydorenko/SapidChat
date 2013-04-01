@@ -31,8 +31,6 @@
 		7F2F4B94166D503000074681 /* BuyOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F4B93166D503000074681 /* BuyOptionCell.m */; };
 		7F44FC3715F2267E007C0387 /* ComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F44FC3615F2267E007C0387 /* ComposeVC.m */; };
 		7F5079501613728900067338 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F50794F1613728800067338 /* libsqlite3.0.dylib */; };
-		7F6051761708ADAC000AC1D4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F6051751708ADAC000AC1D4 /* icon.png */; };
-		7F6051781708ADB2000AC1D4 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F6051771708ADB2000AC1D4 /* icon@2x.png */; };
 		7F78801B1610DABE00BDD517 /* FirstLaunchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F78801A1610DABE00BDD517 /* FirstLaunchNavController.m */; };
 		7F7880221610DC5F00BDD517 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7880211610DC5F00BDD517 /* FirstLaunch.storyboard */; };
 		7F7880251610DE5500BDD517 /* AppLanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7880241610DE5500BDD517 /* AppLanguageVC.m */; };
@@ -97,6 +95,8 @@
 		7FB3FB9B15D97CF000EE91F1 /* SettingsValuesListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3FB9A15D97CF000EE91F1 /* SettingsValuesListTableVC.m */; };
 		7FB50D3C16B8499000B82A3A /* pickup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB50D3A16B8499000B82A3A /* pickup.png */; };
 		7FB50D3D16B8499000B82A3A /* pickup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB50D3B16B8499000B82A3A /* pickup@2x.png */; };
+		7FB548F01709DF7300B4ECB8 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F6051751708ADAC000AC1D4 /* icon.png */; };
+		7FB548F11709DF7600B4ECB8 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F6051771708ADB2000AC1D4 /* icon@2x.png */; };
 		7FB8BF61168FA008007EC50D /* SapidInfoBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8BF60168FA008007EC50D /* SapidInfoBarView.m */; };
 		7FB8BF64168FA0AC007EC50D /* SapidInfoBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8BF63168FA0AC007EC50D /* SapidInfoBarManager.m */; };
 		7FBB70EF16C688E5004CAFD8 /* IntroLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB70EE16C688E5004CAFD8 /* IntroLauncher.m */; };
@@ -712,6 +712,8 @@
 		7FAF75F6159E4FE300D37D7D = {
 			isa = PBXGroup;
 			children = (
+				7F6051771708ADB2000AC1D4 /* icon@2x.png */,
+				7F6051751708ADAC000AC1D4 /* icon.png */,
 				7FE7ED56169B72DB00009C12 /* Sounds */,
 				7FCADB80169788ED00E2E6F5 /* Images */,
 				7FE76A6116851B9100803459 /* CustomControls */,
@@ -926,8 +928,6 @@
 		7FCADB80169788ED00E2E6F5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				7F6051771708ADB2000AC1D4 /* icon@2x.png */,
-				7F6051751708ADAC000AC1D4 /* icon.png */,
 				7FAF04EE16B4A6C6005A677B /* Flags */,
 				7FAF04E816B4A4C0005A677B /* Default-568h@2x.png */,
 				7FAF04E916B4A4C0005A677B /* Default.png */,
@@ -1300,8 +1300,8 @@
 				7FCAEAA516FB9946001B6C46 /* intro_compose.png in Resources */,
 				7FCAEAA616FB9946001B6C46 /* intro_pickup.png in Resources */,
 				7FACF96E16FCEB88001ED8DA /* Main.storyboard in Resources */,
-				7F6051761708ADAC000AC1D4 /* icon.png in Resources */,
-				7F6051781708ADB2000AC1D4 /* icon@2x.png in Resources */,
+				7FB548F01709DF7300B4ECB8 /* icon.png in Resources */,
+				7FB548F11709DF7600B4ECB8 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1552,7 +1552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SapidChat/SapidChat.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Viktor Sydorenko (NWW37M333Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Viktor Sydorenko (NWW37M333Q)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1565,6 +1565,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F0393616-3A55-4A71-A896-8B7173925C0D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F0393616-3A55-4A71-A896-8B7173925C0D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1603,6 +1605,72 @@
 			};
 			name = Release;
 		};
+		7FFF02E51709DADC009A31BA /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Viktor Sydorenko";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "56A27823-66D3-4833-8385-F33C0406CFA5";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AppStore;
+		};
+		7FFF02E61709DADC009A31BA /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SapidChat/SapidChat.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SapidChat/SapidChat-Prefix.pch";
+				INFOPLIST_FILE = "SapidChat/SapidChat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = AppStore;
+		};
+		7FFF02E71709DADC009A31BA /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SapidChat.app/SapidChat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SapidChat/SapidChat-Prefix.pch";
+				INFOPLIST_FILE = "SapidChatTests/SapidChatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = AppStore;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1611,6 +1679,7 @@
 			buildConfigurations = (
 				7FAF7634159E4FE500D37D7D /* Debug */,
 				7FAF7635159E4FE500D37D7D /* Release */,
+				7FFF02E51709DADC009A31BA /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1620,6 +1689,7 @@
 			buildConfigurations = (
 				7FAF7637159E4FE500D37D7D /* Debug */,
 				7FAF7638159E4FE500D37D7D /* Release */,
+				7FFF02E61709DADC009A31BA /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1629,6 +1699,7 @@
 			buildConfigurations = (
 				7FAF763A159E4FE500D37D7D /* Debug */,
 				7FAF763B159E4FE500D37D7D /* Release */,
+				7FFF02E71709DADC009A31BA /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

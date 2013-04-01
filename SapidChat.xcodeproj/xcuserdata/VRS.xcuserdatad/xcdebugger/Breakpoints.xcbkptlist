@@ -13,8 +13,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "201"
          endingLineNumber = "201"
-         landmarkName = "-paymentQueue:updatedTransactions:"
-         landmarkType = "5">
+         landmarkName = "@implementation PurchaseManager"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -25,9 +25,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "244"
-         endingLineNumber = "244"
-         landmarkName = "-dealloc"
-         landmarkType = "5">
+         endingLineNumber = "244">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -39,8 +37,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "62"
          endingLineNumber = "62"
-         landmarkName = "-initWithDelegate:"
-         landmarkType = "5">
+         landmarkName = "@implementation PurchaseManager"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
